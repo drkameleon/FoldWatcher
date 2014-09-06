@@ -3,6 +3,9 @@ FoldWatcher
 
 ![FoldWatcher Screenshot](https://a.fsdn.com/con/app/proj/foldwatcher/screenshots/172576.jpg)
 
+License
+------------
+
 Copyright (C) 2008 Dr.Kameleon
 
 This program is free software: you can redistribute it and/or modify
@@ -18,8 +21,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-License
-------------
 FoldWatcher is free software. Please read the file LICENSE for details.
 
 About
