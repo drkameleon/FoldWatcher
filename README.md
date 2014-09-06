@@ -1,6 +1,8 @@
 FoldWatcher
 ===============
 
+![FoldWatcher Screenshot](https://a.fsdn.com/con/app/proj/foldwatcher/screenshots/172576.jpg)
+
 Copyright (C) 2008 Dr.Kameleon
 
 This program is free software: you can redistribute it and/or modify
