@@ -1,0 +1,6989 @@
+FAH_Install_Version="5.9"
+#
+# This is FAH ("Folding At Home") client installation script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+#
+# To run this script You should download it and use command
+# 'chmod +x finstall; ./finstall' or if the default shell is not
+# Bash, use 'chmod +x finstall; bash -c "./finstall"'.
+#
+# It will try to download, place and configure seperate FAH clients
+# (Fclient) for each CPU to $Fdir subdirectories.
+# At the end it will generate an init/startup (*) script (./folding) for 
+# Linux, FreeBSD, MacOSX, OpenBSD and possibly some other *nix compatible 
+# OSes as well.
+#
+# (*) thanks go to Den for the backbone of this script.
+#
+# FAH client(s) will be run with the installing account's privileges. So
+# when you run ./finstall as regular user then all files/directories
+# are generated with this user's privileges and FAH services will be run
+# as this user (not as root).
+#
+# If You want to run FAH client(s) under root privileges, then run this
+# script as a 'root' user.
+#
+# Requirements: actually none but it is better to have wget/curl installed.
+# Also this script uses some external utilities: "pidof"*, "kill", "awk", "ps",
+# "ls", "cat", "grep", "tr"*, "cut", "md5sum"*, "wget"*, "wc", "tail", "more"
+# "less", "curl"*, "tar" and "ed".
+# I would like to get rid of dependency to these, but it may be very hard 
+# to implement...
+#
+# Also, some 3rd party FAH utilities can be useful as well:
+# 1. Dick Howell's "qd" and "fpd" (http://linuxminded.xs4all.nl/?target=software-qd-tools.plc);
+#
+# Warnings:
+# You must have read, write and execution permissions for $Fdir directory.
+#
+#
+#You can start the FAH client(s) by running
+#'$Fdir/folding start'
+#or start ./FaH scripts directly inside CPU directories.
+#
+#There are couple of ways how to run FAH client(s) at system bootup as a service:
+#a) You should copy
+#$Fdir/folding to your system
+#service directory (ie: /etc/init.d/ (*)) and then start it
+#with '/etc/init.d/folding start'.
+#Also, You may have to run 'chkconfig --add folding'.
+#
+#  (*) Your distribution may not support this kind of service startup
+#  or you may have one of those cases (RedHat 8.0) where despite all
+#  efforts, FAH refuses to start up when it is registered to run as a
+#  service. To overcome this issue, add '/etc/init.d/folding start'
+#  to /etc/rc.d/rc.local or another startup script that your system
+#  or distribution uses (Mandrake - rc.boot, SuSe - boot.local, ...)
+#  You may also need to remove 'folding' from runnable services by
+#  disabling it (setup->System services) or by running
+#  'chkconfig --del folding' if needed.
+#
+#  (**) There is no 'chkconfig' on Debian, use 'update-rc.d folding defaults' 
+#  to add 'folding' services and 'update-rc.d folding remove' to remove
+#  'folding' services.
+#
+#Note: MacOSX does not have "/etc/init.d" service startup method, use 
+#Crontab or StartupItems to get the FAH client(s) going. 
+#
+#b) Another way to start FAH as a service is to use "crontab":
+#http://teammacosx.homeunix.com/forum/cgi-bin/ikonboard.pl?s=630986ed363be3092a8737a56af58b87;act=ST;f=10;t=173
+#
+#Short "crontab" howto:
+#
+#Start "crontab -e", press "i", 
+#add "@reboot $Fdir/folding start >/dev/null" 
+#to the end of file, press [Esc] key, type ":x" and press [Enter].
+#
+# WINE specific note:
+# 
+#  If You want to use FAH Win32 Client under Wine as a system service or
+#  not under X11 then You may need to change the ~/.wine/config.
+#  Wine will ask for X11, but usually there isn't any around during system 
+#  startup.
+#  Simple fix to this ('x11drv: Can't open display:') from
+#  http://forum.folding-community.org/viewtopic.php?p=43609#43609:
+#  Under the [wine] section of ~/.wine/config change "GraphicsDriver" = "x11drv"
+#  "GraphicsDriver" = "ttydrv" and off You go...
+#
+#  Attention: Running "GraphicsDriver" set to "ttydrv" under X11 will disable
+#  keyboard support and as a result of it You can not configure the client.
+#  You have to use "x11drv" when configuring the FAH client under X11 - "ttydrv" 
+#  will work under X11 enough to run the client, but not to configure it.
+#
+# MacOSX specific note:
+# 
+#  If You want to use FAH MacOSX Client as a system service then it is possible 
+#  to use "crontab" as described earlier or set the "fah" StartupItems by 
+#  making /Library/StartupItems/fold directory and copying
+#  $Fdir/fold
+#  and 
+#  $Fdir/StartupParameters.plist
+#  into this directory.
+#  
+#  Note: Only root user can modify StartupItems. Verify the script and run
+#  $Fdir/installService
+#  if You want to let this script to set FAH as a StartupItems for You.  
+#
+#Note: Only root user can modify system services (normal users have crontab option).
+#Let root user to run
+#$Fdir/installService
+#to install FAH to be runned as service at system startup.
+# 
+#Note1: FAH client(s) will be started under user $USER's privileges.
+#Note2: If you try to start FAH client(s) as different user, you will be
+#prompted for user $USER's password.
+#
+# Constructed by Ivo Sarak.
+# Send Your comments, help and suggestions to ivo at vendomar dot ee.
+#
+# You can get some additional information from 
+# http://ra.vendomar.ee/~ivo/FAHLinux.txt
+#
+# Finstall at folding-community.org:
+# http://forum.folding-community.org/viewtopic.php?t=2283
+# Finstall documentation (finstall/folding FAQ):
+# http://ra.vendomar.ee/~ivo/finstallFAQ.txt
+#
+#
+# --- Changelog ---
+#
+# Version 5.9
+#
+# * Bob Kranki contributed code for the MacOS X FAH SMP client URL change.
+#  
+# Version 5.8
+#
+# * The Linux FAH client URL change.
+#  
+# Version 5.7
+# 
+# * Changed the FreeBSD and the OpenBSD to receive the same set of FAH clients. 
+# I need confirmation if these platforms are indeed capable of running the new set of 
+# FAH clients (like v6 beta & SMP). 
+#
+# New set of examples for Linux, FreeBSD and OpenBSD:
+# a) "./finstall"		will get you the FAH 5.04 client;
+# b) "./finstall smp"		will get you the FAH v6 beta client in SMP mode;
+# c) "./finstall smp fcliB"	will get you NOTHING as there are no second v6 beta clients;
+# d) "./finstall fcliB"		will get you the FAH v6 client in uni-CPU mode;
+#
+# Did the MacOS X SMP 5.91 client expired as well and are in need of upgrade to v6 beta?
+#
+# Version 5.6
+# 
+# * Added the FAH v6 beta client support for Linux. Other platforms should not be
+# affected by this, but I haven't tested. The script will install full release client(s) by
+# default and you must use "fcliB" flag for the FAH Linux v6 beta client. 
+#
+# In case of Linux platform: 
+# a) "./finstall"		will get you the FAH 5.04 client;
+# b) "./finstall smp"		will get you the FAH 5.91 beta client;
+# c) "./finstall smp fcliB"	will get you the FAH v6 beta client in SMP mode;
+# d) "./finstall fcliB"		will get you the FAH v6 client in uni-CPU mode;
+#  
+# Version 5.5
+# 
+# * Bob Kranki contributed code for the finstall "dirs" option. It is possible
+# to specify how many FAH clients you like to get installed by the finstall.
+#  
+# Version 5.4
+# 
+# * Bas Couwenberg contributed code for the FAH MAC OSX SMP CLI installation.
+#  
+# Version 5.3
+#
+# * finstall & Co. URL change.
+#
+# Version 5.2
+#
+# * SMP client URL change.
+#
+# Version 5.1
+#
+# * Bas Couwenberg contributed code for the URL changes of qd and sudo detection
+# for Ubuntu.
+#
+# Version 5.0
+#
+# * Added SMP Linux client support. Use the "smp" flag for the SMP Linux 
+# client installation.
+# Note: The FAH SMP client will use up to 4 CPUs. If you are running new 
+# installation over the old one then you may need to delete some CPU# directories
+# or you end up with numerous FAH SMP clients set up on your system.
+#
+# Version 4.9
+#
+# * Bas Couwenberg contributed code for Ubuntu detection to the FAH service 
+# install/uninstall script.
+#
+# Version 4.8
+#
+# * Bas Couwenberg contributed code for qd and fpd usage under MacOS X.
+#
+# Version 4.7
+#
+# * Bas Couwenberg contributed code for Debian detection to the FAH service 
+# install/uninstall script. Other Debian based distributions are likely
+# supported as well (Ubuntu, ...). 
+# * Bas Couwenberg added some OpenBSD fixes. It turned out that there was no 
+# need for the brandelf script anymore.
+#  
+# Version 4.6a
+#
+# * The "fcliA" option on Linux will get you FAH502-Linux.exe. 
+#
+# Version 4.6
+#
+# * Bas Couwenberg has taken over the qd development and finstall 
+# will get the "qd-family" binaries from his site.
+# * Added ./get_qdinfo script for easy download of the qdinfo.dat file.
+# * Upgrade to the FAH client ver. 5.04 (Linux and Windows).
+#
+# Version 4.5
+#
+# * Modified AskChoice to remove the possible infinite loop. 
+#
+# Version 4.4
+#
+# * Modified the FAH client starting to cover the corner cases when it is 
+# hard to determine if to use "su -" or just start the FAH client(s).
+#
+# Version 4.3
+#
+# * Added workaround for the SSH session hanging on exit: 
+# http://www.openssh.org/faq.html#3.10
+#
+# Version 4.2
+#
+# * Removed the usage of /proc/PID/cwd, process location detection is now 
+# solely based on "ps".
+# Note: The "awk" checking and get_link function are also removed form 
+# the ./folding script. 
+# * Due to conduct changes I removed downloading and use of Larry Perry's 
+# 'Electron Microscope III' data file. If still needed then You are free to 
+# download it by hand.
+#
+# Version 4.1
+#
+# * MacOSX will now get the FAH console client ver. 5.02.
+# Note: If You need to get the FAH console client ver. 4.00 then add "fcliA" 
+# option to the ./finstall script.
+# * Removed all warnings about missing /proc/PID - "ps" based process location 
+# detection does work on every supported OS out there.
+#
+# Version 4.0
+#
+# * Added "ps" based FahCore_XX.exe location detection to the ./folding script.
+#
+# Version 3.9
+#
+# * Added (slow) "ps" based process location detection to the ./folding script.
+# Note: As "ps ax -Oppid" does not reveal any parent-slave relationship between 
+# FAHClient and its FahCores, it can not detect any FahCore location.
+#
+# Version 3.8
+#
+# * ./finstall will get You the FAH ver. 5.02 client.
+# Note: Still nothing new for MacOSX.
+#
+# Version 3.7
+#
+# * Fixed the ./folding script not showing information only about 
+# the last/currently running WU.
+#
+# Version 3.6
+#
+# * ./finstall will get You the FAH ver. 5.00 client.
+# Note: There is no FAH ver. 5.00 for MacOSX.
+# Warning: If You upgrade to new FAH 5.00 client(s) then remove
+# "-forceSSE" from fah_config file or FAH client(s) will not start.
+#
+# Version 3.5a
+#
+# * ./bfinstall will get You the FAH ver. 5.00 Prerelease client.
+# Note: There is no FAH 5.00 Prerelease for MacOSX.
+# * ./bfinstall do not set "-forceSSE" flag anymore - FAH 5.00 do not have it.
+# Note: If You upgrade to new FAH 5.00 client(s) then remove
+# "-forceSSE" from fah_config file or FAH client(s) will not start.
+#
+# Version 3.5
+#
+# * There is no fahclient(1...n) usage anymore, the FAH client is identified
+# by official name it has: FAH4Console-Linux.exe = Linux, FAH4Console.exe = Win32 
+# and fah4 = MacOSX.
+#
+# Version 3.4
+#
+# * Fixed problems in ./folding script what prevented issuing
+# "./folding start" in Crontab (this issue affected only Linux).
+#
+# Version 3.3
+#
+# * Added some PATH locations to ./FaH.
+#
+# Version 3.2
+#
+# * All text output is now done by functions. It is possible to translate
+# ./finstall and ./bfinstall to any ASCII characterset supported language.
+#
+# Version 3.1
+#
+# * Gentoo service startup differs creatly from other Linux distributions,
+# use "gentoo" option of ./finstall to extract proper ./installService file.
+# * "2>&1"'s are back because MacOS X does need these.
+#
+# Version 3.0
+#
+# * If there isn't one already then finstall will put an empty fah_config file
+# to $Fdir.
+# * Removed the configuration reset question when there isn't any
+# old client configurations to reset.
+#
+# Version 2.9
+#
+# * Added more comments to improve documentation of the code.
+# * Rewrote some internal finstall functions to speed these up a little.
+#
+# Version 2.8
+#
+# * Reduced usage of "2>&1" type output redirections.
+#
+# Version 2.7
+#
+# * More FAH4 compatibility changes: 
+# 1. InCrease (http://teammacosx.homeunix.com/InCrease.html) author 
+# Kevin Bernhagen contributed .dmg "extraction" code and finstall 
+# will download a new version of FAH client even on MACOSX;
+# 2. Maximum allowed client.cfg machineid value is now 8 (was 4);
+#
+# Version 2.6
+#
+# * FAH4 compatibility:
+# 1. Download new binaries;
+# Note1: -fliA and -fliB will download the same binary.
+# Note2: You get an old MACOSX client because MACOSX binary is being distributed 
+# in different format and I have no access to any MACs to testextract it on.
+# 2. Change "-config" to "-configonly";
+# * ./fahback script is a little addition to help to catch "BADWU1" type of WUs. 
+# Look inside it for more informaton.
+#
+# Version 2.5
+#
+# * Alex Kirk contributed OpenBSD FAH service installer script. 
+#
+# Version 2.5beta9
+#
+# * Added documentation how to start folding as a service on Debian.
+#
+# Version 2.5beta8
+#
+# * Some OpenBSD updates by Alex Kirk:
+# 1. New OpenBSD HOWTO (http://www.schnarff.com/fah.html);
+# 2. OpenBSD autodetection;
+#
+# Version 2.5beta7 ("I-want-to-sleep" release)
+#
+# * Is the MacOSX 10.2 and 10.3 support finished?
+#
+# Version 2.5beta6
+#
+# * Bob Kranki found out that MacOSX 10.2 'which' utility is not setting 
+# any return codes. So, no more "which" usage under MacOSX 10.2.
+# * Also, banned 'which' usage in ./folding under MacOSX 10.3 as it is not working 
+# during Service Startup.
+# * "#!/bin/env bash" does not work either...
+# * Removed 'sleep' usage in './folding start' on MacOSX as any sort of 
+# "sleeping" during MacOSX service startup will make a mess... 
+# 
+# Version 2.5beta5
+#
+# * MacOSX startup has something against "sleep", maybe PausE() will work...
+# * As "#!/bin/bash" was not universal enough, lets try "#!/bin/env bash".
+#
+# Version 2.5beta4
+#
+# * Changed the file download links to use "~" instead of "%7E".
+#
+# Version 2.5beta3
+#
+# * Initial OpenBSD support has landed! Use "openbsd" option of ./finstall.
+# Note:
+# Linux emulation must be installed and "brandelf" script made to get 
+# FAH Linux console to work:
+# http://forum.folding-community.org/viewtopic.php?p=48058#48058
+# It does need testing and (some) help from OpenBSD users -
+# I do not know how to detect in what directory procs are running from.
+# * Changed the StartupParameters.plist "Uses" for better compatibility with MacOSX 10.2.
+#
+# Version 2.5beta2
+#
+# * Added 'which' support to "external utils finder" (Check_Tools).
+# * Added 'bash' detection and removed #!/bin/bash'es from ./finstall.
+# Note: This change will affect only systems without default shell set to
+# Bash (like OpenBSD and older MacOSX) and You may need to start ./finstall by running:
+# 'bash -c "./finstall"'
+#
+# Version 2.5beta1
+#
+# * Added "setcfg" option to ./finstall. This option will delete current client
+# configuration and will make possible to reconfiguration of already installed
+# FAH client(s).
+#
+# Version 2.4
+#
+# * I still didn't set the "/bin/bash" correctly, fixed now.
+# * Added MacOSX and FreeBSD autodetection to ./finstall. You can override this 
+# with "macosx", "freebsd" or "linux". 
+#
+# Version 2.4beta9
+#
+# * Bob Kranki reported and also found solution for MacOSX 10.2 service startup 
+# problems. Now "su -c" will force usage of "/bin/bash" shell for client startup.
+#
+# Version 2.4beta8
+#
+# * Changed usage/references of /etc/rc.d/init.d to more common /etc/init.d.
+# * Improved the FAH flags detection and proc detection.
+# * Changed the StartupParameters.plist "Provides" to MacOSX 10.3 friendlier format. 
+#
+# Version 2.4beta7
+#
+# * Added automatic service install and uninstall scripts.
+#
+# Version 2.4beta6
+#
+# * Bob Kranki pointed out an invalid usage of "@" inside "folding@home" 
+# directory name ("@" stands for remote machine). As of it, the default FAH directory
+# is now "foldingathome".
+# WARNING: If You want to upgrade any existing FAH installments, rename "folding@home" 
+# directory to "foldingathome" and then run ./finstall.
+# * FAH service startup for MacOSX in form of StartupItems has landed! ./finstall will
+# generate all needed files, just follow the instructions to get it going.
+#
+# Version 2.4beta5
+#
+# * Added documentation about "crontab" based FAH service startup method.
+# Note: It may not work under Linux at all, but under MacOSX it is working fine.
+#
+# Version 2.4beta4
+#
+# * Bob Kranki contributed CPU count detection for MacOSX/FreeBSD.
+#
+# Version 2.4beta3
+#
+# * EXPERIMENTAL MacOSX support has landed! Use "macosx" option of ./finstall.
+#
+# Version 2.4beta2
+#
+# * Changed "su --command" to "su -c" to make the script more universal.
+#
+# Version 2.4beta1
+#
+# * Added "curl" as alternative to "wget" for downloading files.
+#
+# Version 2.3
+#
+# * "./folding status" will display running FAH client flags if to use "dirs", 
+# "cpus" or directory number.
+# * "./finstall wine" will now allow usage of Dick Howell's "qd" as recent 
+# versions of it has built in crossplatform WU detection.
+#
+# Version 2.3beta2
+#
+# * Added "samba" option to ./finstall (contribution of Andrew Draut).
+# "samba" will generate ./finstallSamba script what, when runned by root user,
+# will add a FAH directory ($Fdir) as a share to /etc/samba/smb.conf.
+# 
+# Version 2.3beta1
+#
+# * Added "screen" and "noscreen" option to ./finstall.
+# "screen" will set ./FaH  to use 'screen' utility as a shell for FAH client(s).
+# "noscreen" will disable the usage of 'screen' utility (used by default).
+# Note: When using 'screen' use "screen -r" to get output of some
+# running FAH client(s) and use CRTL+A+D to rehide it again.
+#
+# Version 2.2
+#
+# * Added "keepid" and "auto" option to ./finstall.
+# "keepid" will prevent MachineID changing even it may be needed.
+# "auto" will run ./finstall in "no questions asked" mode.
+# Note: Until there is no implemention of automatic generating of
+# client.cfg file, use it only when upgrading previous FAH installation(s). 
+#
+# Version 2.2beta3
+#
+# * Added "setid" option to ./finstall  (contribution of Bob Kranki).
+# "setid" will set client.cfg "machineid" to unique value, as of this 
+# it is not possible to have more than 4 FAH clients in one folding@home directory or
+# (when using Wine) under the same user.
+#
+# Version 2.2beta2
+#
+# * ./finstall will download some documentation files to folding@home directory:
+# 1. finstallFAQ.txt - .txt version of "finstall/folding FAQ";
+# 2. FAHLinux.txt - more general FAH on Linux HOWTO;
+# * Added "nodocs" and "get3rd" options to ./finstall.
+# Use "nodocs" if You already have read finstallFAQ.txt and use "get3rd" to force
+# downloading of 3rd party FAH utilities.
+#
+# Version 2.2beta1
+#
+# * Added "fcliA" and "fcliB" options to ./finstall.
+# These options are dealing with regular and "B" version of FAH Linux client.
+# The "fcliA" will select regular FAH Linux client to be used and the "fcliB" will 
+# select "B" version (default is set to usage of "B" FAH Linux client).
+# * (Initial) FAH client "flag management" system has landed!
+# Read the ./FaH script for more information.
+#
+# Version 2.1
+#
+# * Added "noqd" and "viewlog" to "./folding status dir_num|cpus|dirs" option:
+# 1. "noqd" will skip the usage of "qd" even if it is available.
+# 2. "viewlog" will get You last 10 lines of FAHlog.txt.
+# * Added lots of notifications and these messages are now being piped through "more".
+# * Added "skip3rd" to ./finstall script. "skip3rd" will skip downloading of
+# any 3rd party FAH utilities, but does not disable usage of these.
+#
+# Version 2.0
+#
+# * ./FaH script now accept additional flags (ex. ./FaH -config).
+# * Got rid of the need to use "awk".
+#
+# Version 2.0beta3
+#
+# * Wine support has landed! Add "wine" option to ./finstall to use it.
+# Restrictions: 
+# 1. Maximum 4 FAH clients per box (or at least per user...);
+# 2. MachineID value of every client must be different (this value is 
+# accessible under 'advanced options' of the FAH Client '-config' option).
+# * Also, I extended 'status' functionality of ./folding to cover Wine procs as well.
+#
+# Version 2.0beta2
+#
+# * Found some bugs in ./finstall "freebsd" option: I used wrong switch when 
+# running FAH client (was -FreeBSD but must be -freeBSD) and during the configuration 
+# I didn't use -freeBSD switch at all. These bugs are now fixed and hopefully the script 
+# is working as it should.
+#
+# Version 2.0beta1
+#
+# * FreeBSD support has landed! Add "freebsd" option to ./finstall to use it.
+# Note:
+# Linux emulation must be installed to get FAH Linux console to work:
+# http://www.stanford.edu/group/pandegroup/folding/faq.html#run.FreeBSD
+# It does need testing and (some) help from FreeBSD users - 
+# I do not know how to get the number of CPUs and I didn't
+# manage to find a way to detect in what directory procs are running from.
+# * Homemade "pidof" function for the cases when there is no native "pidof" around. 
+# * Remake of "status" to take account of inability to detect proc "homedirectory".
+#
+# Version 1.9:
+#
+# * ./finstall will ask user if to download and use some additional 3rd party 
+# FAH utilities. Currently these are Dick Howell's "qd" and "fpd" 
+# (http://boston.quik.com/rph/fah.html) ("qd" will also use Larry Perry's 
+# 'Electron Microscope III' data file (http://www.em-dc.com)). 
+# 1. When used with "dirs", "cpus" or some directory number 
+# (ex. "./folding status dirs"), 
+# "qd" and "EMIII data file" will make "./folding status" a little more 
+# informative. 
+# Note: Content of unitinfo.txt will be shown if "qd" is not available.
+# 2. "fpd" is X11 app for viewing of WU content. It can be started with 
+# "fpd" option (ex. "./folding status dirs fpd");
+# * Added "no3rd" to ./finstall scripts.
+# "no3rd" will disable the usage of additional 3rd party FAH utilities.
+#
+# Version 1.8:
+#
+# * Transition from !/bin/sh to !/bin/bash as not everywhere bash=sh.
+# * Added "keepcfg" and "copycfg" to ./finstall script.
+# "keepcfg" will not let override client.cfg file in current directory.
+# "copycfg" will copy client.cfg from "known good copy" of client.cfg to 
+# current directory if there is no client.cfg. 
+# * ./finstall script will ask the user if to use "known good copy" of client.cfg
+# as client.cfg file for other unconfigured FAH clients as well.
+# 
+# Note: If using various options then pay attention to screen output! 
+# Usage of "norun" may cause unpleasant results.
+#
+# Version 1.7b:
+# 
+# * Fixed download loop if no md5sum is available.
+#
+# Version 1.7a:
+# 
+# * "nomd5" will delete the old FAH client before downloading new one.
+# * Added "norun" option to ./finstall script.
+# "norun" will skip the FAH client to be runned and configured.
+# "norun" can be used as standalone or with "nomd5" and "nofetch" options.
+# Note: There should be no problems when using "norun" when upgrading the 
+# FAH client, but if it is a fresh install then You have to run 
+# "./fahclientX -config" manually before using ./folding script.
+#
+# Version 1.7:
+#
+# * ./finstall will ask user to verify the MD5SUM value of FAH client.
+# Note: Only way to verify the MD5SUM is to read these values from
+# http://folding.stanford.edu/download.html by user, but if Pande Group should 
+# make these MD5SUM values available in "machine-readable" format then it is 
+# possible to automate this procedure.
+# * ./finstall will check if FAH is already running at Fdir directory, if "yes"
+# then it will terminate.
+# * ./finstall now uses ./folding "dirs" functionality for Fdir subdirectory 
+# (Dir) detection.
+# * Added "nomd5" option to ./finstall script.
+# "nomd5" will skip the verification of MD5SUM value of the FAH client.
+# * Added "nofetch" option to ./finstall script.
+# "nofetch" will skip the download and MD5SUM verification of the FAH client.
+#
+# Version 1.6:
+#
+# * Added "dirs" option to ./folding script.
+# "dirs" - will detect all suitable CPU directories under Fdir.
+# Note: Default directory detection is now based on "dirs" not on "cpus" as 
+# previously.
+# * CPU directory name is now defined by variable Dir (default setting is Dir=CPU).
+# * Also, switched to FAH3Console-LinuxB.exe.
+#
+# Version 1.5-mfl (contribution of Waldo Kitty):
+#
+# * added -N to wget command to let wget determine if new client
+#     needs to be downloaded or not.
+# * added '~/' to Fdir setting to ensure that we do this in user
+#     $USER's home directory. of course, this is modifiable, anyway.
+# * added notification of script creations and completions.
+# * added short delays after visual notifications so that we
+#     can possibly read them.
+# * cleaned up some textual output in the script and comments
+#     (grammatical form, wordwrap for 80 columns or less, punctuation)
+# * adjusted usage text to use current script name instead of
+#     hardcoded name.
+#
+# Version 1.5:
+#
+# * Get rid of 4 CPU limit.
+#
+# Version 1.4a:
+#
+# * Ability to deal with every single FAH client.
+# Available options:
+# "" - this is empty switch and it will cause the script not to use FAH directory
+# identification;
+# "cpus" - cpu count on this machine, but maximum supported is 4;
+# "force" - will skip the phase1 (kill -15) of process killing;
+# "1" - specify directory CPU1 usage;
+# "2" - specify directory CPU2 usage, if machine has as many CPUs;
+# "3" - specify directory CPU3 usage, if machine has as many CPUs;
+# "4" - specify directory CPU4 usage, if machine has as many or more CPUs;
+# "./folding start" available options are "", "cpus", "1", "2", "3" and "4".
+# "./folding stop" available options are "", "cpus", "force", "1", "2", "3" and "4".
+# "./folding restart" available options are "", "cpus", "force", "1", "2", "3" and "4".
+# "./folding status" available options are "", "cpus", "1", "2", "3" and "4".
+#
+# Note: It is possible to run more FAH clients than CPU count, but You have
+# to use same script on some other directory and use FAH directory
+# identification options ("cpus", "1", "2", "3" or "4").
+#
+# Version 1.4:
+#
+# * Get rid of usage and need for /etc/rc.d/init.d/functions script.
+# Hopefully ./folding is now distribution independent.
+# * Report encountered error numbers.
+#
+# Version 1.3b:
+#
+# * Workaround for "non-working 'kill -15'" issue with FahCore_ca.exe.
+#
+# Version 1.3a:
+#
+# * Some 'folding' code cleanups.
+# * Added a option to force stop ("./folding stop force") of the FAH client(s).
+# * -=*=-
+#
+# Version 1.2:
+#
+# * 'finstall' is now a bunch of functions.
+# No changes at 'folding', yet.
+#
+# Version 1.1a:
+#
+# * Improved fahclient symlink detection (transition to new default directory
+# was problematic when to rename/move old directory).
+#
+# Version 1.1:
+#
+# * Default behaviour is to place the FAH directory (folding@home) to
+# installer active directory (this is directory where user is running the FAH
+# installer). To override this, set the Fdir to something starting with "/".
+# * Added some comments.
+#
+# Version 1.0:
+#
+# * Fix of Pre Version 1.0 problems.
+#
+# Pre Version 1.0 (actually no version number at all):
+#
+# Although working, but:
+# 1) lack of ability to check if FAH is already running
+# (possible to start same copy over and over again);
+# 2) lack of ability to check if FAH is not running;
+# 3) many permission checking are missing
+# (directory ownership, write permissions, ...);
+# 4) No proper stopping of FAH clients & cores as various generations of
+# cores does like to respond differently to termination signal, there has to
+# be a forced termination available. If all should fail then report it...
+#
+
+#Where to get FAH console client & where to place it:
+FAH_Settings() {
+#FAH directory:
+Fdir=~/foldingathome
+#Latest FAH client:
+Fclient_linuxA_Fdwnl=http://www.stanford.edu/group/pandegroup/release/
+Fclient_linuxA=FAH504-Linux.exe
+
+Fclient_linuxB_Fdwnl=http://www.stanford.edu/group/pandegroup/folding/release/
+Fclient_linuxB=FAH6.02beta1-Linux.tgz
+Fclient_linuxB_name=fah6
+
+Fclient_linuxA_SMP_Fdwnl=http://www.stanford.edu/group/pandegroup/folding/release/
+Fclient_linuxA_SMP=FAH6.02beta1-Linux.tgz
+Fclient_linuxA_SMP_name=fah6
+
+Fclient_win32_Fdwnl=http://www.stanford.edu/group/pandegroup/release/
+Fclient_win32=FAH504-Console.exe
+
+Fclient_macosx_Fdwnl=http://www.stanford.edu/group/pandegroup/release/
+
+Fclient_macosxA=FAH4-CLI.dmg
+Fclient_macosx_volume_nameA=FAH4-CLI
+Fclient_macosx_nameA=fah4
+
+Fclient_macosxB=FAH5.02-CLI.dmg
+Fclient_macosx_volume_nameB=FAH5-CLI
+Fclient_macosx_nameB=fah5
+
+Fclient_macosx_SMP_Fdwnl=http://www.stanford.edu/group/pandegroup/folding/release/
+Fclient_macosx_SMP=FAH6.00beta2-OSX-Intel-Console.tgz
+Fclient_macosx_SMP_name=fah6 
+
+FdownWeb=http://folding.stanford.edu/download.html
+FAH_default_flags="-verbosity 9"
+}
+
+#3rd party FAH utilities:
+
+# 1. Dick Howell's "qd" and "fpd" (maintained by Bas Couwenberg);
+qd_dwnl=http://linuxminded.xs4all.nl/software/qd-tools/binaries/linux/x86/
+qd_exec=qd
+qd_dwnl_obsd=http://linuxminded.xs4all.nl/software/qd-tools/binaries/openbsd/x86/
+qd_exec_obsd=qd
+qd_dwnl_osx=http://linuxminded.xs4all.nl/software/qd-tools/binaries/darwin/ppc/
+qd_exec_osx=qd
+qd_df1_dwnl=http://linuxminded.xs4all.nl/software/qd-tools/source/qdinfo/
+qd_df1=qdinfo.dat
+
+fpd_dwnl=http://linuxminded.xs4all.nl/mirror/www.boston.quik.com/rph/
+fpd_exec=fpd
+fpd_dwnl_obsd=http://www.schnarff.com/
+fpd_exec_obsd=fpd
+fpd_dwnl_osx=http://calxalot.homeip.net/downloads/others/
+fpd_dmg_osx=fpd.dmg
+fpd_exec_osx=fpd
+
+# FcliLink: used as link so that 3rd party tools not coded for FAH3Console-Linux.exe
+# can determine proper directory (ie: EMIII doesn't know -Linux variation)
+FcliLink=FAH504-Console.exe
+
+#FAH CPU subdirectory name:
+Dir=CPU
+
+current_directory=$PWD
+
+#Set PATH to ensure availablility of external utilities:
+PATH=$PATH:/bin:/sbin:/usr/bin:/usr/local/bin:/usr/sbin
+
+#Only for initialization, finstall will override it:
+CurrentCPU=1
+
+#Messages to display at installer startup:
+FAH_Install_Greetings(){
+cat << EOF
+ This is FAH ("Folding At Home") installation script (ver. $FAH_Install_Version).
+ To get to know more about FAH, go to http://folding.stanford.edu.
+EOF
+}
+
+echo_warning_no_cpus(){
+cat << EOF
+!WARNING!
+ No /proc/cpuinfo file or sysctl utility! Can not detect the CPU count, assuming 'CPU_COUNT=1'.
+EOF
+}
+
+echo_warning_no_bash_shell_found(){
+cat << EOF
+!WARNING!
+ No Bash shell found! Using default 'bash' location.
+EOF
+}
+
+echo_warning_no_wget_or_curl(){
+cat << EOF
+!WARNING!
+ No wget or curl! Can not download FAH client nor any other file, forcing 'nofetch'.
+EOF
+}
+
+echo_warning_no_md5(){
+cat << EOF
+!WARNING!
+ No md5sum/md5! Can not verify MD5SUM of FAH client, forcing 'nomd5'.
+EOF
+}
+
+echo_warning_no_screen_utility(){
+cat << EOF
+!WARNING!
+ No screen! You can not use 'screen' utility, forcing 'noscreen'.
+EOF
+}
+
+echo_check_tools_begin(){
+cat << EOF
+Testing the availability of external utils...
+EOF
+}
+
+echo_check_tools_end(){
+cat << EOF
+...done.
+
+Using flags:
+EOF
+}
+
+echo_creating(){
+cat << EOF
+Creating $1...
+EOF
+}
+
+echo_created(){
+cat << EOF
+...$1 created.
+EOF
+}
+
+Show_WineNotes(){
+cat << EOF
+------------------------------------- Wine ------------------------------------
+*To run FAH Win32 console client You need to have Wine installed.
+
+*You may get a lot of font error messages when starting FAH Win32 client
+ under Wine, but eventually it should start up just fine.
+
+*You may need to change WINE configuration depending how You intend to use FAH:
+ 1. Use as a service at bootup - You must set "GraphicsDriver" = "ttydrv"
+ under [main] in ~/.wine/config file.
+ With this change You will render all other WINE applications useless unless
+ these are also console based as FAH.
+ 2. Use it as a regular application under X11 - You must
+ set "GraphicsDriver" = "x11drv" or You will be unable to configure the FAH.
+ If You want FAH under WINE (X11 or console/service) and also other WINE 
+ applications working - just make dedicated user account for FAH and make all
+ necessary changes to WINE configuration depending how You will run it.
+
+*It is not advisable to overwrite FAH Linux client files with the Win32 version
+ of it, because the differences between the file formats will likely cause
+ loss of all unfinished/unsent WUs.
+EOF
+}
+
+Show_OpenBSDNotes(){
+cat << EOF
+----------------------------------- OpenBSD -----------------------------------
+*FAH Linux client and other 3rd-party FAH utils on OpenBSD will require
+ installed and working Linux emulation:
+
+1. Install /usr/ports/emulators/redhat/base from the 3.8 ports collection, or
+get the redhat_base-8.0p5 package from the OpenBSD FTP site (or a mirror).
+
+2. Make sure Linux emulation is enabled in the kernel:
+sysctl -w kernel.emul.linux=1
+echo 'sysctl -w kernel.emul.linux=1 # Enable running Linux binaries' >> /etc/sysctl.conf 
+EOF
+}
+
+Show_FreeBSDNotes(){
+cat << EOF
+----------------------------------- FreeBSD -----------------------------------
+*FAH Linux client and other 3rd-party FAH utils on FreeBSD will require
+ installed and working Linux emulation:
+ http://www.stanford.edu/group/pandegroup/folding/faq.html#run.FreeBSD
+EOF
+}
+
+
+Show_WineAttention(){
+cat << EOF
+!!!ATTENTION!!!"
+
+WINE exceptions:
+
+1. Even if the Wine is fully operational the FAH client may give You lots of 
+font error messages.
+
+2. If Wine should fail to run then try to fix it or use native FAH Linux client.
+
+3. When running FAH Win32 Client under Wine keep in mind that each FAH client
+MUST have unique MachineID set in config - usage of "setid" is recommended.
+
+4. If You get an error 'x11drv: Can't open display:', then You must change
+WINE configuration:
+Under the [wine] section of ~/.wine/config change "GraphicsDriver" = "x11drv"
+to "GraphicsDriver" = "ttydrv".
+
+Attention: Running "GraphicsDriver" set to "ttydrv" under X11 will disable
+keyboard support and as a result of it You can not configure the client.
+You have to use "x11drv" when configuring the FAH client under X11.
+EOF
+}
+
+WineNote(){
+cat << EOF
+ WINE specific note:
+ 
+  If You want to use FAH Win32 Client under Wine as a system service or
+  not under X11 then You may need to change the ~/.wine/config.
+  Wine will ask for X11, but usually there isn't any around during system 
+  startup.
+  Simple fix to this ('x11drv: Can't open display:') from
+  http://forum.folding-community.org/viewtopic.php?p=43609#43609:
+  Under the [wine] section of ~/.wine/config change "GraphicsDriver" = "x11drv"
+  "GraphicsDriver" = "ttydrv" and off You go...
+
+  Attention: Running "GraphicsDriver" set to "ttydrv" under X11 will disable
+  keyboard support and as a result of it You can not configure the client.
+  You have to use "x11drv" when configuring the FAH client under X11 - "ttydrv" 
+  will work under X11 enough to run the client, but not to configure it.
+EOF
+}
+
+MacOSXNote(){
+cat << EOF
+ MacOSX specific note:
+ 
+  If You want to use FAH MacOSX Client as a system service then it is possible 
+  to use "crontab" as described earlier or set the "fah" StartupItems by 
+  making /Library/StartupItems/fah directory and copying
+  $Fdir/fah
+  and 
+  $Fdir/StartupParameters.plist
+  into this directory.
+EOF
+}
+
+Show_SambaNotes(){
+cat << EOF
+Note:
+Ask root user of this machine to run
+$Fdir/finstallSamba to configure and add
+$Fdir as share to /etc/samba/smb.conf.
+------------------------------------ SAMBA ------------------------------------
+EOF
+}
+
+Show_FinalNotes(){
+cat << EOF
+You can start the FAH client(s) by running
+'$Fdir/folding start'
+or start ./FaH scripts directly inside CPU directories.
+
+Note: If You would like to set some FAH flags, take a look inside ./FaH and/or
+read the finstall documentation.
+
+There are couple of ways how to run FAH client(s) at system bootup as a service:
+a) You should copy
+$Fdir/folding to your system
+service directory (ie: /etc/init.d/ (*)) and then start it
+with '/etc/init.d/folding start'.
+Also, You may have to run 'chkconfig --add folding' (**).
+
+  (*) Your distribution may not support this kind of service startup
+  or you may have one of those cases (RedHat 8.0) where despite all
+  efforts, FAH refuses to start up when it is registered to run as a
+  service. To overcome this issue, add '/etc/init.d/folding start'
+  to /etc/rc.d/rc.local or another startup script that your system
+  or distribution uses (Mandrake - rc.boot, SuSe - boot.local, ...)
+  You may also need to remove 'folding' from runnable services by
+  disabling it (setup->System services) or by running
+  'chkconfig --del folding' if needed.
+
+  (**) There is no 'chkconfig' on Debian, use 'update-rc.d folding defaults' 
+  to add 'folding' services and 'update-rc.d folding remove' to remove
+  'folding' services.
+  
+Note: MacOSX does not have "/etc/init.d" service startup method, use
+Crontab or StartupItems to get the FAH client(s) going.
+
+b) Another way to start FAH as a service is to use "crontab":
+http://teammacosx.homeunix.com/forum/cgi-bin/ikonboard.pl?s=630986ed363be3092a8737a56af58b87;act=ST;f=10;t=173
+
+Short "crontab" howto:
+
+Start "crontab -e", press "i", 
+add "@reboot $Fdir/folding start >/dev/null" 
+to the end of file, press [Esc] key, type ":x" and press [Enter].
+EOF
+ if [ "$wine" = "true" ];
+  then
+   echo ""
+   WineNote
+   echo ""
+ fi 
+ if [ "$macosx" = "true" ];
+  then
+   echo ""
+   MacOSXNote
+   echo ""
+ fi
+cat << EOF
+
+Note: Only root user can modify system services (normal users have crontab option).
+Let root user to run
+$Fdir/installService
+to install FAH to be runned as service at system startup.
+  
+Note1: FAH client(s) will be started under user $USER's privileges.
+Note2: If you try to start FAH client(s) as different user, you will be
+prompted for user $USER's password.
+
+ Constructed by Ivo Sarak.
+ Send Your comments, help and suggestions to ivo at vendomar dot ee.
+
+ You can get some additional information from 
+ http://ra.vendomar.ee/~ivo/FAHLinux.txt
+ or locally:
+ $Fdir/FAHLinux.txt
+ 
+ Finstall at folding-community.org:
+ http://forum.folding-community.org/viewtopic.php?t=2283
+ Finstall documentation (finstall/folding FAQ):
+ http://ra.vendomar.ee/~ivo/finstallFAQ.txt
+ or locally:
+ $Fdir/finstallFAQ.txt 
+EOF
+}
+
+AskForChoice(){
+#Ask for y/n type choice.
+#Input: $Message
+#Output: $Answer ("true"="yes" or "false"="no")
+local answerOK
+	
+answerOK="false"
+while [ "$answerOK" = "false" ]
+ do
+  echo -n "$Message"
+  read Answer
+  
+  if [ "$tr_OK" = "true" ] ;
+   then      
+    Answer=$(echo $(echo "$Answer" | tr A-Z a-z))
+
+#echo $Answer
+
+  fi 
+  if [ "$Answer" = "yes"  -o  "$Answer" = "y"  -o   "$Answer" = "no"  -o  "$Answer" = "n" ];
+   then 
+    answerOK="true"
+#true=yes and false=no:
+    if [ "$Answer" = "yes"  -o  "$Answer" = "y" ];
+     then
+      Answer="true"
+     else 
+      Answer="false"
+    fi 
+  fi
+ done
+}	
+
+echo_FAH_DIR_is_invalid(){
+cat << EOF  
+FAH CPU subdirectory name Dir is invalid!
+Dir is set to '$Dir', but
+name must not be empty or contain '/'.
+EOF
+}  
+
+echo_setting_up_FAH(){
+cat << EOF
+Setting up FAH client(s) for $1 processor(s).
+EOF
+}
+
+echo_directory_is_present(){
+cat << EOF
+Directory $1 is present...
+EOF
+}
+echo_directory_is_not_present(){
+cat << EOF
+Directory $1 is not present...
+EOF
+}
+
+echo_making_directory(){
+cat << EOF
+Making $1...
+EOF
+}
+
+echo_can_not_make_directory(){
+cat << EOF
+You do not have proper rights to create directory $1.
+
+Change FAH directory location (Fdir) or
+convince the root of this box to make this directory available for You.
+EOF
+}
+
+echo_installation_terminated_as_fah_is_already_running(){
+cat << EOF
+Installation terminated as FAH is currently running from $2
+Terminate FAH and run $1 again.
+EOF
+}	
+
+echo_removing_file(){
+cat << EOF
+Removing $1...
+EOF
+}
+
+echo_removed(){
+cat << EOF
+...removed.
+EOF
+}
+
+echo_skipping_downloading_of_FAH_client(){
+cat << EOF
+Skipping downloading of the FAH client.
+EOF
+}
+
+echo_downloading_FAH(){
+cat << EOF
+Downloading FAH client ($1):
+EOF
+}
+
+echo_there_is_no_wget_or_curl(){
+cat << EOF
+There is no wget/curl available or these can not be used!
+EOF
+}
+
+echo_file_in_directory(){
+cat << EOF
+$1 in $2:
+EOF
+}
+
+echo_documentation(){
+cat << EOF
+---Documentation---
+
+Downloading finstall FAQ:
+EOF
+}
+
+echo_downloading_general_HOWTO(){
+cat << EOF
+Downloading general FAH on Linux HOWTO:
+EOF
+}
+
+echo_skipping_md5sum(){
+cat << EOF
+Skipping MD5SUM verification.
+EOF
+}
+
+echo_verify_md5sum(){
+cat << EOF
+Please verify the $1 MD5SUM value.
+
+Note: You can get this value at $2
+behind platform specific $1 binary download link in
+'MD5-sum of download' column.
+
+MD5SUM value of downloaded $1:
+EOF
+}
+
+echo_no_md5sum_available(){
+cat << EOF
+There is no md5sum/md5 available or it can not be used!
+EOF
+}
+
+echo_no_FAH_client_found(){
+cat << EOF
+No FAH client ($1) found at $2!
+Revise the URL ($3$1),
+wget/curl presence or download $1 manually,
+place it to $2 and use 'nofetch' option.
+EOF
+}
+
+echo_ask_for_3rd_party_tools(){
+cat << EOF
+---3rd party FAH utilities---
+
+Some 3rd party FAH utilities can be used by folding script:
+1. Dick Howell's 'qd' and 'fpd' (http://linuxminded.xs4all.nl/?target=software-qd-tools.plc)
+EOF
+}
+
+echo_no_3rd_party_tool_can_be_fetched(){
+cat << EOF
+*** No 3rd party tool can be fetched! ***
+EOF
+}
+
+echo_3rd_party_tool_qd(){
+cat << EOF       
+Dick Howell's 'Program to dump data from <queue.dat> file' utility ($1):
+EOF
+}
+
+echo_3rd_party_tool_qd_data1(){
+cat << EOF       
+Dick Howell's 'Program to dump data from <queue.dat> file' utility data file ($1):
+EOF
+}
+
+echo_3rd_party_tool_qd_data2(){
+cat << EOF       
+Larry Perry's 'Electron Microscope III' data file ($1):
+EOF
+}
+
+echo_3rd_party_tool_fpd(){
+cat << EOF       
+Dick Howell's 'Graphics display of FAH protein for Linux' ($1):
+EOF
+}
+
+echo_machineid_asking(){
+cat << EOF
+FAH 4.00 will check the MachineID value and terminate itself if it does find
+another FAH client running with the same MachineID.
+To overcome this, You either must start the client(s) twice or install every client
+with unique MachineID value.
+EOF
+}
+
+error_too_many_FAH_clients(){
+cat << EOF
+!!!ERROR!!!"
+
+You want to install too many FAH clients ($1)!
+You can not set MachineID value larger than 8 and as
+of it, You can not run more than 8 FAH clients per user.
+
+To overcome this:
+1. If it is fresh install of FAH - make up to 8 CPU subdirectories
+of foldinghome by hand and run additional FAH clients as instructed
+in 2.A, 2.B;
+2. If it is update of FAH - reduce the CPU directory count to 8 and
+A. when using Wine and Win32 FAH client - make another FAH user to
+run other FAH clients under there;
+B. when using native Linux FAH client - make another FAH user to run
+other FAH clients under there and run 'rm -ifdr /tmp/fah' before You
+start these;
+C. when using MacOSX - I suspect that 2.A should apply;
+EOF
+}
+
+echo_setup_FAH_clients(){
+cat << EOF        
+Setup of FAH client #$1:
+EOF
+}
+
+echo_file_is_present(){
+cat << EOF
+File $1 is present...
+EOF
+}
+
+echo_removed_it(){
+cat << EOF
+...removed it.
+EOF
+}
+
+echo_file_is_not_present(){
+cat << EOF
+File $1 is not present.
+EOF
+}
+
+echo_making_a_file_entry(){
+cat << EOF
+Making a '$1' entry...
+EOF
+}
+
+echo_making_a_file(){
+cat << EOF
+Making a '$1' file...
+EOF
+}
+
+echo_but_no_file_found_in_directory(){
+cat << EOF
+...but no '$1' found in $2!
+EOF
+}
+
+echo_removing_client_configuration(){
+cat << EOF
+Removing current client configuration ($1/$2$3/client.cfg)...
+EOF
+}
+
+echo_done(){
+cat << EOF
+...done.
+EOF
+}
+
+echo_there_is_already_config_in_directory(){
+cat << EOF
+There is already a client.cfg (client configuration) file in $1/$2$3/...
+EOF
+}
+
+echo_keeping_it(){
+cat << EOF
+...keeping it.
+EOF
+}
+
+echo_last_known_good_config(){
+cat << EOF
+Last known 'good' copy of client.cfg is at directory of FAH client #$1.
+EOF
+}
+
+echo_trying_to_copy_previous_config(){
+cat << EOF
+Trying to copy config from previous client...
+EOF
+}
+
+echo_copying_previous_config(){
+cat << EOF
+...copying $1/$2$3/client.cfg to
+$1/$2$4...
+EOF
+}
+
+echo_but_nothing_found(){
+cat << EOF
+...but nothing found!
+EOF
+}
+
+echo_skipping_running_of_FAH(){
+cat << EOF
+Skipping running of the FAH client...
+EOF
+}
+
+echo_configuring_FAH_client_in_directory(){
+cat << EOF
+Configuring FAH client in directory $1/$2$3:
+EOF
+}
+
+echo_freebsd_attention(){
+cat << EOF
+ATTENTION: If the Linux emulation is not installed, You will get an error message:
+          "ELF binary type "3" not known."
+          "Abort trap              ./FaH -configonly"
+
+In that case install Linux emulation and run this script again.
+EOF
+}
+
+echo_starting_FaH(){
+cat << EOF
+Starting './FaH -configonly 2>/dev/null':
+EOF
+}
+
+echo_no_valid_config_file_found(){
+cat << EOF
+***!!! NO client.cfg FOUND !!!*****************************************************
+Before using ./folding script, You must run the FAH client and configure it!
+Example:
+cd $1/$2$3
+./FaH -configonly
+Or run $4 again, without 'norun' or 'auto' option.
+***********************************************************************************
+EOF
+}
+
+#MACOS X specific files:      
+echo_making_macosx_files(){
+cat << EOF
+Making FAH service description files and installation scripts for MacOSX:
+EOF
+}
+
+echo_making_openbsd_files(){
+cat << EOF
+Making FAH service installation script for OpenBSD:
+EOF
+}
+
+echo_making_gentoo_files(){
+cat << EOF
+Making FAH service installation scripts for Gentoo Linux:
+EOF
+}
+
+echo_making_linux_files(){
+cat << EOF
+Making FAH service installation scripts for Linux:
+EOF
+}
+
+echo_making_FAH_backup_script(){
+cat << EOF
+Making FAH backup script:
+EOF
+}
+
+echo_FAH_client_installation_completed(){
+cat << EOF
+FAH client installation completed!
+EOF
+}
+
+echo_samba(){
+cat << EOF
+	echo "------------------------------------ SAMBA ------------------------------------"
+EOF
+}
+
+echo_waiting_for_n_seconds(){
+cat << EOF
+Waiting for $1 seconds...
+EOF
+}
+
+echo_no_directory_access(){
+cat << EOF
+...but it is not writable for You!
+
+Change FAH directory location (Fdir) or
+convince the root of this box to make this directory available for You.
+EOF
+}
+
+echo_invalid_argument(){
+cat << EOF
+Invalid argument #$1: '$2'
+Usage: $3 {|DoNothing}|{nofetch|nomd5|norun|keepcfg|copycfg|no3rd|freebsd|wine|skip3rd|fcliA|fcliB|nodocs|get3rd|setid|keepid|auto|screen|noscreen|samba|macosx|linux|setcfg|openbsd|gentoo|smp|dirs N}+
+EOF
+}
+
+message_do_you_want_to_continue(){
+Message="Do You want to continue with the install (y/n)?: "
+}
+
+message_do_you_want_to_read_faq(){
+Message="Do You want to read finstall FAQ (y/n)?: "
+}
+
+message_is_this_correct_md5sum_value(){
+Message="Is this the correct MD5SUM value of $Fclient (y/n)?: "
+}
+
+message_do_you_want_to_use_3rd_party_tools(){
+Message="Do You want to use any of these 3rd party FAH utilities (y/n)?: "
+}
+
+message_do_you_want_automatic_machineid_changing(){
+Message="Do You want to use automatic MachineID changing (y/n)?: "
+}
+
+message_do_you_want_to_reconfigure(){
+Message="Do You want to reconfigure this FAH client (y/n)?: "
+}
+
+message_do_you_want_to_use_same_config(){
+Message="Do You want to use it for this client and for all remaining configureless clients as well (y/n)?: "
+}
+
+message_do_you_want_to_reset_config(){
+Message="Do You want to reset configurations of other remaining FAH clients (y/n)?: "
+}
+
+echo_dirs_option_over-ridden(){
+cat << EOF
+
+NOTE: 'dirs $DirNum' is being over-ridden since previous CPU subdirectories were found!
+
+EOF
+}
+
+#Test the availability of some external utils:
+Check_Utils() {
+local temp
+
+#which - "app finder":
+ which_OK="false"
+#MacOSX 10.2 "which" will not set return codes at all and
+#MacOSX 10.3 Service Startup is messing with "which"...
+#...ban "which" on MacOSX:
+  let "temp=$(echo $(echo $OSTYPE)|grep darwin|wc -l)"
+#temp=1 if OSTYPE has "darwin" in it.
+  if [ $temp -eq 0 ]; 
+   then
+#Other OSes should run "which" just fine...    
+    which --version >/dev/null 2>&1
+    if [ $? -ne 127 ] ;
+     then
+      which_OK="true"
+    fi
+  fi
+
+#/proc/cpuinfo - useful for CPU count detection:
+ cpuinfo_OK="false"
+ if [ -r /proc/cpuinfo ] ;
+  then
+   cpuinfo_OK="true"
+  else
+   if [ "$which_OK" = "true" ];
+    then
+     which sysctl >/dev/null 2>&1
+     if [ $? -eq 0 ] ;
+      then
+       cpuinfo_OK="true"
+     fi
+    else 
+     sysctl --help >/dev/null 2>&1
+     if [ $? -ne 127 ];
+      then
+       cpuinfo_OK="true"
+     fi
+   fi
+ fi
+# if [ "$cpuinfo_OK" = "false" ];
+#  then
+#   echo ""
+#   echo_warning_no_cpus
+#   echo ""
+#   sleep 2
+# fi     
+
+#pidof - for getting the pids of running procs:
+ pidof_OK="false"
+ getpids="pidof -x"
+
+   if [ "$which_OK" = "true" ];
+    then
+     which pidof >/dev/null 2>&1
+     if [ $? -eq 0 ] ;
+      then
+       pidof_OK="true"
+     fi
+    else 
+     pidof --help >/dev/null 2>&1
+     if [ $? -ne 127 ] ; 
+      then
+       pidof_OK="true"
+     fi     
+   fi
+
+# pidof_OK="false"
+
+ if [ "$pidof_OK" = "false" ];
+  then
+#No native "pidof" available, use homemade:
+   getpids="pidof_x"
+ fi        
+}
+
+#Check the availability of external tools:
+Check_tools() {
+local temp
+ echo ""
+ echo_check_tools_begin
+#which - "app finder":
+ which_OK="false"
+#MacOSX 10.2 "which" will not set return codes at all and
+#MacOSX 10.3 Service Startup is messing with "which"...
+#...ban "which" on MacOSX:
+  let "temp=$(echo $(echo $OSTYPE)|grep darwin|wc -l)"
+#temp=1 if OSTYPE has "darwin" in it.
+  if [ $temp -eq 0 ]; 
+   then
+#Other OSes should run "which" just fine...    
+    which --version >/dev/null 2>&1
+    if [ $? -ne 127 ] ;
+     then
+      which_OK="true"
+    fi
+  fi
+
+#bash - bash shell:
+ bash_OK="false"
+ if [ "$which_OK" = "true" ];
+  then
+   BashShell=$(which bash)
+   if [ $? -eq 0 ] ;
+    then
+     bash_OK="true"
+   fi
+  else 
+   BashShell="/bin/bash"
+   echo ""
+   echo_warning_no_bash_shell_found
+   echo ""
+   sleep 2
+ fi
+
+#tr - case converter:
+ tr_OK="false"
+ if [ "$which_OK" = "true" ];
+  then
+   which tr >/dev/null 2>&1
+   if [ $? -eq 0 ] ;
+    then
+     tr_OK="true"
+   fi
+  else 
+   tr --help >/dev/null 2>&1
+   if [ $? -ne 127 ] ;
+    then
+     tr_OK="true"
+   fi
+ fi
+#/proc/cpuinfo - useful for CPU count detection:
+ cpuinfo_OK="false"
+ if [ -r /proc/cpuinfo ] ;
+  then
+   cpuinfo_OK="true"
+  else
+   if [ "$which_OK" = "true" ];
+    then
+     which sysctl >/dev/null 2>&1
+     if [ $? -eq 0 ] ;
+      then
+       cpuinfo_OK="true"
+     fi
+    else 
+     sysctl --help >/dev/null 2>&1
+     if [ $? -ne 127 ];
+      then
+       cpuinfo_OK="true"
+     fi
+   fi
+ fi
+ if [ "$cpuinfo_OK" = "false" ];
+  then
+   echo ""
+   echo_warning_no_cpus
+   echo ""
+   sleep 2
+ fi     
+#wget - for downloading the FAH client and other files:
+ fileget_OK="false"
+   if [ "$which_OK" = "true" ];
+    then
+     which wget >/dev/null 2>&1
+     if [ $? -eq 0 ] ;
+      then
+       fileget_OK="true"
+       fget="wget -c -t0 -N"
+      else
+       which curl >/dev/null 2>&1
+       if [ $? -eq 0 ] ;
+        then
+         fileget_OK="true"
+         fget="curl -O"
+       fi
+     fi
+    else 
+     wget --help >/dev/null 2>&1
+     if [ $? -ne 127 ] ;
+      then
+       fileget_OK="true"
+       fget="wget -c -t0 -N"
+      else 
+#curl - for downloading the FAH client and other files:  
+       curl --help >/dev/null 2>&1
+       if [ $? -ne 127 ] ;
+        then
+         fileget_OK="true"
+         fget="curl -O"
+       fi
+     fi
+   fi
+ if [ "$fileget_OK" = "false" ];
+  then
+     nofetch="true";
+     echo ""
+     echo_warning_no_wget_or_curl
+     echo ""
+     sleep 2
+ fi
+#md5sum - for FAH client download MD5 verification:
+ md5_OK="false"
+ md5check="md5sum"
+ if [ "$which_OK" = "true" ];
+  then
+     which md5sum >/dev/null 2>&1
+     if [ $? -eq 0 ] ;
+      then
+       md5_OK="true"
+      else
+       which md5 >/dev/null 2>&1
+       if [ $? -eq 0 ] ;
+        then
+         md5_OK="true"
+         md5check="md5"
+       fi
+     fi
+    else 
+     md5sum finstall >/dev/null 2>&1
+      if [ $? -eq 127 ] ;
+       then
+        md5 finstall >/dev/null 2>&1
+        if [ $? -ne 127 ] ;
+         then
+          md5check="md5"
+          md5_OK="true"
+        fi
+       else
+        md5_OK="true"
+      fi
+ fi      
+ if [ "$md5_OK" = "false" ];
+  then
+   nomd5="true";
+   echo ""
+   echo_warning_no_md5
+   echo ""
+   sleep 2
+ fi 
+#screen utility checking:
+ if [ "$screen" = "true" ];
+  then
+   if [ "$which_OK" = "true" ];
+    then
+     which screen >/dev/null 2>&1
+     if [ $? -ne 0 ] ;
+      then
+       noscreen="true";
+       screen="false";
+       echo ""
+       echo_warning_no_screen_utility
+       echo ""
+       sleep 2
+     fi
+    else 
+     screen --help >/dev/null 2>&1
+     if [ $? -eq 127 ] ;
+      then
+       noscreen="true";
+       screen="false";
+       echo ""
+       echo_warning_no_screen_utility
+       echo ""
+       sleep 2
+     fi
+   fi      
+  else
+   noscreen="true"
+ fi
+#  
+ echo_check_tools_end
+ echo -e "nofetch: $nofetch \t nomd5: $nomd5 \t copycfg: $copycfg"
+ echo -e "keepcfg: $keepcfg \t norun: $norun \t no3rd: $no3rd"
+ echo -e "freebsd: $freebsd \t wine: $wine \t skip3rd: $skip3rd"
+ echo -e "fcliA: $fcliA \t fcliB: $fcliB \t nodocs: $nodocs"
+ echo -e "get3rd: $get3rd \t setid: $setid \t keepid: $keepid"
+ echo -e "auto: $auto \t screen: $screen \t noscreen: $noscreen"
+ echo -e "samba: $samba \t macosx: $macosx \t linux: $linux"
+ echo -e "setcfg: $setcfg \t gentoo: $gentoo \t openbsd: $openbsd"
+ echo -e "smp: $smp \t dirs: $DirNum"
+ echo ""
+}
+
+#Runtime detection of CPU count:
+Get_CPUno() {
+local CPUno
+if [ "$cpuinfo_OK" = "true" ] ;
+ then
+  if [ -r /proc/cpuinfo ];
+   then      
+    CPUno=$(echo $(grep "vendor_id" /proc/cpuinfo | wc -l))
+   else
+    CPUno=$(sysctl -n hw.ncpu)
+  fi    
+#If somehow there are zero processors reported then obviously this detection
+#did not work well, but at least one CPU this machine must have....
+ else
+#No /proc/cpuinfo file - I can not say how many CPUs are there...
+  CPUno=1
+fi 
+if [ $CPUno = 0 ];
+ then CPUno=1
+fi
+echo $CPUno
+}
+
+
+#FaH file creation:
+FAH_Create_FaH() {
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+#
+# This is FAH (folding.stanford.edu) client startup file.
+# To get to know more about FAH go to http://folding.stanford.edu.
+#
+# Constructed by Ivo Sarak.
+# Send Your comments, help and suggestions to ivo at vendomar dot ee.
+#
+# (My) FAH client documentation:
+# http://ra.vendomar.ee/~ivo/FAHLinux.txt
+# Finstall documentation (finstall/folding FAQ):
+# http://ra.vendomar.ee/~ivo/finstallFAQ.txt
+#
+# (Optional) FAH client flags can be set in 3 separate files or/and by setting 
+# environment variable 'FAH_flags'.
+# ./FaH will run these files before it will start FAH client:
+# 1. File 'fah_config' inside user/donator home directory;
+# 2. File 'fah_config' inside foldingathome directory;
+# 3. File 'fah_config' inside CPU directory;
+#
+# If the file 'fah_config' is present, it will be started and only thing it
+# should do is to modify 'FAH_flags' variable to its likings.
+#
+# Every one of these files can override previous 'FAH_flags' value and 
+# set it's own. This is making possible to set per CPU based FAH flags. 
+# The easiest way to set FAH client flags is to:
+# [user@machine user]$ cd
+# [user@machine user]$ echo 'FAH_flags="myflags"' > fah_config 
+#
+# "myflags" must be legal FAH client flags. To get these flags run
+# ./FaH -?
+# or/and read FAH client documentation.
+# 
+# Note: If there are any arguments given to ./FaH then the FAH client will
+# be run only with these as a FAH client flag(s) and all other ways of 
+# configuration will be ignored.
+#
+#Set 'FAH_default_flags' to FAH client flags You want to be used every time.
+#Note: You can not override these flags with any method...
+
+FAH_default_flags="$FAH_default_flags"
+add_pref="$add_pref"
+
+#Set PATH to ensure availablility of external utilities:
+PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/local/bin:/usr/sbin:.
+
+cd $Fdir/$Dir$CurrentCPU/
+
+if [ "\$1" = "" ];
+ then
+  if [ -r ~/fah_config ];
+   then
+#Import 'fah_config' in user home directory:
+. ~/fah_config
+  fi
+  if [ -r ../fah_config ];
+   then
+#Import 'fah_config' in foldinghome directory:
+. ../fah_config
+  fi
+  if [ -r ./fah_config ];
+   then
+#Import 'fah_config' in CPU directory:
+. ./fah_config
+  fi
+ else
+  FAH_flags="" 
+  add_pref=""
+fi
+
+echo ""
+echo "Starting FAH..."
+echo ""
+
+\$add_pref $add_front $Fdir/$Dir$CurrentCPU/$fahclient \$FAH_flags \$FAH_default_flags $add_tail \$@
+
+EOF
+echo_created $1
+sleep 3
+}
+
+#finstallSamba file creation:
+FAH_Create_finstallSamba() {
+local terminator
+terminator=EOF
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is script for adding a Samba share to FAH ("Folding At Home") client location.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+#This portion is written by Andrew Draut:
+#The following simply adds a share by appending the needed information to /etc/samba/smb.conf.
+#This does NOT setup Samba for sharing, this must be done prior to running this script.
+#You can learn more about configuring Samba at http://www.samba.org/
+
+Fpath=$Fdir
+#tr utility will be used if it is available:
+tr_OK=$tr_OK
+
+AskChoice(){
+#Ask for y/n type choice.
+#Input: \$Message
+#Output: \$Answer
+local answerOK
+local input_count
+
+input_count=0
+answerOK="false"
+while [ "\$answerOK" = "false" ]
+ do
+  if [ \$input_count -gt 9 ];
+   then
+    echo
+    echo CANCELLED!
+    echo
+    exit 1
+  fi
+			     
+  echo -n "\$Message"
+  read Answer
+
+  if [ "\$tr_OK" = "true" ]
+   then
+    Answer=\$(echo \$(echo "\$Answer" | tr A-Z a-z))
+  fi
+  if [ "\$Answer" = "yes"  -o  "\$Answer" = "y"  -o   "\$Answer" = "no"  -o "\$Answer" = "n" ]
+   then
+    answerOK="true"
+  fi
+
+  let "input_count=input_count+1"
+ done
+}
+
+#Write the settings to the file
+SetSMBSettings() {
+ local ShareDefined
+ ShareDefined=no
+ while [ "\$ShareDefined" = "no" ]
+  do
+   local ShareName=""
+   local public_var=""
+   local guest_ok_var=""
+   local writeable_var=""
+   local valid_users_var=""
+
+   Answer=n
+   while [ "\$Answer" = "n" -o "\$Answer" = "no" ]
+    do
+     ShareName=""
+     while [ "\$ShareName" = "" ]
+      do
+       echo -n "Input the share name '(ex. FOLDING)': "
+       read ShareName
+       ShareName=\$(echo "\$ShareName")
+       if [ "\$ShareName" = "" ];
+        then
+         echo ""
+         echo "Share name can not be empty!"
+         echo ""
+       fi
+      done
+     Message="Is the share name '\$ShareName' correct (y/n)?: "
+     AskChoice
+    done
+
+   Message="Make this share public (y/n)?: "
+   AskChoice
+   if [ "\$Answer" = "y" -o "\$Answer" = "yes" ]
+    then
+     public_var=yes
+    else
+     public_var=no
+   fi
+
+   Message="Make it available to guests (y/n)?: "
+   AskChoice
+   if [ "\$Answer" = "y" -o "\$Answer" = "yes" ]
+    then
+     guest_ok_var=yes
+    else
+     guest_ok_var=no
+   fi
+
+   Message="Make it writable (y/n)?: "
+   AskChoice
+   if [ "\$Answer" = "y" -o "\$Answer" = "yes" ]
+    then
+     writeable_var=yes
+    else
+     writeable_var=no
+   fi
+
+   Message="Would you like to define user(s) that have access to this share (y/n)?: "
+   AskChoice
+   if [ "\$Answer" = "y" -o "\$Answer" = "yes" ]
+    then
+     Answer=n
+     while [ "\$Answer" = "n" -o "\$Answer" = "no" ]
+      do
+       valid_users_var=""
+       while [ "\$valid_users_var" = "" ]
+        do
+         echo -n "Enter the users to give access to (use space as a separator): "
+         read valid_users_var
+         valid_users_var=\$(echo "\$valid_users_var")
+         if [ "\$valid_users_var" = "" ];
+          then
+           echo ""
+           echo "Valid users list can not be empty!"
+           echo ""
+         fi
+        done
+       Message="Is the valid users list '\$valid_users_var' correct (y/n)?: "
+       AskChoice
+      done
+   fi
+   cat << $terminator
+
+Share will be written to /etc/samba/smb.conf as follows:
+
+    [\$ShareName]
+     comment = \$ShareName
+     path = \$Fpath
+     public = \$public_var
+     guest ok = \$guest_ok_var
+     writable = \$writeable_var
+$terminator
+   if [ "\$valid_users_var" != "" ]
+    then
+     echo "     valid users = \$valid_users_var"
+   fi
+   echo ""
+   Message="Do You want to change this share definition (y/n)?: "
+   AskChoice
+   echo ""
+   if [ "\$Answer" = "n" -o "\$Answer" = "no" ]
+    then
+     ShareDefined=yes
+    else
+     echo "Starting over..."
+     echo ""
+   fi
+  done
+ echo "Writing share to /etc/samba/smb.conf..."
+ cat << $terminator >>/etc/samba/smb.conf
+
+    [\$ShareName]
+     comment = \$ShareName
+     path = \$Fpath
+     public = \$public_var
+     guest ok = \$guest_ok_var
+     writable = \$writeable_var
+$terminator
+
+ if [ "\$valid_users_var" != "" ]
+  then
+   echo "     valid users = \$valid_users_var" >>/etc/samba/smb.conf
+ fi
+ sleep 3
+ return 0
+}
+
+#Check that the user is logged in as root:
+CheckROOT() {
+#Output: 0 - user is root, 1 - user is not root.
+ local CurrentUser
+
+ CurrentUser=\$(whoami)
+
+ if [ "\$CurrentUser" = "root" ];
+  then
+#OK
+   return 0
+  else
+#NOK
+   return 1
+ fi
+}
+
+CheckROOT
+UserOK=\$?
+if [ \$UserOK -eq 0 ];
+ then
+  echo ""
+  echo "Defining SAMBA share for \$Fpath directory..."
+  echo ""
+  SetSMBSettings
+  echo ""
+  echo "Setup complete!"
+  echo ""
+  sleep 3
+  exit 0
+ else
+  echo ""
+  echo "This script must be run as root!"
+  echo "Cancelling installation..."
+  sleep 3
+  exit 1
+fi
+#END
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#MacOSX service install file creation:
+FAH_Create_MacOSX_install(){
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is FAH ("Folding At Home") service installation script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+Fpath="$Fdir"
+StartDir="/Library/StartupItems/fah"
+#tr utility will be used if it is available:
+tr_OK=$tr_OK
+
+AskChoice(){
+#Ask for y/n type choice.
+#Input: \$Message
+#Output: \$Answer
+local answerOK
+local input_count
+
+input_count=0
+answerOK="false"
+while [ "\$answerOK" = "false" ]
+ do
+  if [ \$input_count -gt 9 ];
+   then
+    echo
+    echo CANCELLED!
+    echo
+    exit 1
+  fi
+			     
+  echo -n "\$Message"
+  read Answer
+
+  if [ "\$tr_OK" = "true" ]
+   then
+    Answer=\$(echo \$(echo "\$Answer" | tr A-Z a-z))
+  fi
+  if [ "\$Answer" = "yes"  -o  "\$Answer" = "y"  -o   "\$Answer" = "no"  -o "\$Answer" = "n" ]
+   then
+    answerOK="true"
+  fi
+
+  let "input_count=input_count+1"
+ done
+}
+
+echo "Installing FAH as a service..."
+echo ""
+if [ -r \${StartDir} ];
+ then
+  echo "'\${StartDir}' is present."
+  Message="Do You want to reinstall it?: "
+  AskChoice
+  if [ \$Answer = "n" -o \$Answer = "no" ];
+   then 
+    exit
+  fi 
+  sudo rm -r \${StartDir}
+fi  
+sudo mkdir -p \${StartDir}
+sudo cp \${Fpath}/fah \${StartDir}
+sudo cp \${Fpath}/StartupParameters.plist \${StartDir}
+#END
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#MacOSX service uninstall file creation:
+FAH_Create_MacOSX_uinstall(){
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is FAH ("Folding At Home") service remove script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+StartDir="/Library/StartupItems/fah"
+
+echo "Uninstalling FAH service..."
+sudo rm -r \${StartDir}
+#END
+EOF
+chmod +x $1
+echo "...$1 created."
+sleep 1
+}
+
+#MacOSX "fah" file creation:
+FAH_Create_MacOSX_fold(){
+echo "Creating $1..."
+cat << EOF > $1
+#!/bin/sh
+
+##
+# Folding@Home (http://folding.stanford.edu) client(s) as service.
+##
+
+. /etc/rc.common
+
+StartService ()
+{
+    ConsoleMessage "Starting Folding@Home"
+    $Fdir/folding start
+}
+	
+StopService ()
+{
+    ConsoleMessage "Stopping Folding@Home"
+    $Fdir/folding stop
+}
+		
+RestartService ()
+{
+    ConsoleMessage "Restarting Folding@Home"
+    $Fdir/folding restart
+}
+		
+RunService "\$1"
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#MacOSX StartupParameters.plist file creation:
+FAH_Create_MacOSX_StartupParameters(){
+echo_creating $1
+cat << EOF > $1
+{
+ Description     = "Folding@Home Services";
+ Provides        = ("fah");
+ Requires        = ();
+ Uses            = ("SystemLog","Disks","Network");
+ OrderPreference = "Last";
+}
+EOF
+echo_created $1
+sleep 1
+}
+
+#Linux service install file creation:
+FAH_Create_Linux_install(){
+local terminator
+terminator=EOF
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is FAH ("Folding At Home") service installation script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+StartDir="/etc/init.d"
+Fpath="$Fdir"
+#tr utility will be used if it is available:
+tr_OK=$tr_OK
+
+UseSudo=false
+# Several Linux distros these days use sudo instead of a separate root account,
+# use of the su command is only allowed to the root user or users who use sudo.
+# So for finstall to work, it has to use sudo to run the su command or the it
+# will not be allowed.
+#
+# The LSB specifies two ways to find out which distro your program is run on.
+# The file /etc/lsb-release, and the program /usr/bin/lsb_release.
+# The program is the only thing specified in the standard, so the file may be 
+# missing even on LSB conforming distros.
+# 
+# See also: 
+# http://lists.freestandards.org/pipermail/lsb-discuss/2004-May/002143.html
+# http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/lsbrelease.html
+#
+# Check for /etc/lsb-release and inside it for distribution name
+#
+# \$ cat /etc/lsb-release
+# DISTRIB_ID=Ubuntu
+# DISTRIB_RELEASE=6.06
+# DISTRIB_CODENAME=dapper
+# DISTRIB_DESCRIPTION="Ubuntu 6.06.1 LTS"
+if [ -r /etc/lsb-release ]
+ then
+# using Ubuntu?
+  ret=\$(grep DISTRIB_ID /etc/lsb-release | sed 's/^\w*=//')
+  if [ "X\$ret" == "XUbuntu" ]
+   then
+    UseSudo=true
+  fi
+elif [ -x /bin/lsb_release ]
+ then
+# using Ubuntu?
+  ret=\$(/bin/lsb_release --id | sed 's/^Distributor ID:\t//')
+  if [ "X\$ret" == "XUbuntu" ]
+   then
+    UseSudo=true
+  fi
+elif [ -x /usr/bin/lsb_release ]
+ then
+# using Ubuntu?
+  ret=\$(/usr/bin/lsb_release --id | sed 's/^Distributor ID:\t//')
+  if [ "X\$ret" == "XUbuntu" ]
+   then
+    UseSudo=true
+  fi
+fi
+
+AskChoice(){
+#Ask for y/n type choice.
+#Input: \$Message
+#Output: \$Answer
+local answerOK
+local input_count
+
+input_count=0
+answerOK="false"
+while [ "\$answerOK" = "false" ]
+ do
+  if [ \$input_count -gt 9 ];
+   then
+    echo
+    echo CANCELLED!
+    echo
+    exit 1
+  fi
+			     
+  echo -n "\$Message"
+  read Answer
+
+  if [ "\$tr_OK" = "true" ]
+   then
+    Answer=\$(echo \$(echo "\$Answer" | tr A-Z a-z))
+  fi
+  if [ "\$Answer" = "yes"  -o  "\$Answer" = "y"  -o   "\$Answer" = "no"  -o "\$Answer" = "n" ]
+   then
+    answerOK="true"
+  fi
+
+  let "input_count=input_count+1"
+ done
+}
+ServiceInstall(){
+cat << $terminator
+#!$BashShell
+if [ -w \${StartDir}/folding ];
+ then
+  rm -f \${StartDir}/folding
+fi  
+cp \${Fpath}/folding \${StartDir}/
+if [ -e /etc/debian_version ]; 
+ then
+#Debian specific:
+  update-rc.d folding defaults
+ else
+#All other Linux distros:
+  chkconfig --add folding
+fi 
+$terminator
+}
+echo "Installing FAH as a service..."
+echo ""
+if [ -r \${StartDir}/folding ];
+ then
+  echo "'\${StartDir}/folding' is present."
+  Message="Do You want to reinstall it?: "
+  AskChoice
+  if [ "\$Answer" = "n" -o "\$Answer" = "no" ];
+   then 
+    exit
+  fi 
+fi
+
+# When running on Ubuntu use sudo, because su is not available to normal users
+if [ \$UseSudo == true ]
+ then
+  sudo su - -c "\$(ServiceInstall)"
+ else
+  su - -c "\$(ServiceInstall)"
+fi
+
+#END
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#Linux service uinstall file creation:
+FAH_Create_Linux_uinstall(){
+local terminator
+terminator=EOF
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is FAH ("Folding At Home") service remove script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+StartDir="/etc/init.d"
+
+UseSudo=false
+# Several Linux distros these days use sudo instead of a separate root account,
+# use of the su command is only allowed to the root user or users who use sudo.
+# So for finstall to work, it has to use sudo to run the su command or the it
+# will not be allowed.
+#
+# The LSB specifies two ways to find out which distro your program is run on.
+# The file /etc/lsb-release, and the program /usr/bin/lsb_release.
+# The program is the only thing specified in the standard, so the file may be 
+# missing even on LSB conforming distros.
+# 
+# See also: 
+# http://lists.freestandards.org/pipermail/lsb-discuss/2004-May/002143.html
+# http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/lsbrelease.html
+#
+# Check for /etc/lsb-release and inside it for distribution name
+#
+# \$ cat /etc/lsb-release
+# DISTRIB_ID=Ubuntu
+# DISTRIB_RELEASE=6.06
+# DISTRIB_CODENAME=dapper
+# DISTRIB_DESCRIPTION="Ubuntu 6.06.1 LTS"
+if [ -r /etc/lsb-release ]
+ then
+# using Ubuntu?
+  ret=\$(grep DISTRIB_ID /etc/lsb-release | sed 's/^\w*=//')
+  if [ "X\$ret" == "XUbuntu" ]
+   then
+    UseSudo=true
+  fi
+elif [ -x /bin/lsb_release ]
+ then
+# using Ubuntu?
+  ret=\$(/bin/lsb_release --id | sed 's/^Distributor ID:\t//')
+  if [ "X\$ret" == "XUbuntu" ]
+   then
+    UseSudo=true
+  fi
+elif [ -x /usr/bin/lsb_release ]
+ then
+# using Ubuntu?
+  ret=\$(/usr/bin/lsb_release --id | sed 's/^Distributor ID:\t//')
+  if [ "X\$ret" == "XUbuntu" ]
+   then
+    UseSudo=true
+  fi
+fi
+		
+ServiceUnInstall(){
+cat << $terminator 
+if [ -e /etc/debian_version ]; 
+ then
+#Debian specific:
+  update-rc.d -f folding remove
+ else
+#All other Linux distros:
+  chkconfig --del folding
+fi
+if [ -w \${StartDir}/folding ];
+ then
+  rm -f \${StartDir}/folding
+fi
+$terminator
+}
+echo "Uninstalling FAH service..."
+# When running on Ubuntu use sudo, because su is not available to normal users
+if [ \$UseSudo == true ]
+ then
+  sudo su - -c "\$(ServiceUnInstall)"
+ else
+  su - -c "\$(ServiceUnInstall)"
+fi
+      
+#END
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#OpenBSD service install file creation:
+FAH_Create_OpenBSD_install(){
+local terminator
+terminator=EOF
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is FAH ("Folding At Home") service installation script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+Fpath="$Fdir"
+
+echo "Installing FAH as a service..."
+echo ""
+echo "What user shall I run FAH as?"
+read USERNAME
+
+AlreadyInstalled=\`grep -c \$Fpath/folding /etc/rc.local\`
+if [ \$AlreadyInstalled -gt 0 ]
+ then
+  echo "Service already installed, quitting."
+  exit
+fi
+
+cat >> /etc/rc.local << $terminator
+#Start up Folding@Home Service
+echo "Starting Folding@Home Service..."
+su \$USERNAME -c "\$Fpath/folding start"
+$terminator
+
+cat >> /etc/rc.shutdown << $terminator
+#Shut down Folding@Home Service
+su \$USERNAME -c "\$Fpath/folding stop"
+echo "Sleeping 20 seconds to allow Folding@Home service time to shut down properly..."
+sleep 20
+$terminator
+	   
+#END
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#(Periodic) FAH backup script creation:
+FAH_Create_fahback(){
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+#
+# ./fahback is for backing up FAH installation.
+# To get to know more about FAH go to http://folding.stanford.edu.
+#
+# Primary reason of this is to help catch "BADWU1" type of WUs.
+# "BADWU1" type WUs are these Gromacs WUs what will freeze/lockup the AMD CPUs when SSE is enabled.
+# For more information: 
+# http://forum.folding-community.org/viewtopic.php?t=4444
+#
+# To get periodic backups (30min):
+# Run "crontab -e", type "i" and add this line:
+# */30 * * * * $current_directory/fahback
+# Then press [esc] and ":x".
+#
+
+Fpath="$Fdir"
+FAH="$current_directory"
+
+if [ -r \${FAH}/fah_back1.tgz ];
+ then
+  if [ -r \${FAH}/fah_back2.tgz ];
+   then
+    rm -f \${FAH}/fah_back2.tgz
+  fi
+  mv \${FAH}/fah_back1.tgz \${FAH}/fah_back2.tgz
+fi
+tar czf \${FAH}/fah_back1.tgz \${Fpath}	      
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+# get_qdinfo script creation:
+FAH_Create_get_qdinfo(){
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+#
+# ./get_qdinfo is for downloading qdinfo.dat file.
+# To get to know more about FAH go to http://folding.stanford.edu.
+#
+
+Fpath="$Fdir"
+
+cd \$Fpath
+
+if [ -r $qd_df1 ] ;
+ then
+  echo
+  echo "Removing $qd_df1..."
+  echo
+  rm -r $qd_df1
+fi
+echo
+echo "Downloading $qd_df1:"																						     
+echo 
+$fget $qd_df1_dwnl$qd_df1
+
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#Gentoo service install file creation:
+FAH_Create_Gentoo_install(){
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is FAH ("Folding At Home") service installation script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+Fpath="$Fdir"
+StartDir="/etc/init.d"
+#tr utility will be used if it is available:
+tr_OK=$tr_OK
+
+AskChoice(){
+#Ask for y/n type choice.
+#Input: \$Message
+#Output: \$Answer
+local answerOK
+local input_count
+
+input_count=0
+answerOK="false"
+while [ "\$answerOK" = "false" ]
+ do
+  if [ \$input_count -gt 9 ];
+   then
+    echo
+    echo CANCELLED!
+    echo
+    exit 1
+  fi
+			     
+  echo -n "\$Message"
+  read Answer
+
+  if [ "\$tr_OK" = "true" ]
+   then
+    Answer=\$(echo \$(echo "\$Answer" | tr A-Z a-z))
+  fi
+  if [ "\$Answer" = "yes"  -o  "\$Answer" = "y"  -o   "\$Answer" = "no"  -o "\$Answer" = "n" ]
+   then
+    answerOK="true"
+  fi
+
+  let "input_count=input_count+1"
+ done
+}
+
+echo "Installing FAH as a service..."
+echo ""
+if [ -r \${StartDir}/zzfah ];
+ then
+  echo "'\${StartDir}/zzfah' is present."
+  Message="Do You want to reinstall it?: "
+  AskChoice
+  if [ \$Answer = "n" -o \$Answer = "no" ];
+   then 
+    exit
+  fi 
+  sudo rc-update del zzfah default
+  sudo rm -r \${StartDir}/zzfah
+  if [ -r \${StartDir}/folding ];
+   then
+    sudo rm -r \${StartDir}/folding
+  fi    
+fi  
+sudo cp \${Fpath}/zzfah \${StartDir}
+sudo cp \${Fpath}/folding \${StartDir}
+sudo rc-update add zzfah default
+#END
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#Gentoo service uninstall file creation:
+FAH_Create_Gentoo_uinstall(){
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is FAH ("Folding At Home") service remove script.
+# To get to know more about FAH go to http://folding.stanford.edu.
+
+StartDir="/etc/init.d"
+
+echo "Uninstalling FAH service..."
+sudo rc-update del zzfah default
+if [ -r \${StartDir}/zzfah ];
+ then
+  sudo rm -r \${StartDir}/zzfah
+fi  
+if [ -r \${StartDir}/folding ];
+ then
+  sudo rm -r \${StartDir}/folding
+fi  
+#END
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+#Gentoo "zzfah" file creation:
+FAH_Create_Gentoo_fold(){
+echo_creating $1
+cat << EOF > $1
+#!/sbin/runscript
+
+##
+# Folding@Home (http://folding.stanford.edu) client(s) as service.
+##
+
+depend() {
+    need net
+}
+
+start() {
+    ebegin "Starting Folding@Home"
+    $Fdir/folding start
+    eend \$?
+}
+
+stop() {
+    ebegin "Stopping Folding@Home"
+    $Fdir/folding stop
+    eend \$?
+}
+
+restart() {
+    ebegin "Restarting Folding@Home"
+    $Fdir/folding restart
+    eend \$?
+}
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+
+#"folding" script creation:
+FAH_Create_folding(){
+echo_creating $1
+cat << EOF > $1
+#!$BashShell
+# This is init/startup (*) script of FAH client for Linux, FreeBSD and MacOSX. 
+# Likely it will work on other *nix compatible OSes as well...
+#
+# To get to know more about FAH go to http://folding.stanford.edu.
+#
+# (*) thanks go to Den for the backbone of this script, although there is
+# nothing left from it (except an idea).
+#
+# Constructed by Ivo Sarak.
+# Send Your comments, help and suggestions to ivo at vendomar dot ee.
+#
+# You can get some additional information from 
+# http://ra.vendomar.ee/~ivo/FAHLinux.txt
+#
+# Finstall at folding-community.org:
+# http://forum.folding-community.org/viewtopic.php?t=2283
+# Finstall documentation (finstall/folding FAQ):
+# http://ra.vendomar.ee/~ivo/finstallFAQ.txt
+#
+# chkconfig: 345 93 14
+# description: Starts and stops the FAH (http://folding.stanford.edu) client(s).
+
+Folding_Script_Version="5.9"
+
+#Folding path
+Fdir=$Fdir
+
+#FAH CPU subdirectory name:
+Dir=$Dir
+
+#FAH client name:
+fahclient=$fahclient
+
+#Bash shell:
+BashShell=$BashShell
+
+#Dick Howell's FAH utilities:
+qd_exec=$qd_exec
+fpd_exec=$fpd_exec
+
+#Set PATH to ensure availablility of external utilities:
+PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin
+
+#Run FAH services as USER:
+RunAsUser=$USER
+
+#Test the availability of some external utils:
+Check_Utils() {
+local temp
+
+#which - "app finder":
+ which_OK="false"
+#MacOSX 10.2 "which" will not set return codes at all and
+#MacOSX 10.3 Service Startup is messing with "which"...
+#...ban "which" on MacOSX:
+  let "temp=\$(echo \$(echo \$OSTYPE)|grep darwin|wc -l)"
+#temp=1 if OSTYPE has "darwin" in it.
+  if [ \$temp -eq 0 ]; 
+   then
+#Other OSes should run "which" just fine...    
+    which --version >/dev/null 2>&1
+    if [ \$? -ne 127 ] ;
+     then
+      which_OK="true"
+    fi
+  fi
+
+#/proc/cpuinfo - useful for CPU count detection:
+ cpuinfo_OK="false"
+ if [ -r /proc/cpuinfo ] ;
+  then
+   cpuinfo_OK="true"
+  else
+   if [ "\$which_OK" = "true" ];
+    then
+     which sysctl >/dev/null 2>&1
+     if [ \$? -eq 0 ] ;
+      then
+       cpuinfo_OK="true"
+     fi
+    else 
+     sysctl --help >/dev/null 2>&1
+     if [ \$? -ne 127 ];
+      then
+       cpuinfo_OK="true"
+     fi
+   fi
+ fi
+
+#pidof - for getting the pids of running procs:
+ pidof_OK="false"
+ getpids="pidof -x"
+
+   if [ "\$which_OK" = "true" ];
+    then
+     which pidof >/dev/null 2>&1
+     if [ \$? -eq 0 ] ;
+      then
+       pidof_OK="true"
+     fi
+    else 
+     pidof --help >/dev/null 2>&1
+     if [ \$? -ne 127 ] ; 
+      then
+       pidof_OK="true"
+     fi     
+   fi
+
+# pidof_OK="false"
+
+ if [ "\$pidof_OK" = "false" ];
+  then
+#No native "pidof" available, use homemade:
+   getpids="pidof_x"
+ fi        
+}
+
+#Runtime detection of CPU count:
+Get_CPUno() {
+local CPUno
+if [ "\$cpuinfo_OK" = "true" ] ;
+ then
+  if [ -r /proc/cpuinfo ];
+   then      
+    CPUno=\$(echo \$(grep "vendor_id" /proc/cpuinfo | wc -l))
+   else
+    CPUno=\$(sysctl -n hw.ncpu)
+  fi    
+#If somehow there are zero processors reported then obviously this detection
+#did not work well, but at least one CPU this machine must have....
+ else
+#No /proc/cpuinfo file - I can not say how many CPUs are there...
+  CPUno=1
+fi 
+if [ \$CPUno = 0 ];
+ then CPUno=1
+fi
+echo \$CPUno
+}
+
+#Word count:
+get_word_count() {
+#Input: \$1...=words
+#Output: word count.
+echo \$#
+}
+
+#Unique word detection and acceptance to string (not using 
+#global variables):
+keep_uniques() {
+#This function is used for ensuring that all values used (pids, corenames,
+#...) are uniques.
+#Input: \$1=already known unique word count (0..N)
+# \$2..\$N+1=already known unique words
+# \$N+2..=unknown words to be checked
+#Output: If \$?=0 then list of unique words.
+# \$?=1 if error.
+
+local KnownUniques
+local possUniques
+local oldUnique
+local poss
+local Word
+local N
+local paramcount
+local knowncount
+
+let "N=1"
+let "paramcount=\$#"
+
+if [ "\$(Integer_Check \$1)" = "false" ];
+ then
+  return 1
+fi
+
+let "knowncount=\$1"
+
+if [ \$knowncount -gt \$paramcount ];
+ then
+  let "knowncount=paramcount"
+fi
+
+KnownUniques=""
+possUniques=""
+
+while [ \$N -le \$knowncount ]
+ do
+  KnownUniques="\$KnownUniques \$2"
+  shift
+  let "N=N+1"
+ done
+let "N=N+1"
+while [ \$N -le \$paramcount ]
+ do
+  possUniques="\$possUniques \$2"
+  shift
+  let "N=N+1"
+ done
+
+#echo \$KnownUniques
+#echo \$possUniques
+
+#Look if this "word" is already reported:
+for poss in \$possUniques
+ do
+  oldUnique="false";
+  for Word in \$KnownUniques
+   do
+    if [ "\$Word" = "\$poss" ]
+     then
+      oldUnique="true";
+    fi
+   done
+  if [ "\$oldUnique" = "false" ]
+   then
+#If new unique "word" then add it to know list:
+    KnownUniques="\$poss \$KnownUniques";
+  fi
+ done
+echo \$KnownUniques
+return 0
+}
+
+#Unique word detection and acceptance to string (using global variables):
+AddUniques() {
+#This function is used for ensuring that all values used (pids, corenames, 
+#...) are uniques.
+#Input:
+#possUniques=list of possible unique "words".
+#KnownUniques=list of known unique "words".
+#Output:
+#KnownUniques=list of old unique "words" + new unique "words".
+local oldUnique
+local poss
+local Word
+#Look if this "word" is already reported:
+for poss in \$possUniques
+ do
+  oldUnique="false";
+  for Word in \$KnownUniques
+   do
+    if [ "\$Word" = "\$poss" ]
+     then
+      oldUnique="true";
+    fi
+   done
+  if [ "\$oldUnique" = "false" ]
+   then
+#If new unique "word" then add it to know list:
+    KnownUniques="\$poss \$KnownUniques";
+  fi
+ done
+}
+
+#"Visual" pause:
+PausE() {
+#Input: \$1=how many seconds to sleep.
+local co
+local bool
+co=0
+bool=0
+while let "co<\$1"
+ do
+  sleep 1
+  case "\$bool" in
+   "0")
+   echo -n "-"
+   ;;
+   "1")
+   echo -n "="
+   ;;
+   "2")
+   echo -n "*"
+   ;;
+   "3")
+   echo -n "="
+   ;;
+  esac
+  let "co=co+1"
+  let "bool=bool+1"
+  if [ \$bool -eq 4 ];
+   then
+    bool=0
+  fi
+ done
+echo
+}
+
+#"OK":
+echo_success(){
+echo " OK "
+return 0
+}
+
+#"FAILURE":
+echo_failure(){
+echo " FAILURE "
+return 1
+}
+
+#String lenght detection:
+String_Length(){
+#Get string length.
+local empty
+local posit
+local char
+
+empty="false"
+posit=0
+while [ \$empty = "false" ];
+ do
+  char=\$(echo "\${1:\$posit:1}")
+  case "\$char" in
+   "")
+   posit=\$posit-1
+   empty="true";
+   ;;
+  esac
+  let "posit=posit+1"
+ done
+echo \$posit
+}
+
+#Integer check:
+Integer_Check(){
+#Input:
+# \$1 = work to check
+#Output:
+# "true", if this word is an integer;
+# "false", if this word is not an integer;
+#\$? = status (0=integer OK, 1=integer NOK)
+
+local empty
+local posit
+local char
+
+empty="false"
+posit=0
+while [ \$empty = "false" ];
+ do
+  char=\$(echo "\${1:\$posit:1}")
+  case "\$char" in
+   [0-9])
+   echo -n;
+   ;;
+   "")
+   empty="true";
+   if [ \$posit -eq 0 ];
+    then
+     echo "false";
+     return 1;
+   fi
+   ;;
+   *)
+   echo "false";
+   return 1;
+   ;;
+  esac
+  let "posit=posit+1"
+ done
+echo "true"
+return 0
+}
+
+#Dump all before command part in "ps ax" output.
+dump_all_before_command(){
+#Input: \$1..\$n="ps ax" output line.
+#Output: \$1..\$m=all remaining after time string in "ps ax" output line.
+#\$?=0 if TIME was found, \$?=1 if TIME was not found.
+
+local piece
+local stop_procc
+local sub_piece1
+local sub_piece2
+local sub_piece2a
+local sub_piece2b
+local timepiece
+#local line_pos
+
+
+#"Find Time"
+#
+#Format:
+#integer:integer.integer or integer:integer
+#
+  stop_procc="false"
+#  let "line_pos=1"
+
+  while [ \$stop_procc = "false" ];
+   do
+
+    piece="\$1"
+
+#    echo \$line_pos \$piece
+
+    if [ "\$piece" != "" ];
+     then
+#Check the piece only if it has ":" in it:
+      if [ "\$(echo \$piece|grep :|wc -l)" != "0" ];
+       then
+#Check the format.
+
+#Time format:
+#1. XX:YY
+#2. XX:YY.ZZ
+#3. XX:YY:ZZ
+
+#General: Use only first XX:YY and skip the rest...
+
+#Piece of word to first ":":
+        sub_piece1="\$(echo \$(echo "\$piece " | cut -d\\: -f 1))"
+#Piece of word from first ":" to the first "." of the word:
+        sub_piece2a="\$(echo \$(echo "\$piece " | cut -d\\: -f 2 | cut -d\\. -f 1))"
+#Piece of word from first ":" to the second ":" of th word:
+        sub_piece2b="\$(echo \$(echo "\$piece " | cut -d\\: -f 2))"
+
+#Shoter is number we seek:
+
+        test \$(String_Length "\$sub_piece2a") -le \$(String_Length "\$sub_piece2b")
+
+        if [ \$? -eq 0 ];
+         then
+          sub_piece2="\$sub_piece2a"
+         else	
+          sub_piece2="\$sub_piece2b"
+        fi       
+      
+#echo \$sub_piece1
+#echo \$sub_piece2
+
+#      echo \$piece suurus=\$(String_Length "\$piece")
+
+        timepiece="false"
+
+#Test if the size of found "sub_piece1:sub_piece2" is less or
+#equal to original "piece" of word (tested positive if the "piece"
+#starts with "something:something"):
+      
+        test \$(String_Length "\$sub_piece1:\$sub_piece2") -le \$(String_Length "\$piece")
+      
+        if [ \$? -eq 0 ];
+         then
+		   
+#Test if the TIME format is "integer:integer":
+            if [ "\$(Integer_Check \$sub_piece1)" = "true" ];
+             then
+              if [ "\$(Integer_Check \$sub_piece2)" = "true" ];
+               then
+#                echo !TIME! - format integer:integer
+                timepiece="true"
+              fi
+            fi
+        fi
+      
+        if [ "\$timepiece" = "true" ];
+         then
+#Time found - command line starts...
+#          let "line_pos=line_pos+1"
+          shift
+
+#Output all remaining:
+          while [ "\$1" != "" ]
+           do
+            echo -n "\$1 "
+            shift
+           done
+#          stop_procc="true"
+          return 0	
+         else
+#          let "line_pos=line_pos+1"
+	  shift
+        fi
+       else
+#Skip the piece:
+#       let "line_pos=line_pos+1"
+       shift       	
+      fi      	
+     else
+#Empty piece will stop the line:
+#      stop_procc="true"
+      return 1
+    fi
+   done      
+}
+
+#Shell script detection - remove shells:
+remove_shell_strings(){
+#Input: \$1..\$n="ps ax" output line after TIME removal.
+#Output: \$1..\$m=all remaining after possible shell string removal.
+#\$?=0 shell found, \$?=1 no shell found.
+
+local piece
+local status
+
+#NB: Shells possible: \$BashShell and maybe "wine --".
+#I skip "wine" detection for now, because I do not know if this is needed at all.
+
+        piece="\$1"
+	status=1
+#        echo \$piece
+        if [ "\$piece" = "\$BashShell" ];
+         then
+#Shell found:
+#          let "line_pos=line_pos+1"
+	  shift
+	  status=0
+        fi
+
+#Output all remaining:
+        while [ "\$1" != "" ]
+         do
+          echo -n "\$1 "
+          shift
+         done
+
+        return \$status	
+}
+
+#Extract path and executable name from beginning of "executable" string.
+extract_path_exec(){
+#Input: \$1=executable string to extract the path and executable name from.
+#       \$2..\n=possible junk.
+#Output: \$1=path, \$2=exectuable name
+#        \$3..\n+1=possible junk.
+#\$?=0 if PATH was found, \$?=1 if there was no PATH.
+
+local piece
+local last_found
+local dir_pos
+local tree_part
+local prev_part
+local path_part
+local poss_part
+local status
+
+        piece="\$1"
+
+        status=1
+
+        tree_part="\$(echo \$(echo "\$piece " | cut -d\\/  -f 1 ))"
+
+        path_part=""
+
+#Check if there is some "/" in executable name...
+	
+        if [ "\$tree_part" != "\$(echo \$(echo "\$piece " | cut -d\\   -f 1))" ];
+         then
+#...there is, so there is PATH to extract.
+          
+#Now extract path and executable name...
+         
+          poss_part="\$tree_part"
+	  path_part=""
+          status=0
+
+          last_found="false"
+          let "dir_pos=2"
+
+          while [ "\$last_found" = "false" ];
+           do
+            prev_part="\$tree_part"
+            tree_part="\$(echo \$(echo "\$piece " | cut -d\\/  -f \$dir_pos ))"
+
+#            echo \$dir_pos \$tree_part
+
+            if [ "\$tree_part" = "" ];
+             then
+              piece="\$prev_part"
+              last_found="true"
+             else
+#Add another piece to PATH string:	     
+	      path_part="\$path_part\$poss_part"
+	      poss_part="/\$tree_part"
+              let "dir_pos=dir_pos+1"
+            fi
+           done
+        fi
+	
+#return PATH & executable name:	
+	echo -n "\$path_part \$piece "
+
+        shift
+	
+#Output all remaining:
+        while [ "\$1" != "" ]
+         do
+          echo -n "\$1 "
+          shift
+         done
+
+        return \$status
+}
+
+#Will return first word of the string:
+extract_first_word(){
+echo \$1
+return 0
+}
+
+#Will return second word of the string:
+extract_second_word(){
+echo \$2
+return 0
+}
+
+#Will return first word of every input line:
+get_first_word(){
+local endd
+local linee
+endd=0
+while [ \$endd -ne 1 ]
+ do
+  read -r linee
+  endd=\$?
+  extract_first_word \$linee
+ done
+}	
+
+#Will return last word of the string:
+extract_last_word(){
+local word
+
+word=""
+
+while [ "\$1" != "" ];
+ do
+  word=\$1
+  shift 
+ done
+echo \$word
+return 0
+}
+
+#Will return last word of every input line:
+get_last_word(){
+local endd
+local linee
+
+word=""
+
+endd=0
+while [ \$endd -ne 1 ]
+ do
+  read -r linee
+  endd=\$?
+  extract_last_word \$linee
+ done
+}
+
+#Remove first word from line.
+drop_first_word(){
+shift
+echo \$@
+}
+
+#Get process pid values or arguments:
+get_PID_arg(){
+#Input: \$get_arg="true" to get arguments, not pids.
+#       \$proc_name=process name to find.
+#Output: \$KnownUniques or \$argg depending \$get_arg.
+
+local possPID
+local psline
+
+#There is a PID value at the first position of "ps ax" output...
+
+possPID="\$1"
+
+shift
+
+#echo \$possPID
+
+#Read remaining of "ps ax" line output:
+psline="\$@"
+
+#Command line is after TIME string in "ps ax" output line:
+psline=\$(dump_all_before_command \$psline)
+
+#Remove shell if present:
+psline=\$(remove_shell_strings \$psline)
+
+#Extract path and executable name:
+psline=\$(extract_path_exec \$psline)
+
+if [ \$? -eq 0 ]
+ then
+#PATH was in it, remove it from command_part:
+  psline=\$(drop_first_word \$psline)
+fi 
+
+#Get program name:
+piece=\$(extract_first_word \$psline)
+
+#Program/script running:
+
+#       echo Program running: \$piece
+
+        if [ "\$piece" = "\$proc_name" ];
+         then
+
+#          echo \$possPID
+
+          if [ "\$(Integer_Check \$possPID)" = "true" ];
+           then
+
+#Argument getting?
+            if [ "\$get_arg" = "true" ];
+	     then
+#Remove executable name - only arguments will remain:
+	      argg=\$(drop_first_word \$psline)
+	     else				
+#Use only unique PID values:
+
+              possUniques="\$possPID"
+#             echo \$KnownUniques
+              AddUniques
+#             echo \$KnownUniques
+            fi
+          fi
+        fi
+}
+
+#"pidof -x" implementation (from output of "ps ax|grep \$1") using only "cut":
+get_PID() {
+#Input:
+#\$1=process name
+#\$2="arg" if to return proc arguments instead of pid value(s)
+#Output:
+#Function will return some PID values or process arguments if "arg" is set
+#\$?=0 found some PIDs, \$?=1 NOK
+
+local endd
+local linee
+local argg
+local get_arg
+local proc_name
+
+proc_name=\$1
+
+if [ "\$2" = "arg" ];
+ then
+  get_arg="true"
+ else
+  get_arg="false"
+fi
+
+argg=""
+
+endd=0
+while [ \$endd -ne 1 ]
+ do
+  read -r linee
+  endd=\$?
+  get_PID_arg \$linee
+ done
+
+ if [ "\$get_arg" = "false" ];
+  then
+   if [ "\$KnownUniques" != "" ];
+    then
+     echo \$KnownUniques
+     return 0
+    else
+     return 1
+   fi
+  else
+   echo \$argg
+   return 0
+ fi  
+}
+
+#(Slow) "pidof -x" implementation using "ps", "grep" and "cut":
+pidof_x(){
+#Input:
+#\$1=process name
+#Output:
+#Function will return some PID values
+#\$?=0 found some PIDs, \$?=1 NOK
+
+ local KnownUniques
+ local res
+
+ KnownUniques=""
+ PIDs=\$(ps ax|grep \$1|grep -v grep|get_PID \$1)
+ res=\$?
+ echo \$PIDs
+ return \$res
+}
+
+
+set_grow(){
+#Set value to array in growing order.
+#Note: Array must be sorted before adding new value.
+#Input:
+#\$1=new value to add
+#\$2..$n=old array of values
+#Output:
+#\$1..$n=sorted array
+
+local placed
+local new_array
+local new_value
+local old_value
+
+placed="false"
+let "new_value=\$1"
+shift
+new_array=""
+while [ "\$1" != "" ]  
+ do
+  let "old_value=\$1"
+#Looking for greater or equal value:
+  if [ "\$placed" = "false" -a \$old_value -ge \$new_value ]; 
+   then
+#Found, placing new_value before it:	     
+    new_array="\$new_array \$new_value \$old_value"
+    placed="true"
+   else
+    new_array="\$new_array \$old_value"	
+  fi 
+  shift
+ done
+if [ "\$placed" = "false" ];
+ then
+  new_array="\$new_array \$new_value"
+fi  
+echo \$new_array
+}
+
+sort_grow(){
+#Sort array to growing order.
+#Input:
+#\$1..\$n=array to sort to growing order
+#Output: 
+#\$1..$n=sorted array
+
+local sort_array
+
+sort_array=""
+while [ "\$1" != "" ]  
+ do
+  sort_array="\$(set_grow \$1 \$sort_array)"
+  shift
+ done
+
+echo \$sort_array
+}
+
+#Status of running process:
+status(){
+# Input:
+# \$1=process name
+# Output:
+# \$RetPids=process pid values
+local pids
+pids=""
+if [ \$1 = "" ];
+ then
+  echo "No process name is given."
+  return 1
+ else
+#Detect procs run under wine:
+  pids="\$(ps ax|grep wine|grep \$1|get_first_word )"
+#Regular procs and .bash scripts:
+  pids="\$(echo \$pids \$(\$getpids \$1))"
+  pids="\$(sort_grow \$pids)"
+
+  RetPids=\$pids
+  if [ \$? -eq 0 -o \$? -eq 1 ];
+   then
+    if [ "\$pids" = "" ];
+     then
+      echo "\$1 is stopped"
+      return 3
+     else
+      echo "\$1 (pid \$pids) is running"
+      return 0
+    fi
+   else
+    echo '*** Running of "pidof -x '\$1'" is giving an error number '\$?' ***'
+    return \$?
+  fi
+fi
+}
+
+#Get PID written after "-lifeline" in "ps ax" output of FahCore_XX.exe.
+get_lifeline(){
+#Input:
+#\$@="ps ax" line to check.
+#Output:
+#\$?=status (0="-lifeline" found, 1=not found)
+#\$1=pid after "-lifeline".
+
+while [ "\$1" != "" ]
+ do
+  if [ "\$1" = "-lifeline" ]
+   then
+    shift
+    echo \$1
+    return 0
+  fi    
+  shift
+ done
+return 1
+}
+
+#PID directory checking from "ps ax -Oppid" output (one line only).
+check_pid_dir_line(){
+#Input:
+#\$1=pid to check.
+#\$2=directory we seek matches of.
+#\$3..\$n="px ax -Oppid" line to check.
+#Output:
+#\$?=status (0=proc is running from this directory, 1=not running, 2=unable to detect)
+#\$1..\$m=pids of known "positives".
+
+local pid_to_check
+local dir
+local psline
+local piece
+local first
+local second
+
+pid_to_check=\$1
+dir=\$2
+
+first=\$3
+second=\$4
+
+if [ "\$first" = "\$pid_to_check" -o "\$second" = "\$pid_to_check" ]
+ then
+  shift
+  shift
+  shift
+  shift
+#Read remaining of "ps ax -Oppid" line output:
+  psline="\$@"
+
+#Command line is after TIME string in "ps ax" output line:
+  psline=\$(dump_all_before_command \$psline)
+
+#Remove shell if present:
+  psline=\$(remove_shell_strings \$psline)
+
+#Extract path and executable name:
+  psline=\$(extract_path_exec \$psline)
+
+  if [ \$? -eq 0 ]
+   then
+#PATH was in it:
+    piece=\$(extract_first_word \$psline)
+
+    if [ "\$piece" = "\$dir" ]
+     then
+#Proc is running from this location!
+#Output both pids (pid and ppid):
+      echo \$first \$second
+      return 0
+     else
+#PATH is wrong:
+      return 1
+    fi 
+
+   else
+#No PATH:
+    return 2
+  fi 
+
+ else
+#Input line is faulty: 
+  return 2
+fi
+
+}
+
+#PID directory checking from "ps ax -Oppid" output (multiple line input).
+check_pid_dir(){
+#Input:
+#\$1=pid to check.
+#\$2=directory we seek matches of.
+#\$3..\$n=pids of known "positives" eg. these pids are known to run from \$2.
+#Output:
+#\$?=status (0=proc is running from this directory, 1=not running, 2=unable to detect)
+#\$1..\$m=pids of known "positives".
+
+local endd
+local linee
+
+local pid_to_check
+local dir
+local known_pids
+local posit_pids
+local posspid
+local first
+local second
+local pid
+local lifeline
+
+local status
+local ret
+local tmp
+
+pid_to_check=\$1
+dir=\$2
+
+shift
+shift
+#Read known "positives":
+known_pids="\$@"
+
+if [ "\$pid_to_check" = "" -o "\$dir" = "" ]
+ then
+#Invalid arguments:
+  echo \$known_pids
+  return 2
+ else
+
+#Define status as not found:
+  status=1
+#Define ret as unable to detect:
+  ret=2
+
+#Read input lines and process these:
+  endd=0
+  while [ \$endd -ne 1 ]
+   do
+    read -r linee
+    endd=\$?
+
+    if [ "\$linee" != "" ]
+     then
+
+      first=\$(extract_first_word \$linee)
+      second=\$(extract_second_word \$linee)
+
+#Check only lines starting (first and second position) with this pid:
+      if [ "\$first" = "\$pid_to_check" -o "\$second" = "\$pid_to_check" ]
+       then
+#Check if the pid is already known:       
+        for pid in \$known_pids
+         do
+#If one of pids is already known then add second one as well:
+          if [ "\$pid" = "\$first" ]
+  	   then
+	    known_pids="\$known_pids \$second"
+	    status=0
+	    ret=0
+	    break
+	  fi
+          if [ "\$pid" = "\$second" ]
+  	   then
+	    known_pids="\$known_pids \$first"
+	    status=0
+	    ret=0
+	    break
+	  fi 	  
+         done
+#If not known then check the directory:
+        if [ \$status -eq 1 ]
+         then
+	  if [ "\$CHECK_FAHCORE" = "true" ]
+	   then
+#FahCore checking is a little different than usual procs...
+#siia tuleb teha vaike vark...
+#pid location is not yet found, lets try following:
+
+            posit_pids="\$first \$second"
+
+            lifeline=\$(get_lifeline \$linee)
+            tmp=\$?      
+
+            if [ \$tmp -eq 0 ]
+             then
+#Lifeline was found, now check if it is known...
+              tmp=1
+#Check if the lifeline pid is already known: 
+              for pid in \$known_pids
+               do
+                if [ "\$pid" = "\$lifeline" ]
+     	         then
+#Lifeline is known, so does posit_pids!
+	          tmp=0
+	          break
+	        fi
+               done
+             else
+#Unable to detect!
+	      tmp=2	     
+	    fi 
+
+	   else
+#Usual proc checking by examining PATH of executable and parent/slave relationship...
+#pid location is not yet found, lets try following:
+            posit_pids=\$(check_pid_dir_line \$pid_to_check \$dir \$linee)
+            tmp=\$?      
+	  fi    
+
+          if [ \$tmp -eq 0 ]
+           then
+#Pid is found from this dir:
+            known_pids="\$known_pids \$posit_pids"
+            status=0
+	    ret=0
+           else
+            if [ \$tmp -eq 1 ]
+	     then
+#Pid is not found from this dir, but it is able to detect directory!:
+	      ret=1 
+	    fi      
+          fi
+	  
+        fi	 
+      
+      fi	 
+
+    fi  
+     
+   done
+
+ echo \$known_pids
+ if [ \$status -eq 0 ]
+  then
+#Found:
+   return 0
+  else 
+   if [ \$ret -eq 2 ]
+    then
+#Every attempt to detect directory failed:    
+     return 2
+    else
+#Not found:    
+     return 1 
+   fi    
+ fi
+fi  
+}
+
+#Check process directory:
+check_proc_dir(){
+#Input:
+#\$1=pid to check.
+#\$2=directory we seek matches of.
+#\$3..\$n=pids of known "positives" eg. these pids are known to run from \$2.
+#Output:
+#\$?=status (0 found, 1=not found, 2=unable to detect)
+#\$1..\$m=pids of known "positives".
+
+local pid_to_check
+local dir
+local known_pids
+local posspid
+
+pid_to_check=\$1
+dir=\$2
+
+shift
+shift
+#Read known "positives":
+known_pids="\$@"
+
+if [ "\$pid_to_check" = "" -o "\$dir" = "" ]
+ then
+#Invalid arguments:
+  return 2
+ else
+
+#Universal (slow ps-based) process directory checking starts here:
+
+#Check if this pid is already known:
+    for posspid in \$known_pids
+     do
+      if [ "\$posspid" = "\$pid_to_check" ]
+       then
+#Found:
+#Output only all known pids as \$pid_to_check is already known:
+        echo \$known_pids
+        return 0
+      fi	
+     done
+
+#Check "ps ax -Oppid" output:
+
+    known_pids=\$(ps ax -Oppid|grep \$pid_to_check|grep -v grep|check_pid_dir \$pid_to_check \$dir \$known_pids)
+
+    status=\$?
+    
+    echo \$known_pids
+    return \$status
+    
+fi
+}
+
+#Get CPU numbers (starting from 1):
+get_cpus(){
+local CurrentCPU
+local CPUs
+
+CurrentCPU=1
+while let "CurrentCPU<=CPUno"
+ do
+  CPUs="\$CPUs \$CurrentCPU"
+  let "CurrentCPU=CurrentCPU+1"
+ done
+echo "\$(echo \$CPUs)"
+return 0
+}
+
+
+#Get CPU numbers from all available FAH CPU subdirectories:
+get_dirs(){
+local lengthh
+local CPUs
+local poss
+local nmbr
+local placed 
+local CPUs_
+
+CPUs=""
+
+lengthh=\$(String_Length \$Dir)
+if [ \$lengthh -ne 0 ];
+ then
+  if [ -r \$Fdir ] ;
+   then
+#Use only names with starting with Dir and ending with number:
+    for poss in \$(ls \$Fdir|grep \$Dir)
+     do
+      if [ "\${poss:0:\$lengthh}" = "\$Dir" ]; 
+       then
+        if [ "\$(Integer_Check \${poss:\$lengthh})" = "true" ];
+         then
+	  new_nmbr=\${poss:\$lengthh}
+#Sorting of these numbers to growing order:
+          CPUs="\$(set_grow \$new_nmbr \$CPUs)"
+        fi
+      fi
+     done
+  fi 
+fi
+
+echo "\$(echo \$CPUs)"
+}
+
+#Check the FAH status:
+FAHcheck(){
+#input:
+#CPUs = CPU numbers to check, if empty then do not identify separate CPUs.
+#output:
+#sFaHPids = matching FaH pids
+#sfahclientPids = matching fahclient pids
+#sFAHCorePids = matching FAHCore pids
+#\$? = status (0=OK, 1=NOK)
+
+local FaHPids
+local fahclientPids
+local FAHCorePids
+
+local uFaHPids
+local ufahclientPids
+local uFAHCorePids
+
+local CurrentCPU
+
+local CoreNames
+local DirectoryAccess
+
+local KnownUniques
+local possUniques
+local RetPids
+
+local CurrentFaH
+local Currentfahclient
+local CurrentFAHCore
+
+local FaHPid
+local fahclientPid
+local FAHCorePid
+
+local Dir_Perm
+local Entr_Cnt
+local poss_procs
+local StatusOKashi
+
+local arguments
+
+local pid_grp
+
+FaHPids=""
+fahclientPids=""
+FAHCorePids=""
+
+#CPUs to check:
+local cCPUs
+
+cCPUs=\$CPUs
+
+
+#Get all possible directory numbers:
+CPUnumbers="\$(get_dirs)"
+#If there is no directories then fall back to cpu numbering:
+if [ "\$CPUnumbers" = "" ];
+ then
+  CPUnumbers="\$(get_cpus)"
+fi
+
+#Looking for fahclient's:
+echo "Status on all possible FAH client(s):";
+fahclientPids=""
+status \$fahclient
+fahclientPids="\$fahclientPids \$RetPids"
+
+#------------------
+#
+# Looking for all possible FAH cores:
+#
+CoreNames=""
+#is the Fdir accessible?
+DirectoryAccess="allow"
+
+for CurrentCPU in \$CPUnumbers
+ do
+#-
+  if [ -d \$Fdir/\$Dir\$CurrentCPU ] ;
+   then
+   
+    cd \$Fdir/\$Dir\$CurrentCPU/;
+#CoreNames=list of known unique FAH core names.
+    KnownUniques=\$CoreNames
+#possUniques=list of possible FAH core names.
+    possUniques=\$(echo *Core_*.exe);
+    if [ "\$possUniques" != "*Core_*.exe" ];
+     then
+      AddUniques
+    fi 
+    CoreNames=\$KnownUniques
+    
+   else
+    echo "There is no \$Fdir/\$Dir\$CurrentCPU directory or You have no access to it!";
+    DirectoryAccess="deny"
+  fi
+#-
+ done
+#------------------
+
+
+
+#Get rid of spaces:
+CoreNames=\$(echo \$CoreNames)
+
+if [ "\$CoreNames" = "" -a "\$DirectoryAccess" = "deny" ];
+ then
+  echo "...no FAH core names available!"
+ else
+  
+  if [ "\$CoreNames" = "" ];
+   then
+    echo "!!! Strange - No FAH cores downloaded !!!";
+   else
+    echo "Status on all possible FAH cores (\$CoreNames):";
+#-
+    for Core in \$CoreNames
+     do
+#----
+      status \$Core
+      FAHCorePids="\$FAHCorePids \$RetPids"
+#----
+     done
+#-
+  fi
+  
+fi
+
+echo "Status on all possible 'FaH' scripts:";
+#Looking for "FaH" script(s):
+status FaH
+FaHPids=\$RetPids
+
+#status function will return some pid values:
+sFaHPids=""
+sfahclientPids=""
+sFAHCorePids=""
+
+#get rid of spaces:
+FaHPids=\$(echo \$FaHPids)
+fahclientPids=\$(echo \$fahclientPids)
+FAHCorePids=\$(echo \$FAHCorePids)
+
+#Status - "Are there any procs running":
+StatusOKashi="false"
+
+#Check if there is need for checking separate CPUs:
+if [ "\$cCPUs" != "" ];
+ then
+  
+  echo
+  
+#Looking for  clients:
+  for CurrentCPU in \$cCPUs
+   do
+#-
+    CurrentFaH=""
+    Currentfahclient=""
+    CurrentFAHCore=""
+
+#Is the directory reachable?
+    ls \$Fdir >/dev/null
+    Dir_Perm=\$?
+    if [ \$Dir_Perm -eq 0 ];
+     then
+#Directory permissions OK...
+#Is there a CPU entry?
+      Entr_Cnt=\$(echo \$(ls \$Fdir | grep \$Dir\$CurrentCPU | wc -w))
+     else 
+#Directory permissions NOK...
+#..assuming there is one:
+      Entr_Cnt=1
+    fi
+
+    if [ \$Entr_Cnt -ne 0 ];
+     then
+#is present...
+      
+      if [ -d \$Fdir/\$Dir\$CurrentCPU -a -r \$Fdir/\$Dir\$CurrentCPU ] ;
+       then
+      
+        echo ""
+        echo "Processes running from \$Fdir/\$Dir\$CurrentCPU directory:"
+
+        pid_grp=""
+
+#Looking for the FAH client:
+        echo -n "FAH client pids: "
+        ufahclientPids=""
+
+        poss_procs="false"
+
+        for fahclientPid in \$fahclientPids
+         do
+#Check the PID by examining:
+          
+          CHECK_FAHCORE="false"
+          pid_grp=\$(check_proc_dir \$fahclientPid \$Fdir/\$Dir\$CurrentCPU \$pid_grp)
+          case "\$?" in
+          "0")
+           Currentfahclient="\$Currentfahclient \$fahclientPid"
+          ;;
+          "1")
+ 	   ufahclientPids="\$ufahclientPids \$fahclientPid"
+	  ;;
+	  "2")
+	   poss_procs="true"
+           ufahclientPids="\$ufahclientPids \$fahclientPid"
+	  ;;
+	  esac
+						  
+         done
+        fahclientPids=\$(echo \$ufahclientPids)
+        if [ "\$Currentfahclient" = "" ];
+         then
+
+          if [ "\$poss_procs" = "true" ]
+           then
+            if [ "\$fahclientPids" = "" ]
+             then
+              echo "none"
+#There is no procs to find, so ignore:
+              poss_procs="false"
+             else
+#There are FaHPids, but I am unable to detect the origin...
+              echo "! unable to detect - assuming as running !"
+              StatusOKashi="true"
+            fi
+           else
+            echo "none"
+          fi
+         else
+          echo \$Currentfahclient
+          StatusOKashi="true"
+        fi
+	
+#Looking for the FAHCore:
+        echo -n "FAH core pids: "
+        uFAHCorePids=""
+
+        poss_procs="false"
+
+        for FAHCorePid in \$FAHCorePids
+         do
+
+          CHECK_FAHCORE="true"
+          pid_grp=\$(check_proc_dir \$FAHCorePid \$Fdir/\$Dir\$CurrentCPU \$pid_grp)
+          case "\$?" in
+          "0")
+           CurrentFAHCore="\$CurrentFAHCore \$FAHCorePid"
+          ;;
+          "1")
+ 	   uFAHCorePids="\$uFAHCorePids \$FAHCorePid"
+	  ;;
+	  "2")
+	   poss_procs="true"
+           uFAHCorePids="\$uFAHCorePids \$FAHCorePid"
+	  ;;
+	  esac
+	  
+         done
+        FAHCorePids=\$(echo \$uFAHCorePids)
+        if [ "\$CurrentFAHCore" = "" ];
+         then
+
+          if [ "\$poss_procs" = "true" ]
+           then
+            if [ "\$FAHCorePids" = "" ]
+             then
+              echo "none"
+#There is no procs to find, so ignore:
+              poss_procs="false"
+             else
+#There are FaHPids, but I am unable to detect the origin...
+              echo "! unable to detect - assuming as running !"
+              StatusOKashi="true"
+            fi
+           else
+            echo "none"
+          fi
+         else
+          echo \$CurrentFAHCore
+          StatusOKashi="true"
+        fi
+
+#Looking for the FaH script:
+        echo -n "FaH pids: "
+        uFaHPids=""
+
+        poss_procs="false"
+
+        for FaHPid in \$FaHPids
+         do
+
+          CHECK_FAHCORE="false"
+          pid_grp=\$(check_proc_dir \$FaHPid \$Fdir/\$Dir\$CurrentCPU \$pid_grp)
+          case "\$?" in
+          "0")
+           CurrentFaH="\$CurrentFaH \$FaHPid"
+          ;;
+          "1")
+ 	   uFaHPids="\$uFaHPids \$FaHPid"
+	  ;;
+	  "2")
+	   poss_procs="true"
+           uFaHPids="\$uFaHPids \$FaHPid"
+	  ;;
+	  esac
+
+         done
+        FaHPids=\$(echo \$uFaHPids)
+        if [ "\$CurrentFaH" = "" ];
+         then
+
+          if [ "\$poss_procs" = "true" ]
+           then
+            if [ "\$FaHPids" = "" ]
+             then
+              echo "none"
+#There is no procs to find, so ignore:
+              poss_procs="false"
+             else
+#There are FaHPids, but I am unable to detect the origin...
+              echo "! unable to detect - assuming as running !"
+              StatusOKashi="true"
+            fi
+           else
+            echo "none"
+          fi
+
+         else
+          echo \$CurrentFaH
+          StatusOKashi="true"
+        fi
+ 
+#FAH client flags: 
+        if [ "\$Currentfahclient" != "" ];
+	 then
+	  for onePid in \$Currentfahclient
+	   do
+	    arguments=\$(ps ax|grep \$fahclient|grep -v grep|grep \$onePid|get_PID \$fahclient arg)
+	    if [ "\$arguments" != "" ];
+	     then
+	      break
+	    fi  
+	   done    
+	  echo ""
+	  echo -n "FAH client flags: "
+	  if [ "\$arguments" = "" ];
+	   then 
+	    echo "none"
+	  else 
+	   echo "'\$arguments'"
+	  fi
+        fi
+
+ 
+#Some statistics from qd:      
+        if [ -x \$Fdir/\$Dir\$CurrentCPU/\$qd_exec -a "\$useqd" = "true" ] ;
+         then
+          echo
+          cd \$Fdir/\$Dir\$CurrentCPU
+
+#qd last WU searching:
+
+          WU_Slots=\$(echo \$(./\$qd_exec|grep Index|wc -l))
+          if [ \$WU_Slots -eq 0 ];
+           then
+            ./\$qd_exec
+           else
+            tail_lines=13
+            Last_WU=\$(echo \$(./\$qd_exec|tail -n \$tail_lines|grep Index|wc -l))
+	    while [ \$Last_WU -ne 0 ]
+	     do
+	      if [ \$Last_WU -gt 0 ];
+	       then
+	        let "tail_lines=tail_lines-1"
+               else
+ 	        let "tail_lines=tail_lines+1"
+	      fi
+	      Last_WU=\$(echo \$(./\$qd_exec|tail -n \$tail_lines|grep Index|wc -l))
+	     done
+	    while [ \$Last_WU -ne 1 ]
+	     do
+	      if [ \$Last_WU -gt 1 ];
+	       then
+	        let "tail_lines=tail_lines-1"
+	       else
+	        let "tail_lines=tail_lines+1"
+	      fi
+	      Last_WU=\$(echo \$(./\$qd_exec|tail -n \$tail_lines|grep Index|wc -l))
+ 	     done
+	    ./\$qd_exec|tail -n \$tail_lines
+	  fi
+											     	  
+          echo
+         else
+#qd not found, display unitinfo.txt instead:
+          if [ -r \$Fdir/\$Dir\$CurrentCPU/unitinfo.txt ] ;
+           then
+	    echo       
+            cat \$Fdir/\$Dir\$CurrentCPU/unitinfo.txt
+	    echo
+ 	  fi  
+        fi
+
+#FAHlog.txt:
+      
+        if [ "\$viewlog" = "true" ] ;
+         then
+	  if [ -r \$Fdir/\$Dir\$CurrentCPU/FAHlog.txt ];
+	   then
+            echo "Last 10 lines of \$Fdir/\$Dir\$CurrentCPU/FAHlog.txt:"
+	    echo ""
+            cat \$Fdir/\$Dir\$CurrentCPU/FAHlog.txt|tail -n 10
+            echo ""
+	   else
+	    echo ""
+	    echo "ERROR: No \$Fdir/\$Dir\$CurrentCPU/FAHlog.txt or You can not read it!"
+	    echo ""    
+          fi
+        fi
+
+
+#fpd?:
+
+        if [ "\$fpd" = "true" ];
+         then
+          echo "Trying to run '\$fpd_exec'..."
+
+# Set a flag if the OS is MacOS X, fpd needs special treatment on it
+          let "macosx=\$(echo \$(echo \$OSTYPE)|grep darwin|wc -l)"
+ 
+          if [ "\$macosx" = "1" ];
+           then
+            if [ -x \$Fdir/\$Dir\$CurrentCPU/fpd.app/Contents/MacOS/\$fpd_exec ] ;
+             then
+  	      echo "...'\$fpd_exec' is present."
+	      echo
+              cd \$Fdir/\$Dir\$CurrentCPU/fpd.app/Contents/MacOS
+              ./\$fpd_exec &
+	      sleep 1
+	      echo
+	     else
+	      echo "...no '\$fpd_exec' found in this directory."
+	      echo
+            fi
+           else
+            if [ -x \$Fdir/\$Dir\$CurrentCPU/\$fpd_exec ] ;
+             then
+  	      echo "...'\$fpd_exec' is present."
+	      echo
+              cd \$Fdir/\$Dir\$CurrentCPU
+              ./\$fpd_exec &
+	      sleep 1
+	      echo
+	     else
+	      echo "...no '\$fpd_exec' found in this directory."
+	      echo
+            fi
+          fi
+        fi	
+              
+#Return matching pid values:
+        sFaHPids="\$sFaHPids \$CurrentFaH"
+        sfahclientPids="\$sfahclientPids \$Currentfahclient"
+        sFAHCorePids="\$sFAHCorePids \$CurrentFAHCore"
+      
+       else
+        echo "You have no access to \$Fdir/\$Dir\$CurrentCPU directory!";
+
+#If there are FAH clients running then it may be running from this directory:
+        if [ "\$FaHPids" != "" -o "\$fahclientPids" != "" -o "\$FAHCorePids" != "" ];
+         then
+#Yes.
+          echo
+          echo "!!!Warning!!!"
+          echo "   Possibly (one of) the FAH client(s) running is from this directory!"
+          echo "!!!Warning!!!"
+          echo
+          StatusOKashi="true"
+
+        fi
+
+      fi
+    
+     else
+#is not present...
+      echo "There is no \$Fdir/\$Dir\$CurrentCPU directory."
+    fi
+
+#-
+   done
+  
+ else
+  
+#"no interest in process origin" - return all found pid values:
+  sFaHPids=\$(echo \$FaHPids)
+  sfahclientPids=\$(echo \$fahclientPids)
+  sFAHCorePids=\$(echo \$FAHCorePids)
+#Are there any FAH clients?
+  if [ "\$sFaHPids" != "" -o "\$sfahclientPids" != "" -o "\$sFAHCorePids" != "" ];
+   then
+#Yes.
+    StatusOKashi="true"
+  fi
+  
+fi
+
+#Get rid of spaces:
+sFaHPids=\$(echo \$sFaHPids)
+sfahclientPids=\$(echo \$sfahclientPids)
+sFAHCorePids=\$(echo \$sFAHCorePids)
+
+fpd="false"
+
+echo ""
+
+#Status OK?
+if [ "\$StatusOKashi" = "true" ];
+ then
+#Yes.
+  return 0
+ else
+#No.
+  return 1
+fi
+
+}
+
+#Run the FAH client(s):
+FAHrun(){
+#input:
+#CPUs = "CPU" numbers to run.
+#output:
+#\$? = status (0=started OK, 1=errors)
+
+local Okashi
+local CurrentCPU
+
+local Use_SU
+local Var_Det
+
+#CPUs to run:
+local rCPUs
+
+rCPUs=\$CPUs
+
+#Check if FAH is already running:
+FAHcheck >/dev/null 2>&1
+if [ \$? -eq 0 ]
+ then
+  echo "...FAH client(s) are already running."
+  return 1
+ else
+  
+#echo
+  
+  Okashi="false"
+  
+#If no CPUs specified then run all available:
+  if [ "\$rCPUs" = "" ];
+   then
+    rCPUs="\$(get_dirs)"
+#If there is no directories then fall back to cpu numbering:
+    if [ "\$rCPUs" = "" ];
+     then
+      rCPUs="\$(get_cpus)"
+    fi  
+  fi
+  
+  for CurrentCPU in \$rCPUs
+   do
+    echo "Starting FAH client at \$Dir\$CurrentCPU..."
+    if [ -x \$Fdir/\$Dir\$CurrentCPU/FaH ] ;
+     then
+      
+#At bootup service startup all executables are being run with root priviledges, usually
+#this is not good thing to do.
+
+      Use_SU="false"
+      Var_Det="false"
+#Is there a \$USER variable?
+      if [ \$(echo \$USER | wc -w) -eq 1 ] ;
+       then
+	if [ "\$RunAsUser" != "\$USER" ] ;
+	 then
+          Use_SU="true";
+	fi  
+        Var_Det="true";
+      fi
+#Is there a \$LOGNAME variable?
+      if [ \$(echo \$LOGNAME | wc -w) -eq 1 ] ;
+       then
+	if [ "\$RunAsUser" != "\$LOGNAME" ] ;
+	 then
+          Use_SU="true";
+	fi  
+	Var_Det="true";
+      fi
+#Is there a \$USERNAME variable?
+      if [ \$(echo \$USERNAME | wc -w) -eq 1 ] ;
+       then
+	if [ "\$RunAsUser" != "\$USERNAME" ] ;
+	 then
+          Use_SU="true";
+	fi  
+	Var_Det="true";
+      fi
+#Is there a \$UID variable?
+#\$UID=0 => ROOT
+#Note: Linux has the root user has UID value 0, but does it apply to other OSes?
+      if [ \$(echo \$UID | wc -w) -eq 1 ] ;
+       then
+	if [ \$UID -eq 0 ] ;
+	 then
+          Use_SU="true";
+	fi  
+	Var_Det="true";
+      fi
+ 
+#Let's play safe - if there was no variables found then use "su -":
+      if [ "\$Var_Det" = "false" ];
+       then
+        Use_SU="true";
+      fi 
+ 
+      if [ "\$Use_SU" = "true" ];
+       then
+        su - \$RunAsUser -c "\$BashShell -c \\"cd \$Fdir/\$Dir\$CurrentCPU/; ./FaH < /dev/null > /dev/null 2>&1 &\\""
+       else
+        cd \$Fdir/\$Dir\$CurrentCPU/; ./FaH < /dev/null > /dev/null 2>&1  &
+      fi 
+
+      if [ \$? -eq 0 ]
+       then
+        echo -n "FAH client #\$CurrentCPU startup:"; echo_success
+        Okashi="true"
+       else
+        echo -n "FAH client #\$CurrentCPU startup:"; echo_failure
+      fi
+     else
+      echo "Executable file \$Fdir/\$Dir\$CurrentCPU/FaH is not present.";
+    fi
+    
+   done
+  
+fi
+
+if [ "\$Okashi" = "true" ];
+ then
+#At least one FAH client was started successfully...
+  return 0
+ else
+  return 1
+fi
+}
+
+#Kill the FAH client(s):
+FAHkill(){
+#input:
+#CPUs = CPU numbers to kill, if empty then kill all found.
+# = "force" if to skip phase1.
+#output:
+#\$? = status (0=stopped OK, 1=errors)
+
+local PassNo
+
+local CurrentCPU
+
+local CoresAreDead
+local fahclientsAreDead
+
+#CPUs to kill:
+local kCPUs
+
+kCPUs=\$CPUs
+
+echo "Stopping of FAH client(s):"
+
+# Killing of FAH is done in 3 phases:
+# 1 - send TERMINATE to all FAH clients & cores.
+# All cores & FAH clients should terminate during phase 1;
+# 2 - send KILL to all FASH clients & cores.
+# Newer cores tend to ignore if parent FAH client has terminated and want to
+# carry on (THIS IS A BUG and should be reported to
+# http://forum.folding-community.org/viewforum.php?f=7).
+# 3 - "rise the hands".
+# If phase 2 was a bug then this is a MESS and need to be examined more
+# closely (report it!!).
+
+if [ "\$1" = "force" ];
+ then
+#Forced kill...
+  PassNo=2
+  echo 'Forced kill! Skipping "Phase #1"...'
+ else
+  PassNo=1
+fi
+
+while let "PassNo<=3"
+ do
+  
+  echo "Phase #\$PassNo"
+  
+# Collect pids of FAH Clients:
+  
+  FAHcheck >/dev/null;
+#sFaHPids = matching FaH pids
+#sfahclientPids = matching fahclient pids
+#sFAHCorePids = matching FAHCore pids
+  
+  if [ "\$sFAHCorePids" = "" ]
+   then
+    echo "No FAH cores are running...";
+    CoresAreDead="true";
+   else
+    CoresAreDead="false";
+    if [ \$PassNo -eq 1 ]
+     then
+#Phase 1:
+      echo "Sending 'End_Your_Work' signal (kill -15) to following FAH core PIDs: \$sFAHCorePids";
+      kill -15 \$sFAHCorePids >/dev/null;
+      if [ \$? -eq 0 ]
+       then
+        echo "Waiting 35 seconds for FAH client(s) to end working...";
+        PausE 35;
+       else
+        echo '*** Running of "kill -15 '\$sFAHCorePids'" is giving an error number '\$?' ***'
+      fi
+    fi
+    if [ \$PassNo -eq 2 ]
+     then
+#Phase 2:
+      echo "Some FAH cores are STILL running: \$sFAHCorePids";
+      echo "Sending 'Your_Time_Is_Over' signal (kill -9)... ";
+      kill -9 \$sFAHCorePids >/dev/null;
+      if [ \$? -eq 0 ]
+       then
+        echo "Waiting 15 seconds for FAH client(s) to end working...";
+        PausE 15;
+       else
+        echo '*** Running of "kill -9 '\$sFAHCorePids'" is giving an error number '\$?' ***'
+      fi
+    fi
+    if [ \$PassNo -eq 3 ]
+     then
+#Phase 3:
+      echo "You can not kill these FAH core PIDs: \$sFAHCorePids";
+      echo "!!! Some FAH cores are still running !!!";
+    fi
+  fi
+  
+#-
+  
+# Termination of the FAH cores should be enough but not always, so terminate
+# FAH clients, too.
+  
+  FAHcheck >/dev/null;
+#sFaHPids = matching FaH pids
+#sfahclientPids = matching FAH client pids
+#sFAHCorePids = matching FAHCore pids
+  
+  if [ "\$sfahclientPids" = "" ]
+   then
+    echo "No FAH clients are running...";
+    fahclientsAreDead="true";
+   else
+    fahclientsAreDead="false";
+    if [ \$PassNo -eq 1 ]
+     then
+#Phase 1:
+      echo "Sending 'End_Your_Work' signal (kill -15) to following FAH client PIDs: \$sfahclientPids";
+      kill -15 \$sfahclientPids >/dev/null;
+      if [ \$? -eq 0 ]
+       then
+        echo "Waiting 60 seconds for FAH client(s) to end working...";
+        PausE 60;
+       else
+        echo '*** Running of "kill -15 '\$sfahclientPids'" is giving an error number '\$?' ***'
+      fi
+    fi
+    if [ \$PassNo -eq 2 ]
+     then
+#Phase 2:
+      echo "Some FAH clients are STILL running: \$sfahclientPids";
+      echo "Sending 'Your_Time_Is_Over' signal (kill -9)...";
+      kill -9 \$sfahclientPids >/dev/null;
+      if [ \$? -eq 0 ]
+       then
+        echo "Waiting 15 seconds for FAH client(s) to end working...";
+        PausE 15;
+       else
+        echo '*** Running of "kill -9 '\$sfahclientPids'" is giving an error number '\$?' ***'
+        PassNo=4
+      fi
+    fi
+    if [ \$PassNo -eq 3 ]
+     then
+#Phase 3:
+      echo "You can not kill these FAH client PIDs: \$sfahclientPids";
+      echo "!!! Some FAH clients are still running !!!";
+    fi
+  fi
+  
+  if [ \$CoresAreDead = "true" -a \$fahclientsAreDead = "true" ]
+   then
+#If all cores & all FAH clients are dead then skip all other phases...
+    PassNo=3
+  fi
+  
+  let "PassNo=PassNo+1"
+ done
+
+if [ \$CoresAreDead = "true" -a \$fahclientsAreDead = "true" ]
+ then
+#All pids are dead.
+  return 0
+ else
+  return 1
+fi
+}
+
+#
+# Program itself...
+#
+
+echo
+echo "['folding' ver. \$Folding_Script_Version]"
+echo
+
+fpd="false"
+viewlog="false"
+useqd="true"
+
+
+#Check availability of external utilities:
+Check_Utils
+
+#      echo "At install time, kernel reported $CPUno processor(s)."
+
+#"Detection" of CPU count:
+CPUno=\$(Get_CPUno)
+
+# See how we were called:
+case "\$1" in
+ start)
+#FAH Client starting.
+#Input:
+#\$2 = cpu number or "cpus"=runtime detection or "dirs"=run all avail.
+#Output:
+#\$? = return status (0=started, 1=not started)
+
+ useqd="false"
+
+ sFaHPids=""
+ sfahclientPids=""
+ sFAHCorePids=""
+ 
+#CPUs = CPU numbers to start.
+ CPUs=""
+#Looking for a cpu number:
+ if [ \$(Integer_Check \$2) = "true" ];
+  then
+#There is an integer:
+   CPUs=\$2
+  else
+   case "\$2" in
+    "cpus")
+#Start FAH for every cpu available:
+    CPUs="\$(get_cpus)"
+    ;;
+    "dirs")
+#Look for every cpu directory available, but use "cpus" if there is none:
+    CPUs="\$(get_dirs)"
+#If there is no directories then fall back to cpu numbering:
+    if [ "\$CPUs" = "" ];
+     then
+      CPUs="\$(get_cpus)"
+    fi
+    ;;
+    "")
+#Also, start FAH form every CPU directory available, but before it do not check
+#individual CPUs:
+    CPUs=""
+    ;;
+    *)
+    echo "Invalid argument: '\$2'"
+    echo "Usage: \$0 \$1 {1..dir_num|cpus|dirs}"
+    exit 1
+    ;;
+   esac
+   if [ "\$3" != "" ];
+    then
+     echo "Invalid argument: '\$3'"
+     echo "Usage: \$0 \$1 {1..dir_num|cpus|dirs}"
+     exit 1
+   fi
+ fi
+ 
+ echo "Starting up FAH client(s) on \$CPUno processor(s):"
+ FAHrun
+#Does startup reported no error?
+ if [ "\$?" -eq 0 ];
+  then
+   echo ""
+
+#"Sleeping" under MacOSX service startup is BAD:
+   if [ "\$OSTYPE" == "darwin7.0" ]; 
+    then 
+     :
+   elif [ "\$OSTYPE" == "darwin" ];
+    then
+     :
+   elif [ "\$OSTYPE" == "darwin6.0" ];
+    then
+     :
+    else
+#Other OSes should run "sleep" just fine...    
+     sleep 5
+   fi 
+
+#Check if FAH clients are running:
+   FAHcheck >/dev/null
+#Are there FAH clients running?
+   if [ \$? -eq 0 ];
+    then
+     echo
+     echo -n "Starting of FAH client(s):"; echo_success
+     exit 0
+    else
+     echo
+     echo -n "Starting of FAH client(s):"; echo_failure
+     exit 1
+   fi
+  else
+#Startup reported an error:
+   echo
+   echo -n "Starting of FAH client(s):"; echo_failure
+   exit 1
+ fi
+ ;;
+ stop)
+#FAH Client stopping.
+#Input:
+#\$2 = cpu number or "cpus"=runtime detection or "force" to skip "killing-phase1".
+#\$3 = "force" if  \$2 != "force".
+#Output:
+#\$? = return status (0=stopped, 1=not stopped)
+
+ useqd="false"
+ 
+ sFaHPids=""
+ sfahclientPids=""
+ sFAHCorePids=""
+ 
+ forcee=""
+
+#CPUs = CPU numbers to stop.
+ CPUs=""
+#Looking for a cpu number:
+ if [ \$(Integer_Check \$2) = "true" ];
+  then
+# There is an integer:
+   CPUs=\$2
+  else
+   case "\$2" in
+    "cpus")
+#Stop FAH for every cpu available:
+    CPUs="\$(get_cpus)"
+    ;;
+    "dirs")
+#Look for every cpu directory available, but use "cpus" if there is none:
+    CPUs="\$(get_dirs)"
+#If there is no directories then fall back to cpu numbering:
+    if [ "\$CPUs" = "" ];
+     then
+      CPUs="\$(get_cpus)"
+    fi
+    ;;
+    "force")
+#skip "killing-phase1".
+    CPUs=""
+    forcee="force"
+    ;;
+    "")
+#Stop every FAH found:
+    CPUs=""
+    ;;
+    *)
+    echo "Invalid argument: '\$2'"
+    echo "Usage: \$0 \$1 {1..dir_num|cpus|dirs|force}"
+    exit 1
+    ;;
+   esac
+#Check if there is no "force force":
+   if [ "\$2" != "force" -a "\$3" = "force" ];
+    then
+     forcee="force"
+    else
+     if [ "\$3" != "" ];
+      then
+       echo "Invalid argument: '\$3'"
+       echo "Usage: \$0 \$1 {1..dir_num|cpus|dirs} {force}"
+       exit 1
+     fi
+   fi
+ fi
+ 
+ FAHkill \$forcee
+#What was the result of the killing?
+ if [ \$? -eq 0 ]
+  then
+   echo
+   echo -n "Stopping of FAH client(s):"; echo_success
+   exit 0
+  else
+   echo
+   echo -n "Stopping of FAH client(s):"; echo_failure
+   exit 1
+ fi
+ ;;
+ restart)
+#FAH Client restarting.
+#Input:
+# \$2 = cpu number (max 8) or "cpus"=runtime detection or "force" to skip "killing-phase1".
+# \$3= "force" if  \$2 != "force".
+#Output:
+# \$? = return status (0=success, 1=no success)
+
+ useqd="false"
+ 
+ sFaHPids=""
+ sfahclientPids=""
+ sFAHCorePids=""
+ 
+ forcee=""
+
+#CPUs = CPU numbers to check.
+ CPUs=""
+#Looking for a cpu number:
+ if [ \$(Integer_Check \$2) = "true" ];
+  then
+# There is an integer:
+   CPUs=\$2
+  else
+   case "\$2" in
+    "cpus")
+#Look for every cpu available:
+    CPUs="\$(get_cpus)"
+    ;;
+    "dirs")
+#Look for every cpu directory available, but use "cpus" if there is none:
+    CPUs="\$(get_dirs)"
+#If there is no directories then fall back to cpu numbering:
+    if [ "\$CPUs" = "" ];
+     then
+      CPUs="\$(get_cpus)"
+    fi
+    ;;
+    "force")
+#skip "killing-phase1".
+    CPUs=""
+    forcee="force"
+    ;;
+    "")
+#Do not look for placement of individual FAH processes:
+    CPUs=""
+    ;;
+    *)
+    echo "Invalid argument: '\$2'"
+    echo "Usage: \$0 \$1 {1..dir_num|cpus|dirs|force}"
+    exit 1
+    ;;
+   esac
+#Check if there is no "force force":
+   if [ "\$2" != "force" -a "\$3" = "force" ];
+    then
+     forcee="force"
+    else
+     if [ "\$3" != "" ];
+      then
+       echo "Invalid argument: '\$3'"
+       echo "Usage: \$0 \$1 {1..dir_num|cpus|dirs} {force}"
+       exit 1
+     fi
+   fi
+ fi
+ 
+ echo "Restarting of FAH client(s):"
+#Restarting of FAH clients is being done in two steps:
+#1. Stop all running clients;
+#2. Start FAH client(s);
+#Exeptions: if already running client(s) refuse to stop then skip the starting.
+ echo "Step #1"
+ FAHkill \$forcee
+#Is everything OK?
+ if [ \$? -eq 0 ]
+  then
+#If no FAH clients or cores are already started, then start these:
+   echo "Step #2"
+   FAHrun
+#What is the outcome of running?
+   if [ \$? -eq 0 ]
+    then
+     echo
+     echo -n "Restarting of FAH client(s):"; echo_success
+     exit 0
+    else
+     echo
+     echo -n "Restarting of FAH client(s):"; echo_failure
+     exit 1
+   fi
+ fi
+ if [ \$? -ne 0 ]
+  then
+   echo
+   echo -n "Restarting of FAH client(s):"; echo_failure
+   exit 1
+ fi
+ ;;
+ status)
+#FAH Client status.
+#Input:
+# \$2 = cpu number or "cpus" or "dirs"=runtime detection.
+# \$3 = "fpd", "noqd", "viewlog".
+#Output:
+#sFaHPids = matching FaH pids
+#sfahclientPids = matching FAH client pids,
+#sFAHCorePids = matching FAHCore pids
+#Note: For safety reasons, in case of error (ex: directory not found), it will return
+#all detected pids.
+# \$? = return status (0=running, 1=not running)
+ 
+ sFaHPids=""
+ sfahclientPids=""
+ sFAHCorePids=""
+ 
+#CPUs = CPU numbers to check.
+ CPUs=""
+#Looking for a cpu number:
+ if [ \$(Integer_Check \$2) = "true" ];
+  then
+#There is an integer:
+   CPUs=\$2
+  else
+   case "\$2" in
+    "cpus")
+#Look for every cpu available:
+    CPUs="\$(get_cpus)"
+    ;;
+    "dirs")
+#Look for every cpu directory available, but use "cpus" if there is none:
+    CPUs="\$(get_dirs)"
+#If there is no directories then fall back to cpu numbering:
+    if [ "\$CPUs" = "" ];
+     then
+      CPUs="\$(get_cpus)"
+    fi
+    ;;
+    "")
+#Do not look for placement of individual FAH processes:
+    CPUs=""
+    ;;
+    *)
+    echo "Invalid argument: '\$2'"
+    echo "Usage: \$0 \$1 {1..dir_num|cpus|dirs}"
+    exit 1
+    ;;
+   esac
+ 
+ fi
+
+   case "\$3" in
+    "fpd")
+    fpd="true"
+    ;;
+    "noqd")
+#Do not use 'qd' script:
+    useqd="false" 
+    ;;
+    "viewlog")
+    viewlog="true"
+    ;;
+    "")
+    ;;
+    *)
+    echo "Invalid argument: '\$3'"
+    echo "Usage: \$0 \$1 \$2 {fpd|noqd|viewlog}"
+    exit 1
+    ;;
+   esac
+
+   case "\$4" in
+    "fpd")
+     if [ "\$fpd" = "false" ];
+      then
+       fpd="true"
+      else
+       echo "Invalid argument: '\$4'"
+       echo "Usage: \$0 \$1 \$2 \$3 {noqd|viewlog}"
+       exit 1 
+     fi  
+    ;;
+    "noqd")
+       if [ "\$useqd" = "true" ];
+        then
+#Do not use 'qd' script:
+         useqd="false" 
+	else
+         echo "Invalid argument: '\$4'"
+         echo "Usage: \$0 \$1 \$2 \$3 {fpd|viewlog}"
+         exit 1 
+       fi	 
+    ;;
+    "viewlog")
+       if [ "\$viewlog" = "false" ];
+        then
+         viewlog="true" 
+	else
+         echo "Invalid argument: '\$4'"
+         echo "Usage: \$0 \$1 \$2 \$3 {fpd|noqd}"
+         exit 1 
+       fi	 
+    ;;
+    "")
+    ;;
+    *)
+    echo "Invalid argument: '\$4'"
+    echo "Usage: \$0 \$1 \$2 \$3 {fpd|noqd|viewlog}"
+    exit 1
+    ;;
+   esac
+
+   case "\$5" in
+    "fpd")
+     if [ "\$fpd" = "false" ];
+      then
+       fpd="true"
+      else
+       echo "Invalid argument: '\$5'"
+       echo "Usage: \$0 \$1 \$2 \$3 \$4 {noqd|viewlog}"
+       exit 1 
+     fi  
+    ;;
+    "noqd")
+       if [ "\$useqd" = "true" ];
+        then
+#Do not use 'qd' script:
+         useqd="false" 
+	else
+         echo "Invalid argument: '\$5'"
+         echo "Usage: \$0 \$1 \$2 \$3 \$4 {fpd|viewlog}"
+         exit 1 
+       fi	 
+    ;;
+    "viewlog")
+       if [ "\$viewlog" = "false" ];
+        then
+         viewlog="true" 
+	else
+         echo "Invalid argument: '\$5'"
+         echo "Usage: \$0 \$1 \$2 \$3 \$4 {fpd|noqd}"
+         exit 1 
+       fi	 
+    ;;
+    "")
+    ;;
+    *)
+    echo "Invalid argument: '\$5'"
+    echo "Usage: \$0 \$1 \$2 \$3 \$4 {fpd|noqd|viewlog}"
+    exit 1
+    ;;
+   esac
+
+
+  if [ "\$6" != "" ];
+   then  
+    echo "Invalid argument: '\$6'"
+    echo "Usage: \$0 \$1 \$2 \$3 \$4 \$5"
+    exit 1
+  fi
+
+
+ echo "Status of running FAH client(s) on \$CPUno processor(s):"
+ FAHcheck
+#Is everything OK?
+ if [ "\$?" -eq 0 ];
+  then
+   echo
+   echo -n "Status of FAH client(s):"; echo_success
+   exit 0
+  else
+   echo
+   echo -n "Status of FAH client(s):"; echo_failure
+   exit 1
+ fi
+ ;;
+ DoNothing)
+ echo "...I did nothing..."
+ ;;
+ *)
+ echo "Usage: \$0 {start|stop|restart|status|DoNothing}"
+ exit 1
+esac
+#END.      
+EOF
+chmod +x $1
+echo_created $1
+sleep 1
+}
+
+Integer_Check(){
+#Input:
+# $1 = work to check
+#Output:
+# "true", if this word is an integer;
+# "false", if this word is not an integer;
+#$? = status (0=integer OK, 1=integer NOK)
+
+local empty
+local posit
+local char
+
+empty="false"
+posit=0
+while [ $empty = "false" ];
+ do
+  char=$(echo "${1:$posit:1}")
+  case "$char" in
+   [0-9])
+   echo -n;
+   ;;
+   "")
+   empty="true";
+   if [ $posit -eq 0 ];
+    then 
+     echo "false"; 
+     return 1;
+   fi
+   ;;
+   *)
+   echo "false";
+   return 1;
+   ;;
+  esac
+  let "posit=posit+1"
+ done
+echo "true"
+return 0
+}
+                                                            
+#FAH installation is done with this function:
+FAH_Install() {
+#Where to get FAH console client & where to place it:
+FAH_Settings
+# Check if the FAH directory must be in / (root) directory or in the current
+# directory:
+if [ $(echo $PWD/$Fdir | grep "//" | wc -l) -eq 0 ];
+ then Fdir=$PWD/$Fdir
+fi
+
+# Check if the FAH CPU subdirectory name is set correctly:
+Dir="$(echo $Dir)"
+if [ $(echo $Dir | grep "/" | wc -l) -ne 0 ];
+ then
+  echo ""
+  echo_FAH_DIR_is_invalid
+  echo ""
+  return 1
+fi
+if [ "$(echo $Dir)" = "" ];
+ then
+  echo ""
+  echo_FAH_DIR_is_invalid
+  echo ""
+  return 1
+fi
+
+#Display greetings:
+echo ""
+FAH_Install_Greetings
+echo ""
+
+#OS autodetect:
+if [ "$freebsd" = "false" -a "$macosx" = "false" -a "$linux" = "false" -a "$openbsd" = "false" ];
+ then
+  if [ $(echo $OSTYPE | grep "freebsd" | wc -l) -ne 0 ];
+   then
+#FreeBSD...
+    freebsd="true"
+   else
+    if [ $(echo $OSTYPE | grep "darwin" | wc -l) -ne 0 ];
+     then
+#MacOSX...
+      macosx="true"
+     else
+      if [ $(echo $OSTYPE | grep "openbsd" | wc -l) -ne 0 ]; 
+       then
+#OpenBSD...	
+        openbsd="true"
+      else
+#Use Linux by default...
+       linux="true"
+      fi
+    fi
+  fi   
+fi
+
+add_front=""
+add_tail=""
+
+#freebsd
+if [ "$freebsd" = "true" ]
+ then
+  if [ "$auto" = "false" ];
+   then
+    echo ""
+    Show_FreeBSDNotes|more
+    echo ""
+    message_do_you_want_to_continue
+    AskForChoice
+
+    if [ "$Answer" = "false" ];
+     then
+      return 1
+    fi
+   else
+    echo ""
+    Show_FreeBSDNotes
+    echo ""
+    sleep 3
+  fi    
+#Add -FreeBSD flag to the client:
+  add_tail="-freeBSD"    
+fi
+
+#openbsd
+if [ "$openbsd" = "true" ]
+ then
+  if [ "$auto" = "false" ];
+   then
+    echo ""
+    Show_OpenBSDNotes|more
+    echo ""
+    message_do_you_want_to_continue
+    AskForChoice
+
+    if [ "$Answer" = "false" ];
+     then
+      return 1
+    fi
+   else
+    echo ""
+    Show_OpenBSDNotes
+    echo ""
+    sleep 3
+  fi    
+#Add -OpenBSD flag to the client:
+  add_tail="-openBSD"    
+#OpenBSD qd:
+  qd_dwnl=$qd_dwnl_obsd
+  qd_exec=$qd_exec_obsd  
+  fpd_dwnl=$fpd_dwnl_obsd
+  fpd_exec=$fpd_exec_obsd  
+fi
+
+#wine
+if [ "$wine" = "true" ]
+ then
+  if [ "$auto" = "false" ];
+   then
+    echo ""
+    Show_WineNotes|more
+    echo ""
+    message_do_you_want_to_continue
+    AskForChoice
+
+    if [ "$Answer" = "false" ];
+     then
+      return 1
+    fi
+   else
+    echo ""
+    Show_WineNotes    
+    echo ""
+    sleep 3
+  fi
+#Add "nice -19 wine --" flag:
+  add_front="nice -19 wine --"       
+#Add -local flag to the client:
+  add_tail="-local"    
+
+#When running Win32 FAH client, every client MUST have different machineid (1..8): 
+#Btw: Native Linux client has no limits(*).
+#(*) 4.00 introduced (soft) limits even on Linux.
+
+  if [ "$keepid" = "false" ];
+   then
+    setid="true"
+  fi     
+
+  Fclient=$Fclient_win32  
+  Fdwnl=$Fclient_win32_Fdwnl
+ else
+#MacOS X:
+  if [ "$macosx" = "true" ]
+   then
+    # CPU client has 2 flavors fcliA & fcliB (fcliB is default)
+    # SMP client has 1 flavor
+	if [ "$smp" = "true" ];
+     then
+   	  Fclient=$Fclient_macosx_SMP
+	  Fdwnl=$Fclient_macosx_SMP_Fdwnl
+#v6 FAH SMP will use -smp flag:
+          FAH_default_flags="-smp $FAH_default_flags" 
+     else
+      Fdwnl=$Fclient_macosx_Fdwnl
+#MacOSX client selection:
+      if [ "$fcliA" = "true" ];
+       then
+        Fclient=$Fclient_macosxA
+	   else
+#Default is to use FAHClientB:
+        fcliB="true" 
+        Fclient=$Fclient_macosxB
+	  fi
+    fi
+#Add -local flag to the client:
+    add_tail="-local"    
+#MacOSX qd & fpd:
+    qd_dwnl=$qd_dwnl_osx
+    qd_exec=$qd_exec_osx  
+    fpd_dwnl=$fpd_dwnl_osx
+    fpd_exec=$fpd_exec_osx
+   else
+#SMP?  
+    if [ "$smp" = "true" ];
+     then
+      if [ "$fcliB" = "true" ];
+       then
+#FAH6 SMP: 
+        Fdwnl=$Fclient_linuxB_Fdwnl
+        Fclient=$Fclient_linuxB
+#v6 FAH SMP will use -smp flag:
+        FAH_default_flags="-smp $FAH_default_flags"
+       else
+#FAH5 SMP: 
+#Default is to use FAHClientA:
+        fcliA="true"
+        Fdwnl=$Fclient_linuxA_SMP_Fdwnl
+        Fclient=$Fclient_linuxA_SMP
+      fi 
+     else
+#Regular Linux client download:
+#Linux client selection:
+      if [ "$fcliB" = "true" ];
+       then
+#FAH6 regular:
+        Fdwnl=$Fclient_linuxB_Fdwnl
+        Fclient=$Fclient_linuxB
+       else
+#Default is to use FAHClientA:
+        fcliA="true" 
+        Fdwnl=$Fclient_linuxA_Fdwnl
+        Fclient=$Fclient_linuxA
+      fi
+    fi
+  fi
+fi
+
+#FAH client name:
+if [ "$macosx" = "false" -a "$smp" = "false" ];
+ then
+  if [ "$fcliA" = "true" ];
+   then
+    fahclient=$Fclient
+   else
+    fahclient=$Fclient_linuxB_name
+  fi
+ else
+  if [ "$smp" = "true" ];
+   then
+    if [ "$fcliA" = "true" ];
+     then
+#SMP client name:
+      fahclient=$Fclient_linuxA_SMP_name
+     else
+      fahclient=$Fclient_linuxB_name
+    fi
+   else
+#MACOSX FAH client name selection:
+    if [ "$fcliA" = "true" ];
+     then
+      fahclient=$Fclient_macosx_nameA
+     else
+#Default is to use Fclient_macosx_nameB:
+      fahclient=$Fclient_macosx_nameB
+    fi
+  fi    
+fi
+
+if [ "$auto" = "true" ]
+ then
+  nomd5="true"
+  nodocs="true"
+  norun="true"
+  copycfg="true"
+  if [ "$no3rd" = "false" -a "$skip3rd" = "false" ];
+   then
+    get3rd="true"
+  fi    
+#With 4.00 client it is "healthier" to set the MachineIDs.
+  if [ "$keepid" = "false" ];
+   then
+    setid="true"
+  fi    
+fi
+
+#Check the presence of external tools:
+Check_tools
+
+#Detect CPU count:
+CPUno=$(Get_CPUno)
+echo ""
+echo_setting_up_FAH $CPUno
+echo ""
+sleep 2
+
+#FAH directory generation:
+if [ -d $Fdir ] ;
+ then
+echo_directory_is_present $Fdir
+  DirMakErr=0
+ else
+  echo_directory_is_not_present $Fdir
+  echo_making_directory $Fdir
+  mkdir $Fdir >/dev/null 2>&1
+  DirMakErr=$?
+fi
+if [ $DirMakErr -eq 1 ] ;
+ then
+  echo ""
+  echo_can_not_make_directory $Fdir
+  echo ""
+ else
+  if [ -w $Fdir ] ;
+   then
+   
+#----------
+
+    cd $Fdir
+
+    if [ "$nofetch" = "false" ];
+     then
+#download documentation:
+      echo ""
+      echo ""
+      echo_documentation
+      echo ""
+      if [ -r ./finstallFAQ.txt ]
+       then
+        rm ./finstallFAQ.txt 
+      fi 
+      sleep 2
+      $fget http://ra.vendomar.ee/~ivo/finstallFAQ.txt
+      echo ""
+      echo_downloading_general_HOWTO
+      echo ""
+      if [ -r ./FAHLinux.txt ]
+       then
+        rm ./FAHLinux.txt 
+      fi 
+      sleep 2
+      $fget http://ra.vendomar.ee/~ivo/FAHLinux.txt
+    fi
+    
+#finstall FAQ
+    if [ -r ./finstallFAQ.txt -a "$nodocs" = "false" ]
+     then
+      echo ""
+      message_do_you_want_to_read_faq
+      AskForChoice
+
+      if [ "$Answer" = "true" ];
+       then
+        less ./finstallFAQ.txt
+        echo ""
+        message_do_you_want_to_continue
+        AskForChoice
+
+        if [ "$Answer" = "false" ];
+         then
+          return 1
+        fi
+
+      fi
+     echo ""
+    fi
+
+#folding script generation:
+      FAH_Create_folding $Fdir/folding
+
+#Look if FAH is already running in these directories:
+      $Fdir/folding status dirs >/dev/null
+      if [ $? -eq 0 ];
+       then
+        echo ""
+        echo_installation_terminated_as_fah_is_already_running $0 $Fdir
+	echo ""
+        return 1
+      fi
+      sleep 3
+
+#Do not download the FAH client nor check the md5sum of it.
+#In this case the FAH client must be installed locally.
+    if [ "$nofetch" = "true" ]
+     then
+      echo ""
+      echo_skipping_downloading_of_FAH_client
+      echo ""
+      clientOK="true"    
+     else
+      clientOK="false"    
+    fi
+
+    while [ "$clientOK" = "false" ]
+     do
+
+#It is time to download a FAH client:
+    
+    if [ $fileget_OK = "true" ] ;
+     then
+      if [ -r $Fdir/$Fclient ] ;
+       then
+      
+#Do not check MD5SUM - fetch fresh copy of FAH client:
+        if [ "$nomd5" = "true" ] 
+         then
+	  echo
+          echo_removing_file $Fclient
+          rm $Fdir/$Fclient
+	  echo_removed
+	 else 
+#Is there a md5sum around:
+          if [ $md5_OK = "false" ] ;
+           then
+	    echo
+            echo_removing_file $Fclient
+            rm $Fdir/$Fclient
+	    echo_removed
+	  fi    	
+	fi
+      fi
+
+      echo ""
+      echo_downloading_FAH $Fclient      
+      echo ""
+
+      $fget $Fdwnl$Fclient
+      
+     else
+      echo ""
+      echo_there_is_no_wget_or_curl 
+      echo ""
+    fi
+    
+# Is there a FAH client in Fdir directory?
+    if [ -r $Fdir/$Fclient ] ;
+     then
+      echo ""
+      echo_file_in_directory $Fclient $Fdir
+      ls -la $Fdir/$Fclient
+      echo ""
+#Do not check MD5SUM:
+      if [ "$nomd5" = "true" ];
+       then
+        echo_skipping_md5sum
+        clientOK="true"
+      else
+        
+        if [ $md5_OK = "true" ] ;
+         then
+          echo ""
+          echo_verify_md5sum $Fclient $FdownWeb
+          $md5check $Fclient
+          echo ""
+        message_is_this_correct_md5sum_value
+	AskForChoice
+	
+        if [ "$Answer" = "false" ];
+         then
+	  echo ""
+          echo_removing_file $Fclient
+          rm $Fdir/$Fclient
+	  echo_removed
+	  echo ""
+	 else 
+	  clientOK="true"
+        fi
+
+       else
+        echo ""
+        echo_no_md5sum_available
+	echo ""
+#Nothing to do but assume the client is OK:
+	clientOK="true"
+      fi
+     fi
+     else
+      echo ""
+      echo_no_FAH_client_found $Fclient $Fdir $Fdwnl
+      echo ""
+      return 1
+    fi
+
+     done
+     
+    echo ""
+    if [ "$no3rd" = "false" -a "$skip3rd" = "false" ];
+     then
+      echo ""
+      echo_ask_for_3rd_party_tools
+      echo ""
+      if [ "$get3rd" = "false" ];
+       then 
+        message_do_you_want_to_use_3rd_party_tools
+        AskForChoice
+      
+        if [ "$Answer" = "false" ];
+         then
+#No 3rd party tools for me:     
+          no3rd="true"
+        fi
+       echo ""	
+      fi	 
+    fi 
+#It is time to download 3rd party FAH tools:
+    if [ $fileget_OK = "true" ] ;
+     then
+#Download of 3rd party FAH tools?:
+      if [ "$nofetch" = "true" ]
+       then 
+        if [ "$no3rd" = "false" -a "$skip3rd" = "false" ];
+	 then
+          echo ""
+	  echo_no_3rd_party_tool_can_be_fetched
+	  echo ""
+	  sleep 2
+	fi 
+      fi	
+
+      if [ "$no3rd" = "false" -a "$nofetch" = "false" -a "$skip3rd" = "false" ];
+       then
+        echo ""
+        echo_3rd_party_tool_qd $qd_exec
+
+        if [ -r $Fdir/$qd_exec ] ;
+         then 
+  	  echo
+          echo_removing_file $qd_exec
+          rm $Fdir/$qd_exec
+	  echo_removed
+        fi
+        echo
+        sleep 3
+        $fget $qd_dwnl$qd_exec
+        if [ "$freebsd" = "true" ]	
+	 then
+	  brandelf -t Linux $Fdir/$qd_exec
+	fi 
+        chmod +x $Fdir/$qd_exec
+        sleep 2
+	echo ""
+        echo_3rd_party_tool_qd_data1 $qd_df1
+
+        if [ -r $Fdir/$qd_df1 ] ;
+         then
+	  echo
+          echo_removing_file $qd_df1
+          rm $Fdir/$qd_df1
+	  echo_removed	
+        fi
+        echo
+	sleep 3
+        $fget $qd_df1_dwnl$qd_df1
+        sleep 2
+	echo ""
+        echo_3rd_party_tool_fpd $fpd_exec
+
+        if [ "$macosx" = "false" ]
+         then
+          if [ -r $Fdir/$fpd_exec ] ;
+           then
+  	    echo
+            echo_removing_file $fpd_exec
+            rm $Fdir/$fpd_exec
+	    echo_removed
+          fi
+         else
+          if [ -r $Fdir/$fpd_dmg_osx ] ;
+           then
+  	    echo
+            echo_removing_file $fpd_dmg_osx
+            rm $Fdir/$fpd_dmg_osx
+	    echo_removed
+          fi
+        fi
+	echo
+        sleep 3
+        if [ "$macosx" = "false" ];
+         then
+          $fget $fpd_dwnl$fpd_exec
+        else
+#On MacOSX fpd is a .dmg file which needs to be mounted first
+          $fget $fpd_dwnl$fpd_dmg_osx
+          
+#Mount the .dmg file and copy the fpd.app directory to the finstall directory
+          /usr/bin/hdiutil mount -quiet $fpd_dmg_osx
+          cp -r /Volumes/fpd/fpd* .
+          DISK=$(basename "`df | grep "/Volumes/fpd" | awk '{print $1}'`")
+          if [ "$DISK" != "" ];
+           then
+            /usr/bin/hdiutil eject -quiet $DISK
+          fi
+        fi
+        if [ "$freebsd" = "true" ]	
+	 then
+	  brandelf -t Linux $Fdir/$fpd_exec
+	fi
+        if [ "$macosx" = "false" ]
+         then 
+          chmod +x $Fdir/$fpd_exec
+        fi
+      fi 	
+     else
+      echo ""
+      echo_there_is_no_wget_or_curl
+      echo ""
+    fi
+
+    cd $Fdir
+      
+# Is there a FAH client in Fdir directory?
+    if [ -r $Fdir/$Fclient ] ;
+     then
+      if [ "$wine" = "true" ]
+       then
+        chmod -x $Fdir/$Fclient
+      fi	
+      if [ "$macosx" = "true" ]
+#MacOSX:
+       then
+		if [ "$smp" = "true" ]
+		 then
+		  tar xzf $Fdir/$Fclient
+	      chmod +x $Fdir/mpiexec
+	      Fclient=$Fclient_macosx_SMP_name
+	      chmod +x $Fdir/$Fclient
+		 else
+#-------------------------------
+#Contributed by Kevin Bernhagen:       
+          /usr/bin/hdiutil mount -quiet $Fclient
+          if [ "$fcliA" = "true" ];
+           then
+            cp -p /Volumes/$Fclient_macosx_volume_nameA/$Fclient_macosx_nameA .
+            DISK=$(basename "`df | grep "/Volumes/$Fclient_macosx_volume_nameA" | awk '{print $1}'`")         
+           else
+#Default is to use Fclient_macosx_nameB:
+            cp -p /Volumes/$Fclient_macosx_volume_nameB/$Fclient_macosx_nameB .
+            DISK=$(basename "`df | grep "/Volumes/$Fclient_macosx_volume_nameB" | awk '{print $1}'`")         
+          fi
+	      if [ "$DISK" != "" ]; 
+	       then
+            /usr/bin/hdiutil eject -quiet $DISK
+          fi 
+#-------------------------------
+#FAH client name selection:
+          if [ "$fcliA" = "true" ];
+           then
+            Fclient=$Fclient_macosx_nameA
+           else
+#Default is to use Fclient_macosx_nameB:
+            Fclient=$Fclient_macosx_nameB
+          fi
+		fi
+	    chmod +x $Fdir/$Fclient
+      fi
+#Linux or FreeBSD or OpenBSD:
+      if [ "$linux" = "true" -o "$freebsd" = "true" -o "$openbsd" = "true" ];
+       then 
+#Regular:
+        if [ "$smp" = "false" ];
+         then
+          if [ "$fcliA" = "true" ];
+           then
+            if [ "$freebsd" = "true" ]	
+             then
+# Set the FAH client as executable under FreeBSD:      
+              brandelf -t Linux $Fdir/$Fclient
+            fi
+            chmod +x $Fdir/$Fclient
+           else
+#Selection of a fcliB client:
+            tar xzf $Fdir/$Fclient
+            Fclient=$Fclient_linuxB_name
+            if [ "$freebsd" = "true" ]	
+             then
+              brandelf -t Linux $Fdir/mpiexec
+# Set the FAH client as executable under FreeBSD:      
+              brandelf -t Linux $Fdir/$Fclient
+            fi
+            chmod +x $Fdir/mpiexec
+            chmod +x $Fdir/$Fclient
+          fi
+         else
+#SMP:
+          if [ "$fcliA" = "true" ];
+           then
+            tar xzf $Fdir/$Fclient
+            Fclient=$Fclient_linuxA_SMP_name
+            if [ "$freebsd" = "true" ]	
+             then
+              brandelf -t Linux $Fdir/mpiexec
+# Set the FAH client as executable under FreeBSD:      
+              brandelf -t Linux $Fdir/$Fclient
+            fi
+            chmod +x $Fdir/mpiexec
+            chmod +x $Fdir/$Fclient
+           else
+            tar xzf $Fdir/$Fclient
+            Fclient=$Fclient_linuxB_name
+            if [ "$freebsd" = "true" ]	
+             then
+              brandelf -t Linux $Fdir/mpiexec
+# Set the FAH client as executable under FreeBSD:      
+              brandelf -t Linux $Fdir/$Fclient
+            fi
+            chmod +x $Fdir/mpiexec
+            chmod +x $Fdir/$Fclient
+          fi
+        fi 
+      fi
+      
+      sleep 2
+      
+
+#Import folding functions:
+. ./folding DoNothing >/dev/null
+
+#get_dirs is a ./folding script function:
+      DirectoryNumbers=$(get_dirs)
+#If there are no directories then:
+    if [ "$DirectoryNumbers" = "" ];
+     then
+      if [ "$DirNum" = "" ]; 
+       then
+#SMP will default to 1 FAH client installation:
+        if [ "$smp" = "true" ];
+         then
+          DirectoryNumbers=1
+         else
+#Just fall back to CPU numbering:
+          DirectoryNumbers="$(get_cpus)"
+        fi 
+       else
+        DirNums=1
+        cnt=2
+        while [ "$cnt" -le $DirNum ]; 
+         do
+          DirNums="$DirNums $cnt"
+          let "cnt+=1"
+         done
+        DirectoryNumbers="$DirNums"
+      fi    
+     else
+      if [ -n "$DirNum" ]; 
+       then
+        echo_dirs_option_over-ridden
+	echo ""
+	echo_waiting_for_n_seconds 9
+        PausE 9
+	echo ""
+      fi
+    fi
+
+#Directory count:
+      let "dircount=0"
+      for CurrentCPU in $DirectoryNumbers
+       do
+        let "dircount=dircount+1"
+       done
+
+      if [ "$setid" = "false" -a "$keepid" = "false" -a $dircount -ne 1 ];
+       then 
+        echo ""
+        echo_machineid_asking
+	echo ""
+        message_do_you_want_automatic_machineid_changing
+        AskForChoice
+      
+        if [ "$Answer" = "true" ];
+         then     
+          setid="true"
+        fi
+       echo ""	
+      fi	 
+
+      if [ "$setid" = "true" ];
+       then
+	if [ $dircount -gt 8 ];
+	 then
+          echo ""
+	  error_too_many_FAH_clients $dircount
+	  echo ""
+	  return 1
+	fi  
+      fi    
+      
+      let "MachineID=1"      
+#GoodCFG is latest known good client.cfg directory number:    
+      GoodCFG=""        
+      
+      for CurrentCPU in $DirectoryNumbers
+       do
+        echo ""
+        echo_setup_FAH_clients $CurrentCPU
+	echo ""
+
+        if [ -d $Fdir/$Dir$CurrentCPU ] ;
+         then
+          echo_directory_is_present $Fdir/$Dir$CurrentCPU
+         else
+          echo_directory_is_not_present $Fdir/$Dir$CurrentCPU
+          echo_making_directory $Fdir/$Dir$CurrentCPU
+          mkdir $Fdir/$Dir$CurrentCPU
+        fi
+
+#Is there a FAH client entry?
+        if [ $(ls $Fdir/$Dir$CurrentCPU/ | grep $fahclient | wc -w) -ne 0 ];
+         then
+          echo_file_is_present $Fdir/$Dir$CurrentCPU/$fahclient
+          rm $Fdir/$Dir$CurrentCPU/$fahclient
+          echo_removed_it
+         else
+          echo_file_is_not_present $Fdir/$Dir$CurrentCPU/$fahclient
+        fi
+    
+        echo_making_a_file_entry $fahclient
+         
+        ln -s $Fdir/$Fclient $Fdir/$Dir$CurrentCPU/$fahclient
+        chmod +x $Fdir/$Dir$CurrentCPU/$fahclient
+#SMP?:        
+	if [ "$smp" = "true" ];
+	 then
+          ln -s $Fdir/mpiexec $Fdir/$Dir$CurrentCPU/mpiexec
+          chmod +x $Fdir/$Dir$CurrentCPU/mpiexec 
+	fi     
+        
+	if [ "$fahclient" != "$FcliLink" ];
+	 then
+#Is there a FcliLink entry?
+          if [ $(ls $Fdir/$Dir$CurrentCPU/ | grep $FcliLink | wc -w) -ne 0 ];
+           then
+            echo_file_is_present $Fdir/$Dir$CurrentCPU/$FcliLink
+
+            rm $Fdir/$Dir$CurrentCPU/$FcliLink
+            echo_removed_it
+           else
+            echo_file_is_not_present $Fdir/$Dir$CurrentCPU/$FcliLink
+          fi
+        
+          echo_making_a_file_entry $FcliLink
+
+          ln -s $Fdir/$Dir$CurrentCPU/$fahclient $Fdir/$Dir$CurrentCPU/$FcliLink
+        fi
+#screen
+        if [ "$screen" = "true" ]
+         then
+          add_pref="screen -dmS FAH$CurrentCPU"
+         else
+#noscreen
+          add_pref=""
+        fi
+
+        echo_making_a_file FaH
+
+        FAH_Create_FaH $Fdir/$Dir$CurrentCPU/FaH
+        chmod +x $Fdir/$Dir$CurrentCPU/FaH
+
+#Is there a qd entry?
+        if [ $(ls $Fdir/$Dir$CurrentCPU/ | grep $qd_exec | wc -w) -ne 0 ];
+         then
+          echo_file_is_present $Fdir/$Dir$CurrentCPU/$qd_exec
+          rm $Fdir/$Dir$CurrentCPU/$qd_exec
+          echo_removed_it
+         else
+          echo_file_is_not_present $Fdir/$Dir$CurrentCPU/$qd_exec
+        fi
+        
+	if [ "$no3rd" = "false" ];
+	 then 	 
+	  if [ "$wine" = "false" ]
+	   then	   
+            echo_making_a_file_entry $qd_exec
+            if [ -r $Fdir/$qd_exec ];
+	     then
+              ln -s $Fdir/$qd_exec $Fdir/$Dir$CurrentCPU/$qd_exec
+              chmod +x $Fdir/$Dir$CurrentCPU/$qd_exec
+	     else
+	      echo_but_no_file_found_in_directory $dq_exec $Fdir
+	    fi
+	  fi         
+        fi
+
+#Is there a qdinfo.dat entry?
+        if [ $(ls $Fdir/$Dir$CurrentCPU/ | grep $qd_df1 | wc -w) -ne 0 ];
+         then
+          echo_file_is_present $Fdir/$Dir$CurrentCPU/$qd_df1
+          rm $Fdir/$Dir$CurrentCPU/$qd_df1
+          echo_removed_it
+         else
+          echo_file_is_not_present $Fdir/$Dir$CurrentCPU/$qd_df1
+        fi
+        
+	if [ "$no3rd" = "false" ];
+	 then 	 
+	  if [ "$wine" = "false" ]
+	   then	   
+            echo_making_a_file_entry $qd_df1
+            if [ -r $Fdir/$qd_df1 ];
+  	     then
+              ln -s $Fdir/$qd_df1 $Fdir/$Dir$CurrentCPU/$qd_df1
+              chmod +r $Fdir/$Dir$CurrentCPU/$qd_df1
+	     else
+	      echo_but_no_file_found_in_directory $qd_df1 $Fdir
+	    fi             
+	  fi    
+        fi
+
+#Is there a fpd entry?
+        if [ "$macosx" = "false" ]
+          then
+           if [ $(ls $Fdir/$Dir$CurrentCPU/ | grep $fpd_exec | wc -w) -ne 0 ];
+            then
+             echo_file_is_present $Fdir/$Dir$CurrentCPU/$fpd_exec
+             rm $Fdir/$Dir$CurrentCPU/$fpd_exec
+             echo_removed_it
+            else
+             echo_file_is_not_present $Fdir/$Dir$CurrentCPU/$fpd_exec
+           fi
+         else
+#On MacOS X fpd is a whole directory with subdirs
+          if [ $(ls $Fdir/$Dir$CurrentCPU/ | grep fpd.app | wc -w) -ne 0 ];
+           then
+            echo_file_is_present $Fdir/$Dir$CurrentCPU/fpd.app
+            rm $Fdir/$Dir$CurrentCPU/fpd.app
+            echo_removed_it
+           else
+            echo_file_is_not_present $Fdir/$Dir$CurrentCPU/fpd.app  
+          fi
+        fi
+         
+ 	if [ "$no3rd" = "false" ];
+ 	 then 	 
+           echo_making_a_file_entry $fpd_exec
+          if [ "$macosx" = "false" ]
+           then
+            if [ -r $Fdir/$fpd_exec ];
+	     then
+              ln -s $Fdir/$fpd_exec $Fdir/$Dir$CurrentCPU/$fpd_exec
+              chmod +x $Fdir/$Dir$CurrentCPU/$fpd_exec
+	     else
+	      echo_but_no_file_found_in_directory $fpd_exec $Fdir
+	    fi
+           else
+#On MacOS X the whole fpd.app directory needs to be symlinked 
+            ln -s $Fdir/fpd.app $Fdir/$Dir$CurrentCPU/fpd.app
+          fi
+         fi
+
+#Configuring the client:
+
+#setCONF is 'true' if current client.cfg must be set:           
+          setCONF="true"
+	  
+	  if [ -r $Fdir/$Dir$CurrentCPU/client.cfg ];
+	   then
+	    if [ "$setcfg" = "true" ];
+	     then 
+#You want to set new configuration:
+              echo ""
+              echo_removing_client_configuration $Fdir $Dir $CurrentCPU
+	      rm -f $Fdir/$Dir$CurrentCPU/client.cfg
+	      echo_done
+	      sleep 2
+             else
+              echo ""
+	      echo_there_is_already_config_in_directory $Fdir $Dir $CurrentCPU
+	      if [ "$keepcfg" = "false" -a "$norun" = "false" -a "$copycfg" = "false" ];
+               then
+	        echo ""
+		message_do_you_want_to_reconfigure
+	        AskForChoice
+		
+	        setCONF=$Answer
+	        echo ""
+	       else
+	        echo_keeping_it
+		echo ""
+#Do not set client.cfg:	      
+	        setCONF="false"
+	        sleep 2
+	      fi   
+	    fi 
+	  fi       
+
+	  if [ "$setCONF" = "true" ];
+	   then 
+  	    if [ "$copycfg" != "true" -a "$GoodCFG" != "" ];
+	     then
+              echo ""
+	      echo_last_known_good_config $GoodCFG
+	      echo ""
+	      message_do_you_want_to_use_same_config
+	      AskForChoice
+	      
+	      if [ "$Answer" = "true" ]; 
+	       then
+	        copycfg="true"
+	      fi  
+            fi
+	  fi
+	  
+	  if [ "$setCONF" = "true" ];
+	   then 
+	    if [ "$copycfg" = "true" ]; 
+             then
+              echo ""
+	      echo_trying_to_copy_previous_config
+
+  	      if [ "$GoodCFG" != "" ];
+	       then
+#GoodCFG is Good One, use it:
+                echo_copying_previous_config $Fdir $Dir $GoodCFG $CurrentCPU
+                cp $Fdir/$Dir$GoodCFG/client.cfg $Fdir/$Dir$CurrentCPU
+                echo_done
+		echo ""
+		setCONF="false"
+		sleep 1
+	       else
+	        echo_but_nothing_found
+	        echo ""
+		sleep 1
+	      fi  
+	    fi
+	  fi    
+
+	  if [ "$setCONF" = "true" ];
+	   then 	      
+            if [ "$norun" = "true" ]; 
+             then
+              echo ""
+	      echo_skipping_running_of_FAH
+	     else
+              echo ""
+	      echo_configuring_FAH_client_in_directory $Fdir $Dir $CurrentCPU          
+              if [ "$wine" = "true" ];
+	       then
+	        echo ""
+	        Show_WineAttention|more
+		echo ""
+                message_do_you_want_to_continue
+                AskForChoice
+
+                if [ "$Answer" = "false" ];
+                 then
+                  return 1
+                fi
+	 	
+	       else
+                if [ "$freebsd" = "true" ];
+	         then
+                  echo ""
+		  echo_freebsd_attention
+		  echo ""
+	 	  sleep 2
+	        fi 
+	      fi
+              cd $Fdir/$Dir$CurrentCPU/
+              echo ""
+              echo_starting_FaH
+	      echo ""
+              ./FaH -configonly 2>/dev/null
+              echo ""
+
+#Manual configuration of the FAH client will override all previous GoodCFG settings:
+	      if [ -r $Fdir/$Dir$CurrentCPU/client.cfg ];
+	       then
+	        GoodCFG=$CurrentCPU
+              fi
+	    fi  
+	  fi
+#Check if there is a valid client.cfg:
+	  if [ -r $Fdir/$Dir$CurrentCPU/client.cfg ];
+	   then
+	    if [ "$GoodCFG" = "" ];
+	     then
+#If 'yes' and GoodCFG is not set then use this config as Good One:		 
+	      GoodCFG=$CurrentCPU
+	    fi  
+          fi
+	  
+#Check if configuration was a success:
+	      if [ -r $Fdir/$Dir$CurrentCPU/client.cfg ];
+	       then
+	        if [ "$setid" = "true" ];
+		 then
+#--------------------------
+#Contributed by Bob Kranki:	       
+	          ed $Fdir/$Dir$CurrentCPU/client.cfg <<EOF >/dev/null 2>&1
+/machineid
+s/=.*/=$MachineID/
+l
+w
+EOF
+#--------------------------
+                fi
+	       else
+                echo ""
+	        echo_no_valid_config_file_found $Fdir $Dir $CurrentCPU $0
+		echo ""
+		echo_waiting_for_n_seconds 9
+                PausE 9
+		echo ""
+		
+	      fi	
+	if [ $MachineID -ne $dircount ];
+	 then
+#There are still more clients to set up...
+#          if [ "$setcfg" != "true" -a "$auto" = "false" ];
+          if [ "$keepcfg" = "false" -a "$setcfg" = "false" -a "$auto" = "false" ];
+	   then
+#	    if [ "$setCONF" = "true" ];
+#	     then
+
+#clients_to_install is count of clients the finstall is currently installing:
+              clients_to_install=$(get_word_count $DirectoryNumbers)
+#old_directories is count of clients already in FAH directory:
+	      old_directories=$(get_word_count $(get_dirs))
+#If this is clean FAH installation then clients_to_install is "likely" to differ from old_directories. 
+#In case of clean FAH installation there is no point to ask for client.cfg reset:
+              if [ "$clients_to_install" = "$old_directories" ];
+	       then
+                message_do_you_want_to_reset_config
+	        AskForChoice
+		
+	        if [ "$Answer" = "true" ]; 
+	         then
+	          setcfg="true"
+	         else
+	          keepcfg="true"	
+	        fi
+	        echo ""		
+	      fi	
+#	    fi    
+	  fi 
+	fi       
+	let "MachineID=MachineID+1"           
+       done
+      echo ""
+      
+      if [ "$samba" = "true" ];
+       then 
+#SAMBA script:
+        echo_samba
+        FAH_Create_finstallSamba $Fdir/finstallSamba
+        echo ""
+        if [ "$auto" = "false" ];
+         then 
+	  echo ""
+          Show_SambaNotes|more      
+	  echo ""
+         else
+	  echo ""
+          Show_SambaNotes
+	  echo ""
+        fi
+        echo ""
+	echo_waiting_for_n_seconds 9
+        PausE 9
+	echo ""	
+      fi
+
+      if [ "$macosx" = "true" ];
+       then
+        echo_making_macosx_files
+        echo ""
+	FAH_Create_MacOSX_fold $Fdir/fah
+	FAH_Create_MacOSX_StartupParameters $Fdir/StartupParameters.plist
+        FAH_Create_MacOSX_install $Fdir/installService
+	FAH_Create_MacOSX_uinstall $Fdir/uninstService
+	echo ""
+       else
+        if [ "$openbsd" = "true" ];
+	 then
+#OpenBSD specific files:
+          echo_making_openbsd_files
+          echo ""
+          FAH_Create_OpenBSD_install $Fdir/installService
+	 else
+	  if [ "$gentoo" = "true" ];
+	   then
+#Gentoo specific files:
+            echo_making_gentoo_files            
+            echo ""
+	    FAH_Create_Gentoo_fold $Fdir/zzfah
+            FAH_Create_Gentoo_install $Fdir/installService
+	    FAH_Create_Gentoo_uinstall $Fdir/uninstallService
+	    echo ""
+	   else
+#If not MACOS X or OpenBSD or Gentoo then it must be regular Linux files what work for this box:
+            echo_making_linux_files
+            echo ""
+            FAH_Create_Linux_install $Fdir/installService
+	    FAH_Create_Linux_uinstall $Fdir/uninstallService
+	    echo ""
+	  fi
+	fi
+      fi	
+      echo_making_FAH_backup_script
+      echo ""
+      FAH_Create_fahback $current_directory/fahback
+      echo ""
+
+      echo ""
+      FAH_Create_get_qdinfo $Fdir/get_qdinfo
+      echo ""
+
+
+      echo ""
+      echo_FAH_client_installation_completed
+      sleep 3
+      if [ "$auto" = "false" ];
+       then 
+        echo ""
+        Show_FinalNotes|more      
+	echo ""
+       else
+        echo ""
+        Show_FinalNotes
+	echo ""
+      fi	
+#----------
+     else
+      echo ""
+      echo_no_FAH_client_found $Fclient $Fdir $Fdwnl
+      echo ""
+      return 1
+    fi
+    
+   else
+    echo_no_directory_access
+    echo ""
+  fi
+  
+fi
+
+}
+
+#Check the arguments this script was called with:
+CheckArg(){
+local posit
+local argcheck
+local error
+local arg
+
+#Valid arguments:
+nofetch="false"
+nomd5="false"
+norun="false"
+keepcfg="false"
+copycfg="false"
+DoNothing="false"
+no3rd="false"
+freebsd="false"
+wine="false"
+skip3rd="false"
+fcliA="false"
+fcliB="false"
+nodocs="false"
+get3rd="false"
+setid="false"
+keepid="false"
+auto="false"
+screen="false"
+noscreen="false"
+samba="false"
+macosx="false"
+linux="false"
+setcfg="false"
+openbsd="false"
+gentoo="false"
+smp="false"
+dirs="false"
+DirNum=""
+
+commands="false"
+
+let "posit=1"
+argcheck="true"
+error="false"
+while [ "$argcheck" = "true" -a "$error" = "false" ];
+ do
+  arg="$1"
+  if [ "$arg" != "" ];
+   then
+    case "$arg" in
+     "nofetch")
+     if [ "$nofetch" != "true" -a "$DoNothing" != "true" ];
+      then  
+       nofetch="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "nomd5")
+     if [ "$nomd5" != "true" -a "$DoNothing" != "true" ];
+      then  
+       nomd5="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "norun")
+     if [ "$norun" != "true" -a "$DoNothing" != "true" ];
+      then  
+       norun="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "keepcfg")
+     if [ "$setcfg" != "true" -a "$keepcfg" != "true" -a "$DoNothing" != "true" ];
+      then  
+       keepcfg="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "copycfg")
+     if [ "$copycfg" != "true" -a "$DoNothing" != "true" ];
+      then  
+       copycfg="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "no3rd")
+     if [ "$no3rd" != "true" -a "$skip3rd" != "true" -a "$get3rd" != "true" -a "$DoNothing" != "true" ];
+      then  
+       no3rd="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "freebsd")
+     if [  "$gentoo" != "true" -a "$openbsd" != "true" -a "$macosx" != "true" -a "$freebsd" != "true" -a "$linux" != "true" -a "$DoNothing" != "true" ];
+      then  
+       freebsd="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "wine")
+     if [ "$macosx" != "true" -a "$fcliA" != "true" -a "$fcliB" != "true" -a "$wine" != "true" -a "$smp" != "true" -a "$DoNothing" != "true" ];
+      then  
+       wine="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "skip3rd")
+     if [ "$no3rd" != "true" -a "$skip3rd" != "true" -a "$get3rd" != "true" -a "$DoNothing" != "true" ];
+      then  
+       skip3rd="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "fcliA")
+     if [ "$fcliA" != "true" -a "$fcliB" != "true" -a "$wine" != "true" -a "$DoNothing" != "true" ];
+      then  
+       fcliA="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "fcliB")
+     if [ "$fcliA" != "true" -a "$fcliB" != "true" -a "$wine" != "true" -a "$DoNothing" != "true" ];
+      then  
+       fcliB="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "nodocs")
+     if [ "$nodocs" != "true" -a "$DoNothing" != "true" ];
+      then  
+       nodocs="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "get3rd")
+     if [ "$no3rd" != "true" -a "$skip3rd" != "true" -a "$get3rd" != "true" -a "$DoNothing" != "true" ];
+      then  
+       get3rd="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "setid")
+     if [ "$setid" != "true" -a "$keepid" != "true" -a "$DoNothing" != "true" ];
+      then  
+       setid="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "keepid")
+     if [ "$setid" != "true" -a "$keepid" != "true" -a "$DoNothing" != "true" ];
+      then  
+       keepid="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "auto")
+     if [ "$auto" != "true" -a "$DoNothing" != "true" ];
+      then  
+       auto="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "screen")
+     if [ "$screen" != "true" -a "$noscreen" != "true" -a "$DoNothing" != "true" ];
+      then  
+       screen="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "noscreen")
+     if [ "$screen" != "true" -a "$noscreen" != "true" -a "$DoNothing" != "true" ];
+      then  
+       noscreen="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "samba")
+     if [ "$samba" != "true" -a "$DoNothing" != "true" ];
+      then  
+       samba="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "macosx")
+     if [ "$gentoo" != "true" -a "$openbsd" != "true" -a "$freebsd" != "true" -a "$linux" != "true" -a "$macosx" != "true" -a "$wine" != "true" -a "$DoNothing" != "true" ];
+      then  
+       macosx="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "linux")
+     if [ "$openbsd" != "true" -a "$freebsd" != "true" -a "$macosx" != "true" -a "$linux" != "true" -a "$DoNothing" != "true" ];
+      then  
+       linux="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "setcfg")
+     if [ "$setcfg" != "true" -a "$keepcfg" != "true" -a "$DoNothing" != "true" ];
+      then  
+       setcfg="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "openbsd")
+     if [ "$gentoo" != "true" -a "$openbsd" != "true" -a "$freebsd" != "true" -a "$macosx" != "true" -a "$linux" != "true" -a "$DoNothing" != "true" ];
+      then  
+       openbsd="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "gentoo")
+     if [ "$openbsd" != "true" -a "$freebsd" != "true" -a "$macosx" != "true" -a "$gentoo" != "true" -a "$DoNothing" != "true" ];
+      then  
+       gentoo="true"
+       commands="true"
+      else
+       error="true"
+     fi
+     ;;
+     "smp")
+     if [ "$linux" = "true" -o "$freebsd" = "true" -o "$openbsd" = "true" ];
+      then
+       if [ "$wine" != "true" -a "$smp" != "true" -a "$DoNothing" != "true" ];
+        then  
+#Note: At current state the SMP should default to fcliB. 
+         if [ "$fcliA" = "false" ];
+          then
+           fcliB="true"
+         fi
+         smp="true"
+         commands="true"
+        else
+         error="true"
+       fi
+#Note: At current state use v6 FAH client only for SMP under MacOSX:
+      elif [ "$macosx" == "true" ];
+       then
+        smp="true"
+        commands="true" 
+      else
+       if [ "$fcliA" != "true" -a "$fcliB" != "true" -a "$wine" != "true" -a "$smp" != "true" -a "$DoNothing" != "true" ];
+        then  
+#Note: At current state the SMP should default to fcliB. 
+         if [ "$fcliA" = "false" ];
+          then
+           fcliB="true"
+         fi
+         smp="true"
+         commands="true"
+        else
+         error="true"
+       fi
+     fi
+     ;;
+     "debug")
+     set -o verbose -o xtrace
+     ;;
+     "dirs")
+     if [ "$dirs" != "true" ];
+      then
+       shift
+       if [ -n "$1" ]; 
+        then
+         if [ "$(Integer_Check $1)" = "true" -a "$1" != "0" ];
+          then
+# We can't do much else than stow the value since we do not
+# have access to the appropriate routines yet.
+           DirNum="$1"
+           dirs="true"
+           commands="true"
+          else
+           error="true" 
+           arg="$1"
+         fi
+        else
+         error="true"
+       fi
+      else
+       error="true" 
+     fi  
+     ;;
+     "DoNothing")
+     if [ "$DoNothing" != "true" -a "$commands" != "true" ];
+      then  
+       DoNothing="true"
+      else
+       error="true"
+     fi
+     ;;
+     *)
+     error="true"
+    esac
+   else
+    argcheck="false"   
+  fi
+
+  if [ "$error" = "true" ];
+   then
+    echo_invalid_argument $posit $arg $0
+    return 1
+  fi
+  let "posit=posit+1"
+  shift  
+ done
+return 0
+}
+
+#
+# Program itself...
+#
+
+#Check the availability of external utils:
+Check_Utils
+
+#Argument checking:
+CheckArg $@
+
+if [ $? -eq 0 ];
+ then
+#Set default FAH parameters: 
+  FAH_Settings
+  if [ "$DoNothing" != "true" ];
+   then
+#Install FAH client:
+    FAH_Install
+    if [ $? -eq 0 ];
+     then
+#Set empty FAH "flags" configuration file if there isn't one already:
+      cd $Fdir
+      if [ -r ./fah_config ];
+       then
+#Flags are already there, do not update these:
+        echo -n
+       else
+#Create empty fah_config file:
+        echo 'FAH_flags=""' > ./fah_config
+      fi
+    fi												   
+   else
+#To initialize variables of finstall functions when used by outside scripts:
+    Check_tools >/dev/null
+  fi
+fi  
+#END.

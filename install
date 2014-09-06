@@ -1,0 +1,139 @@
+#!/bin/bash
+## ========================================================
+## FoldWatcher
+## ---------------------
+## Coded by Dr.K@meleon <drkameleon@hotmail.com>
+## 
+## homepage : http:##kameleon-nest.blogspot.com
+##            http:##sourceforge.net/projects/foldwatcher/
+## ============================
+## Filename : install
+## Last Update : 18/05/2008
+##
+## -----------------------------------------------------------------
+## This program is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program.  If not, see <http:##www.gnu.org/licenses/>.
+##
+## Copyright (C) 2008 by Dr.K@meleon
+## ========================================================
+
+##################
+## Functions
+##################
+
+AskForChoice()
+{
+	local answerOK
+
+	answerOK="false"
+
+	while [ "$answerOK" = "false" ]
+	do
+	
+  		read Answer
+  
+  		if [ "$tr_OK" = "true" ] ;
+   		then      
+    			Answer=$(echo $(echo "$Answer" | tr A-Z a-z))
+		fi 
+  	
+		if [ "$Answer" = "yes"  -o  "$Answer" = "y"  -o   "$Answer" = "no"  -o  "$Answer" = "n" ];
+	   	then 
+	    		answerOK="true"
+	
+			if [ "$Answer" = "yes"  -o  "$Answer" = "y" ];
+     			then
+      				Answer="true"
+     			else 
+      				Answer="false"
+    			fi 
+  		else
+			echo '** You must enter a valid choice - either y/yes or n/no...'	
+			echo ''
+		fi
+	done	
+}	
+	
+######################
+## Main procedure
+######################
+
+clear
+echo '||============================================================||'
+echo '||                                                            ||'
+echo '|| FoldWatcher                                                ||'
+echo '|| -------------------------                                  ||'
+echo '|| An integrated monitoring environment for Folding@Home      ||'
+echo '|| designed for Linux and *nix Systems.                       ||'
+echo '||                                                            ||'
+echo '|| Coded by Dr.K@meleon <drkameleon@hotmail.com>              ||'
+echo '||============================================================||'
+echo ''
+echo ''
+echo '=== Installation ======='
+echo ''
+echo '>> Creating directories...'
+rm -rf ~/.foldwatcher
+mkdir ~/.foldwatcher
+
+echo '>> Copying files...'
+sudo cp -f bin/foldwatcher /usr/sbin
+cp -f ui/logo/greenCube.png ~/.foldwatcher
+cp -f tools/xyz2pdb ~/.foldwatcher
+cp -f tools/wus_list.dat ~/.foldwatcher
+
+echo '>> Creating desktop launcher...'
+cp -f tools/FoldWatcher.desktop ~/Desktop
+sudo chown $USER ~/Desktop/FoldWatcher.desktop
+echo Icon=/home/$USER/.foldwatcher/greenCube.png >> ~/Desktop/FoldWatcher.desktop
+
+echo '>> Do you want to install Folding@Home, using the "finstall" script? [y/n]'
+AskForChoice
+
+if [ "$Answer" = "true" ];
+then
+	echo ''
+	echo '>> If you have an amd64 machine, you may install an SMP client. Do you want to proceed? [y/n]'
+	AskForChoice
+	if [ "$Answer" = "false" ];
+	then
+		echo ''
+		echo '>> Executing the "finstall" script...'
+		sudo chmod +x finstall
+		./finstall
+	else
+		echo ''
+		echo '>> Executing the "finstall" script with the "smp" directive...'
+		sudo chmod +x finstall
+		./finstall smp		
+	fi
+fi
+
+echo ''
+echo ''
+echo '!! Installation was SUCCESSFULLY completed !!'
+echo ''
+echo '|| You are now free to enjoy Folding@Home through FoldWatcher!'
+echo '|| -----------------------'
+echo '|| For any inconvenience of this software you are kindly requested to'
+echo '|| contact the author and report any possible bugs:'
+echo '||'
+echo '|| Dr.K@meleon <drkameleon@hotmail.com>'
+echo '||'
+echo ''
+
+#############################################################
+## This is the end, my only friend the end, etc, etc....
+#############################################################
+
+

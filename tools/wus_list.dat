@@ -1,0 +1,2089 @@
+// FoldWatcher
+// ---------------------
+// Coded by Dr.K@meleon <drkameleon@hotmail.com>
+// 
+// homepage : http://kameleon-nest.blogspot.com
+//            http://sourceforge.net/projects/foldwatcher/
+// ============================
+// Filename : wus_list.dat
+// Last Update : 17/05/2008
+//
+// -----------------------------------------------------------------
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// Copyright (C) 2008 by Dr.K@meleon
+// ========================================================
+
+100||villin|0|0.00|6.00|2.00|0||Gastrointestinal tumors and Adenocarcinomas|
+101|171.64.122.114|p101_|0|15.00|22.00|74.00|100|GROMACS|*Peptide Stabilisation||
+103||EngHomeodomain|0|0.00|3.00|1.00|0||*DNA Binding Domain||
+104||ActinBinding|0|0.00|6.00|2.00|0||*Actin Binding Domain||
+105||Villin|0|0.00|6.00|2.00|0||Gastrointestinal tumors and Adenocarcinomas|
+106||NativeVillin|0|0.00|6.00|2.00|0||Gastrointestinal tumors and Adenocarcinomas|
+107||1 CH3 (Villin control)|0|0.00|6.00|2.00|0||Gastrointestinal tumors and Adenocarcinomas|
+110||AlzheimerB28-42|0|0.00|3.00|0.00|0||Alzheimers||
+111||proteinA|601|0.00|9.00|5.00|0||*Antibody Target||
+112||proteinAnat|601|0.00|9.00|5.00|0||*Antibody Target||
+113||proteinAg29a|602|0.00|9.00|5.00|0||*Antibody Target||
+114||proteinAg29aNat|602|0.00|9.00|5.00|0||*Antibody Target||
+115||2SPZ|0|0.00|0.00|1.00|0||*Antibody Target||
+116||2ABD|0|0.00|0.00|3.00|0||*ACA Binding Protein||
+117||1APS|0|0.00|0.00|4.00|0||*Carboxy-Phophatase Hydrolysis Catalase||
+118||1UBQ|0|0.00|0.00|2.00|0||*Proteolysis Marker||
+119||I6C|0|0.00|0.00|1.00|0||*Isomerase||
+120||1SHF|0|0.00|0.00|1.00|0||*ATP Binding, Protein Kinase Activity||
+121||p121_2SPZ|0|0.00|4.00|1.00|0||*Antibody Target||
+122||p122_2ABD|0|0.00|8.00|2.00|0||*ACA Binding Protein||
+123||p123_1APS|0|0.00|10.00|3.00|0||*Carboxy-Phophatase Hydrolysis Catalase||
+124||p124_1UBQ|0|0.00|6.00|1.00|0||*Proteolysis Marker||
+125||p125_I6C|0|0.00|3.00|0.00|0||*Isomerase||
+126||p126_1SHF|0|0.00|5.00|1.00|0||*ATP Binding, Protein Kinase Activity||
+127||p127_wwext|398|0.00|6.00|2.00|0||*Proline Ligand Binding||
+128||p128_wwmut|395|0.00|6.00|2.00|0||*Proline Ligand Binding||
+129||p129_1IGD|564|0.00|3.00|2.00|0||*Antibody Target||
+131|171.64.122.117|p131_2SPZunf|607|0.00|4.00|1.00|0||*Antibody Target||
+132|171.64.122.117|p132_2ABDunf|907|0.00|8.00|2.00|0||*ACA Binding Protein||
+133|171.64.122.117|p133_1APSunf|1022|0.00|10.00|3.00|0||*Carboxy-Phophatase Hydrolysis Catalase||
+134|171.64.122.117|p134_1UBQunf|766|0.00|6.00|1.00|0||*Proteolysis Marker||
+135|171.64.122.117|p135_1I6Cunf|430|0.00|3.00|0.00|0||*Isomerase||
+136|171.64.122.117|p136_1SHFunf|623|0.00|5.00|1.00|0||*ATP Binding, Protein Kinase Activity||
+137|171.64.122.112|p137_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+138|171.64.122.112|p138_1L2Ynative|198|0.00|4.00|0.00|0||Diabetes||
+139|171.64.122.112|p139_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+140|171.64.122.112|p140_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+141|171.64.122.112|p141_1L2Yunf|201|0.00|4.00|0.60|0||Diabetes||
+142|171.64.122.112|p142_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+143|171.64.122.112|p143_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+144|171.64.122.112|p144_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+145|171.64.122.112|p145_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+146|171.64.122.112|p145_1L2Yunf|201|0.00|20.00|6.00|0||Diabetes||
+147|171.64.122.112|p147_1L2Yunf|201|0.00|4.00|0.00|0||Diabetes||
+160|171.64.122.109|p160_vill8MUre99p|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+161|171.64.122.109|p161_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+162|171.64.122.109|p162_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+163|171.64.122.109|p163_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+164|171.64.122.109|p164_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+165|171.64.122.109|p165_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+166|171.64.122.109|p166_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+167|171.64.122.109|p167_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+168|171.64.122.109|p168_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+169|171.64.122.109|p169_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+170|171.64.122.109|p170_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+171|171.64.122.109|p171_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+172|171.64.122.109|p172_villin|392|0.00|6.00|2.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+180|171.64.122.119|p180_enghomeoGB|613|19.00|19.00|93.00|100|TINKER|*DNA Binding Domain|NA|
+181|171.64.122.119|p181_enghomeoPB0.5|613|0.00|15.00|8.00|0||*DNA Binding Domain||
+182|171.64.122.119|p182_enghomeoGB|613|19.00|19.00|93.00|100|TINKER|*DNA Binding Domain|NA|
+183|171.64.122.109|p183_1I6Cunf|430|0.00|6.00|0.00|100|TINKER|*Isomerase||
+184|171.64.122.119|p184|610|19.00|19.00|93.00|100|TINKER|*DNA Binding Domain|NA|
+185|171.64.122.119|p185|610|19.00|19.00|93.00|100|TINKER|*DNA Binding Domain|NA|
+186|171.64.122.109|P186_1fsvunf280|343|0.00|8.00|6.00|200|TINKER|*Synthetic Construct||
+187|171.64.122.109|P187_1FSVnat|343|0.00|8.00|6.00|200|TINKER|*Synthetic Construct||
+188|171.64.122.109|P188_1fsvunf300|343|0.00|8.00|6.00|200|TINKER|*Synthetic Construct||
+189|171.64.122.109|P189_1fsvunf320|343|0.00|8.00|6.00|200|TINKER|*Synthetic Construct||
+190|171.64.122.109|P190_1fsvunf340|343|0.00|8.00|6.00|200|TINKER|*Synthetic Construct||
+191|171.64.122.117|pAla7|11455|0.00|21.00|18.00|0||*Synthetic Construct||
+192|171.64.122.117|pAla7-2|11455|0.00|11.00|10.00|0||*Synthetic Construct||
+200|171.64.122.117|P200_villin|392|0.00|6.00|2.00|0||Gastrointestinal tumors and Adenocarcinomas|
+201|171.64.122.108|p201|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+202|171.64.122.108|p202|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+203|171.64.122.108|p203|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+204|171.64.122.108|p204|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+205|171.64.122.108|p205|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+206|171.64.122.108|p206|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+207|171.64.122.108|p207|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+208|171.64.122.108|p208|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+209|171.64.122.108|p209|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+210|171.64.122.108|p210|392|0.00|12.00|7.00|100|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+211|171.64.122.109|P211_1fsvunf280|343|0.00|8.00|6.00|200|TINKER|*Synthetic Construct||
+212|171.64.122.124|p212_villinURE212|20605|27.00|39.00|135.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+213|171.64.122.109|P213_1fsvunf320|343|0.00|8.00|6.00|200|TINKER|*Synthetic Construct||
+214|171.64.122.124|p214_villin4Mure|6130|16.00|22.00|64.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+215|171.64.122.124|p215_villin1Murea|6127|14.00|20.00|54.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+216|171.64.122.124|p216_villin0Murea|6409|14.00|20.00|54.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+217|171.64.122.124|p217_c28Murea|18111|46.00|68.00|236.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+218|171.64.122.124|p218_c24Murea|16841|38.00|54.00|186.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+219|171.64.122.124|p219_c21Murea|17240|34.00|48.00|160.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+220|171.64.122.124|p220_c20Murea|17368|32.00|44.00|148.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+221|171.64.122.124|p221_NTL98Murea|3366|12.00|20.00|42.00|100|GROMACS|General|rbrandman|
+223|171.64.122.124|p223_NTL94Murea|3411|10.00|20.00|38.00|100|GROMACS|General|rbrandman|
+224|171.64.122.124|p224_NTL91Murea|3403|10.00|20.00|34.00|100|GROMACS|General|rbrandman|
+227|171.64.122.124|p227_NTL90Murea|3418|10.00|20.00|32.00|100|GROMACS|General|rbrandman|
+230|171.64.122.124|p230_villin8Murea4nmBox|6372|18.00|26.00|78.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+231|171.64.122.124|p231_vil4MUre99p|6130|14.00|19.00|64.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+233|171.64.122.124|p233_vil1MUre99p|6127|12.00|17.00|53.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+234|171.64.122.124|p234_vil0MUre99p|6409|11.00|16.00|52.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+235|171.64.122.127|p235_c28MUre99p|18111|45.00|67.00|239.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+236|171.64.122.127|p236_c24MUre99p|16841|36.00|52.00|185.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+237|171.64.122.127|p237_c21MUre99p|17240|31.00|46.00|160.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+238|171.64.122.127|p238_c20MUre99p|17368|29.00|42.00|148.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+239|171.64.122.127|p239_NTL8MUre99p|3366|10.00|13.00|42.00|100|GROMACS|General|rbrandman|
+240|171.64.122.127|p240_NTL4MUre99p|3411|9.00|12.00|38.00|100|GROMACS|General|rbrandman|
+241|171.64.122.127|p241_NTL1MUre99p|3403|8.00|11.00|33.00|100|GROMACS|General|rbrandman|
+242|171.64.122.127|p242_NTL0MUre99p|3418|8.00|11.00|32.00|100|GROMACS|General|rbrandman|
+243|171.64.122.127|p243_vil8MUreGS|6372|16.00|23.00|78.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+244|171.64.122.127|p244_vil4MUreGS|6130|14.00|19.00|63.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+245|171.64.122.127|p245_vil1MUreGS|6127|12.00|17.00|54.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+246|171.64.122.127|p246_vil0MUreGS|6409|12.00|16.00|53.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+247|171.64.122.127|p247_c28MUreGS|18111|45.00|66.00|235.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+248|171.64.122.127|p248_c24MUreGS|16841|35.00|52.00|183.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+249|171.64.122.127|p249_c21MUreGS|17240|31.00|45.00|158.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+250|171.67.89.150|p250_gnra_hybrid_hamiltonian_sjlee|12166|0.00|18.00|53.00|100|GROMACS|General||
+251|171.64.122.114|p251_gnra_dd_erf_e0.5_c18|400|5.00|10.00|18.00|100|GROMACS|General|sungjoo|
+252|171.64.122.114|p252_UUUA Na+ stacked|2966|8.00|12.00|35.00|100|GROMACS|General|sungjoo|
+253|171.64.122.114|p253_AAAA Na+ stacked|2963|8.00|12.00|35.00|100|GROMACS|General|sungjoo|
+254|171.64.122.114|p254_p341_gnra_den|12166|15.00|22.00|74.00|100|GROMACS|General|sungjoo|
+255|171.64.122.114|p255_p341_gnra_den|12166|16.00|23.00|77.00|100|GROMACS|General|sungjoo|
+256|171.64.122.114|p256_p341_gnra_den|12166|16.00|23.00|76.00|100|GROMACS|General|sungjoo|
+257|171.64.122.114|p257_pfold_p254_r0|12166|5.00|10.00|15.00|100|GROMACS|General|sungjoo|
+258|171.64.122.114|p258_NpN|1515|19.00|27.00|92.00|100|GROMACS|General|sungjoo|
+259|171.64.122.114|p259_4Na_Mg|4193|20.00|29.00|98.00|100|GROMACS|General|sungjoo|
+260|171.64.122.114|p260_gnra_dd_erf_e0.5_c18|400|6.00|10.00|22.00|100|GROMACS|General|sungjoo|
+261|171.67.89.154|p261_1ryp_gggg|119507|35.00|52.00|366.00|100|GROMACS|General|sungjoo|
+262|171.64.122.114|p262_ch3cn|7248|30.00|43.00|152.00|100|GROMACS|General|sidnasty|
+263|171.64.122.114|p263_chcl3|11626|42.00|62.00|221.00|100|GROMACS|General|sidnasty|
+264|171.64.122.114|p264_ch3oh|10134|39.00|58.00|206.00|100|GROMACS|General|sidnasty|
+265|171.64.122.114|p265_h2o|12153|29.00|42.00|146.00|100|GROMACS|General|sidnasty|
+266|171.64.122.114|p266_ch3cn|7248|30.00|43.00|152.00|100|GROMACS|General|sidnasty|
+267|171.64.122.114|p267_chcl3|11626|42.00|62.00|221.00|100|GROMACS|General|sidnasty|
+268|171.64.122.114|p268_ch3oh|10134|39.00|58.00|206.00|100|GROMACS|General|sidnasty|
+269|171.64.122.114|p269_h2o|12153|29.00|42.00|146.00|100|GROMACS|General|sidnasty|
+270|||0|0.00|0.00|0.00|0||*Synthetic Construct||
+271|||0|0.00|0.00|0.00|0||*Synthetic Construct||
+272|||0|0.00|0.00|45.00|0||*Synthetic Construct||
+273|171.64.122.110|p273_DPPC_H2O|34307|9.00|13.00|40.00|100|GROMACS|*Intramembrane Transport||
+274||p274_DPPC_ALA|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+275||p275_DPPC_ARG|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+276||p276_DPPC_ASN|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+277||p277_DPPC_ASP|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+278||p278_DPPC_CYSH|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+279||p279_DPPC_GLN|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+280||p280_DPPC_GLU|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+281||p281_DPPC_GLY|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+282||p282_DPPC_HISB|0|10.00|0.00|42.00|100||*Intramembrane Transport||
+283||p283_DPPC_ILE|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+284||p284_DPPC_LEU|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+285||p285_DPPC_LYSH|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+286||p286_DPPC_MET|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+287||p287_DPPC_PHE|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+288||p288_DPPC_PRO|0|10.00|0.00|42.00|100||*Intramembrane Transport||
+289||p289_DPPC_SER|0|10.00|0.00|41.00|100||*Intramembrane Transport||
+290||p290_DPPC_THR|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+291||p291_DPPC_TRP|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+292||p292_DPPC_TYR|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+293||p293_DPPC_VAL|0|9.00|0.00|41.00|100||*Intramembrane Transport||
+294|171.64.122.110|p294_|12280|87.00|130.00|469.00|100|GROMACS|Huntingdons Disease|nwkelley|
+295|171.64.122.110|p295_polyQ_beta-helix|12280|45.00|65.00|234.00|100|GROMACS|Huntingdons Disease|nwkelley|
+296|171.64.122.123|p296_polyQ44 in water|12280|45.00|65.00|234.00|100|GROMACS|Huntingdons Disease|nwkelley|
+297|171.64.122.123|p297_Q44x2 in water|12368|50.00|74.00|266.00|100|GROMACS|Huntingdons Disease|nwkelley|
+298|171.64.122.123|p298_Q44 in water|12278|45.00|66.00|235.00|100|GROMACS|Huntingdons Disease|nwkelley|
+299|171.64.122.123|p299_Q20x4 in water|12337|50.00|73.00|261.00|100|GROMACS|Huntingdons Disease|nwkelley|
+301||GNRA hairpin|0|0.00|6.00|2.00|0||General||
+302||GNRA hairpin|0|0.00|6.00|2.00|0||General||
+304||GNRA hairpin|389|0.00|6.00|2.00|0||General||
+305||GNRA Hairpin|389|0.00|6.00|2.00|0||General||
+306||GNRA hairpin|0|0.00|6.00|2.00|0||General||
+307||GNRA hairpin|389|0.00|6.00|2.00|0||General||
+308||GNRA hairpin|0|0.00|6.00|2.00|0||General||
+309||GNRA hairpin|0|0.00|6.00|2.00|0||General||
+310||GNRA hairpin|0|0.00|6.00|2.00|0||General||
+311||GNRA hairpin|0|0.00|6.00|2.00|0||General||
+312||GNRA hairpin|0|0.00|1.00|0.00|0||General||
+313||GNRA hairpin|0|0.00|1.00|0.00|0||General||
+314||GNRA Hairpin|389|0.00|1.00|0.00|0||General||
+315||GNRA_f0|389|0.00|6.00|2.00|0||General||
+316||GAAA_tetraloop|391|0.00|6.00|2.00|0||General||
+317||GAGA_tetraloop|392|0.00|6.00|2.00|0||General||
+318||RNA_9bp_hairpin|718|0.00|12.00|4.00|0||General||
+319||GNRA_pfold2|389|0.00|1.00|0.00|0||General||
+320|171.64.122.111|p320_nat_273|6414|0.00|18.00|51.00|100|GROMACS|General||
+321|171.64.122.111|p321_nat_289|6414|0.00|18.00|51.00|100|GROMACS|General||
+322|171.64.122.111|p322_nat_305|6414|0.00|18.00|51.00|100|GROMACS|General||
+323|171.64.122.111|p323_nat_321|6414|0.00|18.00|51.00|100|GROMACS|General||
+324|171.64.122.111|p324_nat_337|6414|0.00|18.00|51.00|100|GROMACS|General||
+325|171.64.122.111|p325_nat_353|6414|0.00|18.00|51.00|100|GROMACS|General||
+326|171.64.122.111|p326_nat_369|6414|0.00|18.00|51.00|100|GROMACS|General||
+327|171.64.122.110|p327_A21nat_273_op|6426|0.00|18.00|51.00|100|GROMACS|General||
+328|171.64.122.110|p328_A21unf_273_op|6399|0.00|18.00|51.00|100|GROMACS|General||
+329|171.64.122.110|p329_FSnat_273_op|6414|0.00|18.00|51.00|100|GROMACS|General||
+330|171.64.122.110|p330_FSunf_273_op|6384|0.00|18.00|51.00|100|GROMACS|General||
+332|171.64.122.111|p332_unf_273|6384|0.00|18.00|51.00|100|GROMACS|General||
+333|171.64.122.111|p333_unf_289|6384|0.00|18.00|51.00|100|GROMACS|General||
+334|171.64.122.111|p334_unf_305|6384|0.00|18.00|51.00|100|GROMACS|General||
+335|171.64.122.111|p335_unf_321|6384|0.00|18.00|51.00|100|GROMACS|General||
+336|171.64.122.111|p336_unf_337|6384|0.00|18.00|51.00|100|GROMACS|General||
+337|171.64.122.111|p337_unf_353|6384|0.00|18.00|51.00|100|GROMACS|General||
+338|171.64.122.111|p338_unf_369|6384|0.00|18.00|51.00|100|GROMACS|General||
+340|171.64.122.110|p340_gnra_nat|12235|0.00|18.00|53.00|100|GROMACS|General||
+341|171.64.122.110|p341_gnra_den|12166|0.00|18.00|53.00|100|GROMACS|General||
+342|171.64.122.110|p342_gnra_pf1|12200|0.00|18.00|53.00|100|GROMACS|General||
+343|171.64.122.110|p343_gnra_pf2|12200|0.00|18.00|53.00|100|GROMACS|General||
+344|171.67.89.149|p344_gnra_unf_1|12160|0.00|18.00|53.00|100|GROMACS|General||
+345|171.64.122.111|p345_gnra_pf2_Mg|12200|0.00|18.00|53.00|100|GROMACS|General||
+346|171.64.122.111|p346_gnra_nat_Mg|12202|0.00|18.00|53.00|100|GROMACS|General||
+347|171.64.122.111|p347_gnra_den_Mg|12193|0.00|18.00|53.00|100|GROMACS|General||
+348|171.64.122.110|p348_tip4p_pf1_Na|16100|0.00|18.00|54.00|100|GROMACS|General||
+349|171.64.122.110|p349_tip4p_pf2_Na|16100|0.00|18.00|54.00|100|GROMACS|General||
+350|171.64.122.111|p350_tip4p_pf1_Mg|6414|0.00|18.00|51.00|100|GROMACS|General||
+351|171.64.122.111|p351_tip4p_pf2_Mg|6384|0.00|18.00|51.00|100|GROMACS|General||
+352|171.64.122.111|p352_nat_305_99|6414|0.00|18.00|51.00|100|GROMACS|General||
+353|171.64.122.111|p353_unf_305_99|6384|0.00|18.00|51.00|100|GROMACS|General||
+354|171.67.89.149|p354_A21nat_273_GS|6426|18.00|36.00|51.00|100|GROMACS|General||
+355|171.67.89.149|p355_A21unf_273_GS|6399|18.00|36.00|51.00|100|GROMACS|General||
+356|171.67.89.149|p356_A21nat_273_94|6426|18.00|36.00|51.00|100|GROMACS|General||
+357|171.67.89.149|p357_A21unf_273_94|6399|18.00|36.00|51.00|100|GROMACS|General||
+358|171.67.89.149|p358_A21nat_273_99|6426|18.00|36.00|51.00|100|GROMACS|General||
+359|171.67.89.149|p359_A21unf_273_99|6399|18.00|36.00|51.00|100|GROMACS|General||
+360|171.64.122.116|p360_gnra_pf1_Mg|12200|0.00|18.00|53.00|100|GROMACS|General||
+361|171.64.122.116|p361_gnra_pf2_Mg|12200|0.00|18.00|53.00|100|GROMACS|General||
+362|171.64.122.116|p362_tip4p_pf1_Mg|16100|0.00|18.00|54.00|100|GROMACS|General||
+363|171.64.122.116|p363_tip4p_pf2_Mg|16100|0.00|18.00|54.00|100|GROMACS|General||
+364|171.64.122.116|p364_tip5p_pf1_Mg|19500|0.00|10.00|29.00|100|GROMACS|General||
+365|171.64.122.116|p365_tip5p_pf2_Mg|19500|0.00|10.00|29.00|100|GROMACS|General||
+367|171.64.122.116|p367_gnra_den_Mg|12176|0.00|18.00|53.00|100|GROMACS|General||
+368|171.64.122.110|p368_tip5p_pf1_Na|19500|0.00|10.00|29.00|100|GROMACS|General||
+369|171.64.122.110|p369_tip5p_pf2_Na|19500|0.00|10.00|29.00|100|GROMACS|General||
+372|171.64.122.110|p372_gnra_pf1_noi|12200|0.00|18.00|53.00|100|GROMACS|General||
+373|171.64.122.116|p373_gnra_pf2_noi|12200|0.00|18.00|53.00|100|GROMACS|General||
+374|171.67.89.149|p374_gnra_pf1_cut|12200|0.00|6.00|15.00|100|GROMACS|General||
+375|171.67.89.149|p375_gnra_pf2_cut|12200|0.00|6.00|15.00|100|GROMACS|General||
+376|171.67.89.149|p376_gnra_pf1_22i|12100|0.00|18.00|53.00|100|GROMACS|General||
+377|171.67.89.149|p377_gnra_pf2_22i|12100|0.00|18.00|53.00|100|GROMACS|General||
+378|171.67.89.149|p378_gnra_pf1_38i|12000|0.00|18.00|53.00|100|GROMACS|General||
+379|171.67.89.149|p379_gnra_pf2_38i|12000|0.00|18.00|53.00|100|GROMACS|General||
+380|171.67.89.149|p380_gnra_pf1_56i|11800|0.00|18.00|53.00|100|GROMACS|General||
+381|171.67.89.149|p381_gnra_pf2_56i|11800|0.00|18.00|53.00|100|GROMACS|General||
+382|171.67.89.149|p382_gnra_pf1_75i|11600|0.00|18.00|53.00|100|GROMACS|General||
+383|171.67.89.149|p383_gnra_pf2_75i|11600|0.00|18.00|53.00|100|GROMACS|General||
+384|171.67.89.149|p384_gnra_pf1_150i|11000|0.00|18.00|53.00|100|GROMACS|General||
+385|171.67.89.149|p385_gnra_pf2_150i|11000|0.00|18.00|53.00|100|GROMACS|General||
+386|171.67.89.149|p386_gnra_pf1_cut|12200|0.00|6.00|15.00|100|GROMACS|General||
+387|171.67.89.149|p387_gnra_pf2_cut|12200|0.00|6.00|15.00|100|GROMACS|General||
+388|171.64.122.110|p388_perm|1625|0.00|6.00|9.00|100|GROMACS|*RNA Folding||
+389|171.64.122.110|p389_6tna_eps|1625|0.00|6.00|9.00|100|GROMACS|*RNA Folding||
+391|171.64.122.110|p391_6tna_eps|1625|0.00|6.00|9.00|100|GROMACS|*RNA Folding||
+392|171.64.122.110|p392_perm|1625|0.00|6.00|9.00|100|GROMACS|*RNA Folding||
+393|171.64.122.110|p393_|0|0.00|6.00|9.00|100|GROMACS|*RNA Folding||
+394|171.64.122.110|p394_6tna_p76|1625|0.00|6.00|9.00|100|GROMACS|*RNA Folding||
+395|171.64.122.110|p395_6tna_p76|1625|0.00|6.00|9.00|200|GROMACS|*RNA Folding||
+396|171.64.122.110|p396_6tna_p76|1625|0.00|6.00|9.00|200|GROMACS|*RNA Folding||
+397|171.64.122.110|p397_6tna_p76|1625|0.00|3.00|4.00|100|GROMACS|*RNA Folding||
+400|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+401|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+402||INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+403||INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+404|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+405|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+406||INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+407||INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+408||SideChains|0|0.00|0.00|0.00|0||General||
+409||SideChains|0|0.00|0.00|0.00|0||General||
+410||SideChains|0|0.00|0.00|0.00|0||General||
+411||SideChains|0|0.00|0.00|0.00|0||General||
+412||SideChains|0|0.00|0.00|0.00|0||General||
+413|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+414|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+415|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+416|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||General||
+417||SideChains|0|0.00|0.00|0.00|0||General||
+418||SideChains|0|0.00|0.00|0.00|0||General||
+419||SideChains|0|0.00|0.00|0.00|0||General||
+420||SideChains|0|0.00|0.00|0.00|0||General||
+421||SideChains|0|0.00|0.00|0.00|0||General||
+422||SideChains|0|0.00|0.00|0.00|0||General||
+423||SideChains|0|0.00|0.00|0.00|0||General||
+424||SideChains|0|0.00|0.00|0.00|0||General||
+425||SideChains|0|0.00|0.00|0.00|0||General||
+426||SideChains|0|0.00|0.00|0.00|0||General||
+427||SideChains|0|0.00|0.00|0.00|0||General||
+428||SideChains|0|0.00|0.00|0.00|0||General||
+429||SideChains|0|0.00|0.00|0.00|0||General||
+430||SideChains|0|0.00|0.00|0.00|0||General||
+431||SideChains|0|0.00|0.00|0.00|0||General||
+432||SideChains|0|0.00|0.00|0.00|0||General||
+433||SideChains|0|0.00|0.00|0.00|0||General||
+434||SideChains|0|0.00|0.00|0.00|0||General||
+435||SideChains|0|0.00|0.00|0.00|0||General||
+436||SideChains|0|0.00|0.00|0.00|0||General||
+437||SideChains|0|0.00|0.00|0.00|0||General||
+438||SideChains|0|0.00|0.00|0.00|0||General||
+439||SideChains|0|0.00|0.00|0.00|0||General||
+440||SideChains|0|0.00|0.00|0.00|0||General||
+441||SideChains|0|0.00|0.00|0.00|0||General||
+442||SideChains|0|0.00|0.00|0.00|0||General||
+443||SideChains|0|0.00|0.00|0.00|0||General||
+444||SideChains|0|0.00|0.00|0.00|0||General||
+445||SideChains|0|0.00|0.00|0.00|0||General||
+446||SideChains|0|0.00|0.00|0.00|0||General||
+447||SideChains|0|0.00|0.00|0.00|0||General||
+448||PHE SIDECHAIN - OPLSAA|0|0.00|0.00|0.00|0||General||
+449||SideChains|0|0.00|0.00|0.00|0||General||
+450||SideChains|0|0.00|0.00|0.00|0||General||
+451||GLN SIDECHAIN - OPLSAA|0|0.00|0.00|0.00|0||General||
+452||SideChains|0|0.00|0.00|0.00|0||General||
+453||TRP SIDECHAIN - OPLSAA|0|0.00|0.00|0.00|0||General||
+454||ALA SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+455||VAL SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+456||ILE SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+457||SER SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+458||PHE SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+459||TYR SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+460||ASN SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+461||GLN SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+462||CYS SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+463||TRP SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+464||SideChains|0|0.00|0.00|0.00|0||General||
+465||SideChains|0|0.00|0.00|0.00|0||General||
+466||LEU Sidechain - CHARMM|0|0.00|0.00|0.00|0||General||
+467||MET Sidechain - CHARMM|0|0.00|0.00|0.00|0||General||
+468||THR Sidechain - CHARMM|0|0.00|0.00|0.00|0||General||
+469||SideChains|0|0.00|0.00|0.00|0||General||
+470||SideChains|0|0.00|0.00|0.00|0||General||
+471||LEU SIDECHAIN - OPLSAA|0|0.00|0.00|0.00|0||General||
+472||SideChains|0|0.00|0.00|0.00|0||General||
+473||SideChains|0|0.00|0.00|0.00|0||General||
+474||HID SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+475||SideChains|0|0.00|0.00|0.00|0||General||
+476||SideChains|0|0.00|0.00|0.00|0||General||
+477||MET SIDECHAIN - AMBER|0|0.00|0.00|0.00|0||General||
+478||SideChains|0|0.00|0.00|0.00|0||General||
+479||THR SIDECHAIN - OPLSAA|0|0.00|0.00|0.00|0||General||
+480||TYR SIDECHAIN - OPLSAA|0|0.00|0.00|0.00|0||General||
+481||SideChains|0|0.00|0.00|0.00|0||General||
+482||SideChains|0|0.00|0.00|0.00|0||General||
+483||SideChains|0|0.00|0.00|0.00|0||General||
+484||SideChains|0|0.00|0.00|0.00|0||General||
+485||SideChains|0|0.00|0.00|0.00|0||General||
+486||SideChains|0|0.00|0.00|0.00|0||General||
+487||SideChains|0|0.00|0.00|0.00|0||General||
+488||SideChains|0|0.00|0.00|0.00|0||General||
+489||SideChains|0|0.00|0.00|0.00|0||General||
+490||SideChains|0|0.00|0.00|0.00|0||General||
+491||SideChains|0|0.00|0.00|0.00|0||General||
+492||SideChains|0|0.00|0.00|0.00|0||General||
+493||SideChains|0|0.00|0.00|0.00|0||General||
+494||SideChains|0|0.00|0.00|0.00|0||General||
+495||SideChains|0|0.00|0.00|0.00|0||General||
+496||SideChains|0|0.00|0.00|0.00|0||General||
+497||SideChains|0|0.00|0.00|0.00|0||General||
+498||SideChains|0|0.00|0.00|0.00|0||General||
+499||SideChains|0|0.00|0.00|0.00|0||General||
+500||Ab28-43V|0|0.00|7.00|1.00|0||Alzheimers||
+501|171.64.122.124|p501_RIBOSOMAL PROTEIN S6|1050|0.00|1.00|1.00|100|GROMACS|General||
+502|171.64.122.124|p502_RIBOSOMAL PROTEIN S6|1050|0.00|1.00|1.00|100|GROMACS|General||
+503||PolyGln|0|0.00|7.00|1.00|0||General||
+504|171.64.122.116|PolyQ50|606|0.00|7.00|1.00|0||General||
+505|||0|0.00|0.00|1.00|0||General||
+506|171.64.122.124|p506_RIBOSOMAL PROTEIN S6|1050|0.00|1.00|1.00|100|GROMACS|General||
+507|171.64.122.124|p507_RIBOSOMAL PROTEIN S6|1050|0.00|1.00|1.00|100|GROMACS|General||
+508|171.64.122.124|p508_RIBOSOMAL PROTEIN S6|1050|0.00|1.00|1.00|200|GROMACS|General||
+509|171.64.122.124|p509_RIBOSOMAL PROTEIN S6|1050|0.00|3.00|6.00|100|GROMACS|General||
+510||ABLp41|0|0.00|5.00|0.00|0||Alzheimers||
+511|171.64.122.124|p511_RIBOSOMAL PROTEIN S6|1050|0.00|3.00|6.00|100|GROMACS|General||
+512||ABeta17-42|0|0.00|5.00|0.00|0||Alzheimers||
+513|171.64.122.124|p513_RIBOSOMAL PROTEIN|1050|0.00|0.00|6.00|100|GROMACS|General||
+514|171.64.122.124|p514_RIBOSOMAL PROTEIN S6|1050|0.00|3.00|6.00|100|GROMACS|General||
+515|171.64.122.124|p515_RIBOSOMAL PROTEIN S6|1050|0.00|3.00|6.00|100|GROMACS|General||
+516|171.64.122.124|p516_RIBOSOMAL PROTEIN S6|1050|0.00|3.00|6.00|100|GROMACS|General||
+520|171.67.89.100|p520_BBA5_pf|12200|10.00|0.00|44.00|100|GROMACS|*Synthetic Construct||
+521|171.67.89.100|p521_BBA5_pf|12200|10.00|0.00|44.00|100|GROMACS|*Synthetic Construct||
+522|171.67.89.100|p522_BBA5_pf|1220|10.00|0.00|44.00|100|GROMACS|*Synthetic Construct||
+523|171.67.89.100|p523_BBA5_pf|12200|10.00|0.00|44.00|100|GROMACS|*Synthetic Construct||
+524|171.67.89.100|p524_BBA5_pf|12200|10.00|0.00|44.00|100|GROMACS|*Synthetic Construct||
+525|171.67.89.100|p525_BBA5_pf|12200|10.00|0.00|44.00|100|GROMACS|*Synthetic Construct||
+526|171.67.89.100|p526_BBA5_pf|12200|10.00|0.00|44.00|100|GROMACS|*Synthetic Construct||
+529|171.67.89.148|p529_BBA5_N|12200|10.00|15.00|46.00|100|GROMACS|*Synthetic Construct|ymrhee|
+530|171.65.103.148|p530_BBA5_N|12200|10.00|14.00|44.00|100|GROMACS|*Synthetic Construct|ymrhee|
+531|171.64.122.123|p531_BBA5 in water|12199|0.00|2.00|7.00|100|GROMACS|*Synthetic Construct||
+532|171.64.122.123|p532_BBA5 in water|12199|0.00|5.00|24.00|100|GROMACS|*Synthetic Construct||
+533|171.64.122.123|p533_BBA5 in water|12199|0.00|2.00|7.00|100|GROMACS|*Synthetic Construct||
+534|171.64.122.123|p534_BBA5 in water|12199|0.00|2.00|7.00|100|GROMACS|*Synthetic Construct||
+535|171.64.122.123|p535_BBA5_N|12199|0.00|2.00|7.00|100|GROMACS|*Synthetic Construct||
+536|171.64.122.123|p536_BBA5_ext|12200|0.00|2.00|10.00|100|GROMACS|*Synthetic Construct||
+537|171.64.122.123|p537_BBA5_N in water|12199|0.00|5.00|18.00|100|GROMACS|*Synthetic Construct||
+538|171.67.89.148|p538_BBA_ext|12170|11.00|15.00|48.00|100|GROMACS|*Synthetic Construct||
+539|171.64.122.123|p539_BBA5_N in water|12199|10.00|15.00|46.00|100|GROMACS|*Synthetic Construct||
+540|171.64.122.124|p540_BBA5_N in water|12199|0.00|15.00|33.00|100|GROMACS|*Synthetic Construct||
+541|171.64.122.124|p541_BBA5_N in water|12199|0.00|15.00|33.00|100|GROMACS|*Synthetic Construct||
+542|171.67.89.148|p542_BBA5_ext|12200|10.00|15.00|46.00|100|GROMACS|*Synthetic Construct||
+543|171.65.103.148|p543_BBA5_ext|12200|10.00|14.00|44.00|100|GROMACS|*Synthetic Construct|ymrhee|
+544|171.64.122.113|p544_BBA5|12200|11.00|15.00|47.00|100|GROMACS|*Synthetic Construct|ymrhee|
+545|171.64.122.113|p545_BBA5|12200|11.00|15.00|47.00|100|GROMACS|*Synthetic Construct|ymrhee|
+546|171.64.122.113|p546_BBA5|12200|11.00|15.00|47.00|100|GROMACS|*Synthetic Construct|ymrhee|
+547|171.64.122.124|p547_BBA5_ext|12200|0.00|5.00|18.00|100|GROMACS|*Synthetic Construct||
+548|171.64.122.123|p548_BBA5_ext|12200|6.00|10.00|23.00|100|GROMACS|*Synthetic Construct||
+549|171.64.122.113|p549_BBA5|12200|11.00|15.00|47.00|100|GROMACS|*Synthetic Construct|ymrhee|
+550||bba5_build_ext|0|0.00|2.00|0.00|0||*Synthetic Construct||
+551||Water TIP3P Model|0|0.00|2.00|0.00|0||General||
+552||nativeBBa5|260|0.00|2.00|0.00|0||*Synthetic Construct||
+553|171.64.122.109|p553_BBA5_pf|385|0.00|5.00|9.00|200|TINKER|*Synthetic Construct||
+554|171.64.122.111|bba5_build_ext|260|0.00|2.00|0.00|0||*Synthetic Construct||
+555|171.64.122.109|p555_BBA5_pf|385|0.00|5.00|9.00|50|TINKER|*Synthetic Construct||
+556|171.67.89.148|p556_BBA5|12200|15.00|40.00|33.00|100|GROMACS|*Synthetic Construct||
+557|171.64.122.109|p557_BBA5_pf|385|0.00|3.00|9.00|50|TINKER|*Synthetic Construct||
+558|171.64.122.123|p558_BBA5_pf|12200|11.00|15.00|47.00|100|GROMACS|*Synthetic Construct|ymrhee|
+559|171.64.122.113|p559_BBA5_N|12200|10.00|15.00|46.00|100|GROMACS|*Synthetic Construct|ymrhee|
+560||bba5_ext300K|260|0.00|0.00|0.00|0||*Synthetic Construct||
+561|171.64.122.111|bba5_ext250K|260|0.00|5.00|0.00|0||*Synthetic Construct||
+562||NativeBBA5-300K|260|0.00|0.00|0.00|0||*Synthetic Construct||
+563|171.64.122.123|p563_BBA5_ext|12200|6.00|10.00|23.00|100|GROMACS|*Synthetic Construct|ymrhee|
+564|171.64.122.111|bba5_ext402K|260|0.00|5.00|0.00|0||*Synthetic Construct||
+565|171.64.122.111|bba5_ext500K|260|0.00|5.00|0.00|0||*Synthetic Construct||
+566|171.64.122.144|p566_BBA5_pf|12200|0.00|15.00|33.00|100|GROMACS|*Synthetic Construct||
+567|171.67.89.148|p567_BBA5|12200|15.00|40.00|33.00|100|GROMACS|*Synthetic Construct||
+568|171.64.122.113|p568_BBA5_N|12200|6.00|10.00|23.00|100|GROMACS|*Synthetic Construct|ymrhee|
+569|171.67.89.148|p569_BBA5_ext|12200|10.00|15.00|46.00|100|GROMACS|*Synthetic Construct|ymrhee|
+570|171.67.89.148|p570_BBalphaUA|12212|25.00|60.00|36.00|100|GROMACS|*Synthetic Construct||
+571|171.67.89.148|p571_L939_K12M_nat|15367|25.00|60.00|66.00|100|GROMACS|General|ymrhee|
+572|171.67.89.148|p572_L939_K12M|15367|13.00|19.00|61.00|100|GROMACS|General|ymrhee|
+573|171.67.89.148|p573_L939_K12M|15367|25.00|60.00|47.00|100|GROMACS|General||
+574|171.67.89.148|p574_L939_K12M|15367|25.00|60.00|47.00|100|GROMACS|General||
+575|171.67.89.148|p575_L939_K12M|15367|25.00|60.00|47.00|100|GROMACS|General||
+576|171.67.89.148|p576_L939_K12M|15367|25.00|60.00|47.00|100|GROMACS|General||
+577|171.67.89.148|p577_L939_K12M|15367|25.00|60.00|47.00|100|GROMACS|General||
+578|171.67.89.148|p578_L939_K12M|15367|25.00|60.00|47.00|100|GROMACS|General||
+579|171.65.103.148|p579_BBA5_pf|385|36.00|53.00|186.00|250|TINKER|*Synthetic Construct|ymrhee|
+580|171.67.89.148|p580_BBA5|245|3.00|10.00|6.00|100|GROMACS|*Synthetic Construct|ymrhee|
+581|171.65.103.148|p581_BBA5_tip4p|16138|42.00|62.00|220.00|100|GROMACS|*Synthetic Construct|ymrhee|
+582|171.65.103.148|p582_BBA5_tip4pEW|16138|52.00|78.00|277.00|100|GROMACS|*Synthetic Construct|ymrhee|
+583|171.65.103.148|p583_BBA5/GBSA|385|9.00|13.00|42.00|100|AMBER|*Synthetic Construct|ymrhee|
+584|171.65.103.148|p584_BBA5/TIP3P|12200|18.00|26.00|88.00|100|AMBER|*Synthetic Construct|ymrhee|
+585|||0|32.00|0.00|215.00|100||*Synthetic Construct||
+586|171.64.122.113|p586_BBA5/POL3|12200|32.00|47.00|215.00|100|AMBER|*Synthetic Construct|ymrhee|
+587|171.65.103.148|p587_BBA5_pf|385|36.00|53.00|186.00|250|TINKER|*Synthetic Construct|ymrhee|
+588|171.64.122.113|p588_BBA5/m20|12200|42.00|62.00|230.00|100|GROMACS|*Synthetic Construct|ymrhee|
+589|171.64.122.113|p589_BBA5/M24|12200|42.00|62.00|230.00|100|GROMACS|*Synthetic Construct|ymrhee|
+590|171.65.103.148|p590_BBA5_pf|385|19.00|28.00|93.00|250|TINKER|*Synthetic Construct|ymrhee|
+591|171.65.103.148|p591_BBA5_pf|385|5.00|10.00|20.00|250|TINKER|*Synthetic Construct|ymrhee|
+599|171.64.122.109|p599_BBA5_pf|385|0.00|5.00|9.00|200|TINKER|*Synthetic Construct||
+600||NativeBBA5|0|0.00|0.00|1.00|0||*Synthetic Construct||
+601||601_BBAW_helix|0|0.00|0.00|0.00|0||*Synthetic Construct||
+602||602_BBAW_hairpin|0|0.00|0.00|0.00|0||*Synthetic Construct||
+603|171.64.122.113|p603_bba5F8W_ext_298|264|0.00|5.00|1.00|0||*Synthetic Construct||
+604|171.64.122.113|p604_bba5F8W_ext_278|264|0.00|5.00|1.00|0||*Synthetic Construct||
+605|171.64.122.113|p605_bba5F8W_nat_298|264|0.00|5.00|1.00|0||*Synthetic Construct||
+606|171.64.122.113|p606_bba5F8W_nat_278|264|0.00|5.00|1.00|0||*Synthetic Construct||
+607|171.64.122.108|NativeBBA5_278K_P607|260|0.00|5.00|1.00|0||*Synthetic Construct||
+608|171.64.122.108|NativeBBA5_278K_P608|260|0.00|5.00|1.00|0||*Synthetic Construct||
+609|171.64.122.108|NativeBBA5_278K_P609|260|0.00|5.00|2.00|0||*Synthetic Construct||
+610|171.64.122.120|p610_tetP30_build_ext|343|0.00|14.00|7.00|200|TINKER|Tumour Supression||
+611|171.64.122.120|p611_trpzip1_ext|167|0.00|14.00|5.00|400|TINKER|General||
+612|171.64.122.120|P612_villin_ext_ASP|392|0.00|14.00|8.00|200|TINKER|Gastrointestinal tumors and Adenocarcinomas|
+613|171.64.122.120|p613_trpzip1_ext_23C|167|0.00|14.00|5.00|400|TINKER|General||
+614|171.64.122.120|p614_trpzip1_nat_23C|167|0.00|14.00|5.00|400|TINKER|General||
+615|171.64.122.120|p615_trpzip2_ext_23C|167|0.00|14.00|5.00|400|TINKER|General||
+616|171.64.122.120|p616_trpzip2_nat_23C|167|0.00|14.00|5.00|400|TINKER|General||
+617|171.64.122.119|p617_p53_1a1u_nat|684|11.00|11.00|51.00|100|TINKER|Tumour Supression|csnow|
+618|171.64.122.119|p618_p617_designvln_nat|471|13.00|13.00|63.00|200|TINKER|Tumour Supression|csnow|
+619|171.64.122.119|p619_p53_1a1u_nat|684|11.00|11.00|52.00|100|TINKER|Tumour Supression|csnow|
+620|171.64.122.120|p620_designvln_ext|471|0.00|11.00|10.00|200|TINKER|*Synthetic Construct||
+621|171.64.122.120|p621_trpzip1_nc_ext|168|0.00|14.00|7.00|400|TINKER|General||
+622|171.64.122.119|p622_TZ1_NAT|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+623|171.64.122.119|p623_TZ2_NAT|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+624|171.64.122.119|p624_TZ1_EXT|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+625|171.64.122.119|p625_TZ2_EXT|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+626|171.64.122.121|P626_vfd_nat|479|14.00|14.00|66.00|80|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+627|171.64.122.121|P627_vfd_ext|479|9.00|9.00|38.00|80|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+628|171.64.122.121|P628_vsd_nat|418|11.00|11.00|51.00|80|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+629|171.64.122.121|P629_vsd_ext|418|7.00|7.00|29.00|80|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+630|171.64.122.121|P630_vmut_nat|378|10.00|10.00|43.00|80|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+631|171.64.122.121|P631_vmut_ext|378|6.00|6.00|24.00|80|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+632|171.64.122.108|P632_TZ3_NAT|227|0.00|14.00|23.00|400|TINKER|General||
+633|171.64.122.108|P633_TZ3_EXT|227|0.00|14.00|23.00|400|TINKER|General||
+634|171.64.122.121|P634_villin_c0_nat|366|39.00|39.00|204.00|400|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+635|171.64.122.121|P635_villin_c1_nat|403|47.00|47.00|248.00|400|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+636|171.64.122.121|p636_villin_c0_ext|366|23.00|23.00|115.00|400|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+637|171.64.122.121|p637_villin_c1_ext|403|27.00|27.00|138.00|400|TINKER|Gastrointestinal tumors and Adenocarcinomas|NA|
+638|171.64.122.143|p638_L939_K12M_ext|393|45.00|67.00|239.00|400|TINKER|General|csnow|
+639|171.64.122.143|p639_L939_K12M_nat|393|45.00|67.00|239.00|400|TINKER|General|csnow|
+640|171.64.122.112|p640_TZ1_NAT_0C|220|14.00|14.00|19.00|400|TINKER|General||
+641|171.64.122.112|p641_TZ1_NAT_46C|220|14.00|14.00|19.00|400|TINKER|General||
+642|171.64.122.112|p642_TZ2_NAT_0C|220|14.00|14.00|19.00|400|TINKER|General||
+643|171.64.122.112|p643_TZ2_NAT_46C|220|14.00|14.00|19.00|400|TINKER|General||
+644|171.64.122.112|P644_TZ3_NAT_0C|227|14.00|14.00|23.00|400|TINKER|General||
+645|171.64.122.112|P645_TZ3_NAT_46C|227|14.00|14.00|23.00|400|TINKER|General||
+646|171.64.122.112|p646_TZ1_1LE|218|14.00|14.00|19.00|400|TINKER|General||
+647|171.64.122.112|p647_TZ2_1LE|218|14.00|14.00|19.00|400|TINKER|General||
+648|171.64.122.112|p648_TZ1_1LEcap|220|14.00|14.00|19.00|400|TINKER|General||
+649|171.64.122.112|p649_TZ2_1LEcap|220|14.00|14.00|19.00|400|TINKER|General||
+650|171.64.122.143|P650_TZ4_NAT|264|14.00|14.00|40.00|400|TINKER|General||
+651|171.64.122.143|P651_TZ4_EXT|264|14.00|14.00|40.00|400|TINKER|General||
+652|171.64.122.143|P652_TZ3_NAT_LOWVISC|227|14.00|14.00|30.00|400|TINKER|General||
+653|171.64.122.143|P653_TZ3_EXT_LOWVISC|227|14.00|14.00|30.00|400|TINKER|General||
+654|171.64.122.143|P654_TZ3_NAT_UA|169|14.00|14.00|17.00|400|TINKER|General||
+655|171.64.122.143|P655_TZ3_EXT_UA|169|14.00|14.00|17.00|400|TINKER|General||
+656|171.64.122.117|p656_TZ2_NAT_EXP|6505|0.00|40.00|146.00|100|GROMACS|General||
+657|171.64.122.117|p657_TZ2_EXT_EXP|6493|0.00|40.00|146.00|100|GROMACS|General||
+658|171.64.122.143|p658_1PRB_EXT|473|14.00|20.00|67.00|400|TINKER|General|csnow|
+659|171.64.122.143|p659_1PRB_NAT|473|24.00|35.00|122.00|400|TINKER|General|csnow|
+660|171.64.122.119|p660_1LE0_273K|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+661|171.64.122.119|p661_1LE0_319K|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+662|171.64.122.120|p662_1LE1_273K|220|0.00|14.00|19.00|400|TINKER|General||
+663|171.64.122.120|p663_1LE1_319K|220|0.00|14.00|19.00|400|TINKER|General||
+664|171.64.122.143|p664_1LE0_VISC9|220|14.00|14.00|19.00|400|TINKER|General||
+665|171.64.122.143|p665_TZ1_EXT_VISC9|220|14.00|14.00|19.00|400|TINKER|General||
+666|171.64.122.143|p666_1LE1_VISC9|220|14.00|14.00|19.00|400|TINKER|General||
+667|171.64.122.143|p667_TZ2_EXT_VISC9|220|14.00|14.00|19.00|0||General||
+668|171.64.122.143|P668_TZ3_NAT_VISC9|227|14.00|14.00|30.00|400|TINKER|General||
+669|171.64.122.143|P669_TZ3_EXT_VISC9|227|14.00|14.00|30.00|400|TINKER|General||
+670|171.64.122.117|p670_TZ2_NAT_EXP|6505|0.00|20.00|73.00|100|GROMACS|General||
+671|171.64.122.117|p671_TZ2_EXT_EXP|6493|0.00|20.00|73.00|100|GROMACS|General||
+672|171.64.122.119|p672_1LE0_342K|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+673|171.64.122.120|p673_1LE1_342K|220|0.00|14.00|19.00|400|TINKER|General||
+674|171.64.122.112|P674_TZ3_NAT_342K|227|14.00|14.00|23.00|400|TINKER|General||
+675|171.64.122.143|P675_TZ4_NAT2|264|35.00|52.00|182.00|400|TINKER|General|csnow|
+676|171.64.122.119|p676_TZ2_EXT_319K|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+677|171.64.122.119|p677_TZ2_EXT_342K|220|25.00|25.00|128.00|400|TINKER|General|csnow|
+678|171.64.122.143|p678_L939_K12M_355K|393|46.00|68.00|242.00|400|TINKER|General|csnow|
+679|171.64.122.108|P679_TZ3_NAT|227|0.00|14.00|23.00|400|TINKER|General||
+680|171.64.122.143|p680_L939_K12M_414K|393|45.00|67.00|237.00|400|TINKER|General|csnow|
+681|171.64.122.119|p681_TZ2_EXT_VISC0MD|220|0.00|14.00|30.00|400|TINKER|General||
+682|171.64.122.119|p682_TZ2_NAT_VISC0MD|220|0.00|14.00|30.00|400|TINKER|General||
+683|171.67.89.150|p683_TZ2_NAT_EXP|6426|21.00|40.00|60.00|100|GROMACS|General||
+684|171.67.89.150|p684_TZ2_EXT_EXP|6417|21.00|40.00|60.00|100|GROMACS|General||
+685|171.64.122.143|p685_L939_K12M_ext_355K|393|25.00|37.00|129.00|400|TINKER|General|csnow|
+686|171.64.122.143|p686_L939_K12M_ext_novisc|393|25.00|36.00|125.00|400|TINKER|General|csnow|
+687|171.64.122.143|p687_L939_K12M_473K|393|45.00|66.00|235.00|400|TINKER|General|csnow|
+688|171.64.122.143|p688_L939_K12M_444K|393|45.00|66.00|236.00|400|TINKER|General|csnow|
+689|171.64.122.143|p689_L939_K12M_503K|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+690|171.64.122.143|p690_L939_K12M_532K|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+691|171.64.122.143|p691_L939_K12M_int|393|0.00|30.00|70.00|400|TINKER|General||
+692|171.64.122.143|p692_L939_K12M_int|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+693|171.64.122.119|p693_L939_WT_Nat|397|46.00|69.00|244.00|400|TINKER|General|csnow|
+694|171.64.122.119|p694_L939_wt_ext|397|25.00|37.00|236.00|400|TINKER|General|csnow|
+695|171.64.122.119|p695_L939_WT_Nat_444K|397|45.00|66.00|235.00|400|TINKER|General|csnow|
+696|171.64.122.119|p696_L939_K12M_Raleigh|393|45.00|66.00|235.00|400|TINKER|General|csnow|
+697|171.64.122.119|p697_L939_WT_Raleigh|397|45.00|67.00|238.00|400|TINKER|General|csnow|
+698|171.64.122.143|p698_L939_K12M_600K|393|41.00|60.00|214.00|400|TINKER|General|csnow|
+699|171.64.122.143|p699_L939_K12M_700K|393|41.00|60.00|213.00|400|TINKER|General|csnow|
+700||P700_Src/Peptide|10546|0.00|3.00|2.00|0||Alzheimers||
+701||P701_Src/Peptide|10482|0.00|3.00|2.00|0||Alzheimers||
+702||P702_Src/Peptide(Leu->Ala)|10535|0.00|3.00|2.00|0||Alzheimers||
+703||P703_Src/Peptide(Leu->Ala)|10486|0.00|3.00|2.00|0||Alzheimers||
+704||P704_Src/Peptide(Asn->Ala)|10544|0.00|3.00|2.00|0||Alzheimers||
+705||P705_Src/Peptide(Asn->Ala)|10489|0.00|3.00|2.00|0||Alzheimers||
+706||P706_Src/Peptide(Tyr->Ala)|10547|0.00|3.00|2.00|0||Alzheimers||
+707||P707_Src/Peptide(Tyr->Ala)|10508|0.00|3.00|2.00|0||Alzheimers||
+710|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+711|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+712|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+713|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+714|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+715|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+716|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+717|171.64.122.114|INTERNAL_TEST_CH4|649|0.00|0.00|0.00|0||N/A||
+720|171.64.122.116|p720_ABeta17-42|675|0.00|10.00|15.00|100|TINKER|Alzheimers||
+721|171.64.122.117|p721_Abeta21-43 t= 360.00003 in water|47747|0.00|30.00|39.00|100|GROMACS|Alzheimers||
+722|171.64.122.117|p722_Abeta21-43-tetramer|47891|0.00|24.00|54.00|100|GROMACS|Alzheimers||
+723|171.64.122.117|p723_Abeta21-43-amberGS|47747|0.00|17.00|49.00|100|GROMACS|Alzheimers||
+724|171.65.103.152|p724_Abeta21-43-amberGS|47747|13.00|13.00|63.00|100|GROMACS|Alzheimers|vvishal|
+725|171.64.122.117|p725_gsgs-md|215|0.00|4.00|11.00|100|GROMACS|General||
+726|171.64.122.117|p726_gsgs-md|215|0.00|4.00|11.00|100|GROMACS|General||
+727|171.64.122.117|p727_BBA5_ext_md|24|0.00|4.00|13.00|100|GROMACS|*Synthetic Construct||
+728|171.64.122.117|p728_BBA5_ext_sd_h2o|245|0.00|4.00|13.00|100|GROMACS|*Synthetic Construct||
+729|171.67.89.152|p729_gsgs_md|215|6.00|10.00|20.00|100|GROMACS|General|vvishal|
+730|171.67.89.152|p730_gsgs_sd_h2o|215|6.00|10.00|24.00|100|GROMACS|General|vvishal|
+731|171.67.89.152|p731_BBA5_md|245|7.00|10.00|25.00|100|GROMACS|*Synthetic Construct|vvishal|
+732|171.67.89.152|p732_BBA5_sd_h2o|245|7.00|10.00|27.00|100|GROMACS|*Synthetic Construct|vvishal|
+733|171.64.122.117|p733_villin_md|367|5.00|10.00|18.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+734|171.64.122.117|p734_villin_sd_h2o|367|6.00|10.00|21.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+735|171.67.89.152|p735_Protein|16055|47.00|71.00|256.00|100|GROMACS|*Antibody Target|vvishal|
+736|171.65.103.152|p736_Protein|16055|24.00|36.00|128.00|100|GROMACS|*Antibody Target|vvishal|
+737|171.67.89.152|p737_Protein|16055|24.00|36.00|128.00|100|GROMACS|*Antibody Target|vvishal|
+738|171.65.103.152|p738_villingb|602|6.00|10.00|23.00|50|TINKER|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+739|171.67.89.152|p739_gsgs_md|215|6.00|10.00|20.00|100|GROMACS|General|vvishal|
+740|171.67.89.152|p740_gsgs_sd_h2o|215|6.00|10.00|24.00|100|GROMACS|General|vvishal|
+741|171.64.122.130|p741_Villin-pfold-protein-confined|19399|29.00|43.00|149.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+742|171.64.122.130|p742_Villin-pfold-protein-confined|21316|34.00|50.00|178.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+743|171.64.122.130|p743_Villin-pfold-protein-confined|24895|40.00|59.00|210.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+744|171.64.122.130|p744_vln-pf-wtr-cnf|6142|10.00|14.00|44.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+745|171.64.122.130|p745_Villin-pfold-protein-confined|21316|34.00|0.00|178.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+746|171.64.122.130|p746_Villin-pfold-protein-confined|24895|40.00|0.00|210.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+747|171.64.122.130|p747_vln-pf-wtr-cnf|6142|10.00|0.00|44.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+748|171.64.122.130|p748_vln-pf-wtr-cnf-b2|6895|11.00|0.00|51.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+749|171.64.122.130|p749_vln-pf-wtr-cnf-b5|8218|13.00|0.00|60.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+750|171.64.122.68|p750_groel_half_chamber|305365|30.00|45.00|336.00|100|GROMACS|*Chaperone|vvishal|
+752|171.64.122.130|p752_vln2.8pbc|19399|300.00|0.00|149.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+753|171.64.122.130|p753_vln2.8nopbc|6115|300.00|0.00|44.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+754|171.64.122.130|p754_vln2.8-0.2nopbc|6868|300.00|0.00|51.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+755|171.64.122.130|p755_vln2.8-0.4nopbc|5413|300.00|0.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+756|171.64.122.68|p756_groel-halfch-10|267831|28.00|41.00|284.00|100|GROMACS|*Chaperone|vvishal|
+757|171.64.122.130|p757_vln3.8pbc|47413|22.00|0.00|119.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+758|171.64.122.130|p758_vln3.8nopbc|17185|7.00|0.00|35.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+759|171.64.122.130|p759_vln3.8-0.2nopbc|18766|8.00|0.00|40.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+760|171.64.122.130|p760_vln3.8-0.4nopbc|15787|6.00|0.00|32.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+761|171.64.122.138|p761_vln3.3pbc|31465|27.00|0.00|135.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+762|171.64.122.138|p762_vln3.3nopbc|10723|9.00|0.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+763|171.64.122.138|p763_vln3.3-0.2nopbc|11863|11.00|0.00|48.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+764|171.64.122.138|p764_vln3.3-0.4nopbc|9718|9.00|0.00|39.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+768|171.64.122.138|p768_vln3.8pbc|47413|24.00|0.00|120.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+769|171.64.122.138|p769_vln3.8nopbc|17185|8.00|0.00|36.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+770|171.64.122.138|p770_vln3.8-0.2nopbc|18766|10.00|0.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+771|171.64.122.138|p771_vln3.8-0.4nopbc|15787|8.00|0.00|33.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+772|171.64.122.130|p772_vln2.8pbc-com|19399|300.00|-0.00|149.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+773|171.64.122.130|p773_vln2.8nopbc-com|6115|300.00|-0.00|44.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|vvishal|
+774|171.64.122.138|p774_vln3.3nopbc|10723|9.00|0.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+775|171.64.122.138|p775_vln3.8pbc|47413|24.00|0.00|120.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+776|171.64.122.138|p776_vln3.8nopbc|17185|8.00|0.00|36.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|dlucent|
+800|171.65.103.157|p800_p53dimer800|12215|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+801|171.65.103.157|p801_p53dimer801|12221|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+802|171.67.89.150|p802_p53dimer802|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+803|171.67.89.150|p803_p53dimer803|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+804|171.67.89.150|p804_p53dimer804|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+805|171.67.89.150|p805_p53dimer805|12248|0.00|14.00|54.00|100|GROMACS|Tumour Supression||
+806|171.67.89.150||12248|0.00|14.00|54.00|100|GROMACS|Tumour Supression||
+807|171.67.89.150|p807_p53dimer807|12248|0.00|14.00|54.00|100|GROMACS|Tumour Supression||
+808|171.67.89.150|p808_p53dimer808|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+809|171.67.89.150|p809_p53dimer809|12248|0.00|14.00|54.00|100|GROMACS|Tumour Supression||
+810|171.67.89.150|p810_p53dimer810|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+811|171.67.89.150|p811_p53dimer811|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+812|171.67.89.150|p812_p53dimer811|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+813|171.67.89.150|p813_p53dimer813|12248|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+814|171.67.89.150|p814_p53dimer814|12245|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+815|171.67.89.150|p815_p53dimer815|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+816|171.67.89.150|p816_p53dimer816|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+817|171.67.89.150|p817_p53dimer817|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+818|171.67.89.150|p818_p53dimer818|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+819|171.67.89.150|p819_p53dimer819|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+820|171.67.89.150|p820_p53dimer820|12248|0.00|12.00|32.00|100|GROMACS|Tumour Supression||
+821|171.67.89.150|p821_p53dimer821|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+822|171.67.89.150|p822_p53dimer822|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+823|171.67.89.150|p823_p53dimer823|12239|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+824|171.67.89.150|p824_p53dimer824|12227|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+825|171.67.89.150|p825_p53dimer825|12233|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+826|171.67.89.150|p826_p53dimer826|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+827|171.67.89.150|p827_p53dimer827|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+828|171.67.89.150|p828_p53dimer828|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+829|171.67.89.150|p829_p53dimer829|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+830|171.67.89.150|p830_p53dimer830|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+831|171.67.89.150|p831_p53dimer831|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+832|171.67.89.150|p832_p53dimer832|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+833|171.67.89.150|p833_p53dimer833|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+834|171.67.89.150|p834_p53dimer834|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+835|171.67.89.150|p835_p53dimer835|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+836|171.67.89.150|p836_p53dimer836|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+837|171.67.89.150|p837_p53dimer837|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+838|171.67.89.150|p838_p53dimer838|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+839|171.67.89.150|p839_p53monomer839|16516|0.00|15.00|40.00|100|GROMACS|Tumour Supression||
+840|171.67.89.150|p840_p53mon840|6421|0.00|4.00|11.00|100|GROMACS|Tumour Supression||
+841|171.67.89.150|p841_p53dimer841|12248|0.00|12.00|32.00|100|GROMACS|Tumour Supression||
+842|171.67.89.150|p842_p53dimer842|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+843|171.67.89.150|p843_p53dimer843|12248|0.00|8.00|32.00|100|GROMACS|Tumour Supression||
+844|171.67.89.150|p844_p53mon844|6421|0.00|4.00|11.00|100|GROMACS|Tumour Supression||
+845|171.67.89.150|p845_p53dimer845|12206|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+846|171.67.89.150|p846_p53dimer846|12218|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+847|171.67.89.150|p847_p53dimer847|12212|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+848|171.67.89.150|p848_p53dimer848|12215|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+849|171.67.89.150|p849_p53dimer849|12221|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+850|171.67.89.150|p850_p53dimer850|12224|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+851|171.67.89.150|p851_p53tet851|12286|7.00|14.00|35.00|100|GROMACS|Tumour Supression||
+852|171.67.89.150|p852_p53dimer852|12248|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+853|171.67.89.150|p853_p53dimer853|12248|4.00|24.00|32.00|100|GROMACS|Tumour Supression||
+854|171.64.122.121|p854_p53dimer854|12248|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+855|171.64.122.108|p855_p53dimer855|12239|28.00|40.00|141.00|100|GROMACS|Tumour Supression|ltchong|
+856|171.64.122.108|p856_p53dimer856|12227|28.00|40.00|141.00|100|GROMACS|Tumour Supression|ltchong|
+857|171.64.122.108|p857_p53dimer857|12233|28.00|40.00|141.00|100|GROMACS|Tumour Supression|ltchong|
+858|171.65.103.156|p858_p53dimer858|12248|30.00|43.00|152.00|100|GROMACS|Tumour Supression|ltchong|
+859|171.65.103.156|p859_p53dimer859|12248|30.00|43.00|153.00|100|GROMACS|Tumour Supression|ltchong|
+860|171.64.122.121|p860_p53dimer860|12179|8.00|10.00|31.00|100|GROMACS|Tumour Supression|ltchong|
+861|171.64.122.121|p861_p53dimer861|12212|8.00|10.00|31.00|100|GROMACS|Tumour Supression|ltchong|
+862|171.64.122.121|p862_p53dimer862|12194|8.00|10.00|31.00|100|GROMACS|Tumour Supression|ltchong|
+863|171.64.122.121|p863_p53dimer863|12197|8.00|10.00|31.00|100|GROMACS|Tumour Supression|ltchong|
+864|171.64.122.108|p864_p53dimer864|12179|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+865|171.64.122.108|p865_p53dimer865|12212|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+866|171.64.122.108|p866_p53dimer866|12194|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+867|171.64.122.108|p867_p53dimer867|12197|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+868|171.64.122.108|p868_p53dimer868|12239|29.00|43.00|150.00|100|GROMACS|Tumour Supression|ltchong|
+869|171.64.122.108|p869_p53dimer869|12227|29.00|43.00|150.00|100|GROMACS|Tumour Supression|ltchong|
+870|171.64.122.108|p870_p53dimer870|12233|29.00|43.00|150.00|100|GROMACS|Tumour Supression|ltchong|
+871|171.64.122.108|p871_p53tet871|12286|32.00|47.00|164.00|100|GROMACS|Tumour Supression|ltchong|
+872|171.65.103.157|p872_p53dimer872|12179|6.00|9.00|31.00|100|GROMACS|Tumour Supression|ltchong|
+873|171.65.103.157|p873_p53dimer873|12173|6.00|9.00|31.00|100|GROMACS|Tumour Supression|ltchong|
+874|171.65.103.157|p874_p53dimer874|12230|30.00|45.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+875|171.65.103.157|p875_p53dimer875|12230|30.00|45.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+876|171.65.103.157|p876_p53dimer876|12248|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+877|171.65.103.157|p877_p53mut877|12223|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+878|171.65.103.157|p878_p53dimer878|12247|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+879|171.65.103.157|p879_p53dimer879|12248|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+880|171.65.103.157|p880_p53dimer880|12247|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+881|171.65.103.157|p881_p53dimer881|12248|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+882|171.65.103.157|p882_p53dimer882|12247|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+883|171.65.103.157|p883_p53dimer883|12248|30.00|44.00|155.00|100|GROMACS|Tumour Supression|ltchong|
+884|171.65.103.157|p884_p53dimer884|12248|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+885|171.65.103.157|p885_p53dimer885|12248|27.00|39.00|136.00|100|GROMACS|Tumour Supression|ltchong|
+886|171.65.103.157|p886_p53peptide886|6433|30.00|42.00|142.00|100|GROMACS|Tumour Supression|ltchong|
+887|171.65.103.157|p887_p53peptide887|6403|30.00|42.00|142.00|100|GROMACS|Tumour Supression|ltchong|
+888|171.65.103.157|p888_p53peptide888|6419|28.00|42.00|138.00|100|GROMACS|Tumour Supression|ltchong|
+889|171.65.103.157|p889_p53dimer889|12248|54.00|78.00|272.00|100|GROMACS|Tumour Supression|ltchong|
+890|171.65.103.157|p890_p53dimer890|12236|54.00|78.00|272.00|100|GROMACS|Tumour Supression|ltchong|
+891|130.49.240.81|p891_p53wtpeptide_tip3p|6232|32.00|48.00|174.00|100|AMBER||ltchong|
+892|130.49.240.81|p892_p53wtpeptide_gb|230|30.00|45.00|165.00|100|AMBER||ltchong|
+901|||0|0.00|0.00|3.00|0||||
+902|171.64.122.115|DE_NOVO_protein_in_water|198|0.00|10.00|5.00|0||General||
+903|171.64.122.111|PTrpCage|8548|0.00|8.00|6.00|0||||
+904|171.64.122.115|p904_nat_vill_capped|11273|0.00|35.00|0.00|0||Gastrointestinal tumors and Adenocarcinomas|
+905|171.64.122.111|p905_villin_am|11281|0.00|14.00|13.00|10|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+906|171.64.122.114|p906_villin_am|11281|0.00|14.00|13.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+907|171.64.122.114|p907_villin_fo|11059|0.00|15.00|14.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+908|171.64.122.114|p908_vill_rnxfld|11059|0.00|12.00|13.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+909|171.64.122.144|p909_vill_str0|17614|9.00|13.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|guha|
+910|171.64.122.144|p910_vill_str0_rf|17614|8.00|12.00|35.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|guha|
+911|171.64.122.114|p911_vill_o|17545|0.00|14.00|60.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+912|171.64.122.144|p912_vill_o|17545|0.00|14.00|60.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+913|171.64.122.144|p913_vill_rf_o|17545|0.00|21.00|65.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+914|171.67.89.151|p914_vpf909|17614|9.00|13.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+915|171.67.89.151|p915_910nat|18520|9.00|12.00|37.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+916|171.67.89.151|p916_909melt|18520|9.00|13.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+917|171.67.89.151|p917_v2180pf909|17614|9.00|13.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+918|171.67.89.151|p918_912nat|11011|8.00|10.00|31.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+919|171.67.89.151|p919_913nat|11011|8.00|11.00|34.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+920|171.67.89.151|p920_vpf910|17614|8.00|11.00|34.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+921|171.67.89.151|p921_vpf912|17614|9.00|13.00|40.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+922|171.67.89.151|p922_vpf913|17614|8.00|11.00|34.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|
+923|171.67.89.151|p923_prot_a_nat|737|11.00|15.00|48.00|100|GROMACS|*Antibody Target|guha|
+924|171.67.89.151|p924_prot_a_unf|737|11.00|15.00|48.00|100|GROMACS|*Antibody Target|guha|
+925|171.67.89.151|p925_n910pf|17614|8.00|11.00|34.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|guha|
+926|171.67.89.151|p926_n909pf|17614|9.00|13.00|41.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|guha|
+927|171.67.89.153|p927_pa_sa_nat|737|16.00|25.00|91.00|100|GROMACS|*Antibody Target|guha|
+928|171.67.89.153|p928_pa_sa_fold|737|16.00|25.00|91.00|100|GROMACS|*Antibody Target|guha|
+929|171.64.122.132|p929_fk_lig_dup|1135|21.00|31.00|114.00|100|DGROMACS|General|guha|
+930|171.65.103.151|p930_fkbound_l02|19716|20.00|29.00|99.00|100|DGROMACS|General|guha|
+931|171.65.103.151|p931_fkbound_l14|20751|21.00|30.00|104.00|100|DGROMACS|General|guha|
+932|171.65.103.151|p932_fkmd_all|14907|15.00|30.00|110.00|100|DGROMACS|General|guha|
+933|171.65.103.151|p933_fkcomps|19717|22.00|33.00|112.00|100|DGROMACS|General|guha|
+934|171.65.103.151|p934_fkfe_all|16132|15.00|30.00|107.00|100|DGROMACS|General|guha|
+935|171.65.103.151|p935_LG2 in water|1558|14.00|21.00|68.00|100|DGROMACS|General|guha|
+936|171.65.103.151|p936_fkfe2_all|14908|15.00|30.00|107.00|100|DGROMACS|General|guha|
+937|171.67.89.153|p937_fecompH14|14908|16.00|23.00|78.00|100|DGROMACS|General|guha|
+938|171.67.89.153|p938_fkmd_H14|14907|16.00|22.00|75.00|100|DGROMACS|General|guha|
+939|171.64.122.132|p939_fk_comp_dup|16549|18.00|27.00|99.00|100|DGROMACS|General|guha|
+940|171.67.89.151|p940_AK12|3008|4.00|10.00|12.00|100|GROMACS|General||
+941|171.67.89.151|p941_AK12PP|11516|10.00|14.00|44.00|100|GROMACS|General||
+942|171.67.89.151|p942_AK17|5177|6.00|10.00|21.00|100|GROMACS|General||
+943|171.67.89.151|p943_AK22|8386|8.00|11.00|33.00|100|GROMACS|General||
+944|171.67.89.151|p944_AK27|13187|11.00|16.00|52.00|100|GROMACS|General||
+945|171.67.89.151|p945_AK32|18635|16.00|23.00|78.00|100|GROMACS|General||
+946|171.67.89.151|p946_AK37|27048|24.00|34.00|119.00|100|GROMACS|General||
+947|171.67.89.151|p947_AK42|35920|34.00|50.00|177.00|100|GROMACS|General||
+948|171.65.103.153|p948_AKb12|2046|5.00|10.00|17.00|100|GROMACS|General|guha|
+949|171.65.103.153|p949_AKb12PP|4821|9.00|12.00|38.00|100|GROMACS|General|guha|
+950|171.65.103.153|p950_AKb17|3271|7.00|10.00|27.00|100|GROMACS|General|guha|
+951|171.65.103.153|p951_AKb22|4304|8.00|12.00|36.00|100|GROMACS|General|guha|
+952|171.65.103.153|p952_AKb27|6121|11.00|15.00|49.00|100|GROMACS|General|guha|
+953|171.65.103.153|p953_AKb32|7562|13.00|19.00|61.00|100|GROMACS|General|guha|
+954|171.65.103.153|p954_AKb37|9484|16.00|23.00|76.00|100|GROMACS|General|guha|
+955|171.65.103.153|p955_AKb42|13412|21.00|31.00|106.00|100|GROMACS|General|guha|
+956|171.65.103.153|p956_pa_nat_drf2|737|8.00|13.00|48.00|100|GROMACS|*Antibody Target|guha|
+957|171.65.103.153|p957_pa_drf2|737|8.00|13.00|48.00|100|GROMACS|*Antibody Target|guha|
+958|171.65.103.153|p958_pa_nat_drf4|737|8.00|13.00|48.00|100|GROMACS|*Antibody Target|guha|
+959|171.65.103.153|p959_pa_drf4|737|8.00|13.00|48.00|100|GROMACS|*Antibody Target|guha|
+960|171.65.103.153|p960_pa_nat_sf2|737|8.00|13.00|48.00|100|GROMACS|*Antibody Target|guha|
+961|171.64.122.132|p961_pa_f31g_drf2|724|8.00|13.00|48.00|100|GROMACS|*Antibody Target|guha|
+962|171.64.122.132|p962_fklig_popr|1135|1.00|8.00|28.00|100|DGROMACS|General|guha|
+963|171.64.122.132|p963_fkcomp_popr|14917|1.00|6.00|23.00|50|DGROMACS|General|guha|
+964|171.64.122.132|p964_fk-fstr-nprot-r|14836|3.00|23.00|84.00|100|DGROMACS|General|guha|
+970|171.64.122.132|p970_fklig_dock|1261|22.00|33.00|122.00|100|DGROMACS|General|guha|
+971|171.64.122.132|p971_fkcomp_dock|14923|15.00|23.00|84.00|100|DGROMACS|General|guha|
+972|171.64.122.132|p972_fklig_dock_M24|1261|22.00|33.00|122.00|100|DGROMACS|General|guha|
+973|171.64.122.132|p973_fkcomp_dock_M24|14923|15.00|23.00|84.00|100|DGROMACS|General|guha|
+974|171.64.122.132|p974_fkcomp_boltz|14917|15.00|23.00|84.00|100|DGROMACS|General|guha|
+975|171.64.122.132|p975_fk-fstr-nprot|14836|15.00|23.00|84.00|100|DGROMACS|General|guha|
+976|171.64.122.132|p976_fkcomp_boltz2|14917|15.00|23.00|84.00|100|DGROMACS|General|guha|
+977|171.64.122.132|p977_fk-fstr-nprot2|14836|10.00|23.00|84.00|100|DGROMACS|General|guha|
+978|171.64.122.132|p978_fk-fstr-nprotS|14836|15.00|23.00|84.00|100|DGROMACS|General|guha|
+979|171.64.122.132|p979_fk_boltzimp|1734|6.00|45.00|168.00|100|DGROMACS|General|guha|
+980|171.64.122.132|p980_fk_bi_sdtogb|1734|9.00|17.00|138.00|100|GBGROMACS|General|guha|
+981|171.64.122.132|p981_fk_bi_vfe|1734|6.00|45.00|168.00|100|DGROMACS|General|guha|
+982|171.64.122.132|p982_fk_bi_vtogb|1734|9.00|17.00|138.00|100|GBGROMACS|General|guha|
+983|171.64.122.132|p983_fk_bi_gb|1734|9.00|17.00|138.00|100|GBGROMACS|General|guha|
+984|171.65.103.153|p984_fk-fstr-nprotS2|14836|12.00|23.00|84.00|100|DGROMACS|General|guha|
+985|171.64.122.132|p985_fkcomp_pop|14917|1.00|6.00|23.00|100|DGROMACS|General|guha|
+986|171.64.122.132|p986_fklig_pop|1135|1.00|8.00|28.00|100|DGROMACS|General|guha|
+987|171.64.122.132|p987_fkligveq_pop|46|1.00|7.00|23.00|100|DGROMACS|General|guha|
+988|171.64.122.132|p988_fkcomp_pop|14917|1.00|6.00|23.00|100|DGROMACS|General|guha|
+989|171.64.122.132|p989_fklig_pop|1135|1.00|8.00|28.00|100|DGROMACS|General|guha|
+990|171.64.122.132|p990_fkligveq_pop|46|1.00|7.00|23.00|100|DGROMACS|General|guha|
+991|171.65.103.151|p991_longfkligand|2722|18.00|27.00|99.00|100|DGROMACS|General|mrshirts|
+992|171.65.103.151|p992_longfkcomp|14908|24.00|35.00|130.00|100|DGROMACS|General|mrshirts|
+993|171.65.103.151|p993_longfkcomp2|14908|22.00|33.00|122.00|100|DGROMACS|General|mrshirts|
+994|171.65.103.151|p994_sundfkcomp|14908|24.00|35.00|130.00|100|DGROMACS|General|mrshirts|
+995|171.65.103.151|p995_longfkligand|2722|18.00|27.00|99.00|100|DGROMACS|General|mrshirts|
+996|171.65.103.151|p996_longfkcomp|14908|24.00|35.00|130.00|100|DGROMACS|General|mrshirts|
+997|171.65.103.151|p997_sundfkcomp|14908|24.00|35.00|130.00|100|DGROMACS|N/A|mrshirts|
+998|171.64.122.115|pAla7-4-ClTest|11455|0.00|11.00|10.00|10|GROMACS|N/A||
+999|171.64.122.115|VILLIN_test|401|0.00|1.00|1.00|0||N/A||
+1001|171.67.89.149|p1001_ppg10_350|43206|0.00|16.00|41.00|100|GROMACS|Osteogenesis imperfecta||
+1002|171.67.89.149|p1002_ppg10_273|43206|0.00|16.00|41.00|100|GROMACS|Osteogenesis imperfecta||
+1003|171.67.89.149|p1003_ppg10c_350|43209|0.00|16.00|41.00|100|GROMACS|Osteogenesis imperfecta||
+1004|171.67.89.149|p1004_ppg10c_273|43209|0.00|16.00|41.00|100|GROMACS|Osteogenesis imperfecta||
+1005|171.64.122.110|p1005_ppg10c_pfold|43209|0.00|16.00|41.00|100|GROMACS|Osteogenesis imperfecta||
+1006|171.64.122.116|p1006_ppg10_pfold|0|12.00|18.00|57.00|100|GROMACS|Osteogenesis imperfecta||
+1007|||0|0.00|0.00|0.00|0||Osteogenesis imperfecta||
+1008|||0|0.00|0.00|0.00|0||Osteogenesis imperfecta||
+1009|||0|0.00|0.00|0.00|0||Osteogenesis imperfecta||
+1010|171.67.89.149|p1010_lzip_350|34341|0.00|14.00|36.00|100|GROMACS|General||
+1011|171.67.89.149|p1011_lzip_273|34341|0.00|14.00|36.00|100|GROMACS|General||
+1012|171.64.122.116|p1012_lzip_350|0|12.00|18.00|57.00|100|GROMACS|General||
+1013|171.64.122.116|p1013_lzip_273|0|13.00|18.00|58.00|100|GROMACS|General||
+1014|171.67.89.149|p1014_a21nat_289_dd19|132|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1015|171.67.89.149|p1015_a21unf_289_dd19|132|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1016|171.67.89.149|p1016_a21nat_321_dd19|132|9.00|13.00|32.00|100|GROMACS|General|esorin|
+1017|171.67.89.149|p1017_a21unf_321_dd19|132|9.00|13.00|32.00|100|GROMACS|General|esorin|
+1018|171.67.89.149|p1018_a21nat_353_dd19|132|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1019|171.67.89.149|p1019_a21unf_353_dd19|132|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1020|171.67.89.149|p1020_FSnat_273_99|6414|18.00|36.00|51.00|100|GROMACS|General||
+1021|171.67.89.149|p1021_FSunf_273_99|6384|18.00|36.00|51.00|100|GROMACS|General||
+1022|171.67.89.149|p1022_FSnat_337_99|6414|18.00|36.00|51.00|100|GROMACS|General||
+1023|171.67.89.149|p1023_FSunf_337_99|6384|18.00|36.00|51.00|100|GROMACS|General||
+1024|171.67.89.149|p1024_FSnat_273_GS|6414|18.00|36.00|51.00|100|GROMACS|General||
+1025|171.67.89.149|p1025_FSunf_273_GS|6384|18.00|36.00|51.00|100|GROMACS|General||
+1026|171.67.89.149|p1026_FSnat_305_GS|6414|18.00|36.00|51.00|100|GROMACS|General||
+1027|171.67.89.149|p1027_FSunf_305_GS|6384|18.00|36.00|51.00|100|GROMACS|General||
+1028|171.67.89.149|p1028_FSnat_337_GS|6414|18.00|36.00|51.00|100|GROMACS|General||
+1029|171.67.89.149|p1029_FSunf_337_GS|6384|18.00|36.00|51.00|100|GROMACS|General||
+1030|171.64.122.111|p1030_A21nat_305_94|6426|18.00|36.00|51.00|100|GROMACS|General||
+1031|171.64.122.111|p1031_A21unf_305_94|6399|18.00|36.00|51.00|100|GROMACS|General||
+1032|171.64.122.111|p1032_A21nat_337_94|6426|18.00|36.00|51.00|100|GROMACS|General||
+1033|171.64.122.111|p1033_A21unf_337_94|6399|18.00|36.00|51.00|100|GROMACS|General||
+1034|171.64.122.111|p1034_A21nat_305_99|6426|18.00|36.00|51.00|100|GROMACS|General||
+1035|171.64.122.111|p1035_A21unf_305_99|6399|18.00|36.00|51.00|100|GROMACS|General||
+1036|171.64.122.111|p1036_A21nat_337_99|6426|18.00|36.00|51.00|100|GROMACS|General||
+1037|171.64.122.111|p1037_A21unf_337_99|6399|18.00|36.00|51.00|100|GROMACS|General||
+1038|171.64.122.111|p1038_A21nat_305_GS|6426|18.00|36.00|51.00|100|GROMACS|General||
+1039|171.64.122.111|p1039_A21unf_305_GS|6399|18.00|36.00|51.00|100|GROMACS|General||
+1040|171.64.122.111|p1040_A21nat_337_GS|6426|18.00|36.00|51.00|100|GROMACS|General||
+1041|171.64.122.111|p1041_A21unf_337_GS|6399|18.00|36.00|51.00|100|GROMACS|General||
+1042|171.67.89.149|p1042_nat96_273|6414|13.00|18.00|59.00|100|GROMACS|General||
+1043|171.67.89.149|p1043_unf96_273|6384|13.00|18.00|59.00|100|GROMACS|General||
+1044|171.67.89.149|p1044_nat96_305|6414|13.00|18.00|59.00|100|GROMACS|General||
+1045|171.67.89.149|p1045_unf96_305|6384|13.00|18.00|59.00|100|GROMACS|General||
+1046|171.67.89.149|p1046_nat96_337|6414|13.00|18.00|59.00|100|GROMACS|General||
+1047|171.67.89.149|p1047_unf96_337|6384|13.00|18.00|59.00|100|GROMACS|General||
+1048|171.67.89.149|p1048_nat96_273|6426|13.00|18.00|59.00|100|GROMACS|General||
+1049|171.67.89.149|p1049_unf96_273|6399|13.00|18.00|59.00|100|GROMACS|General||
+1050|171.67.89.149|p1050_nat96_305|6426|13.00|18.00|59.00|100|GROMACS|General||
+1051|171.67.89.149|p1051_unf96_305|6399|13.00|18.00|59.00|100|GROMACS|General||
+1052|171.67.89.149|p1052_nat96_337|6426|13.00|18.00|59.00|100|GROMACS|General||
+1053|171.67.89.149|p1053_unf96_337|6399|13.00|18.00|59.00|100|GROMACS|General||
+1054|171.67.89.149|p1054_FSnat_305_99|6414|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1055|171.67.89.149|p1055_FSunf_305_99|6384|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1056|171.67.89.149|p1056_A21nat_305_99|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1057|171.67.89.149|p1057_A21unf_305_99|6399|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1058|171.67.89.149|p1058_FSnat_273_99|6414|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1059|171.67.89.149|p1059_FSunf_273_99|6384|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1060|171.67.89.149|p1060_A21nat_273_99|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1061|171.67.89.149|p1061_A21unf_273_99|6399|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1062|171.67.89.149|p1062_FSnat_337_99|6414|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1063|171.67.89.149|p1063_FSunf_337_99|6384|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1064|171.67.89.149|p1064_A21nat_337_99|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1065|171.67.89.149|p1065_A21unf_337_99|6399|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1066|171.67.89.149|p1066_FSnat_305_99|6414|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1067|171.67.89.149|p1067_FSunf_305_99|6384|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1068|171.67.89.149|p1068_A21nat_305_99|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1069|171.67.89.149|p1069_A21unf_305_99|6399|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1070|171.67.89.149|p1070_nat_273_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1071|171.67.89.149|p1071_den_273_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1072|171.65.103.149|p1072_nat_305_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1073|171.65.103.149|p1073_den_305_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1074|171.65.103.149|p1074_nat_337_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1075|171.65.103.149|p1075_den_337_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1076|171.67.89.149|p1076_nat_273_dd19|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1077|171.67.89.149|p1077_den_273_dd19|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1078|171.65.103.149|p1078_nat_305_dd19|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1079|171.65.103.149|p1079_den_305_dd19|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1080|171.67.89.149|p1080_nat_337_dd19|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1081|171.67.89.149|p1081_den_337_dd19|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1082|171.67.89.149|p1082_nat_289_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1083|171.67.89.149|p1083_unf_289_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1084|171.65.103.149|p1084_nat_321_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1085|171.65.103.149|p1085_unf_321_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1086|171.65.103.149|p1086_nat_353_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1087|171.65.103.149|p1087_unf_353_dd19|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1088|171.65.103.155|p1088_FSnat_305_94psi|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1089|171.65.103.155|p1089_FSunf_305_94psi|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1090|171.64.122.116|p1090_RN24_extended|8616|19.00|27.00|91.00|100|GROMACS|General|esorin|
+1091|171.64.122.116|p1091_RN24_helix|8478|19.00|27.00|91.00|100|GROMACS|General|esorin|
+1092|171.64.122.116|p1092_RN24_hairpin|8478|19.00|27.00|91.00|100|GROMACS|General|esorin|
+1093|171.64.122.116|p1093_RN24_sheet|8616|19.00|27.00|91.00|100|GROMACS|General|esorin|
+1094|171.64.122.116|p1094_RN24_helix_350|8478|19.00|27.00|91.00|100|GROMACS|General|esorin|
+1100|171.64.122.112|p1100_Kiefhaber_1|74|6.00|0.00|24.00|200|TINKER|General|csnow|
+1101|171.64.122.112|p1101_Kiefhaber_2|87|8.00|0.00|32.00|200|TINKER|General|csnow|
+1102|171.64.122.112|p1102_Kiefhaber_3|100|10.00|0.00|42.00|200|TINKER|General|csnow|
+1103|171.64.122.112|p1103_Kiefhaber_4|113|10.00|0.00|45.00|200|TINKER|General|csnow|
+1104|171.64.122.112|p1104_Kiefhaber_5|126|11.00|0.00|49.00|200|TINKER|General|csnow|
+1105|171.64.122.112|p1105_Kiefhaber_8|165|9.00|0.00|36.00|100|TINKER|General|csnow|
+1106|171.64.122.112|p1106_Kiefhaber_10|191|11.00|0.00|47.00|100|TINKER|General|csnow|
+1107|171.64.122.112|p1107_Kiefhaber_14|243|7.00|0.00|30.00|50|TINKER|General|csnow|
+1108|171.64.122.112|p1108_Kiefhaber_20|321|9.00|0.00|37.00|40|TINKER|General|csnow|
+1109|171.64.122.112|p1109_Kiefhaber_28|425|7.00|0.00|28.00|20|TINKER|General|csnow|
+1110|171.64.122.120|p1110_L939_K12M_nat_min1|393|10.00|0.00|249.00|400|TINKER|General|csnow|
+1111|171.64.122.121|p1111_L939_wt_ext_444K|397|25.00|37.00|249.00|400|TINKER|General|csnow|
+1112|171.64.122.120|p1112_L939_K12M_nat_min1_355K|393|10.00|0.00|249.00|400|TINKER|General|csnow|
+1113|171.67.89.154|p1113_ribo_solvent1|76754|38.00|57.00|40.00|100|GROMACS|General|csnow|
+1114|171.64.122.120|p1114_L939_K12M_503K_50V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1115|171.64.122.120|p1115_L939_K12M_503K_70V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1116|171.64.122.120|p1116_L939_K12M_503K_110V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1117|171.64.122.120|p1117_L939_K12M_503K_130V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1118|171.64.122.120|p1118_L939_K12M_503K_170V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1119|171.64.122.120|p1119_L939_K12M_503K_10V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1120|171.64.122.120|p1120_L939_K12M_503K_30V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1121|171.64.122.120|p1121_L939_K12M_503K_300V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1122|171.65.103.157|p1122_ribo_solvent2|84764|38.00|57.00|40.00|100|GROMACS|General|csnow|
+1123|171.64.122.120|p1123_L939_K12M_429K|393|28.00|67.00|237.00|400|TINKER|General|csnow|
+1124|171.65.103.156|p1124_p678_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1125|171.65.103.156|p1125_p678_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1126|171.64.122.120|p1126_L939_K12M_503K_910V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1127|171.64.122.120|p1127_L939_K12M_503K_9100V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1128|171.64.122.120|p1128_L939_K12M_503K_400V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1129|171.64.122.120|p1129_L939_K12M_503K_600V|393|44.00|65.00|231.00|400|TINKER|General|csnow|
+1130|171.64.122.143|p1130_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1131|171.64.122.143|p1131_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1132|171.64.122.143|p1132_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1133|171.64.122.143|p1133_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1134|171.65.103.156|p1134_RIBO_FSpeptide_EXT|84665|56.00|82.00|600.00|100|GROMACS|General|csnow|
+1135|171.65.103.156|p1135_RIBO_FSpeptide_HEL|84665|56.00|82.00|600.00|100|GROMACS|General|csnow|
+1136|171.64.122.133|p1136_p1130_L939_K12M_355K|393|11.00|-0.00|241.00|400|TINKER|General|csnow|
+1137|171.64.122.133|p1137_p1131_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1138|171.64.122.133|p1138_p1132_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1139|171.64.122.133|p1139_p1133_L939_K12M_355K|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1140|171.65.103.156|p1140_RIBO_FSpeptide_EXT_nospring|84665|14.00|82.00|600.00|100|GROMACS|General|csnow|
+1141|171.65.103.156|p1141_RIBO_FSpeptide_HEL_nospring|84665|14.00|82.00|600.00|100|GROMACS|General|csnow|
+1142|171.64.122.143|p1142_p1130_L939_K12M_355K|393|5.00|7.00|25.00|40|TINKER|General|csnow|
+1144|171.65.103.156|p1144_RIBO_nopeptide|87749|14.00|82.00|600.00|100|GROMACS|General|csnow|
+1145|171.64.122.133|p1145_L939_WT_298K|397|46.00|68.00|241.00|400|TINKER|General|csnow|
+1146|171.64.122.133|p1146_L939_WT_298K|397|46.00|68.00|241.00|400|TINKER|General|csnow|
+1147|171.64.122.133|p1147_L939_WT_298K|397|46.00|68.00|241.00|400|TINKER|General|csnow|
+1148|171.64.122.133|p1148_L939_WT_298K|397|46.00|68.00|241.00|400|TINKER|General|csnow|
+1149|171.65.103.156|p1149_RIBO_semihelixfrom1140|84665|30.00|82.00|600.00|100|GROMACS|General|csnow|
+1150|171.65.103.156|p1150_RIBO_semihelixfrom1141|84665|30.00|82.00|600.00|100|GROMACS|General|csnow|
+1151|171.64.122.133|p1151_L939_K12M_298K_DT2ns|393|5.00|-0.00|241.00|400|TINKER|General|csnow|
+1152|171.64.122.112|p1152_L939_K12M_ext_from638|393|45.00|0.00|239.00|400|TINKER|General|csnow|
+1153|171.64.122.119|p1153_hALDR_WT|3332|1.00|7.00|10.00|100|TINKER|Aldose Reductase Binding|csnow|
+1154|171.64.122.133|p1154_L939_K12M_298K_DT_250ps|393|46.00|68.00|241.00|400|TINKER|General|csnow|
+1155|171.64.122.133|p1155_L939_K12M_298K_DT_250ps_clones|393|5.00|-0.00|241.00|400|TINKER|General|csnow|
+1156|171.64.122.133|p1156_L939_K12M_298K_DT_250ps_clones|393|46.00|-0.00|241.00|400|TINKER|General|csnow|
+1157|171.64.122.133|p1157_L939_K12M_298K_DT_250ps_clones|393|46.00|-0.00|241.00|400|TINKER|General|csnow|
+1158|171.64.122.133|p1158_L939_K12M_298K_DT_250ps_clones|393|46.00|-0.00|241.00|400|TINKER|General|csnow|
+1159|171.64.122.112|p1159_L939_K12M_298K_DT_5ns_clones|393|20.00|0.00|241.00|400|TINKER|General|csnow|
+1160|171.64.122.120|p1160_L939_K12M_298K_DT_20ns_clones|393|11.00|0.00|241.00|400|TINKER|General|csnow|
+1161|171.64.122.112|p1161_L939_K12M_298K_DT_250ps_clones|393|30.00|0.00|241.00|400|TINKER|General|csnow|
+1162|171.64.122.133|p1162_L939_K12M_298K_DT_50ns|393|2.00|-0.00|241.00|400|TINKER|General|csnow|
+1163|171.64.122.133|p1163_L939_K12M_298K_DT_50ns|393|2.00|-0.00|241.00|400|TINKER|General|csnow|
+1164|171.65.103.156|p1164_RIBO_H2O_froz|91787|7.00|80.00|574.00|100|GROMACS|General|dlucent|
+1165|171.65.103.156|p1165_RIBO_H2O_flex|91787|7.00|87.00|622.00|100|GROMACS|General|dlucent|
+1166|171.65.103.161|p1166_ribo_flex_100K|91787|10.00|80.00|574.00|100|GROMACS|*Ribosomal Tunnel|dlucent|
+1167|171.65.103.161|p1167_ribo_nocharge|92677|10.00|69.00|494.00|100|GROMACS|*Ribosomal Tunnel|dlucent|
+1168|171.65.103.161|p1168_p1164_RIBO_H2O_froz|91787|7.00|80.00|574.00|100|GROMACS|*Ribosomal Tunnel|dlucent|
+1169|171.65.103.161|p1169_p1164_RIBO_H2O_froz|91787|7.00|80.00|574.00|100|GROMACS|*Ribosomal Tunnel|dlucent|
+1170|171.65.103.161|p1170_p1164_RIBO_H2O_froz|91787|7.00|80.00|574.00|100|GROMACS|*Ribosomal Tunnel|dlucent|
+1171|171.65.103.161|p1171_p1164_RIBO_H2O_froz|91787|7.00|80.00|574.00|100|GROMACS|*Ribosomal Tunnel|dlucent|
+1200|171.64.122.111|p1200_A21nat94_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1201|171.64.122.111|p1201_A21den94_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1202|171.64.122.111|p1202_Fsnat94_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1203|171.64.122.111|p1203_Fsden94_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1204|171.64.122.111|p1204_A21nat94pp_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1205|171.64.122.111|p1205_A21den94pp_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1206|171.64.122.111|p1206_Fsnat94pp_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1207|171.64.122.111|p1207_Fsden94pp_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1208|171.64.122.111|p1208_A21natGS_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1209|171.64.122.111|p1209_A21denGS_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1210|171.64.122.111|p1210_FsnatGS_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1211|171.64.122.111|p1211_FsdenGS_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1212|171.64.122.111|p1212_A21nat99_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1213|171.64.122.111|p1213_A21den99_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1214|171.64.122.111|p1214_Fsnat99_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1215|171.64.122.111|p1215_Fsden99_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1216|171.64.122.111|p1216_A21nat99p_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1217|171.64.122.111|p1217_A21den99p_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1218|171.64.122.111|p1218_Fsnat99p_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1219|171.64.122.111|p1219_Fsden99p_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1220|171.64.122.111|p1220_A21nat94s_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1221|171.64.122.111|p1221_A21den94s_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1222|171.64.122.111|p1222_Fsnat94s_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1223|171.64.122.111|p1223_Fsden94s_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1224|171.64.122.111|p1224_A21nat99ps_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1225|171.64.122.111|p1225_A21den99ps_gbsa305K|222|13.00|19.00|63.00|500|TINKER|General|esorin|
+1226|171.64.122.111|p1226_Fsnat99ps_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1227|171.64.122.111|p1227_Fsden99ps_gbsa305K|264|18.00|26.00|88.00|500|TINKER|General|esorin|
+1228|171.65.103.155|p1228_fsnat_305_99p_M24|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1229|171.65.103.155|p1229_fsunf_305_99p_M24|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1230|171.65.103.155|p1230_A21nat_305_99p_M24|6426|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1231|171.65.103.155|p1231_A21unf_305_99p_M24|6399|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1232|171.65.103.155|p1232_fsnat_305_99p_mod|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1233|171.65.103.155|p1233_fsunf_305_99p_mod|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1234|171.65.103.155|p1234_A21nat_305_99p_mod|6426|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1235|171.65.103.155|p1235_A21unf_305_99p_mod|6399|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1236|171.65.103.155|p1236_fsnat_305_99p_M20|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1237|171.65.103.155|p1237_fsunf_305_99p_M20|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1238|171.65.103.155|p1238_fsnat_305_99p_M21|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1239|171.65.103.155|p1239_fsunf_305_99p_M21|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1240|171.65.103.155|p1240_fsnat_305_99p_M22|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1241|171.65.103.155|p1241_fsunf_305_99p_M22|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1242|171.65.103.155|p1242_fsnat_305_99p_M23|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1243|171.65.103.155|p1243_fsunf_305_99p_M23|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1244|171.65.103.155|p1244_fsnat_305_99p_M25|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1245|171.65.103.155|p1245_fsunf_305_99p_M25|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1246|171.64.122.116|p1246_fsnat_305K_3P-RF|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1247|171.64.122.116|p1247_fsunf_305K_3P-RF|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1248|171.64.122.116|p1248_fsnat_305K_3P-PME|6414|31.00|45.00|159.00|100|GROMACS|General|esorin|
+1249|171.64.122.116|p1249_fsunf_305K_3P-PME|6384|31.00|45.00|159.00|100|GROMACS|General|esorin|
+1250|171.67.89.155|p1250_A7ext_298K_94|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1251|171.67.89.155|p1251_A7hel_298K_94|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1252|171.67.89.155|p1252_A7pp2_298K_94|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1253|171.67.89.155|p1253_A7ext_298K_GS|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1254|171.67.89.155|p1254_A7hel_298K_GS|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1255|171.67.89.155|p1255_A7pp2_298K_GS|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1256|171.67.89.155|p1256_A7ext_298K_96|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1257|171.67.89.155|p1257_A7hel_298K_96|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1258|171.67.89.155|p1258_A7pp2_298K_96|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1259|171.67.89.155|p1259_A7ext_298K_99|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1260|171.67.89.155|p1260_A7hel_298K_99|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1261|171.67.89.155|p1261_A7pp2_298K_99|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1262|171.67.89.155|p1262_A7ext_298K_99p|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1263|171.67.89.155|p1263_A7hel_298K_99p|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1264|171.67.89.155|p1264_A7pp2_298K_99p|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1265|171.67.89.155|p1265_A7ext_298K_94pp|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1266|171.67.89.155|p1266_A7hel_298K_94pp|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1267|171.67.89.155|p1267_A7pp2_298K_94pp|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1268|171.67.89.155|p1268_A7ext_298K_99ps|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1269|171.67.89.155|p1269_A7hel_298K_99ps|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1270|171.67.89.155|p1270_A7pp2_298K_99ps|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1271|171.65.103.155|p1271_proj1271_A21ext_d11_99phi|5563|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1272|171.65.103.155|p1272_proj1272_A21nat_d11_99phi|5620|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1273|171.65.103.155|p1273_proj1273_A21ext_d15_99phi|8442|17.00|25.00|83.00|100|GROMACS|General|esorin|
+1274|171.65.103.155|p1274_proj1274_A21nat_d15_99phi|8433|17.00|25.00|83.00|100|GROMACS|General|esorin|
+1275|171.65.103.155|p1275_proj1275_A21ext_d19_99phi|11828|10.00|14.00|46.00|100|GROMACS|General|esorin|
+1276|171.65.103.155|p1276_proj1276_A21nat_d19_99phi|11756|10.00|14.00|46.00|100|GROMACS|General|esorin|
+1277|171.65.103.155|p1277_proj1277_A21ext_d22_99phi|14585|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1278|171.65.103.155|p1278_proj1278_A21nat_d22_99phi|14675|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1279|171.65.103.155|p1279_proj1279_A21ext_d26_99phi|18994|16.00|23.00|76.00|100|GROMACS|General|esorin|
+1280|171.65.103.155|p1280_proj1280_A21nat_d26_99phi|18886|16.00|23.00|76.00|100|GROMACS|General|esorin|
+1281|171.65.103.155|p1281_A21ext_d13_99phi|7025|15.00|22.00|72.00|100|GROMACS|General|esorin|
+1282|171.65.103.155|p1282_A21nat_d13_99phi|7091|15.00|22.00|72.00|100|GROMACS|General|esorin|
+1283|171.65.103.155|p1283_A21ext_ntxd15|7491|15.00|22.00|73.00|100|GROMACS|General|esorin|
+1284|171.65.103.155|p1284_A21nat_ntxd15|7533|15.00|22.00|73.00|100|GROMACS|General|esorin|
+1285|171.65.103.155|p1285_A21ext_ntxd15|7491|15.00|22.00|73.00|100|GROMACS|General|esorin|
+1286|171.65.103.155|p1286_A21nat_ntxd15|7533|15.00|22.00|73.00|100|GROMACS|General|esorin|
+1288|171.67.89.149|p1288_A21nat_305K_amber94s|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1289|171.67.89.149|p1289_A21unf_305K_amber94s|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1290|171.67.89.149|p1290_FSnat_305K_amber94s|6414|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1291|171.67.89.149|p1291_FSunf_305K_amber94s|6384|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1292|171.67.89.149|p1292_A21nat_305K_amber99ps|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1293|171.67.89.149|p1293_A21unf_305K_amber99ps|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1294|171.67.89.149|p1294_FSnat_305K_amber99ps|6414|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1295|171.67.89.149|p1295_FSunf_305K_amber99ps|6384|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1296|171.67.89.149|p1296_A21nat_305K_amberGS|6426|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1297|171.67.89.149|p1297_A21unf_305K_amberGS|6399|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1298|171.67.89.149|p1298_FSnat_305K_amberGS|6414|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1299|171.67.89.149|p1299_FSunf_305K_amberGS|6384|13.00|18.00|59.00|100|GROMACS|General|esorin|
+1300|171.67.89.154|p1300_1RYP_AAAA_UM|119496|24.00|35.00|139.00|100|GROMACS|*Proteosome|sungjoo|
+1301|171.67.89.154|p1301_1RYP_AAAA_UM|119496|24.00|35.00|242.00|100|GROMACS|*Proteosome|sungjoo|
+1302|171.67.89.154|p1302_1ryp_AAAA_free|119496|24.00|35.00|242.00|100|GROMACS|*Proteosome|sungjoo|
+1303|171.67.89.154|p1303_1ryp_aaaa_fr_dg_2fs|119496|65.00|96.00|517.00|100|DGROMACS|*Proteosome|sungjoo|
+1304|171.65.103.154|p1304_1RYP_solv2_2fs|165544|17.00|24.00|162.00|100|GROMACS|*Proteosome|sungjoo|
+1305|171.67.89.154|p1305_1ryp_sv2_a4_2.5fs|165495|60.00|89.00|634.00|100|GROMACS|*Proteosome|sungjoo|
+1306|171.65.103.154|p1306_1ryp_sv2_a4_fr_2fs|165495|31.00|46.00|320.00|100|GROMACS|*Proteosome|sungjoo|
+1307|171.67.89.154|p1307_1ryp_sv2_a4_prep_k1000_2fs|165495|9.00|13.00|80.00|100|GROMACS|*Proteosome|sungjoo|
+1308|171.65.103.154|p1308_1ryp_sv2_a4_k150_2fs|165495|31.00|46.00|320.00|100|GROMACS|*Proteosome|sungjoo|
+1309|171.65.103.154|p1309_1RYP_sv2_L4_fr_2fs|165510|31.00|45.00|316.00|100|GROMACS|*Proteosome|sungjoo|
+1310|171.65.103.154|p1310_1RYP_sv2_L4_k150_2fs|165510|31.00|45.00|316.00|100|GROMACS|*Proteosome|sungjoo|
+1311|171.65.103.154|p1311_1fnt_a10_91ps_CMnone|90068|25.00|37.00|254.00|100|GROMACS|*Proteosome|sungjoo|
+1312|171.65.103.154|p1312_1fnt_a10_0.01ps-1|90068|25.00|37.00|254.00|100|GROMACS|*Proteosome|sungjoo|
+1313|171.65.103.154|p1313_1fnt_a2_9.1ps-1_uf|90020|22.00|33.00|302.00|100|GROMACS|*Proteosome|sungjoo|
+1314|171.65.103.154|p1314_1fnt_a3_9.1ps-1_uf|90026|22.00|33.00|302.00|100|GROMACS|*Proteosome|sungjoo|
+1315|171.65.103.154|p1315_1fnt_a4_9.1ps-1_uf|90032|22.00|33.00|302.00|100|GROMACS|*Proteosome|sungjoo|
+1316|171.65.103.154|p1316_1fnt_a6_9.1ps-1_uf|90044|25.00|37.00|343.00|100|GROMACS|*Proteosome|sungjoo|
+1317|171.65.103.154|p1317_1fnt_a8_9.1ps-1_uf|90056|25.00|37.00|343.00|100|GROMACS|*Proteosome|sungjoo|
+1318|171.65.103.154|p1318_1fnt_a9_9.1ps-1_uf|90062|25.00|37.00|343.00|100|GROMACS|*Proteosome|sungjoo|
+1319|171.65.103.154|p1319_1fnt_a10_9.1ps-1_uf|90068|25.00|37.00|343.00|100|GROMACS|*Proteosome|sungjoo|
+1320|171.65.103.154|p1320_1fnt_a12_9.1ps-1_uf|90080|25.00|37.00|343.00|100|GROMACS|*Proteosome|sungjoo|
+1321|171.65.103.154|p1321_1fnt_a16_9.1ps-1_uf|90104|25.00|37.00|346.00|100|GROMACS|*Proteosome|sungjoo|
+1322|171.65.103.154|p1322_1fnt_a20_9.1ps-1_uf|90128|22.00|33.00|302.00|100|GROMACS|*Proteosome|sungjoo|
+1323|171.65.103.154|p1323_1fnt_a25_9.1ps-1_uf|90158|23.00|33.00|308.00|100|GROMACS|*Proteosome|sungjoo|
+1324|171.65.103.154|p1324_1fnt_a30_9.1ps-1_uf|90188|23.00|33.00|305.00|100|GROMACS|*Proteosome|sungjoo|
+1325|171.65.103.154|p1325_1fnt_a40_9.1ps-1_uf|90248|23.00|33.00|310.00|100|GROMACS|*Proteosome|sungjoo|
+1400|171.64.122.123|p1400_Q26 in water|12271|43.00|64.00|228.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1401|171.64.122.123|p1401_Q26x2 in water|12314|46.00|68.00|240.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1402|171.64.122.123|p1402_Q26x3 in water|12336|50.00|74.00|264.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1403|171.64.122.123|p1403_Q36 in water|12279|44.00|65.00|230.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1404|171.64.122.123|p1404_Q36x2 in water|12321|48.00|70.00|251.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1405|171.64.122.123|p1405_polyQ44 in water|12280|45.00|65.00|234.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1406|171.64.122.123|p1406_Q44x2 in water|12368|50.00|74.00|266.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1407|171.64.122.123|p1407_polyQ20x2 in water|12278|45.00|66.00|235.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1408|171.64.122.123|p1408_Q20x4 in water|12337|50.00|73.00|261.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1409|171.64.122.123|p1409_polyQ26 in water|12271|43.00|64.00|228.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1410|171.64.122.123|p1410_Q26x2 in water|12314|46.00|68.00|240.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1411|171.64.122.123|p1411_Q26x3 in water|12336|50.00|74.00|264.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1412|171.64.122.123|p1412_polyQ36 in water|12279|44.00|65.00|230.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1413|171.64.122.123|p1413_polyQ36x2 in water|12321|48.00|70.00|251.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1415|171.64.122.110|p1415_Q88 in water|12368|50.00|74.00|266.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1416|171.64.122.110|p1416_polyQ_beta-helix|12280|45.00|65.00|234.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1417|171.64.122.110|p1417_extended-polyQ44-anhydrous|748|16.00|23.00|72.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1418|171.64.122.110|p1418_extended-polyQ44-anhydrous|748|16.00|23.00|72.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1420|171.64.122.131|p1420_POLYQ MEWHELIX|34657|137.00|205.00|745.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1421|171.64.122.131|p1421_POLYQ MEWHELIX|34431|135.00|202.00|734.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1422|171.64.122.131|p1422_POLYQ MEWHELIX|34423|132.00|198.00|717.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1423|171.64.122.131|p1423_POLYQ MEWHELIX|34432|137.00|204.00|742.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1424|171.64.122.131|p1424_POLYQ ANTI-BETASHEET|1496|73.00|109.00|393.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1425|171.64.122.131|p1425_POLYQ PARA-BETASHEET|1496|73.00|109.00|393.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1426|171.64.122.131|p1426_POLYQ BETA-STRAND|235226|162.00|242.00|881.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1427|171.64.122.131|p1427_POLYQ BETA-STRAND|235172|162.00|242.00|881.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1428|171.64.122.131|p1428_POLYQ BETA-STRAND|136608|96.00|143.00|516.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1429|171.64.122.131|p1429_POLYQ BETA-STRAND|136662|96.00|143.00|516.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1430|171.64.122.131|p1430_POLYQ BETA-STRAND|51374|37.00|55.00|195.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1431|171.64.122.131|p1431_POLYQ BETA-STRAND|51371|37.00|55.00|195.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1432|171.64.122.131|p1432_POLYQ BETA-STRAND|29501|22.00|32.00|112.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1433|171.64.122.131|p1433_POLYQ BETA-STRAND|29498|22.00|32.00|112.00|100|GROMACS|Huntingdons Disease|nwkelley|
+1475|171.64.122.128|p1475_tet1_03_1|126006|35.00|52.00|364.00|100|GROMACS|*Lipid Membrane Interaction|kasson|
+1476|171.64.122.128|p1476_tet_2nm|126006|35.00|52.00|364.00|100|GROMACS|*Lipid Membrane Interaction|kasson|
+1477|171.64.122.134|p1477_release31_0|126006|35.00|52.00|364.00|100|GROMACS|*Lipid Membrane Interaction|kasson|
+1478|171.64.122.134|p1478_tet_1478|126006|35.00|52.00|364.00|100|GROMACS|*Lipid Membrane Interaction|kasson|
+1480|171.64.122.134|p1480_dppc_chol|11120|36.00|53.00|376.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1481|171.64.122.128|p1481_tet_2nm|126006|35.00|52.00|364.00|100|GROMACS|*Lipid Membrane Interaction|kasson|
+1482||p1482_tet30_1nm|0|90.00|0.00|1942.00|100|GROMACS|*Lipid Membrane Interaction|kasson|
+1485|171.65.103.68|p1485_rxnsemi300|18429|25.00|47.00|166.00|0|GROMACS33|*Lipid Membrane Interactions|kasson|
+1486|171.65.103.68|p1486_hafp_fus|33209|50.00|200.00|300.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1487|171.65.103.68|p1487_DPPC_DOPC_CHOL|87920|47.00|150.00|1741.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1488|171.65.103.68|p1488_Protein in POPC|77094|48.00|127.00|459.00|0|GROMACS33|*Lipid Membrane Interactions|kasson|
+1489|171.65.103.68|p1489_Protein_POPC|18462|32.00|47.00|165.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1490|171.64.122.68|p1490_Membrane|0|4.00|4.00|12.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1491|171.65.103.68|p1491_Membrane|25541|3.00|4.00|12.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1492|171.65.103.68|p1492_membrane_protein|18894|33.00|48.00|170.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1493|171.65.103.68|p1493_Protein|23442|33.00|59.00|210.00|0|GROMACS33|*Lipid Membrane Interactions|kasson|
+1495|171.64.122.128|p1495_tet_new|126006|35.00|52.00|292.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+1496|171.65.103.68|p1496_Protein in POPC|77373|48.00|127.00|459.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+1497|171.64.122.128|p1497_TETHERED VESICLES|126006|35.00|52.00|292.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+1498|171.64.122.128|p1498_TETHERED VESICLES|308047|38.00|76.00|755.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+1499|171.64.122.134|p1499_tet_1499|126006|20.00|40.00|364.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+1500|171.65.103.149|p1500_FSnat_273_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1501|171.65.103.149|p1501_FSunf_273_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1502|171.65.103.149|p1502_FSnat_289_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1503|171.65.103.149|p1503_FSunf_289_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1504|171.65.103.149|p1504_FSnat_305_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1505|171.65.103.149|p1505_FSunf_305_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1506|171.65.103.149|p1506_FSnat_321_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1507|171.65.103.149|p1507_FSunf_321_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1508|171.65.103.149|p1508_FSnat_337_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1509|171.65.103.149|p1509_FSunf_337_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1510|171.65.103.149|p1510_FSnat_353_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1511|171.65.103.149|p1511_FSunf_353_dd19_lowv|165|9.00|13.00|39.00|100|GROMACS|General|esorin|
+1512|171.65.103.149|p1512_A21nat_273_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1513|171.65.103.149|p1513_A21unf_273_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1514|171.65.103.149|p1514_A21nat_289_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1515|171.65.103.149|p1515_A21unf_289_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1516|171.65.103.149|p1516_A21nat_305_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1517|171.65.103.149|p1517_A21unf_305_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1518|171.65.103.149|p1518_A21nat_321_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1519|171.65.103.149|p1519_A21unf_321_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1520|171.65.103.149|p1520_A21nat_337_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1521|171.65.103.149|p1521_A21unf_337_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1522|171.65.103.149|p1522_A21nat_353_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1523|171.65.103.149|p1523_A21unf_353_dd19_lowv|132|8.00|11.00|32.00|100|GROMACS|General|esorin|
+1534|171.64.122.129|p1534_FSnat_305_94q|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1535|171.64.122.129|p1535_FSden_305_94q|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1536|171.64.122.129|p1536_FSnat_305_94sq|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1537|171.64.122.129|p1537_FSden_305_94sq|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1538|171.64.122.129|p1538_FSnat_305_GSq|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1539|171.64.122.129|p1539_FSden_305_GSq|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1540|171.64.122.129|p1540_FSnat_305_GSsq|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1541|171.64.122.129|p1541_FSden_305_GSsq|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1542|171.64.122.129|p1542_FSnat_305_99pq|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1543|171.64.122.129|p1543_FSden_305_99pq|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1544|171.64.122.129|p1544_FSnat_305_99psq|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1545|171.64.122.129|p1545_FSden_305_99psq|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1546|171.65.103.155|p1546_A21ext_d11_GO|1828|19.00|28.00|95.00|100|GROMACS|General|esorin|
+1547|171.65.103.155|p1547_A21nat_d11_GO|1828|19.00|28.00|95.00|100|GROMACS|General|esorin|
+1548|171.65.103.155|p1548_A21ext_d13_GO|2120|20.00|29.00|100.00|100|GROMACS|General|esorin|
+1549|171.65.103.155|p1549_A21nat_d13_GO|2120|20.00|29.00|100.00|100|GROMACS|General|esorin|
+1550|171.65.103.155|p1550_A21ext_d15_GO|2412|22.00|31.00|108.00|100|GROMACS|General|esorin|
+1551|171.65.103.155|p1551_A21nat_d15_GO|2412|22.00|31.00|108.00|100|GROMACS|General|esorin|
+1552|171.65.103.155|p1552_A21ext_d19_GO|2996|24.00|36.00|123.00|100|GROMACS|General|esorin|
+1553|171.65.103.155|p1553_A21nat_d19_GO|2996|24.00|36.00|123.00|100|GROMACS|General|esorin|
+1554|171.65.103.155|p1554_A21ext_d22_GO|3434|26.00|39.00|134.00|100|GROMACS|General|esorin|
+1555|171.65.103.155|p1555_A21nat_d22_GO|3434|26.00|39.00|134.00|100|GROMACS|General|esorin|
+1556|171.65.103.155|p1556_A21ext_d26_GO|4018|29.00|43.00|149.00|100|GROMACS|General|esorin|
+1557|171.65.103.155|p1557_A21nat_d26_GO|4018|29.00|43.00|149.00|100|GROMACS|General|esorin|
+1558|171.65.103.155|p1558_A21ext_d11_VAC|1828|17.00|25.00|84.00|100|GROMACS|General|esorin|
+1559|171.65.103.155|p1559_A21nat_d11_VAC|1828|17.00|25.00|84.00|100|GROMACS|General|esorin|
+1560|171.65.103.155|p1560_A21ext_d13_VAC|2120|18.00|26.00|89.00|100|GROMACS|General|esorin|
+1561|171.65.103.155|p1561_A21nat_d13_VAC|2120|18.00|26.00|89.00|100|GROMACS|General|esorin|
+1562|171.65.103.155|p1562_A21ext_d15_VAC|2412|19.00|28.00|96.00|100|GROMACS|General|esorin|
+1563|171.65.103.155|p1563_A21nat_d15_VAC|2412|19.00|28.00|96.00|100|GROMACS|General|esorin|
+1564|171.65.103.155|p1564_A21ext_d19_VAC|2996|22.00|32.00|111.00|100|GROMACS|General|esorin|
+1565|171.65.103.155|p1565_A21nat_d19_VAC|2996|22.00|32.00|111.00|100|GROMACS|General|esorin|
+1566|171.65.103.155|p1566_A21ext_d22_VAC|3434|25.00|36.00|124.00|100|GROMACS|General|esorin|
+1567|171.65.103.155|p1567_A21nat_d22_VAC|3434|25.00|36.00|124.00|100|GROMACS|General|esorin|
+1568|171.65.103.155|p1568_A21ext_d26_VAC|4018|27.00|40.00|139.00|100|GROMACS|General|esorin|
+1569|171.65.103.155|p1569_A21nat_d26_VAC|4018|27.00|40.00|139.00|100|GROMACS|General|esorin|
+1570|171.65.103.155|p1570_A21ext_d11_GO|1828|19.00|28.00|95.00|100|GROMACS|General|esorin|
+1571|171.65.103.155|p1571_A21nat_d11_GO|1828|19.00|28.00|95.00|100|GROMACS|General|esorin|
+1572|171.65.103.155|p1572_A21ext_d13_GO|2120|20.00|29.00|100.00|100|GROMACS|General|esorin|
+1573|171.65.103.155|p1573_A21nat_d13_GO|2120|20.00|29.00|100.00|100|GROMACS|General|esorin|
+1574|171.65.103.155|p1574_A21ext_d15_GO|2412|22.00|31.00|108.00|100|GROMACS|General|esorin|
+1575|171.65.103.155|p1575_A21nat_d15_GO|2412|22.00|31.00|108.00|100|GROMACS|General|esorin|
+1576|171.65.103.155|p1576_A21ext_d19_GO|2996|24.00|36.00|123.00|100|GROMACS|General|esorin|
+1577|171.65.103.155|p1577_A21nat_d19_GO|2996|24.00|36.00|123.00|100|GROMACS|General|esorin|
+1578|171.65.103.155|p1578_A21ext_d22_GO|3434|26.00|39.00|134.00|100|GROMACS|General|esorin|
+1579|171.65.103.155|p1579_A21nat_d22_GO|3434|26.00|39.00|134.00|100|GROMACS|General|esorin|
+1580|171.65.103.155|p1580_A21ext_d26_GO|4018|29.00|43.00|149.00|100|GROMACS|General|esorin|
+1581|171.65.103.155|p1581_A21nat_d26_GO|4018|29.00|43.00|149.00|100|GROMACS|General|esorin|
+1582|171.65.103.149|p1582_A7ext_298K_03|4167|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1583|171.65.103.149|p1583_A7hel_298K_03|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1584|171.65.103.149|p1584_A7pp2_298K_03|4206|18.00|24.00|76.00|100|GROMACS|General|esorin|
+1585|171.65.103.149|p1585_nat_305_03|6414|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1586|171.65.103.149|p1586_unf_305_03|6384|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1587|171.65.103.149|p1587_A21nat_305_03|6426|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1588|171.65.103.149|p1588_A21unf_305_03|6399|18.00|36.00|57.00|100|GROMACS|General|esorin|
+1589|171.65.103.149|p1589_TZ2nat_305_03|9129|12.00|17.00|56.00|100|GROMACS|General|esorin|
+1590|171.65.103.149|p1590_TZ2unf_305_03|9141|12.00|17.00|56.00|100|GROMACS|General|esorin|
+1591|171.64.122.129|p1591_LZIP-1598-0-12_pfold|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1592|171.64.122.129|p1592_LZIP-1598-1-85_pfold|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1593|171.64.122.129|p1593_LZIP-1599-1-48_pfold|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1594|171.64.122.129|p1594_LZIP-1599-2-8_pfold|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1595|171.64.122.116|p1595_lzip_273|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1596|171.64.122.116|p1596_lzip_298|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1597|171.64.122.116|p1597_lzip_323|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1598|171.64.122.116|p1598_lzip_348|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1599|171.64.122.116|p1599_lzip_373|34341|12.00|18.00|57.00|100|GROMACS|General|esorin|
+1600|171.64.122.127|p1600_c20MUreGS|17368|29.00|42.00|146.00|100|GROMACS|Calcium Sensitivity|rbrandman|
+1601|171.64.122.127|p1601_NTL8MUreGS|3366|10.00|13.00|41.00|100|GROMACS|General|rbrandman|
+1602|171.64.122.127|p1602_NTL4MUreGS|3411|9.00|12.00|38.00|100|GROMACS|General|rbrandman|
+1603|171.64.122.127|p1603_NTL1MUreGS|3403|8.00|11.00|33.00|100|GROMACS|General|rbrandman|
+1604|171.64.122.127|p1604_NTL0MUreGS|3418|8.00|11.00|32.00|100|GROMACS|General|rbrandman|
+1605|171.64.122.124|p1605_vill8MUre99p|6372|16.00|23.00|78.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+1606|171.64.122.127|p1606_villinW1U1|6127|12.00|17.00|53.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+1607|171.64.122.127|p1607_villinW1U0|6127|12.00|17.00|53.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+1608|171.64.122.127|p1608_villinW0U0|6127|12.00|17.00|53.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|rbrandman|
+1720|171.65.103.155|p1720_A21ext_d11_VAC|1828|18.00|26.00|89.00|100|GROMACS|General|esorin|
+1721|171.65.103.155|p1721_A21nat_d11_VAC|1828|18.00|26.00|89.00|100|GROMACS|General|esorin|
+1722|171.65.103.155|p1722_A21ext_d13_VAC|2120|19.00|27.00|94.00|100|GROMACS|General|esorin|
+1723|171.65.103.155|p1723_A21nat_d13_VAC|2120|19.00|27.00|94.00|100|GROMACS|General|esorin|
+1724|171.65.103.155|p1724_A21ext_d15_VAC|2412|20.00|28.00|99.00|100|GROMACS|General|esorin|
+1725|171.65.103.155|p1725_A21nat_d15_VAC|2412|20.00|28.00|99.00|100|GROMACS|General|esorin|
+1726|171.65.103.155|p1726_A21ext_d19_VAC|2996|22.00|32.00|110.00|100|GROMACS|General|esorin|
+1727|171.65.103.155|p1727_A21nat_d19_VAC|2996|22.00|32.00|110.00|100|GROMACS|General|esorin|
+1728|171.65.103.155|p1728_A21ext_d22_VAC|3434|24.00|36.00|123.00|100|GROMACS|General|esorin|
+1729|171.65.103.155|p1729_A21nat_d22_VAC|3434|24.00|36.00|123.00|100|GROMACS|General|esorin|
+1730|171.65.103.155|p1730_A21ext_d26_VAC|4018|27.00|40.00|139.00|100|GROMACS|General|esorin|
+1731|171.65.103.155|p1731_A21nat_d26_VAC|4018|27.00|40.00|139.00|100|GROMACS|General|esorin|
+1800|171.65.103.158|p1800_Collagen_PPG10_restrained_unfolding|1086|16.00|23.00|77.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1801|171.65.103.158|p1801_Collagen_PPG10_refolding|1086|14.00|20.00|66.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1802|171.65.103.158|p1802_Collagen_POG10_restrained_unfolding|1116|16.00|23.00|77.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1803|171.65.103.158|p1803_Collagen_POG10_refolding|1116|14.00|21.00|69.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1804|171.65.103.158|p1804_Collagen_PPG10_refolding_gamma|1086|24.00|35.00|123.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1805|171.65.103.158|p1805_Collagen_POG10_refolding_gamma|1116|26.00|37.00|130.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1806|171.65.103.158|p1806_Collagen_Brodsky_restrained_unfolding|1125|5.00|10.00|19.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1807|171.65.103.158|p1807_Collagen_POG10new_restrained_unfolding|1116|5.00|10.00|19.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1808|171.65.103.158|p1808_Collagen_Brodsky_refolding|1125|30.00|44.00|153.00|100|AMBER|Osteogenesis imperfecta|spark|
+1809|171.65.103.158|p1809_Collagen_POG10new_refolding|1116|30.00|44.00|153.00|100|AMBER|Osteogenesis imperfecta|spark|
+1812|171.65.103.158|p1812_Collagen_POG10more_restrained_unfolding|1116|5.00|10.00|19.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1813|171.65.103.158|p1813_Collagen_Brodskymore_restrained_unfolding|1125|5.00|10.00|19.00|100|AMBER|Osteogenesis imperfecta|spark7|
+1814|171.65.103.158|p1814_Collagen_POG10more_refolding|1116|30.00|44.00|153.00|100|AMBER|Osteogenesis imperfecta|spark|
+1815|171.65.103.158|p1815_Collagen_Brodsky_refolding|1125|30.00|44.00|153.00|100|AMBER|Osteogenesis imperfecta|spark|
+1816|171.65.103.158|p1816_COL1|76522|62.00|92.00|330.00|100|GROMACS33|Osteogenesis imperfecta|spark|
+1850|171.65.103.158|p1850_Myosin6_PT_US|1205|35.00|52.00|182.00|100|AMBER|*Muscle Contraction|spark7|
+1851|171.65.103.158|p1851_Myosin6_PT_US_2|1205|18.00|26.00|93.00|100|AMBER|*Muscle Contraction|spark7|
+1852|171.65.103.158|p1852_Myosin6_PT_US_TIP3P_at13|24767|34.00|50.00|176.00|100|GROMACS|*Muscle Contraction|spark|
+1860|171.65.103.158|p1860_Myosin6_PT_US_TIP3P_at9|29699|38.00|56.00|198.00|100|GROMACS|*Muscle Contraction|spark|
+1862|171.65.103.158|p1862_Myosin6_PT_US_TIP3P_bbox|61055|99.00|148.00|535.00|100|GROMACS|*Muscle Contraction|spark|
+1900|171.64.122.113|p1900_32_water_molecules|96|12.00|19.00|125.00|100|QMD|N/A|ymrhee|
+1901|171.64.122.113|p1901_32_water_molecules|96|12.00|19.00|125.00|100|QMD|N/A|ymrhee|
+1902|171.64.122.113|p1902_32_water_molecules|96|12.00|19.00|125.00|100|QMD|N/A|ymrhee|
+1910|171.64.122.113|p1910_ALA-dipeptide|118|29.00|43.00|450.00|100|QMD|N/A|ymrhee|
+1911|171.64.122.113|p1911_ALA-dipeptide_umbrel|118|29.00|43.00|450.00|100|QMD|N/A|ymrhee|
+1912|171.64.122.113|p1912_ALA-dipeptide_umb2|118|29.00|43.00|450.00|100|QMD|N/A|ymrhee|
+2000|171.65.103.157|p2000_ab1-43|2576|30.00|44.00|154.00|100|GROMACS|Alzheimers|luttmann|
+2002|171.65.103.157|p2002_ab1-43_4mer_opls|2576|35.00|51.00|180.00|100|GROMACS|Alzheimers|luttmann|
+2003|171.65.103.157|p2003_ab1-42_4mer_opls-dummy|2824|32.00|46.00|162.00|100|GROMACS|Alzheimers|luttmann|
+2004|171.64.122.136|p2004_A21|222|30.00|44.00|154.00|100|GBGROMACS|Alzheimers|luttmann|
+2005|171.64.122.136|p2005_BBA5_pfold|385|17.00|25.00|83.00|100|GROMACS|*Synthetic Construct|alexrson|
+2006|171.64.122.136|p2006_BBA5_pfold|385|17.00|25.00|85.00|100|GROMACS|*Synthetic Construct|alexrson|
+2007|171.64.122.136|p2007_BBA5_pfold|385|16.00|24.00|79.00|100|GROMACS|*Synthetic Construct|alexrson|
+2008|171.64.122.136|p2008_BBA5|12200|42.00|61.00|218.00|100|GROMACS|*Synthetic Construct|luttmann|
+2009|171.64.122.136|p2009_BBA5|12200|30.00|45.00|157.00|100|DGROMACS|*Synthetic Construct|luttmann|
+2010|171.64.122.136|p2010_BBA5_ext|12200|27.00|39.00|136.00|100|GROMACS|*Synthetic Construct|alexrson|
+2011|171.64.122.136|p2011_BBA5_ext|12200|27.00|39.00|136.00|100|GROMACS|*Synthetic Construct|alexrson|
+2012|171.64.122.136|p2012_BBA5|12200|27.00|39.00|136.00|100|GROMACS|*Synthetic Construct|luttmann|
+2013|171.64.122.136|p2013_BBA5|12200|39.00|57.00|201.00|100|GROMACS|*Synthetic Construct|luttmann|
+2014|171.64.122.136|p2014_BBA5|12200|230.00|34.00|116.00|100|GROMACS|*Synthetic Construct|alexrson|
+2015|171.64.122.136|p2015_BBA5|12200|44.00|65.00|231.00|100|GROMACS|*Synthetic Construct|alexrson|
+2016|171.64.122.136|p2016_BBA5_pfold|385|36.00|53.00|188.00|100|GBGROMACS|*Synthetic Construct|luttmann|
+2017|171.64.122.136|p2017_BBA5_pfold|385|35.00|51.00|181.00|100|GBGROMACS|*Synthetic Construct|luttmann|
+2018|171.64.122.136|p2018_BBA5|12200|20.00|30.00|101.00|100|DGROMACS|*Synthetic Construct|alexrson|
+2019|171.64.122.136|p2019_BBA5|12200|19.00|28.00|95.00|100|DGROMACS|*Synthetic Construct|luttmann|
+2021|171.65.103.150|p2021_Im7|29073|35.00|51.00|181.00|100|GROMACS|General|alexrson|
+2022|171.65.103.150|p2022_FKBP|25507|46.00|69.00|162.00|100|GROMACS|General|alexrson|
+2023|171.65.103.150|p2023_Lambda_repressor|20416|25.00|37.00|127.00|100|GROMACS|General|alexrson|
+2024|171.65.103.150|p2024_ACBP|27984|34.00|50.00|175.00|100|GROMACS|General|alexrson|
+2025|171.65.103.150|p2025_ADAh2|25589|31.00|45.00|159.00|100|GROMACS|General|alexrson|
+2026|171.65.103.150|p2026_Protein_A|31942|37.00|55.00|194.00|100|GROMACS|General|alexrson|
+2027|171.65.103.150|p2027_Ubiquitin|25555|31.00|45.00|159.00|100|GROMACS|General|alexrson|
+2028|171.65.103.150|p2028_CI2|21434|26.00|38.00|133.00|100|GROMACS|General|alexrson|
+2029|171.65.103.150|p2029_Protein_G|22786|27.00|40.00|140.00|100|GROMACS|General|alexrson|
+2030|171.65.103.150|p2030_Coiled_coil|46366|55.00|81.00|289.00|100|GROMACS|General|alexrson|
+2031|171.65.103.150|p2031_Ubiquitin_mutant|25547|31.00|45.00|159.00|100|GROMACS|General|alexrson|
+2032|171.65.103.150|p2032_mAcP|26737|35.00|51.00|181.00|100|GROMACS|General|alexrson|
+2033|171.64.122.70|p2033_mAcP_mutant_Sosnick|26743|25.00|37.00|167.00|100|GROMACS|General|alexrson|
+2034|171.65.103.150|p2034_Protein_A_wt_sosnick|22153|37.00|55.00|136.00|100|GROMACS|General|alexrson|
+2035|171.65.103.150|p2035_Protein_A_mutant_Sosnick|22153|37.00|55.00|136.00|100|GROMACS|General|alexrson|
+2036|171.65.103.150|p2036_IM7|26520|33.00|48.00|168.00|100|GROMACS|General|alexrson|
+2037|171.65.103.150|p2037_FKBP|23305|29.00|42.00|146.00|100|GROMACS|General|alexrson|
+2038|171.65.103.150|p2038_Lambda_repressor|18757|23.00|34.00|117.00|100|GROMACS|General|alexrson|
+2039|171.65.103.150|p2039_ACBP|25350|31.00|46.00|160.00|100|GROMACS|General|alexrson|
+2040|171.65.103.150|p2040_ADAh2|23360|28.00|41.00|144.00|100|GROMACS|General|alexrson|
+2041|171.65.103.150|p2041_Protein_A|28996|34.00|50.00|175.00|100|GROMACS|General|alexrson|
+2042|171.65.103.150|p2042_Ubiquitin|23299|28.00|41.00|143.00|100|GROMACS|General|alexrson|
+2043|171.65.103.150|p2043_CI2|19697|24.00|35.00|143.00|100|GROMACS|General|alexrson|
+2044|171.65.103.150|p2044_Protein_G|20893|25.00|37.00|127.00|100|GROMACS|General|alexrson|
+2045|171.65.103.150|p2045_Coiled_coil|42301|50.00|74.00|264.00|100|GROMACS|General|alexrson|
+2046|171.65.103.150|p2046_Ubiquitin_mutant|23324|28.00|41.00|143.00|100|GROMACS|General|alexrson|
+2047|171.65.103.150|p2047_mAcP_wt_Sosnick|24664|33.00|48.00|156.00|100|GROMACS|General|alexrson|
+2048|171.65.103.150|p2048_mAcP_mutant_Sosnick|24652|33.00|48.00|153.00|100|GROMACS|General|alexrson|
+2049|171.65.103.150|p2049_Protein_A_wt_Sosnick|20383|34.00|50.00|127.00|100|GROMACS|General|alexrson|
+2050|171.65.103.150|p2050_Protein_A_mutant_Sosnick|20386|34.00|50.00|127.00|100|GROMACS|General|alexrson|
+2051|171.64.122.136|p2051_abeta_4mer|2544|33.00|47.00|267.00|100|GROMACS|Alzheimers|luttmann|
+2052|171.64.122.136|p2052_abeta_4mer|2544|32.00|47.00|266.00|100|GROMACS|Alzheimers|luttmann|
+2053|171.64.122.136|p2053_abeta_4mer|2544|27.00|39.00|219.00|100|GROMACS|Alzheimers|luttmann|
+2054|171.64.122.136|p2054_abeta_agbnp|2544|14.00|21.00|69.00|100|GBGROMACS|Alzheimers|luttmann|
+2055|171.64.122.136|p2055_abeta_4mer|2092|26.00|37.00|193.00|100|GROMACS|Alzheimers|luttmann|
+2056|171.64.122.136|p2056_abeta_4mer|2092|25.00|37.00|192.00|100|GROMACS|Alzheimers|luttmann|
+2057|171.64.122.136|p2057_abeta_4mer|2100|21.00|31.00|159.00|100|GROMACS|Alzheimers|luttmann|
+2058|171.64.122.136|p2058_abeta_4mer_agbnp|2092|14.00|21.00|69.00|100|GBGROMACS|Alzheimers|luttmann|
+2059|171.64.122.136|p2059_A21_agbnp_amber99|222|9.00|12.00|38.00|100|GBGROMACS|Alzheimers|luttmann|
+2060|171.64.122.136|p2060_g40|1168|12.00|17.00|88.00|100|GROMACS|General|luttmann|
+2061|171.64.122.136|p2061_A21_agbnp_amber99|222|19.00|28.00|94.00|100|GBGROMACS|General|luttmann|
+2062|171.64.122.136|p2062_BBA5_pfold|385|36.00|53.00|187.00|100|GBGROMACS|*Synthetic Construct|luttmann|
+2063|171.64.122.70|p2063_abeta_agbnp|2544|27.00|39.00|136.00|100|GBGROMACS|Alzheimers|luttmann|
+2064|171.64.122.70|p2064_abeta_4mer_agbnp|2092|23.00|34.00|118.00|100|GBGROMACS|Alzheimers|luttmann|
+2065|171.64.122.70|p2065_A21_helix_in_OPLSAA|222|24.00|35.00|120.00|100|GBGROMACS|General|luttmann|
+2066|171.64.122.70|p2066_A21_agbnp_amber99|222|23.00|34.00|117.00|100|GBGROMACS|General|luttmann|
+2067|171.64.122.70|p2067_A21_agbnp_amber99|222|43.00|63.00|225.00|100|GBGROMACS|General|luttmann|
+2068|171.64.122.70|p2068_BBA5|12200|41.00|60.00|213.00|100|GROMACS|General|alexrson|
+2069|171.64.122.70|p2069_BBA5|12200|26.00|38.00|134.00|100|GROMACS|General|alexrson|
+2070|171.64.122.70|p2070_BBA5|12200|38.00|56.00|199.00|100|GROMACS|General|alexrson|
+2071|171.64.122.70|p2071_A21_agbnp_amber99|222|32.00|47.00|166.00|100|GBGROMACS|General|luttmann|
+2072|171.64.122.70|p2072_FS-Protein|264|39.00|58.00|206.00|100|GBGROMACS|General|luttmann|
+2073|171.64.122.70|p2073_A21_OPLS|222|36.00|54.00|190.00|100|GBGROMACS|General|luttmann|
+2074|171.64.122.70|p2074_Fs|264|43.00|63.00|225.00|100|GBGROMACS|General|luttmann|
+2075|171.64.122.70|p2075_BBA5|12200|11.00|15.00|48.00|100|DGROMACS|General|alexrson|
+2076|171.64.122.136|p2076_A21_agbnp_amber99|222|26.00|38.00|133.00|100|GBGROMACS|General|luttmann|
+2077|171.64.122.136|p2077_Ab Initio Protein Random Structure|976|37.00|54.00|190.00|100|GBGROMACS|General|luttmann|
+2078|171.64.122.136|p2078_Protein|304|46.00|69.00|244.00|100|GBGROMACS|General|luttmann|
+2079|171.64.122.136|p2079_Ab Initio Protein Random Structure|292|44.00|64.00|229.00|100|GBGROMACS|General|luttmann|
+2080|171.64.122.136|p2080_Abeta_4mer|2564|34.00|63.00|226.00|100|GBGROMACS|Alzheimers|luttmann|
+2081|171.65.103.157|p2081_p53_in_AGBNP|1048|48.00|71.00|255.00|100|GBGROMACS|Tumour Supression|luttmann|
+2082|171.65.103.157|p2082_p53_in_AGBNP|1048|48.00|71.00|255.00|100|GBGROMACS|Tumour Supression|luttmann|
+2083|171.64.122.136|p2083_Abeta_4mer|2564|52.00|78.00|274.00|100|GBGROMACS|Alzheimers|luttmann|
+2084|171.64.122.136|p2084_abeta_agbnp|2544|55.00|83.00|295.00|100|GBGROMACS|Alzheimers|luttmann|
+2085|171.64.122.136|p2085_abeta_4mer_agbnp|2092|44.00|65.00|228.00|100|GBGROMACS|Alzheimers|luttmann|
+2086|171.64.122.136|p2086_A21_agbnp_amber99|222|27.00|40.00|139.00|100|GBGROMACS|General|luttmann|
+2087|171.64.122.136|p2087_Protein|264|33.00|49.00|172.00|100|GBGROMACS|General|luttmann|
+2088|171.64.122.136|p2088_A21_agbnp_amber99|222|34.00|50.00|178.00|100|GBGROMACS|General|luttmann|
+2089|171.64.122.136|p2089_A21_agbnp_amber99|222|33.00|48.00|169.00|100|GBGROMACS|General|luttmann|
+2090|171.64.122.136|p2090_Abeta_4mer|2564|52.00|78.00|274.00|100|GBGROMACS|Alzheimers|luttmann|
+2091|171.64.122.136|p2091_abeta_agbnp|2544|55.00|83.00|295.00|100|GBGROMACS|Alzheimers|luttmann|
+2092|171.64.122.136|p2092_abeta_4mer_agbnp|2092|44.00|65.00|228.00|100|GBGROMACS|Alzheimers|luttmann|
+2093|171.64.122.136|p2093_BBA5_pfold|385|45.00|66.00|235.00|100|GBGROMACS|*Synthetic Construct|luttmann|
+2094|171.64.122.136|p2094_A21_agbnp_amber99|222|27.00|40.00|139.00|100|GBGROMACS|General|luttmann|
+2095|171.64.122.136|p2095_Protein|264|33.00|49.00|172.00|100|GBGROMACS|General|luttmann|
+2096|171.64.122.136|p2096_A21_agbnp_amber99|222|34.00|50.00|178.00|100|GBGROMACS|Alzheimers|luttmann|
+2097|171.64.122.136|p2097_A21_agbnp_amber99|222|33.00|48.00|169.00|100|GBGROMACS|Alzheimers|luttmann|
+2098|171.64.122.136|p2098_abeta_agbnp|2544|34.00|63.00|226.00|100|GBGROMACS|Alzheimers|luttmann|
+2099|171.64.122.136|p2099_abeta_4mer_agbnp|2092|34.00|63.00|226.00|100|GBGROMACS|Alzheimers|luttmann|
+2100|171.64.122.141|p2100_dk_villin_run0|15644|40.00|59.00|209.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|DanEnsign|
+2101|171.64.122.141|p2101_project2101_DKvillin_run0|15644|40.00|59.00|209.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+2102|171.64.122.141|p2102_lambda_5way_melt_0_00000|1258|77.00|115.00|414.00|100|GBGROMACS|*Lambda Repressor|densign|
+2103|171.64.122.141|p2103_lambda_5way_melt_0_00000|0|0.00|115.00|414.00|100|GBGROMACS|*Lambda Repressor||
+2104|171.64.122.141|p2104_dk_villin_run0|16253|48.00|71.00|250.00|100|DGROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+2106|171.64.122.141|p2106_lambda_5way_melt_4_10011|1258|39.00|57.00|202.00|100|GROMACS|*Lambda Repressor|densign|
+2107|171.64.122.141|p2107_lambda_5way_melt_4_10011|1258|78.00|114.00|404.00|100|GROMACS|*Lambda Repressor|densign|
+2108|171.64.122.141|p2108_dk_villin_ddsa_aybabtu_run0|596|84.00|125.00|449.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+2109|171.64.122.141|p2109_ww_domain_mutant_1_opls|604|71.00|105.00|376.00|100|GROMACS|General|densign|
+2110|171.64.122.141|p2110_ww_domain_mutant_2_opls|580|71.00|105.00|376.00|100|GROMACS|General|densign|
+2111|171.64.122.141|p2111_ww_domain_mutant_3_opls|572|71.00|105.00|376.00|100|GROMACS|General|densign|
+2112|171.64.122.141|p2112_ww_domain_mutant_4_opls|572|71.00|105.00|376.00|100|GROMACS|General|densign|
+2113|171.64.122.141|p2113_ww_domain_mutant_5_opls|591|71.00|105.00|376.00|100|GROMACS|General|densign|
+2114|171.64.122.141|p2114_ww_domain_mutant_1_am96|604|77.00|114.00|412.00|100|GROMACS|General|densign|
+2115|171.64.122.141|p2115_ww_domain_mutant_2_am96|580|77.00|114.00|412.00|100|GROMACS|General|densign|
+2116|171.64.122.141|p2116_ww_domain_mutant_3_am96|572|77.00|114.00|412.00|100|GROMACS|General|densign|
+2117|171.64.122.141|p2117_ww_domain_mutant_4_am96|572|77.00|114.00|412.00|100|GROMACS|General|densign|
+2118|171.64.122.141|p2118_ww_domain_mutant_5_am96|591|77.00|114.00|412.00|100|GROMACS|General|densign|
+2119|171.64.122.141|p2119_ww_domain_mutant_1_am99|604|77.00|114.00|408.00|100|GROMACS|General|densign|
+2120|171.64.122.141|p2120_ww_domain_mutant_2_am99|580|77.00|114.00|408.00|100|GROMACS|General|densign|
+2121|171.64.122.141|p2121_ww_domain_mutant_3_am99|572|77.00|114.00|408.00|100|GROMACS|General|densign|
+2122|171.64.122.141|p2122_ww_domain_mutant_4_am99|572|77.00|114.00|408.00|100|GROMACS|General|densign|
+2123|171.64.122.141|p2123_ww_domain_mutant_5_am99|591|77.00|114.00|408.00|100|GROMACS|General|densign|
+2124|171.65.103.160|p2124_lambda_5way_melt_4_10011|1258|74.00|110.00|396.00|100|GROMACS|*Lambda Repressor|densign|
+2125|171.65.103.160|p2125_lambda_5way_melt_4_10011|1258|73.00|109.00|392.00|100|GROMACS|*Lambda Repressor|densign|
+2126|171.65.103.160|p2126_villin_sigd3|596|70.00|104.00|373.00|100|GROMACS|General|densign|
+2127|171.65.103.160|p2127_ww2127|604|67.00|100.00|359.00|100|GROMACS|General|densign|
+2128|171.65.103.160|p2128_ww2128|580|71.00|106.00|359.00|100|GROMACS|General|densign|
+2129|171.65.103.160|p2129_ww2129|572|67.00|100.00|359.00|100|GROMACS|General|densign|
+2130|171.65.103.160|p2130_ww2130|572|67.00|100.00|359.00|100|GROMACS|General|densign|
+2131|171.65.103.160|p2131_ww2131|591|67.00|100.00|359.00|100|GROMACS|General|densign|
+2132|171.65.103.160|p2132_ww2132|604|71.00|106.00|381.00|100|GROMACS|General|densign|
+2133|171.65.103.160|p2133_ww2133|580|71.00|106.00|381.00|100|GROMACS|General|densign|
+2134|171.65.103.160|p2134_ww2134|572|71.00|106.00|381.00|100|GROMACS|General|densign|
+2135|171.65.103.160|p2135_ww2135|572|71.00|106.00|381.00|100|GROMACS|General|densign|
+2136|171.65.103.160|p2136_ww2136|591|71.00|106.00|381.00|100|GROMACS|General|densign|
+2137|171.65.103.160|p2137_ww2137|604|72.00|107.00|385.00|100|GROMACS|General|densign|
+2138|171.65.103.160|p2138_ww2138|580|72.00|107.00|385.00|100|GROMACS|General|densign|
+2139|171.65.103.160|p2139_ww2139|572|72.00|107.00|385.00|100|GROMACS|General|densign|
+2140|171.65.103.160|p2140_ww2140|572|72.00|107.00|385.00|100|GROMACS|General|densign|
+2141|171.65.103.160|p2141_ww2141|591|72.00|107.00|385.00|100|GROMACS|General|densign|
+2142|171.64.122.141|p2142_halr-wt, CN inhib, NADP+ in water|86986|45.00|65.00|476.00|100|GROMACS|Diabetes|densign|
+2143|171.64.122.141|p2143_halr-wt, CN inhib, NADP+ in water|86986|45.00|65.00|478.00|100|GROMACS|Diabetes|densign|
+2144|171.64.122.141|p2144_halr-wt, CN inhib, NADP+ in water|86982|44.00|65.00|464.00|100|GROMACS|*Synthetic Contruct|densign|
+2145|171.64.122.141|p2145_halr-wt, CN inhib, NADP+ in water|86982|45.00|66.00|472.00|100|GROMACS|*Synthetic Contruct|densign|
+2146|171.65.103.160|p2146_lambda m1 expl|16437|44.00|65.00|230.00|100|GROMACS|*Lambda Repressor|densign|
+2147|171.65.103.160|p2147_lambda_m2_expl_99p|16427|42.00|61.00|218.00|100|GROMACS|*Lambda Repressor|densign|
+2148|171.65.103.160|p2148_supervillin_99p|9117|43.00|63.00|225.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+2149|171.65.103.160|p2149_villinN68H_99p|8867|42.00|62.00|220.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+2150|171.65.103.160|p2150_lambda m1 expl 373K 99p|16437|44.00|65.00|230.00|100|GROMACS|*Lambda Repressor|densign|
+2151|171.65.103.160|p2151_p2147_lambda_m2_expl_99p_373K|16427|42.00|61.00|218.00|100|GROMACS|*Lambda Repressor|densign|
+2152|171.65.103.160|p2152_p2148_supervillin_99p_373K|9117|43.00|63.00|225.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+2153|171.65.103.160|p2153_p2149_villinN68H_99p_373K|8867|42.00|62.00|220.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+2162|171.64.122.141|p2162_haldrT113Y_pme|86993|46.00|68.00|484.00|100|GROMACS||densign|
+2163|171.64.122.141|p2163_haldrT113Y_rf|86993|47.00|70.00|498.00|100|GROMACS||densign|
+2164|171.64.122.141|p2164_halr-wt, CN inhib, NADP+ in water|86987|47.00|69.00|494.00|100|GROMACS||densign|
+2165|171.64.122.141|p2165_halr-wt, CN inhib, NADP+ in water|86987|47.00|69.00|492.00|100|GROMACS||densign|
+2168|171.64.122.141|p2168_halr-wt, CN inhib, NADP+ in water|86987|47.00|69.00|494.00|100|GROMACS||densign|
+2169|171.64.122.141|p2169_halr-wt, CN inhib, NADP+ in water|86987|47.00|69.00|492.00|100|GROMACS||densign|
+2200|171.65.103.152|p2200_ProteinA|15539|24.00|35.00|121.00|100|GROMACS|*Antibody Target|vvishal|
+2300|171.64.122.70|p2300_BBA5|12200|12.00|17.00|55.00|100|GROMACS|*Synthetic Construct|alexrson|
+2301|171.64.122.70|p2301_BBA5|12200|18.00|25.00|86.00|100|GROMACS|*Synthetic Construct|alexrson|
+2302|171.64.122.70|p2302_BBA5|12200|25.00|37.00|127.00|100|GROMACS|*Synthetic Construct|alexrson|
+2303|171.64.122.70|p2303_BBA5|12200|11.00|51.00|181.00|100|GROMACS|*Synthetic Construct|alexrson|
+2304|171.64.122.70|p2304_BBA5_ext|12200|11.00|15.00|48.00|100|DGROMACS|*Synthetic Construct|alexrson|
+2305|171.64.122.139|p2305_BBA5_Mutant|12285|6.00|15.00|46.00|100|GROMACS|*Synthetic Construct|luttmann|
+2306|171.64.122.139|p2306_BBA5_pfold in water|374|36.00|53.00|188.00|100|GBGROMACS|*Synthetic Construct|alexrson|
+2307|171.64.122.139|p2307_BBA5|12200|30.00|61.00|218.00|100|DGROMACS|*Synthetic Construct|luttmann|
+2308|171.64.122.139|p2308_BBA5|12200|17.00|24.00|85.00|100|DGROMACS|*Synthetic Construct|alexrson|
+2321|171.65.103.150|p2321_IM7|29073|35.00|51.00|181.00|100|GROMACS|General|alexrson|
+2322|171.65.103.150|p2322_FKBP|25507|46.00|69.00|162.00|100|GROMACS|General|alexrson|
+2323|171.65.103.150|p2323_lambda_repressor|20416|25.00|37.00|127.00|100|GROMACS|General|alexrson|
+2324|171.65.103.150|p2324_ACBP|27984|34.00|50.00|175.00|100|GROMACS|General|alexrson|
+2325|171.65.103.150|p2325_ADAh2|25589|31.00|45.00|159.00|100|GROMACS|General|alexrson|
+2326|171.65.103.150|p2326_Protein_A|31942|37.00|55.00|194.00|100|GROMACS|General|alexrson|
+2327|171.65.103.150|p2327_Ubiquitin|25555|31.00|45.00|159.00|100|GROMACS|General|alexrson|
+2328|171.65.103.150|p2328_CI2|21434|26.00|38.00|133.00|100|GROMACS|General|alexrson|
+2331|171.65.103.150|p2331_Ubiquitin_mutant|25547|31.00|45.00|159.00|100|GROMACS|General|alexrson|
+2332|171.65.103.150|p2332_mAcP|26737|35.00|51.00|181.00|100|GROMACS|General|alexrson|
+2333|171.65.103.150|p2333_mAcP_mutant|26743|25.00|37.00|167.00|100|GROMACS|General|alexrson|
+2334|171.65.103.150|p2334_Protein_A_wt_Sosnick|22153|37.00|55.00|136.00|100|GROMACS|General|alexrson|
+2335|171.65.103.150|p2335_Protein_A_mutant_Sosnick|22153|37.00|55.00|136.00|100|GROMACS|General|alexrson|
+2336|171.65.103.150|p2336_IM7|26520|33.00|48.00|168.00|100|GROMACS|General|alexrson|
+2337|171.65.103.150|p2337_FKBP|23305|29.00|42.00|146.00|100|GROMACS|General|alexrson|
+2338|171.65.103.150|p2338_Lambda_repressor|18757|23.00|34.00|117.00|100|GROMACS|General|alexrson|
+2339|171.65.103.150|p2339_ACBP|25350|31.00|46.00|160.00|100|GROMACS|General|alexrson|
+2340|171.65.103.150|p2340_ADAh2|23360|28.00|41.00|144.00|100|GROMACS|General|alexrson|
+2341|171.65.103.150|p2341_Protein_A|28996|34.00|50.00|175.00|100|GROMACS|General|alexrson|
+2342|171.65.103.150|p2342_Ubiquitin|23299|28.00|41.00|143.00|100|GROMACS|General|alexrson|
+2343|171.65.103.150|p2343_CI2|19697|24.00|35.00|143.00|100|GROMACS|General|alexrson|
+2346|171.65.103.150|p2346_Ubiquitin_mutant|23324|28.00|41.00|143.00|100|GROMACS|General|alexrson|
+2347|171.65.103.150|p2347_Acylphosphatase_wt|24664|33.00|48.00|156.00|100|GROMACS|General|alexrson|
+2348|171.65.103.150|p2348_Acylphosphatase_mutant|24652|33.00|48.00|153.00|100|GROMACS|General|alexrson|
+2349|171.65.103.150|p2349_Protein_A_wt|20383|34.00|50.00|127.00|100|GROMACS|General|alexrson|
+2350|171.65.103.150|p2350_Protein_A_mutant|20386|34.00|50.00|127.00|100|GROMACS|General|alexrson|
+2351|171.65.103.150|p2351_IM7|29073|145.00|200.00|788.00|100|DGROMACS|General|alexrson|
+2352|171.65.103.150|p2352_FKBP|25507|127.00|189.00|686.00|100|DGROMACS|General|alexrson|
+2353|171.65.103.150|p2353_lambda_repressor|20416|100.00|149.00|541.00|100|DGROMACS|General|alexrson|
+2354|171.65.103.150|p2354_ACBP|27984|140.00|209.00|760.00|100|DGROMACS|General|alexrson|
+2355|171.65.103.150|p2355_ADAh2|25589|126.00|188.00|683.00|100|DGROMACS|General|alexrson|
+2356|171.65.103.150|p2356_Protein_A|31942|160.00|239.00|868.00|100|DGROMACS|General|alexrson|
+2357|171.65.103.150|p2357_Ubiquitin|25555|157.00|234.00|852.00|100|DGROMACS|General|alexrson|
+2358|171.65.103.150|p2358_CI2|21434|106.00|158.00|572.00|100|DGROMACS|General|alexrson|
+2359|171.65.103.150|p2359_Protein_G|22786|112.00|167.00|604.00|100|DGROMACS|General|alexrson|
+2360|171.65.103.150|p2360_Coiled_Coil|46366|237.00|355.00|1294.00|100|DGROMACS|General|alexrson|
+2361|171.65.103.150|p2361_Ubiquitin_mutant|25547|127.00|190.00|689.00|100|DGROMACS|General|alexrson|
+2362|171.65.103.150|p2362_mAcP|26737|133.00|199.00|723.00|100|DGROMACS|General|alexrson|
+2363|171.65.103.150|p2363_mAcP_mutant|26743|133.00|199.00|722.00|100|DGROMACS|General|alexrson|
+2364|171.65.103.150|p2364_Protein_A_wt_Sosnick|22153|109.00|162.00|586.00|100|DGROMACS|General|alexrson|
+2365|171.65.103.150|p2365_Protein_A_mutant_Sosnick|22153|120.00|200.00|589.00|100|DGROMACS|General|alexrson|
+2366|171.65.103.150|p2366_Im7|28131|33.00|48.00|169.00|100|GROMACS|General|alexrson|
+2367|171.65.103.150|p2367_FKBP|23861|28.00|41.00|141.00|100|GROMACS|General|alexrson|
+2368|171.65.103.150|p2368_Lambda_repressor|19718|23.00|33.00|115.00|100|GROMACS|General|alexrson|
+2369|171.65.103.150|p2369_ACBP|25989|30.00|44.00|153.00|100|GROMACS|General|alexrson|
+2370|171.65.103.150|p2370_ADAh2|24582|28.00|42.00|146.00|100|GROMACS|General|alexrson|
+2371|171.65.103.150|p2371_Protein_A|30897|36.00|53.00|186.00|100|GROMACS|General|alexrson|
+2372|171.65.103.150|p2372_Ubiquitin|24177|28.00|41.00|141.00|100|GROMACS|General|alexrson|
+2373|171.65.103.150|p2373_CI2|19977|23.00|34.00|116.00|100|GROMACS|General|alexrson|
+2374|171.65.103.150|p2374_Protein_G|22265|26.00|37.00|130.00|100|GROMACS|General|alexrson|
+2375|171.65.103.150|p2375_Coiled_coil|43982|51.00|75.00|268.00|100|GROMACS|General|alexrson|
+2376|171.65.103.150|p2376_Ubiquitin_mutant|24190|28.00|41.00|142.00|100|GROMACS|General|alexrson|
+2377|171.65.103.150|p2377_mAcP|24808|28.00|42.00|146.00|100|GROMACS|General|alexrson|
+2378|171.65.103.150|p2378_mAcP_mutant_Sosnick|24793|29.00|42.00|146.00|100|GROMACS|General|alexrson|
+2379|171.65.103.150|p2379_Protein_A_wt_sosnick|21203|24.00|35.00|123.00|100|GROMACS|General|alexrson|
+2380|171.65.103.150|p2380_Protein_A_mutant_Sosnick|21209|24.00|35.00|123.00|100|GROMACS|General|alexrson|
+2381|171.65.103.150|p2381_IM7|26520|125.00|186.00|677.00|100|DGROMACS|General|alexrson|
+2382|171.65.103.150|p2382_FKBP|23305|109.00|163.00|590.00|100|DGROMACS|General|alexrson|
+2383|171.65.103.150|p2383_Lambda_repressor|18757|86.00|129.00|468.00|100|DGROMACS|General|alexrson|
+2384|171.65.103.150|p2384_ACBP|25350|119.00|179.00|648.00|100|DGROMACS|General|alexrson|
+2385|171.65.103.150|p2385_ADAh2|23360|108.00|162.00|587.00|100|DGROMACS|General|alexrson|
+2386|171.65.103.150|p2386_Protein_A|28996|137.00|204.00|742.00|100|DGROMACS|General|alexrson|
+2387|171.65.103.150|p2387_Ubiquitin|23299|135.00|201.00|731.00|100|DGROMACS|General|alexrson|
+2388|171.65.103.150|p2388_CI2|19697|91.00|136.00|495.00|100|DGROMACS|General|alexrson|
+2389|171.65.103.150|p2389_Protein_G|20893|96.00|144.00|529.00|100|DGROMACS|General|alexrson|
+2390|171.65.103.150|p2390_Coiled coil|42301|205.00|306.00|1112.00|100|DGROMACS|General|alexrson|
+2391|171.65.103.150|p2391_Ubiquitin_mutant|23324|109.00|163.00|592.00|100|DGROMACS|General|alexrson|
+2392|171.65.103.150|p2392_Acylphosphatase_wt|24664|116.00|173.00|667.00|100|DGROMACS|General|alexrson|
+2393|171.65.103.150|p2393_Acylphosphatase_mutant|24652|115.00|173.00|627.00|100|DGROMACS|General|alexrson|
+2394|171.65.103.150|p2394_Protein_A_wt|20383|93.00|140.00|508.00|100|DGROMACS|General|alexrson|
+2395|171.65.103.150|p2395_Protein_A_mutant|20386|94.00|141.00|510.00|100|DGROMACS|General|alexrson|
+2401|171.64.122.142|p2401_Ribo_indole|87991|30.00|82.00|600.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2402|171.64.122.142|p2402_Ribo_indole_fast|88297|30.00|82.00|600.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2408|171.64.122.142|p2408_Ribo_alanine_sidechain|88088|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2409|171.64.122.142|p2409_Ribo_lysine_sidechain|88042|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2411|171.64.122.142|p2411_Ribo_aspartic|87998|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2412|171.65.103.162|p2412_Ribo_tryptophan|88354|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2413|171.65.103.162|p2413_Ribo_isoleucine|88259|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2414|171.65.103.162|p2414_Ribo_tryptophan280|87994|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2415|171.65.103.162|p2415_Ribo_lysine_aux|88110|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2416|171.65.103.162|p2416_Ribosome_Na|87978|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2417|171.65.103.162|p2417_Ribo_Cl|87974|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2418|171.65.103.162|p2418_Ribo_Mg|87974|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2419|171.65.103.162|p2419_Generated by trjconv : Ribo_lysine|87982|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2420|171.64.122.142|p2420_Ribo_alanine_aux|87998|30.00|82.00|500.00|100|GROMACS||ppetrone|
+2421|171.64.122.142|p2421_Ribo_ile_aux|88049|30.00|82.00|500.00|100|GROMACS||ppetrone|
+2422|171.64.122.142|p2422_Ribo_trp_aux|88074|30.00|82.00|500.00|100|GROMACS||ppetrone|
+2423|171.65.103.162|p2423_Ribo_asp_aux|87986|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2424|171.65.103.162|p2424_Ribo_lys_aux|88008|30.00|82.00|500.00|100|GROMACS|*Ribosomal Tunnel|ppetrone|
+2425|171.65.103.162|p2425_Ribo_Na_aux|87976|30.00|82.00|500.00|100|GROMACS||ppetrone|
+2426|171.65.103.162|p2426_Ribo_Cl_aux|87974|30.00|82.00|500.00|100|GROMACS||ppetrone|
+2427|171.65.103.162|p2427_Ribo_Cl_aux|87974|30.00|82.00|500.00|100|GROMACS||ppetrone|
+2450|171.65.103.162|p2450_GROtesk MACabre and Siniste drgpmfr|54992|30.00|82.00|500.00|100|GROMACS||ppetrone|
+2451|171.65.103.162|p2451_Fragment-Receptor HDQ|54992|46.00|68.00|243.00|100|GROMACS||ppetrone|
+2452|171.65.103.162|p2452_Fragment-Receptor HDS|54673|46.00|68.00|243.00|100|GROMACS||ppetrone|
+2453|171.65.103.162|p2453_Fragment-Receptor HDU|54765|46.00|68.00|243.00|100|GROMACS||ppetrone|
+2500|171.64.122.139|p2500_BBA5_pfold|385|40.00|59.00|208.00|100|GBGROMACS|*Synthetic Construct|luttmann|
+2509|171.64.122.139|p2509_BBA5_pfold|3385|41.00|61.00|215.00|100|GBGROMACS|*Synthetic Contruct|luttmann|
+2510|171.64.122.139|p2510_BBA5_pfold|1885|46.00|68.00|241.00|100|GBGROMACS|*Synthetic Contruct|luttmann|
+2511|171.64.122.139|p2511_BBA5_pfold|1285|27.00|39.00|136.00|100|GBGROMACS|*Synthetic Contruct|luttmann|
+2526|171.64.122.136|p2526_Am22-43|8062|36.00|53.00|186.00|100|GROMACS|General|luttmann|
+2527|171.64.122.136|p2527_Am22-43|8062|36.00|53.00|186.00|100|GROMACS|General|luttmann|
+2534|171.64.122.70|p2534_A21_agbnp_amber99|222|42.00|62.00|221.00|100|GBGROMACS|General|luttmann|
+2542|171.64.122.136|p2542_dpdp-ii|14312|39.00|58.00|206.00|100|GROMACS|General|luttmann|
+2543|171.64.122.139|p2543_BBA5_ext|12200|43.00|63.00|223.00|100|DGROMACS|*Synthetic Construct|luttmann|
+2549|171.64.65.42|p2549_fs_ambers|264|1.00|1.00|302.00|100|GRO-PS3|General|luttmann|
+2550|171.64.65.42|p2550_dpdpII_ambers|333|1.00|2.00|350.00|100|GRO-PS3|General|luttmann|
+2552|171.64.65.42|p2552_fs_ambers|264|1.00|1.00|302.00|100|GRO-PS3|General|luttmann|
+2553|171.64.65.42|p2553_dpdpII_ambers|333|1.00|2.00|350.00|100|GRO-PS3|General|luttmann|
+2554|171.64.65.42|p2554_fs_amber03|264|1.00|2.00|330.00|100|GRO-PS3|General|luttmann|
+2555|171.64.65.42|p2555_dpdp-II_amber03|333|1.00|2.00|350.00|100|GRO-PS3|General|luttmann|
+2556|171.64.65.42|p2556_fs_ambers|264|1.33|4.00|330.00|100|GRO-PS3|General|luttmann|
+2557|171.64.65.42|p2557_p2556_fs_ambers|264|1.33|4.00|330.00|100|GRO-PS3|General|luttmann|
+2558|171.64.65.42|p2558_dpdpII_amber96|333|1.70|5.00|412.00|100|GRO-PS3|General|luttmann|
+2559|171.64.65.42|p2559_dpdpII_amber96|333|1.10|3.30|275.00|100|GRO-PS3|General|luttmann|
+2560|171.64.65.42|p2560_p2556_fs_ambers|264|1.20|6.00|308.00|100|GRO-PS3|General|luttmann|
+2561|171.64.65.42|p2561_fs_ambers|264|1.00|6.00|270.00|100|GRO-PS3|General|luttmann|
+2562|171.64.65.42|p2562_dpdpII_amber96|333|1.60|4.80|401.00|100|GRO-PS3|General|luttmann|
+2563|171.64.65.42|p2563_dpdpII_amber96|333|1.10|3.30|250.00|100|GRO-PS3|General|luttmann|
+2564|171.64.65.42|p2564_A21_agbnp_amber99|222|1.20|3.50|290.00|100|GRO-PS3|Alzheimers|luttmann|
+2565|171.64.65.42|p2565_A21_agbnp_amber99|222|0.90|2.60|210.00|100|GRO-PS3|Alzheimers|luttmann|
+2566|171.64.122.139|p2566_BBA5_ext|12200|55.00|82.00|293.00|100|DGROMACS|*Synthetic Construct|luttmann|
+2567|171.64.65.83|p2567:dpdpII-amber99-ddsig|333|1.00|2.20|60.00|100|GRO-PS3||luttmann|
+2568|171.64.65.83|p2568:BBA5-amberGS-ddsig|386|1.00|2.20|60.00|100|GRO-PS3||luttmann|
+2569|171.64.65.83|p2569_p2557_dpdpII_amber99|333|1.20|3.60|300.00|100|GRO-PS3||luttmann|
+2570|171.64.65.83|p2570_p2568:BBA5-amberGS-ddsig|386|1.40|4.00|340.00|100|GRO-PS3||luttmann|
+2571|171.64.65.83|p2571_Fs_peptide|264|1.30|4.00|310.00|100|GRO-PS3||luttmann|
+2572|171.64.65.83|p2572_BBA5_pfold_GBSA|385|1.40|4.00|320.00|100|GRO-PS3||luttmann|
+2573|171.64.65.83|p2573_Fs_peptide|264|1.30|4.00|310.00|100|GRO-PS3||luttmann|
+2574|171.64.65.83|p2574_Fs_peptide|264|1.00|3.20|240.00|100|GRO-PS3||luttmann|
+2575|171.64.65.83|p2575_Fs_peptide|264|1.00|3.20|240.00|100|GRO-PS3||luttmann|
+2576|171.64.65.83|p2576_Fs_peptide|264|1.00|3.20|240.00|100|GRO-PS3||luttmann|
+2577|171.64.65.83|p2577_A21_agbnp_amber99|222|0.90|5.20|210.00|100|GRO-PS3||luttmann|
+2578|171.64.65.83|p2578_A21_agbnp_amber99|222|1.30|4.00|300.00|100|GRO-PS3||luttmann|
+2579|171.64.65.83|p2579_A21_agbnp_amber99|222|1.10|3.40|260.00|100|GRO-PS3||luttmann|
+2580|171.64.65.83|p2580_A21_agbnp_amber99|222|1.20|3.60|280.00|100|GRO-PS3||luttmann|
+2581|171.64.65.83|p2581_A21_agbnp_amber99|222|1.10|3.40|260.00|100|GRO-PS3||luttmann|
+2582|171.65.103.157|p2582_A21|222|36.00|54.00|200.00|100|AMBER||luttmann|
+2583|171.64.122.139|p2583_BBA5_expl|12200|55.00|82.00|293.00|100|DGROMACS||luttmann|
+2584|171.64.122.70|p2584_BBA5|12200|40.00|59.00|210.00|100|DGROMACS||luttmann|
+2585|171.64.122.70|p2585_BBA5|12200|41.00|61.00|217.00|100|DGROMACS||luttmann|
+2586|171.64.122.70|p2586_BBA5|12200|26.00|38.00|133.00|100|GROMACS||luttmann|
+2587|171.64.122.70|p2587_BBA5|12200|27.00|39.00|135.00|100|GROMACS||luttmann|
+2588|171.64.122.70|p2588_BBA5|12200|27.00|39.00|135.00|100|GROMACS||luttmann|
+2589|171.64.122.70|p2589_BBA5|12200|26.00|38.00|134.00|100|GROMACS||luttmann|
+2604|171.64.65.56|p2604_Protein in POPC|77373|3.00|4.00|1760.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2605|171.64.65.56|p2605_Protein in POPC|77373|3.00|4.00|1760.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2606|171.64.65.65|p2606_tet_1499|126006|20.00|40.00|292.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+2608|171.64.65.56|P2608|126010|4.00|4.00|1385.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2609|171.64.65.56|P2609|126010|4.00|4.00|1523.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2610|171.64.65.64|P2610|126010|4.00|4.00|1523.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2611|171.64.65.65|p2611_POPE|127052|20.00|40.00|682.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+2612|171.64.65.65|p2612_tet_new|126006|20.00|40.00|292.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+2613|171.64.65.65|p2613_TETHERED VESICLES|308047|20.00|40.00|755.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+2614|171.64.65.65|p2614_LIPID ONLY|149277|20.00|40.00|287.00|100|GROMACS33|*Lipid Membrane Interactions|kasson|
+2615|171.64.65.65|p2615_Protein|126108|30.00|50.00|664.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+2618|171.64.65.56|p2618_tethered_vesicles|308047|4.00|4.00|1350.00|100|GRO-SMP||kasson|
+2620|171.64.65.65|p2620_p1475_tet1_03_1 t= 20000.00000|126006|20.00|40.00|292.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+2621|171.64.65.65|p2621_p1475_tet1_03_1 t= 20000.00000|126006|20.00|40.00|292.00|100|GROMACS|*Lipid Membrane Interactions|kasson|
+2650|171.64.65.64|p2650_(unknown_name)|0|3.00|0.00|1148.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2651|171.64.65.64|p2651_Protein in POPC|77373|3.00|4.00|1760.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2652|171.64.65.64|p2652_P2650|33529|3.00|3.00|1148.00|100|GRO-SMP|*Lipid Membrane Interactions|kasson|
+2653|171.64.65.64|p2653_Protein in POPC|77583|3.00|4.00|1760.00|100|GRO-SMP||kasson|
+2711|171.65.103.159|p2711_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2715|171.65.103.159|p2715_GPUlambda|1258|0.00|0.00|1.00|100|GROGPU|*Lambda Repressor|densign|
+2717|171.65.103.159|p2717_p2714_GPUlambda|1258|0.00|0.00|1.00|100|GROGPU|*Lambda Repressor|densign|
+2718|171.65.103.159|p2718_GPUlambda|1258|0.00|0.00|1.00|100|GROGPU|*Lambda Repressor|densign|
+2721|171.65.103.159|p2721_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2722|171.65.103.159|p2722_GPUlambda|1258|3.00|4.00|220.00|100|GROGPU|*Lambda Repressor|densign|
+2723|171.65.103.159|p2723_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2725|171.65.103.159|p2725_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2728|171.65.103.159|p2728_GPU villin nle 00|590|3.00|4.00|220.00|100|GROGPU|*Lambda Repressor|densign|
+2730|171.64.65.20|p2730_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2731|171.64.65.20|p2731_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2732|171.64.65.20|p2732_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2733|171.64.65.20|p2733_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2734|171.64.65.20|p2734_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2735|171.64.65.20|p2735_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2736|171.64.65.20|p2736_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2737|171.64.65.20|p2737_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2738|171.64.65.20|p2738_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2739|171.64.65.20|p2739_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2740|171.64.65.20|p2740_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2741|171.64.65.20|p2741_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2742|171.64.65.20|p2742_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2743|171.64.65.20|p2743_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2744|171.64.65.20|p2744_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2745|171.64.65.20|p2745_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2746|171.64.65.20|p2746_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2747|171.64.65.20|p2747_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2748|171.64.65.20|p2748_GPUlambda|1258|3.00|6.00|330.00|100|GROGPU|*Lambda Repressor|densign|
+2755|171.64.65.103|p2755_p2751_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2756|171.64.65.103|p2756_supervillin_StillGBSA_AM03_e1|576|2.00|4.00|0.00|100|GROGPU||NA|
+2757|171.64.65.103|p2757_p2751_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2758|171.64.65.103|p2758_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2759|171.64.65.103|p2759_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2760|171.64.65.103|p2760_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2761|171.64.65.103|p2761_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2762|171.64.65.103|p2762_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2763|171.64.65.103|p2763_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2764|171.64.65.103|p2764_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2765|171.64.65.103|p2765_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2766|171.64.65.103|p2766_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2767|171.64.65.103|p2767_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2768|171.64.65.103|p2768_p2765_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2769|171.64.65.103|p2769_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2770|171.64.65.103|p2770_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2771|171.64.65.103|p2771_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2772|171.64.65.103|p2772_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2774|171.64.65.103|p2774_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2775|171.64.65.103|p2775_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2776|171.64.65.103|p2776_N68H_AM03|582|2.00|4.00|0.00|100|GROGPU||NA|
+2777|171.64.65.103|p2777_p2751_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2778|171.64.65.103|p2778_p2751_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2779|171.64.65.103|p2779_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2780|171.64.65.103|p2780_p2779_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2781|171.64.65.103|p2781_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2782|171.64.65.103|p2782_p2781_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2783|171.64.65.103|p2783_p2781_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2784|171.64.65.103|p2784_p2781_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2785|171.64.65.103|p2785_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2786|171.64.65.103|p2786_p2785_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2787|171.64.65.103|p2787_p2785_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2788|171.64.65.103|p2788_N68H_AM03|582|20.00|20.00|0.00|100|GROGPU||densign|
+2791|171.64.65.103|p2791_supervillin_300K|576|20.00|20.00|100.00|100|GROGPU2||densign|
+2792|171.64.65.103|p2792_supervillin_330K|576|20.00|20.00|100.00|100|GROGPU2||densign|
+2793|171.64.65.103|p2793_supervillin_370K|576|20.00|20.00|100.00|100|GROGPU2||densign|
+2798|171.64.65.103|p2798_N68H_AM03|582|2.00|4.00|97.00|0|TINKER||densign|
+2799|171.64.65.103|p2799_N68H_AM03|582|1.00|4.00|97.00|100|GROGPU2||densign|
+2800|169.230.26.30|p2800_jrz_apo|21142|39.00|58.00|214.00|100|GROMACS33|*T4 Lysozyme|mobley|
+2801|169.230.26.30|p2801_jrz_apo|21166|39.00|58.00|214.00|100|GROMACS33|*T4 Lysozyme|mobley|
+2904|171.65.103.163|p2904_BBA5|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|huangx|
+2905|171.65.103.163|p2905_GCAA_TETRALOOP_HAIRPIN_SREM|12229|63.00|93.00|333.00|100|GROST|General|huangx|
+2906|171.65.103.163|p2906_BBA5_ext|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|huangx|
+2907|171.65.103.163|p2907_BBA5|12200|26.00|38.00|132.00|100|GROST|*Synthetic Contruct|huangx|
+2908|171.65.103.163|p2908_Fs_peptide|6384|8.00|11.00|33.00|100|GROST|General|huangx|
+2913|171.65.103.106|p2913_RNA_K_TURN_KT_U4|10882|53.00|78.00|558.00|100|GROST|General|huangx|
+2914|171.65.103.106|p2914_RNA_K_TURN_KT_U4_Ion1|10522|52.00|76.00|546.00|100|GROST|General|huangx|
+2915|171.65.103.106|p2915_RNA_K_TURN_KT_U4_Ion2|10522|52.00|78.00|556.00|100|GROST|General|huangx|
+2920|171.65.103.163|p2920_|0|10.00|14.00|44.00|100|GROST|General|huangx|
+2921|171.65.103.163|p2921_|0|10.00|14.00|44.00|100|GROST|General|huangx|
+2928|171.64.122.78|p2928_fs_simtemp_nat|6384|62.00|92.00|330.00|100|GROST||huangx|
+2929|171.64.122.78|p2929_fs_simtemp_unf|6384|62.00|92.00|330.00|100|GROST||huangx|
+2951|171.65.103.158|p2951_fs_simtemp_nat|6384|10.00|14.00|44.00|100|GROSIMT|General|huangx|
+2952|171.65.103.158|p2952_fs_simtemp_unf|6384|10.00|14.00|44.00|100|GROSIMT|General|huangx|
+2960|171.65.103.163|p2960_BBA5_N_Amb03|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2961|171.65.103.163|p2961_BBA5_U_Amb99|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2962|171.64.122.78|p2962_BBA5_N_Amb03|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2963|171.64.122.78|p2963_BBA5_U_Amb99|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2964|171.65.103.163|p2964_BBA5_N_Amb99p|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2965|171.65.103.163|p2965_BBA5_U_Amb99p|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2966|171.64.122.78|p2966_BBA5_N_Amb99p|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2967|171.64.122.78|p2967_BBA5_U_Amb99p|12200|26.00|38.00|132.00|100|GROST|*Synthetic Construct|gbowman|
+2970|171.64.122.131|p2970_N17_native|7294|55.00|81.00|292.50|100|GROSIMT||nwkelley|
+2971|171.64.122.131|p2971_N17_extend|7294|55.00|81.00|292.50|100|GROSIMT||nwkelley|
+3006|171.64.65.56|p3006_SMP-msv-99p|10066|4.00|12.00|587.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3007|171.64.65.56|p3007_SMP-msv-03|10066|1.00|12.00|587.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3008|171.64.65.56|p3008_SMP-nsv-99p|10066|4.00|12.00|587.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3009|171.64.65.56|p3009_SMP-nsv-03|10066|4.00|12.00|587.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3020|171.64.65.56|p3020_SMP-nsv-03|9684|1.00|2.00|587.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3022|171.64.65.63|p3022_SMP-msv-2003|9684|0.00|1.00|658.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3023|171.64.65.56|p3023_SMP-water-box|9642|1.50|2.50|587.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3024|171.64.65.63|p3024_SMP-msv-2003|9684|0.75|1.50|652.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3025|171.64.65.56|p3025_SMP-nsv-03|9684|1.50|2.50|587.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3026|171.64.65.63|p3026_SMP-msv-2003|9684|0.00|1.00|691.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3027|171.64.65.56|p3027_SMP-nsv-03|9684|1.50|2.50|716.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3028|171.64.65.63|p3028_SMP-ensv-03|9684|2.00|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3029|171.64.65.63|p3029_SMP-emsv-03|9684|2.00|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3032|171.64.65.63|p3032_p3028_SMP-ensv-03|9684|2.00|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3033|171.64.65.63|p3033_p3029_SMP-emsv-03|9684|2.00|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3034|171.64.65.63|p3034_p3028_SMP-ensv-03|9684|2.00|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3035|171.64.65.63|p3035_p3029_SMP-emsv-03|9684|2.00|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3036|171.64.65.63|p3036_p3028_SMP-ensv-03|9684|1.50|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3037|171.64.65.63|p3037_p3029_SMP-emsv-03|9684|1.50|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3038|171.65.103.160|p3038_p3030_supervillin-03|9684|36.00|53.00|186.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+3039|171.65.103.160|p3039_p3030_supervillin-03|9684|36.00|53.00|186.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+3040|171.64.65.58|p3040_p3030_supervillin-03|9684|36.00|53.00|186.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+3041|171.64.65.58|p3041_p3030_supervillin-03|9684|36.00|53.00|186.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+3042|171.64.65.58|p3042_p3030_supervillin-03|9684|36.00|53.00|186.00|100|GROMACS|Gastrointestinal tumors and Adenocarcinomas|densign|
+3043|171.64.65.63|p3043_p3029_SMP-emsv-03|9684|1.50|3.00|1461.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3044|171.64.65.58|p3044_Human Hpin1 mutant 4|8810|42.00|61.00|218.00|100|GROMACS|General|densign|
+3045|171.64.65.58|p3045_FORMIN BINDING PROTEIN|8433|59.00|88.00|314.00|100|GROMACS|General|densign|
+3046|171.64.65.58|p3046_human_hpin1_m1_99p|9590|45.00|66.00|236.00|100|GROMACS|General|densign|
+3047|171.64.65.58|p3047_Human Hpin1 mutant 4 373K|8810|42.00|61.00|218.00|100|GROMACS|General|densign|
+3048|171.64.65.58|p3048_FORMIN BINDING PROTEIN_373K|8433|59.00|88.00|314.00|100|GROMACS|General|densign|
+3049|171.64.65.58|p3049_human_hpin1_m1_99p_373K|9590|45.00|66.00|236.00|100|GROMACS|General|densign|
+3050|171.64.65.63|p3050_SMP-svE4A-03|9679|1.40|2.90|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3051|171.64.65.63|p3051_SMP-svV9A-03|9678|1.50|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3052|171.64.65.63|p3052_SMP-sv3way-03|9664|1.50|3.00|1440.00|100|GRO-SMP|Gastrointestinal tumors and Adenocarcinomas|densign|
+3059|171.64.65.63|p3059_supervillin_newbox|19875|1.25|2.42|1167.00|100|GRO-SMP||densign|
+3060|171.64.65.63|p3060_BBA5_1|9416|2.58|5.21|2539.00|100|GRO-SMP||densign|
+3061|171.64.65.63|p3061_lambda5_2003|21521|1.36|2.72|1329.00|100|GRO-SMP||densign|
+3062|171.64.65.63|p3062_lambda5_99sb|21521|1.80|3.50|1732.00|100|GRO-SMP||densign|
+3063|171.64.65.63|p3063_lambda5_99sb_big|66728|1.88|3.76|1837.00|100|GRO-SMP||densign|
+3064|171.64.65.63|p3064_lambda5_2003|21521|1.80|3.60|1753.00|100|GRO-SMP||densign|
+3065|171.64.65.63|p3065_lambda5_99sb_big|66728|2.20|4.40|2144.00|100|GRO-SMP||densign|
+3123|171.64.65.96|p3123_supervillin_e1|576|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3124|171.64.65.96|p3124_supervillin_e2|576|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3125|171.64.65.96|p3125_supervillin_e3|576|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3126|171.64.65.96|p3126_supervillin_e4|576|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3127|171.64.65.96|p3127_hisvillin_e1|582|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3128|171.64.65.96|p3128_hisvillin_e2|582|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3129|171.64.65.96|p3129_hisvillin_e3|582|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3130|171.64.65.96|p3130_hisvillin_e4|582|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3147|171.64.65.73|p3147_supervillin_e1|576|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3148|171.64.65.73|p3148_supervillin_e2|576|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3149|171.64.65.73|p3149_supervillin_e3|576|1.00|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3150|171.64.65.73|p3150_supervillin_e4|576|1.00|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3151|171.64.65.73|p3151_hisvillin_e1|582|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3152|171.64.65.73|p3152_hisvillin_e2|582|1.30|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3153|171.64.65.73|p3153_hisvillin_e3|582|1.00|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3154|171.64.65.73|p3154_hisvillin_e4|582|1.00|3.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3155|171.64.65.55|p3155_supervillin_e1|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3156|171.64.65.55|p3156_supervillin_e1.5|576|1.00|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3157|171.64.65.55|p3157_supervillin_e1|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3158|171.64.65.55|p3158_supervillin_e1.5|576|1.00|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3159|171.64.65.55|p3159_hisvillin_e1|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3160|171.64.65.55|p3160_hisvillin_e1.5|582|1.00|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3161|171.64.65.55|p3161_hisvillin_e1|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3171|171.64.65.96|p3171_supervillin_e1.25|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3172|171.64.65.96|p3172_supervillin_e1.5|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3173|171.64.65.96|p3173_supervillin_e1.75|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3174|171.64.65.96|p3174_supervillin_e1.25|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3175|171.64.65.96|p3175_supervillin_e1.5|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3176|171.64.65.96|p3176_supervillin_e1.75|576|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3177|171.64.65.96|p3177_hisvillin_e1.25|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3178|171.64.65.96|p3178_hisvillin_e1.5|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3179|171.64.65.96|p3179_hisvillin_e1.75|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3180|171.64.65.96|p3180_hisvillin_e1.25|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3181|171.64.65.96|p3181_hisvillin_e1.5|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3182|171.64.65.96|p3182_hisvillin_e1.75|582|1.30|4.00|287.00|100|GRO-PS3|Gastrointestinal tumors and Adenocarcinomas|densign|
+3189|171.64.65.83|p3189_supervillin_e1.25|576|1.30|4.00|287.00|100|GRO-PS3||densign|
+3190|171.64.65.73|p3190_supervillin_e1.25|576|1.30|4.00|287.00|100|GRO-PS3||densign|
+3191|171.64.65.96|p3191_supervillin_StillGBSA_AM03_e1|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+3192|171.64.65.96|p3192_supervillin_StillGBSA_AM03_e2|576|1.30|4.00|289.00|100|GRO-PS3||densign|
+3193|171.64.65.96|p3193_N68H_StillGBSA_AM03_e1|582|1.20|3.60|270.00|100|GRO-PS3||densign|
+3194|171.64.65.96|p3194_N68H_StillGBSA_AM03_e2|582|1.20|3.60|275.00|100|GRO-PS3||densign|
+3195|171.64.65.96|p3195_supervillin_StillGBSA_AM99sb_e1|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+3196|171.64.65.96|p3196_p3192_supervillin_StillGBSA_AM03_e2|576|1.30|4.00|289.00|100|GRO-PS3||densign|
+3197|171.64.65.96|p3197_N68H_StillGBSA_AM99sb_e1|582|1.20|3.60|270.00|100|GRO-PS3||densign|
+3198|171.64.65.96|p3198_p3194_N68H_StillGBSA_AM03_e2|582|1.20|3.60|275.00|100|GRO-PS3||densign|
+3199|171.64.65.96|p3199_p3190_supervillin_e1.25|576|1.30|4.00|287.00|100|GRO-PS3||densign|
+3300|171.64.122.127|p3300_riblig|2626|2.00|10.00|48.00|100|DGROMACS|General|guha|
+3301|171.64.65.83|p3301_ribcomp|24802|4.00|12.00|47.00|50|DGROMACS|General|guha|
+3302|171.64.65.83|p3302_ribcompHT|24802|7.00|24.00|94.00|100|DGROMACS|General|guha|
+3303|171.64.65.106|p3303_ribocomp-pr|27775|2.00|13.00|57.00|40|DGROMACS|*Ribosomal Tunnel|guha|
+3304|171.64.65.106|p3304_ribmorelig|1795|3.00|9.00|34.00|100|DGROMACS||NA|
+3305|171.64.65.106|p3305_ribomorecomp|39049|5.00|25.00|91.00|40|DGROMACS||NA|
+3306|171.64.65.106|p3306_ribocomp3|59737|5.00|37.00|137.00|40|DGROMACS||relly1|
+3402|171.65.103.160|p3402_dpdp-ii TIP3P ff94|14312|39.00|58.00|206.00|100|GROMACS|General|vvoelz|
+3403|171.65.103.160|p3403_dpdp-ii TIP3P ff96|14312|39.00|58.00|206.00|100|GROMACS|General|vvoelz|
+3404|171.65.103.160|p3404_dpdp-ii TIP3P ff99|14312|39.00|58.00|206.00|100|GROMACS|General|vvoelz|
+3405|171.65.103.160|p3405_dpdp-ii TIP3P ff03|14312|39.00|58.00|206.00|100|GROMACS|General|vvoelz|
+3406|171.65.103.160|p3406_dpdp-ii|14312|39.00|58.00|206.00|100|GROMACS|General|vvoelz|
+3407|171.65.103.160|p3407_dpdp-ii|14312|39.00|58.00|206.00|100|GROMACS|General|vvoelz|
+3408|171.64.65.102|p3408_dpdp-ii|14312|72.00|108.00|388.00|100|GROMACS|General|vvoelz|
+3410|171.64.65.73|p3410_ntl9_capped_StillGB_298K|633|1.70|2.55|383.00|100|GRO-PS3||vvoelz|
+3411|171.64.65.73|p3411_|0|1.30|2.00|287.00|100|GRO-PS3||vvoelz|
+3412|171.64.65.73|p3412_ntl9_capped_StillGB_298K|633|1.70|2.55|340.00|100|GRO-PS3||vvoelz|
+3413|171.64.65.73|p3413_NTL9_uncap_ff03_StillGB|627|1.30|2.00|287.00|100|GRO-PS3||vvoelz|
+3422|171.64.65.73|p3422_ntl9_capped_StillGB_298K|633|1.70|2.55|383.00|100|GRO-PS3||vvoelz|
+3423|171.64.65.73|p3423_ntl9_capped_StillGB_298K|633|1.70|2.55|385.00|100|GRO-PS3||vvoelz|
+3424|171.64.65.73|p3424_ntl9_capped_StillGB_298K|633|1.70|2.55|385.00|100|GRO-PS3||vvoelz|
+3425|171.64.65.73|p3425_ntl9_capped_StillGB_298K|633|1.70|2.55|385.00|100|GRO-PS3||vvoelz|
+3426|171.64.65.73|p3426_ntl9_capped_StillGB_298K|633|1.70|2.55|385.00|100|GRO-PS3||vvoelz|
+3430|171.64.65.111|p3430_proLwt0M_folded_Amber03_Native|76100|8.00|12.00|41.00|100|GROSIMT||gbowman|
+3431|171.64.65.111|p3431_proLwt1M_folded_Amber03_Native|74388|8.00|12.00|44.00|100|GROSIMT||vvoelz|
+3432|171.64.65.111|p3432_proLwt2M_folded_Amber03_Native|74297|8.50|13.00|47.00|100|GROSIMT||vvoelz|
+3433|171.64.65.111|p3433_proLwt3M_folded_Amber03_Native|73503|9.00|13.50|50.00|100|GROSIMT||vvoelz|
+3434|171.64.65.111|p3434_proLwt4M_folded_Amber03_Native|73976|9.40|14.00|52.00|100|GROSIMT||vvoelz|
+3435|171.64.65.111|p3435_proLwt5M_folded_Amber03_Native|73155|10.00|14.00|53.00|100|GROSIMT||vvoelz|
+3436|171.64.65.111|p3436_ci2wt0M_folded_Amber03_Native|76138|8.00|12.00|43.00|100|GROSIMT||gbowman|
+3437|171.64.65.111|p3437_ci2wt1M_folded_Amber03_Native|74426|8.00|12.00|43.00|100|GROSIMT||gbowman|
+3438|171.64.65.111|p3438_ci2wt2M_folded_Amber03_Native|74338|8.00|12.00|46.00|100|GROSIMT||gbowman|
+3439|171.64.65.111|p3439_ci2wt3M_folded_Amber03_Native|73574|9.00|13.50|50.00|100|GROSIMT||gbowman|
+3440|171.64.65.111|p3440_ci2wt4M_folded_Amber03_Native|74017|9.50|14.00|52.00|100|GROSIMT||gbowman|
+3441|171.64.65.111|p3441_ci2wt6M_folded_Amber03_Native|72965|10.00|15.00|55.00|100|GROSIMT||gbowman|
+3500|171.64.65.111|p3500_supervillin-03|9684|36.00|53.00|188.00|100|GROST|Gastrointestinal tumors and Adenocarcinomas|densign|
+3501|171.64.65.111|p3501_supervillin_03|9684|36.00|53.00|188.00|100|GROST|Gastrointestinal tumors and Adenocarcinomas|NA|
+3502|171.64.65.111|p3502_supervillin-03|9684|35.00|52.00|183.00|100|GROST|Gastrointestinal tumors and Adenocarcinomas|NA|
+3503|171.64.65.111|p3503_SMP-emsv-03|9684|35.00|52.00|183.00|100|GROST|Gastrointestinal tumors and Adenocarcinomas|NA|
+3600|171.65.103.163|p3600_GCAA_TETRALOOP_HAIRPIN_Extended|12229|26.00|38.00|132.00|100|GROST|*RNA Folding|gbowman|
+3603|171.64.122.82|p3603_Seq22_Amber03_Native|12398|64.00|96.00|343.00|100|GROSIMT||huangx|
+3604|171.64.122.82|p3604_Seq22_Amber03_Extended|12398|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3607|171.64.122.82|p3607_Seq23_Amber03_Native|12383|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3608|171.64.122.82|p3608_Seq23_Amber03_Extended|12383|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3611|171.64.122.82|p3611_Seq24_Amber03_Native|12404|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3612|171.64.122.82|p3612_Seq24_Amber03_Extended|12404|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3615|171.64.122.82|p3615_Seq25_Amber03_Native|12394|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3616|171.64.122.82|p3616_Seq25_Amber03_Extended|12394|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3619|171.64.122.82|p3619_Seq26_Amber03_Native|12391|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3620|171.64.122.82|p3620_Seq26_Amber03_Extended|12391|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3623|171.64.122.82|p3623_Seq27_Amber03_Native|12396|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3624|171.64.122.82|p3624_Seq27_Amber03_Extended|12396|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3627|171.64.122.82|p3627_Seq11_Amber03_Native|12390|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3628|171.64.122.82|p3628_Seq11_Amber03_Extended|12390|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3631|171.64.122.82|p3631_Seq12_Amber03_Native|12384|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3632|171.64.122.82|p3632_Seq12_Amber03_Extended|12384|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3635|171.64.122.82|p3635_Seq13_Amber03_Native|12392|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3636|171.64.122.82|p3636_Seq13_Amber03_Extended|12392|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3639|171.64.122.82|p3639_Seq14_Amber03_Native|12392|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3640|171.64.122.82|p3640_Seq14_Amber03_Extended|12392|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3641|171.64.122.78|p3641_GCAA_TETRALOOP_HAIRPIN_Extended|12229|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3643|171.64.122.82|p3643_Seq15_Amber03_Native|12385|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3644|171.64.122.82|p3644_Seq15_Amber03_Extended|12385|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3645|171.64.122.72|p3645_Seq21_Amber03_Native|12392|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3646|171.64.122.72|p3646_Seq21_Amber03_Extended|12392|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3647|171.64.122.72|p3647_Seq21_Amber03_Native|12392|64.00|96.00|343.00|100|GROST||gbowman|
+3648|171.64.122.72|p3648_Seq21_Amber03_Extended|12392|64.00|96.00|343.00|100|GROST||gbowman|
+3649|171.64.122.72|p3649_Seq22_Amber03_Native|12398|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3650|171.64.122.72|p3650_Seq22_Amber03_Extended|12398|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3651|171.64.122.72|p3651_Seq22_Amber03_Native|12398|64.00|96.00|343.00|100|GROST||gbowman|
+3652|171.64.122.72|p3652_Seq22_Amber03_Extended|12398|64.00|96.00|343.00|100|GROST||gbowman|
+3653|171.64.122.72|p3653_Seq23_Amber03_Native|12383|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3654|171.64.122.72|p3654_Seq23_Amber03_Extended|12383|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3655|171.64.122.72|p3655_Seq23_Amber03_Native|12383|64.00|96.00|343.00|100|GROST||gbowman|
+3656|171.64.122.72|p3656_Seq23_Amber03_Extended|12383|64.00|96.00|343.00|100|GROST||gbowman|
+3657|171.64.122.72|p3657_Seq24_Amber03_Native|12404|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3658|171.64.122.72|p3658_Seq24_Amber03_Extended|12404|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3659|171.64.122.72|p3659_Seq24_Amber03_Native|12404|64.00|96.00|343.00|100|GROST||gbowman|
+3660|171.64.122.72|p3660_Seq24_Amber03_Extended|12404|64.00|96.00|343.00|100|GROST||gbowman|
+3661|171.64.122.72|p3661_Seq25_Amber03_Native|12394|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3662|171.64.122.72|p3662_Seq25_Amber03_Extended|12394|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3663|171.64.122.72|p3663_Seq25_Amber03_Native|12394|64.00|96.00|343.00|100|GROST||gbowman|
+3664|171.64.122.72|p3664_Seq25_Amber03_Extended|12394|64.00|96.00|343.00|100|GROST||gbowman|
+3665|171.64.122.72|p3665_Seq26_Amber03_Native|12391|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3666|171.64.122.72|p3666_Seq26_Amber03_Extended|12391|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3667|171.64.122.72|p3667_Seq26_Amber03_Native|12391|64.00|96.00|343.00|100|GROST||gbowman|
+3668|171.64.122.72|p3668_Seq26_Amber03_Extended|12391|64.00|96.00|343.00|100|GROST||gbowman|
+3669|171.64.122.72|p3669_Seq27_Amber03_Native|12396|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3670|171.64.122.72|p3670_Seq27_Amber03_Extended|12396|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3671|171.64.122.72|p3671_Seq27_Amber03_Native|12396|64.00|96.00|343.00|100|GROST||gbowman|
+3672|171.64.122.72|p3672_Seq27_Amber03_Extended|12396|64.00|96.00|343.00|100|GROST||gbowman|
+3673|171.64.122.72|p3673_Seq20_Amber03_Native|12395|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3674|171.64.122.72|p3674_Seq20_Amber03_Extended|12395|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3675|171.64.122.72|p3675_Seq20_Amber03_Native|12395|64.00|96.00|343.00|100|GROST||gbowman|
+3676|171.64.122.72|p3676_Seq20_Amber03_Extended|12395|64.00|96.00|343.00|100|GROST||gbowman|
+3677|171.64.122.72|p3677_Seq11_Amber03_Native|12390|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3678|171.64.122.72|p3678_Seq11_Amber03_Extended|12390|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3679|171.64.122.72|p3679_Seq11_Amber03_Native|12390|64.00|96.00|343.00|100|GROST||gbowman|
+3680|171.64.122.72|p3680_Seq11_Amber03_Extended|12390|64.00|96.00|343.00|100|GROST||gbowman|
+3681|171.64.122.72|p3681_Seq12_Amber03_Native|12384|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3682|171.64.122.72|p3682_Seq12_Amber03_Extended|12384|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3683|171.64.122.72|p3683_Seq12_Amber03_Native|12384|64.00|96.00|343.00|100|GROST||gbowman|
+3684|171.64.122.72|p3684_Seq12_Amber03_Extended|12384|64.00|96.00|343.00|100|GROST||gbowman|
+3685|171.64.122.72|p3685_Seq13_Amber03_Native|12392|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3686|171.64.122.72|p3686_Seq13_Amber03_Extended|12392|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3687|171.64.122.72|p3687_Seq13_Amber03_Native|12392|64.00|96.00|343.00|100|GROST||gbowman|
+3688|171.64.122.72|p3688_Seq13_Amber03_Extended|12392|64.00|96.00|343.00|100|GROST||gbowman|
+3689|171.64.122.72|p3689_Seq14_Amber03_Native|12392|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3690|171.64.122.72|p3690_Seq14_Amber03_Extended|12392|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3691|171.64.122.72|p3691_Seq14_Amber03_Native|12392|64.00|96.00|343.00|100|GROST||gbowman|
+3692|171.64.122.72|p3692_Seq14_Amber03_Extended|12392|64.00|96.00|343.00|100|GROST||gbowman|
+3693|171.64.122.72|p3693_Seq15_Amber03_Native|12385|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3694|171.64.122.72|p3694_Seq15_Amber03_Extended|12385|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3695|171.64.122.72|p3695_Seq15_Amber03_Native|12385|64.00|96.00|343.00|100|GROST||gbowman|
+3696|171.64.122.72|p3696_Seq15_Amber03_Extended|12385|64.00|96.00|343.00|100|GROST||gbowman|
+3697|171.64.122.72|p3697_Seq16_Amber03_Native|12379|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3698|171.64.122.72|p3698_Seq16_Amber03_Extended|12379|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3699|171.64.122.72|p3699_Seq16_Amber03_Native|12379|64.00|96.00|343.00|100|GROST||gbowman|
+3700|171.64.122.72|p3700_Seq16_Amber03_Extended|12379|64.00|96.00|343.00|100|GROST||gbowman|
+3701|171.64.122.72|p3701_Seq17_Amber03_Native|12393|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3702|171.64.122.72|p3702_Seq17_Amber03_Extended|12393|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3703|171.64.122.72|p3703_Seq17_Amber03_Native|12393|64.00|96.00|343.00|100|GROST||gbowman|
+3704|171.64.122.72|p3704_Seq17_Amber03_Extended|12393|64.00|96.00|343.00|100|GROST||gbowman|
+3705|171.64.122.72|p3705_Seq18_Amber03_Native|12393|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3706|171.64.122.72|p3706_Seq18_Amber03_Extended|12393|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3707|171.64.122.72|p3707_Seq18_Amber03_Native|12393|64.00|96.00|343.00|100|GROST||gbowman|
+3708|171.64.122.72|p3708_Seq18_Amber03_Extended|12393|64.00|96.00|343.00|100|GROST||gbowman|
+3709|171.64.122.72|p3709_Seq19_Amber03_Native|12371|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3710|171.64.122.72|p3710_Seq19_Amber03_Extended|12371|64.00|96.00|343.00|100|GROST|*RNA Folding|gbowman|
+3711|171.64.122.72|p3711_Seq19_Amber03_Native|12371|64.00|96.00|343.00|100|GROST||gbowman|
+3712|171.64.122.72|p3712_Seq19_Amber03_Extended|12371|64.00|96.00|343.00|100|GROST||gbowman|
+3713|171.64.122.72|p3713_Villin_amber99p_Native|15469|88.00|131.00|474.00|100|GROST|Gastrointestinal tumors and Adenocarcinomas|gbowman|
+3717|171.64.122.72|p3717_wwMouse_amber99p_Native|16585|92.00|137.00|493.00|100|GROST|*RNA Folding|gbowman|
+3721|171.64.122.72|p3721_WW_amber99p_Native|16343|91.00|136.00|491.00|100|GROST|*RNA Folding|gbowman|
+3725|171.64.122.72|p3725_wwMutant_amber99p_Native|16343|91.00|135.00|487.00|100|GROST|*RNA Folding|gbowman|
+3729|171.64.122.82|p3729_Seq16_Amber03_Native|12379|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3730|171.64.122.82|p3730_Seq16_Amber03_Extended|12379|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3731|171.64.122.82|p3731_Seq17_Amber03_Native|12393|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3732|171.64.122.82|p3732_Seq17_Amber03_Extended|12393|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3733|171.64.122.82|p3733_Seq18_Amber03_Native|12393|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3734|171.64.122.82|p3734_Seq18_Amber03_Extended|12393|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3735|171.64.122.82|p3735_Seq19_Amber03_Native|12371|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3736|171.64.122.82|p3736_Seq19_Amber03_Extended|12371|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3737|171.64.122.82|p3737_Seq20_Amber03_Native|12395|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3738|171.64.122.82|p3738_Seq20_Amber03_Extended|12395|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3739|171.64.122.82|p3739_Seq21_Amber03_Native|12392|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3740|171.64.122.82|p3740_Seq21_Amber03_Extended|12392|64.00|96.00|343.00|100|GROSIMT||gbowman|
+3741|171.64.122.72|p3741_Seq30_Amber03_Native|7911|39.00|58.00|205.00|100|GROST||gbowman|
+3742|171.64.122.72|p3742_Seq30_Amber03_Extended|12402|39.00|58.00|205.00|100|GROST||gbowman|
+3745|171.64.122.72|p3745_Seq31_Amber03_Native|7914|39.00|58.00|204.00|100|GROST||gbowman|
+3746|171.64.122.72|p3746_Seq31_Amber03_Extended|12399|39.00|58.00|204.00|100|GROST||gbowman|
+3749|171.64.122.72|p3749_Seq32_Amber03_Native|6494|32.00|47.00|165.00|100|GROST||gbowman|
+3750|171.64.122.72|p3750_Seq32_Amber03_Extended|12407|32.00|47.00|165.00|100|GROST||gbowman|
+3753|171.64.122.72|p3753_Seq33_Amber03_Native|16213|88.00|131.00|473.00|100|GROST||gbowman|
+3754|171.64.122.72|p3754_Seq33_Amber03_Extended|21367|88.00|131.00|473.00|100|GROST||gbowman|
+3757|171.64.122.72|p3757_Seq35_Amber03_Native|12371|63.00|93.00|334.00|100|GROST||gbowman|
+3758|171.64.122.72|p3758_Seq35_Amber03_Extended|12371|63.00|93.00|334.00|100|GROST||gbowman|
+3761|171.64.122.72|p3761_Seq36_Amber03_Native|14782|83.00|124.00|448.00|100|GROST||gbowman|
+3762|171.64.122.72|p3762_Seq36_Amber03_Extended|21394|83.00|124.00|448.00|100|GROST||gbowman|
+3765|171.64.122.72|p3765_Seq37_Amber03_Native|14774|83.00|124.00|446.00|100|GROST||gbowman|
+3766|171.64.122.72|p3766_Seq37_Amber03_Extended|21353|83.00|124.00|446.00|100|GROST||gbowman|
+3850|128.59.74.4|p3850_fkbprelative_ligand|2722|21.00|31.00|343.00|100|DGROMACSB||mrshirts|
+3851|128.59.74.4|p3851_fkbprelative_complex|14907|24.00|40.00|443.00|100|DGROMACSB||mrshirts|
+3852|128.59.74.4|p3852_p3850_fkbprelative_ligand|2722|21.00|31.00|343.00|100|DGROMACSB||mrshirts|
+3853|128.59.74.4|p3853_p3851_fkbprelative_complex|14907|24.00|40.00|443.00|100|DGROMACSB||mrshirts|
+3903|171.64.122.83|p3903_|147170|64.00|94.00|338.00|50|DGROMACS||kasson|
+3905|171.64.122.83|p3905_|147161|64.00|94.00|338.00|50|DGROMACS||kasson|
+3906|171.64.122.88|p3906_|6355|59.00|86.00|310.00|50|DGROMACSB||kasson|
+3907|171.64.122.88|p3907_|6355|59.00|86.00|310.00|50|DGROMACSB||kasson|
+3908|171.64.122.83|p3908_|147161|64.00|94.00|338.00|50|DGROMACS||kasson|
+4000|171.64.65.96|p4000_supervillin_StillGBSA_AM03_e1|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4001|171.64.65.96|p4001_supervillin_StillGBSA_AM03_e2|576|1.30|4.00|289.00|100|GRO-PS3||densign|
+4002|171.64.65.96|p4002_N68H_StillGBSA_AM03_e1|582|1.20|3.60|270.00|100|GRO-PS3||densign|
+4003|171.64.65.96|p4003_N68H_StillGBSA_AM03_e2|582|1.20|3.60|275.00|100|GRO-PS3||densign|
+4004|171.64.65.96|p4004_supervillin_StillGBSA_AM99sb_e1|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4005|171.64.65.96|p4005_p3192_supervillin_StillGBSA_AM03_e2|576|1.30|4.00|289.00|100|GRO-PS3||densign|
+4006|171.64.65.96|p4006_N68H_StillGBSA_AM99sb_e1|582|1.20|3.60|270.00|100|GRO-PS3||densign|
+4007|171.64.65.96|p4007_p3194_N68H_StillGBSA_AM03_e2|582|1.20|3.60|275.00|100|GRO-PS3||densign|
+4008|171.64.65.96|p4008_supervillin_StillGBSA_AM03_e1|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4009|171.64.65.96|p4009_N68H_StillGBSA_AM03_e2|582|1.20|3.60|275.00|100|GRO-PS3||densign|
+4010|171.64.65.96|p4010_supervillin_2xStillGBSA_AM03_e1|576|2.00|3.00|295.00|100|GRO-PS3||densign|
+4011|171.64.65.96|p4011_supervillin_2xStillGBSA_AM99sb_e1|576|2.00|3.00|295.00|100|GRO-PS3||densign|
+4012|171.64.65.96|p4012_supervillin_Still_novisc|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+4013|171.64.65.96|p4013_supervillin_Still_novisc|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4014|171.64.65.96|p4014_supervillin_StillGBSA_AM03_e1|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4016|171.64.65.96|p4016_supervillin_StillGBSA_AM03_bondi|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4017|171.64.65.96|p4017_supervillin_StillGBSA_AM03_bondi|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4018|171.64.65.96|p4018_supervillin_StillGBSA_AM03_mbondi|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4019|171.64.65.96|p4019_supervillin_StillGBSA_AM03_mbondi|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4020|171.64.65.96|p4020_supervillin_StillGBSA_AM03_mbondi2|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4021|171.64.65.96|p4021_supervillin_StillGBSA_AM03_mbondi2|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4022|171.64.122.73|p4022_supervillin_StillGBSA_AM03_mbondi2|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4023|171.64.122.73|p4023_supervillin_StillGBSA_AM03_mbondi2|576|2.00|6.00|250.00|100|GRO-PS3||densign|
+4024|171.64.122.73|p4024_supervillin_StillGBSA_AM03_mbondi2|576|16.00|24.00|1500.00|100|GRO-PS3||densign|
+4025|171.64.122.73|p4025_supervillin_StillGBSA_AM03_mbondi2|576|16.00|24.00|1500.00|100|GRO-PS3||densign|
+4026|171.64.122.73|p4026_supervillin_StillGBSA_AM03_300|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4027|171.64.122.73|p4027_supervillin_StillGBSA_AM03_330|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4028|171.64.122.73|p4028_supervillin_StillGBSA_AM03_360|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4029|171.64.122.73|p4029_supervillin_StillGBSA_AM03_390|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4030|171.64.122.73|p4030_supervillin_StillGBSA_AM03_450|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4031|171.64.122.73|p4031_supervillin_StillGBSA_AM03_600|576|2.00|3.00|250.00|100|GRO-PS3||densign|
+4032|171.64.122.73|p4032_supervillin_Still_novisc_300|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+4033|171.64.122.73|p4033_supervillin_Still_novisc_330|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+4034|171.64.122.73|p4034_supervillin_Still_novisc_360|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+4035|171.64.122.73|p4035_supervillin_Still_novisc_390|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+4036|171.64.122.73|p4036_supervillin_Still_novisc_450|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+4037|171.64.122.73|p4037_supervillin_Still_novisc_600|576|2.00|3.00|211.00|100|GRO-PS3||densign|
+4043|171.64.122.73|p4043_supervillin_StillGBSA_AM03|576|2.00|3.00|125.00|100|GRO-PS3||densign|
+4044|171.64.122.73|p4044_supervillin_StillGBSA_AM03|576|20.00|30.00|1250.00|100|GRO-PS3||densign|
+4100|171.64.65.111|p4100_villinwt_folded_Amber03_Native|15838|32.00|48.00|176.00|100|GROSIMT||gbowman|
+4101|171.64.65.111|p4101_supervillin_folded_Amber03_Native|18793|40.00|60.00|217.00|100|GROSIMT||gbowman|
+4102|171.64.65.111|p4102_ww_folded_Amber03_Native|19430|39.00|59.00|215.00|100|GROSIMT||gbowman|
+4103|171.64.65.111|p4103_wwmut_folded_Amber03_Native|14921|30.00|45.00|164.00|100|GROSIMT||gbowman|
+4104|171.64.65.111|p4104_wwmouse_folded_Amber03_Native|18305|39.00|58.00|213.00|100|GROSIMT||gbowman|
+4105|171.64.65.111|p4105_villinwt_unf_Amber03_Extended|15838|32.00|48.00|176.00|100|GROSIMT||gbowman|
+4107|171.64.65.111|p4107_ww_unf_Amber03_Extended|19430|39.00|59.00|215.00|100|GROSIMT||gbowman|
+4108|171.64.65.111|p4108_wwmut_unf_Amber03_Extended|14921|30.00|45.00|164.00|100|GROSIMT||gbowman|
+4109|171.64.65.111|p4109_wwmouse_unf_Amber03_Extended|18305|39.00|58.00|213.00|100|GROSIMT||gbowman|
+4110|171.64.65.111|p4110_ntl9_folded_Amber03_Native|14856|31.00|46.00|168.00|100|GROSIMT||gbowman|
+4111|171.64.65.111|p4111_ntl9_unf_Amber03_Extended|14856|31.00|46.00|168.00|100|GROSIMT||gbowman|
+4112|171.64.65.111|p4112_villinwt_big_folded_Amber03_Native|26314|55.00|85.00|303.00|100|GROSIMT||gbowman|
+4113|171.64.65.111|p4113_villinwt_big_folded_Amber03_Native|26314|35.00|52.00|188.00|100|GROSIMT||gbowman|
+4114|171.64.65.111|p4114_villinwt_folded_Amber03_Native|15838|20.00|30.00|107.00|100|GROSIMT||NA|
+4115|171.64.65.111|p4115_villinwt_folded_Amber03_Native|15838|32.00|48.00|176.00|100|GROSIMT||gbowman|
+4116|171.64.65.111|p4116_supervillin_folded_Amber03_Native|18793|40.00|60.00|217.00|100|GROSIMT||gbowman|
+4117|171.64.65.111|p4117_ww_folded_Amber03_Native|19430|39.00|59.00|215.00|100|GROSIMT||gbowman|
+4118|171.64.65.111|p4118_wwmut_folded_Amber03_Native|14921|30.00|45.00|164.00|100|GROSIMT||gbowman|
+4119|171.64.65.111|p4119_wwmouse_folded_Amber03_Native|18305|39.00|58.00|213.00|100|GROSIMT||gbowman|
+4120|171.64.65.111|p4120_ntl9_folded_Amber03_Native|14856|31.00|46.00|168.00|100|GROSIMT||gbowman|
+4121|171.64.65.111|p4121_villinwt_folded_Amber03_Native|15838|32.00|48.00|10.00|100|GROSIMT||huangx|
+4122|171.64.65.111|p4122_ntl9_folded_Amber03_Native|14856|31.00|46.00|10.00|100|GROSIMT||huangx|
+4400|171.64.122.72|p4400_Seq42_Amber03_Native|7885|5.00|10.00|15.00|100|GROSIMT||huangx|
+4401|171.64.122.72|p4401_Seq_41_unf_AMBER|7885|5.00|10.00|15.00|100|GROSIMT||huangx|
+4402|171.64.122.72|p4402_Seq_42_nat_AMBER_Native|7864|5.00|10.00|15.00|100|GROSIMT||huangx|
+4403|171.64.122.72|p4403_Seq_42_unf_AMBER|7864|5.00|10.00|15.00|100|GROSIMT||huangx|
+4404|171.64.122.72|p4404_Seq_43_nat_AMBER_Native|7863|5.00|10.00|15.00|100|GROSIMT||huangx|
+4405|171.64.122.72|p4405_Seq_43_unf_AMBER|7863|5.00|10.00|15.00|100|GROSIMT||huangx|
+4406|171.64.122.72|p4406_Seq_44_nat_AMBER_Native|7863|5.00|10.00|15.00|100|GROSIMT||huangx|
+4407|171.64.122.72|p4407_Seq_44_unf_AMBER|7863|5.00|10.00|15.00|100|GROSIMT||huangx|
+4408|171.64.122.72|p4408_Seq_45_nat_AMBER_Native|7865|5.00|10.00|15.00|100|GROSIMT||huangx|
+4409|171.64.122.72|p4409_Seq_45_unf_AMBER|7865|5.00|10.00|15.00|100|GROSIMT||huangx|
+4410|171.64.122.72|p4410_Seq_46_nat_AMBER_Native|7862|5.00|10.00|15.00|100|GROSIMT||huangx|
+4411|171.64.122.72|p4411_Seq_46_unf_AMBER|7862|5.00|10.00|15.00|100|GROSIMT||huangx|
+4412|171.64.122.72|p4412_Seq_47_nat_AMBER_Native|7855|5.00|10.00|15.00|100|GROSIMT||huangx|
+4413|171.64.122.72|p4413_Seq_47_unf_AMBER|7855|5.00|10.00|15.00|100|GROSIMT||huangx|
+4414|171.64.122.72|p4414_Seq_48_nat_AMBER_Native|7861|5.00|10.00|15.00|100|GROSIMT||huangx|
+4415|171.64.122.72|p4415_Seq_48_unf_AMBER|7861|5.00|10.00|15.00|100|GROSIMT||huangx|
+4416|171.64.122.72|p4416_Seq_49_nat_AMBER_Native|7857|5.00|10.00|15.00|100|GROSIMT||huangx|
+4417|171.64.122.72|p4417_Seq_49_unf_AMBER|7857|5.00|10.00|15.00|100|GROSIMT||huangx|
+4418|171.64.122.72|p4418_Seq_50_nat_AMBER_Native|7858|5.00|10.00|15.00|100|GROSIMT||huangx|
+4419|171.64.122.72|p4419_Seq_50_unf_AMBER|7858|5.00|10.00|15.00|100|GROSIMT||huangx|
+4420|171.64.122.72|p4420_Seq_51_nat_AMBER_Native|7858|5.00|10.00|15.00|100|GROSIMT||huangx|
+4421|171.64.122.72|p4421_Seq_51_unf_AMBER|7858|5.00|10.00|15.00|100|GROSIMT||huangx|
+4422|171.64.122.72|p4422_Seq_52_nat_AMBER_Native|7847|5.00|10.00|15.00|100|GROSIMT||huangx|
+4423|171.64.122.72|p4423_Seq_52_unf_AMBER|7847|5.00|10.00|15.00|100|GROSIMT||huangx|
+4424|171.64.122.72|p4424_Seq_53_nat_AMBER_Native|7870|5.00|10.00|15.00|100|GROSIMT||huangx|
+4425|171.64.122.72|p4425_Seq_53_unf_AMBER|7870|5.00|10.00|15.00|100|GROSIMT||huangx|
+4426|171.64.122.72|p4426_Seq_55_nat_AMBER_Native|7866|5.00|10.00|15.00|100|GROSIMT||huangx|
+4427|171.64.122.72|p4427_Seq_55_unf_AMBER|7866|5.00|10.00|15.00|100|GROSIMT||huangx|
+4432|171.64.122.78|p4432_Seq41_Amber03||||225.00|100|GROMACS|||
+4510|169.230.26.30|p4510_PTL-SIMM-16_minout|254|2.00|3.00|10.00|100|AMBER||vvoelz|
+4511|169.230.26.30|p4511_PTL-SIMM-8_minout|140|1.00|1.50|4.50|100|AMBER||vvoelz|
+4513|169.230.26.30|p4513_PTL-SIMM100-8_minout|140|1.00|1.50|4.50|100|AMBER||vvoelz|
+4514|169.230.26.30|p4514_PTL-SIMM100-16_minout|254|2.00|3.00|10.00|100|AMBER||vvoelz|
+4515|169.230.26.30|p4515_PTL-SIMM100-12_minout|212|1.50|2.00|7.20|100|AMBER||vvoelz|
+4519|169.230.26.30|p4519_2CVR-8-10ns_minout|159|12.30|18.40|70.50|100|AMBER||vvoelz|
+4520|169.230.26.30|p4520_2CVR-16-10ns_minout|279|32.50|48.80|178.95|100|AMBER||vvoelz|
+4521|169.230.26.30|p4521_2CVR-12-10ns_minout|215|23.10|34.70|127.05|100|AMBER||vvoelz|
+4700|171.64.65.103|p4700_N68H_AM03|582|1.00|2.00|97.00|100|GROGPU2||densign|
+4701|171.64.65.103|p4701_N68H_AM03|582|1.00|2.00|97.00|100|GROGPU2||densign|
+4707|171.64.65.103|p4707_supervillin_e1|576|2.00|3.00|98.00|100|GROGPU2||densign|
+9994|171.64.122.137|p9994_A21_agbnp_amber99|222|1.20|3.50|100.00|100|GRO-PS3||luttmann|
+9996|171.64.122.137|p9996_p9998_supervillin_e1_StillTest|576|1.30|3.00|100.00|100|GRO-PS3||densign|
+9997|171.64.122.137|p9997_A21_agbnp_amber99|222|1.20|3.50|100.00|100|GRO-PS3||luttmann|
+
